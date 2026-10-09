@@ -22,7 +22,7 @@ function harness(saved=null,blocked=false){
   const sandbox={document,location,localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>{if(blocked)throw new Error('blocked');store.set(k,v);}},console,Intl,Date,Set,Map,URL,Blob,crypto:require('node:crypto').webcrypto,FormData:FormDataFacade,JSON,setTimeout:()=>0,clearTimeout:()=>{}};
   sandbox.window=sandbox;sandbox.addEventListener=(name,fn)=>listeners[name]=fn;sandbox.scrollTo=()=>{};
   const context=vm.createContext(sandbox);
-  for(const name of ['core.js','data.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../dist',name),'utf8'),context,{filename:name});
+  for(const name of ['core.js','data.js','dse2024-data.js','exam.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../dist',name),'utf8'),context,{filename:name});
   const main=node('main');
   const navigate=hash=>{location.hash=hash;listeners.hashchange();};
   const click=async dataset=>{const button={dataset,disabled:false};await main.handlers.click({target:{closest:()=>button}});};
@@ -68,4 +68,35 @@ test('teacher form creates a playable lesson, rejects broken imports, and suppor
   assert.equal(h.state().bank.passages.length,1);assert.equal(h.state().bank.questions.length,2);
   const file={size:30,text:async()=>JSON.stringify({schemaVersion:1,passages:[null],questions:[null]})};
   await h.change({id:'bank-file',files:[file],value:'selected'});assert.equal(h.state().bank.questions.length,2);assert.match(h.node('toast').textContent,/有誤/);
+});
+test('authentic exercise overview and all twelve questions render in all four stages',async()=>{
+  const h=harness();assert.match(h.main.innerHTML,/2024 DSE/);assert.match(h.main.innerHTML,/12 題 · 35 分/);
+  h.navigate('#exercise/dse2024-fansheng');assert.match(h.main.innerHTML,/第9–20題 · 35分/);assert.match(h.main.innerHTML,/下載答案與教練分析/);
+  for(let number=9;number<=20;number++){
+    h.navigate('#practice/dse2024-q'+number);
+    for(let step=0;step<4;step++){await h.click({step:String(step)});assert.match(h.main.innerHTML,new RegExp('STEP 0'+(step+1)));}
+    assert.match(h.main.innerHTML,/不換算分數/);
+  }
+  h.navigate('#practice/dse2024-q11');assert.match(h.main.innerHTML,/exam-table/);assert.match(h.main.innerHTML,/凸顯環境改變之急速/);
+});
+test('objective UI checks the folder answer, restores it, and requires a fresh check after revision',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q9');await h.click({step:'2'});
+  await h.change({dataset:{examAnswer:'answer'},value:'D'});await h.click({step:'3'});
+  assert.doesNotMatch(h.main.innerHTML,/文件列出的正確答案/);
+  await h.click({action:'review-source'});assert.match(h.main.innerHTML,/按文件答案核對：<strong>2 \/ 2 分/);
+  for(let i=0;i<2;i++)await h.change({dataset:{check:String(i)},value:'unsure'});
+  await h.click({action:'complete'});assert.ok(h.state().drafts['dse2024-q9'].completedAt);
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q9');assert.match(restored.main.innerHTML,/已核對來源答案/);
+  await restored.click({step:'2'});await restored.change({dataset:{examAnswer:'answer'},value:'A'});
+  assert.equal(restored.state().drafts['dse2024-q9'].examReviewed,undefined);assert.equal(restored.state().drafts['dse2024-q9'].completedAt,undefined);
+  await restored.click({step:'3'});await restored.click({action:'review-source'});assert.match(restored.main.innerHTML,/按文件答案核對：<strong>0 \/ 2 分/);
+});
+test('multipart source answers remain gated until all parts are written, and analysed evidence is selectable',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q13');await h.click({step:'2'});h.input('i','對比');h.listeners.pagehide();
+  await h.click({step:'3'});await h.click({action:'review-source'});assert.match(h.node('source-review-error').textContent,/每個原題分題/);
+  await h.click({step:'2'});h.input('ii','乳汁代表滋養，鮮血呈現求生的痛苦，對比前後生境變化。');h.listeners.pagehide();
+  await h.click({step:'3'});await h.click({action:'review-source'});assert.match(h.main.innerHTML,/第13.\(i\)題的答案錯誤，本題仍須獨立評改/);
+  assert.match(h.main.innerHTML,/原題 4分/);assert.match(h.main.innerHTML,/答案如何連到文本證據/);
+  await h.click({action:'add-source-evidence',index:'0'});assert.ok(h.state().drafts['dse2024-q13'].evidence.length);
+  h.navigate('#records');assert.match(h.main.innerHTML,/書面題待教師評閱/);assert.doesNotMatch(h.main.innerHTML,/學生自評<\/span><strong[^>]*>0 \/ 5/);
 });

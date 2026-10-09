@@ -10,10 +10,24 @@
   function parsePassage(p) {
     return {...p,paragraphs:p.paragraphs.map((text,i)=>({id:p.id+'-p'+(i+1),number:i+1,text,sentences:(text.match(/[^。！？]+[。！？]+[」』”]?|[^。！？]+$/g)||[text]).map((t,j)=>({id:p.id+'-p'+(i+1)+'-s'+(j+1),text:t,paragraph:i+1,passage:p.id}))}))};
   }
+  function quoteSentenceIds(passages,passageIds,quote,number) {
+    if(typeof quote!=='string'||!quote.trim())return [];
+    const found=new Set();
+    for(const p of passages.filter(p=>passageIds.includes(p.id)))for(const paragraph of p.paragraphs){
+      if(number!==undefined&&paragraph.number!==number)continue;
+      let match=paragraph.text.indexOf(quote);
+      while(match>=0){
+        let offset=0;
+        for(const s of paragraph.sentences){const end=offset+s.text.length;if(offset<match+quote.length&&end>match)found.add(s.id);offset=end;}
+        match=paragraph.text.indexOf(quote,match+1);
+      }
+    }
+    return [...found];
+  }
   function compile(data) {
     const passages=data.passages.map(parsePassage);
     const sentences=Object.fromEntries(passages.flatMap(p=>p.paragraphs.flatMap(a=>a.sentences)).map(s=>[s.id,s]));
-    const questions=data.questions.map(q=>({...q,marks:q.rubric.length,evidenceGroups:(q.evidenceGroups||[]).map(g=>({...g,ids:g.ids||Object.values(sentences).filter(s=>q.passages.includes(s.passage)&&((g.needles||[]).some(n=>s.text.includes(n))||(g.paragraphs||[]).includes(s.passage+'-p'+s.paragraph))).map(s=>s.id)}))}));
+    const questions=data.questions.map(q=>({...q,marks:q.authentic?q.marks:q.rubric.length,evidenceGroups:(q.evidenceGroups||[]).map(g=>({...g,ids:g.ids||[...new Set([...(g.needles||[]).flatMap(n=>quoteSentenceIds(passages,q.passages,n)),...Object.values(sentences).filter(s=>q.passages.includes(s.passage)&&(g.paragraphs||[]).includes(s.passage+'-p'+s.paragraph)).map(s=>s.id)])]}))}));
     return {passages,questions,sentences};
   }
   function evidenceStatus(q,selected,sentences) {
@@ -22,11 +36,24 @@
   }
   function assembleAnswer(draft,fields) {
     if(draft.mode==='free') return draft.free||'';
-    return fields.map(f=>(draft.fields?.[f.key]||'').trim()).filter(Boolean).join('\n');
+    return fields.map(f=>{
+      const value=(draft.fields?.[f.key]||'').trim();
+      if(!value)return '';
+      if(f.kind==='choice'){const choice=f.choices.find(c=>c.value===value);return choice?f.label+'：'+value+'. '+choice.text:'';}
+      return f.kind?f.label.replace(/：$/,'')+'：'+value:value;
+    }).filter(Boolean).join('\n');
   }
   function selfScore(q,draft) { return q.rubric.reduce((n,_,i)=>n+(draft.checks?.[i]==='yes'?1:0),0); }
   function structuralFeedback(q,draft,fields) {
     const answer=assembleAnswer(draft,fields), out=[];
+    if(q.authentic){
+      for(const f of fields){const value=(draft.fields?.[f.key]||'').trim();
+        if(!value)out.push('尚未完成：'+f.label+'。');
+        else if(f.exactChars&&countChars(value)!==f.exactChars)out.push(f.label+'原題要求'+f.exactChars+'字詞，目前為'+countChars(value)+'字。請修訂格式並檢查是否準確概括性格。');
+      }
+      if(!out.length)out.push('已填寫所有作答欄。下一步核對來源答案及評分準則；書面題須檢查意思、證據及論述，系統未判定正確或分數。');
+      return out;
+    }
     if(countChars(answer)<20) out.push('答案仍很短。先直接回應題目，再補上文本依據和解釋。');
     if(draft.mode!=='free') {
       if(!(draft.fields?.point||'').trim()) out.push('尚未寫出直接回應題目的判斷或比較角度。');
@@ -56,6 +83,7 @@
     bank.questions.forEach((q,i)=>{
       const n='題目'+(i+1);
       if(!q||typeof q!=='object'){errors.push(n+'的資料有誤。');return;}
+      if(q.authentic||q.answerParts!==undefined)errors.push(n+'的教師題庫格式不支援內置真題專用欄位。');
       if(!validId(q.id)||qids.has(q.id)) errors.push(n+'的識別碼有誤或重複。');else qids.add(q.id);
       if(typeof q.type!=='string'||!Object.prototype.hasOwnProperty.call(TYPES,q.type)||typeof q.title!=='string'||!q.title.trim()||q.title.length>160||typeof q.prompt!=='string'||!q.prompt.trim()||q.prompt.length>2500) errors.push(n+'的題型、標題或題幹有誤。');
       if(!Array.isArray(q.passages)||!q.passages.length||q.passages.some(id=>!ids.has(id))) errors.push(n+'引用的文章不存在。');
@@ -81,8 +109,9 @@
     const draft=newDraft();
     if(!raw||typeof raw!=='object')return draft;
     const str=s=>typeof s==='string'?s.slice(0,20000):'';
-    draft.mode=raw.mode==='free'?'free':'guided';draft.free=str(raw.free);
-    for(const f of fields)draft.fields[f.key]=str(raw.fields?.[f.key]);
+    draft.mode=!q.authentic&&raw.mode==='free'?'free':'guided';draft.free=str(raw.free);
+    for(const f of fields){const value=str(raw.fields?.[f.key]);draft.fields[f.key]=f.kind==='choice'&&!f.choices.some(c=>c.value===value)?'':value;}
+    if(q.authentic)draft.examReviewed=raw.examReviewed===true&&fields.every(f=>!!draft.fields[f.key].trim());
     draft.checks=q.rubric.map((_,i)=>['yes','unsure','no'].includes(raw.checks?.[i])?raw.checks[i]:null);
     draft.evidence=Array.isArray(raw.evidence)?[...new Set(raw.evidence.filter(id=>sentences[id]&&q.passages.includes(sentences[id].passage)))]:[];
     draft.hintCount=Number.isInteger(raw.hintCount)?Math.max(0,Math.min(q.hints.length,raw.hintCount)):0;
@@ -92,19 +121,21 @@
     draft.reflection=str(raw.reflection);draft.examplesViewed=raw.examplesViewed===true;
     draft.updatedAt=typeof raw.updatedAt==='string'?raw.updatedAt:'';
     const finished=typeof raw.completedAt==='string'&&Number.isFinite(Date.parse(raw.completedAt));
-    if(finished&&assembleAnswer(draft,fields).trim()&&draft.checks.every(Boolean))draft.completedAt=raw.completedAt;
+    if(finished&&!completionError(q,draft,fields))draft.completedAt=raw.completedAt;
     return draft;
   }
   function changeAnswer(draft,key,value) {
     const target=key==='free'?draft:draft.fields;
     if(target[key]===value)return;
-    target[key]=value;draft.checks=[];delete draft.completedAt;
+    target[key]=value;draft.checks=[];delete draft.completedAt;delete draft.examReviewed;
   }
   function completionError(q,draft,fields) {
     if(!assembleAnswer(draft,fields).trim())return '請先寫下自己的答案，再進行自檢。';
+    if(q.authentic&&fields.some(f=>f.kind==='choice'?!f.choices.some(c=>c.value===draft.fields?.[f.key]):!(draft.fields?.[f.key]||'').trim()))return '請完成每個原題分題，再核對答案及自檢。';
+    if(q.authentic&&!draft.examReviewed)return '請先核對來源答案，再完成自檢記錄。';
     if(q.wordLimit&&countChars(assembleAnswer(draft,fields))>q.wordLimit)return '答案超出本題字數限制，請先修訂。';
     if(q.rubric.some((_,i)=>!['yes','unsure','no'].includes(draft.checks[i])))return '請為每項選擇「已做到」「不確定」或「未做到」。不需要全部選「已做到」才算完成。';
     return '';
   }
-  return {TYPES,escapeHTML,countChars,parsePassage,compile,evidenceStatus,assembleAnswer,selfScore,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
+  return {TYPES,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
 }));

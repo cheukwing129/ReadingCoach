@@ -1,0 +1,101 @@
+{
+  "description": "已核對來源文字的固定指紋。只比較原文／原題／來源答案，不把教練提示當作來源。",
+  "verifiedAt": "2026-10-09",
+  "paragraphHashes": [
+    "7edd0a5d221923010f2d4e190b8473e1b14e0f7f18add61bc9d5b2f6ae8fe554",
+    "485035507ffdbc55129186e5b9984037c036a16737c95814329bf6a3f6b62b63",
+    "409cecc35f8c4544c471e50f5b079f75750ea71cf69595a82f882bac202eba5f",
+    "fe01889c4f3654830a0ebda123d13c1f5064298d1651030e44d6edd51d4d54c3",
+    "8892281b5d49277d6094bf105aeba11c5f250cdf6710ce2377e8d03b8464c6df",
+    "25d31bfe77767f35ff4e885da09509484502c69b75caf0275471afa48cc294a8",
+    "69d0fda9d608c4e35f54fa1eb9148c77751c2d98a558021f299997fce231d2bb",
+    "bf33637f682f22e014d4903d88632a37d2b45a4c66ff6e5faa84b2081cf87755",
+    "b43c7e91248106de5ade1b21e3ab34a82584a7ed1ca248f83cd1a75cacbef6ee",
+    "9968994954d85b4adf11d8a0cfdd89677d055d176481cc6ec62d3b5b39881c23",
+    "447b998096a202a99d75779f1e452d021da6c0f84d5f060c661c73b849d0d582",
+    "2d518fbd76c14f52bb71be8206de59e55e3280713cee9bd0d10c7f95bf2ebbc1",
+    "19231dc22a58819d74cc670bd74effeee535b921df6171b019f5f6507b63aa29",
+    "02e92883e9df76d03ff2a365c139aaa52b1e81468609ee9f8263db952000c1ee",
+    "7b3eaf4b059dafa6805cb69c86f79ea0366a2145efd13a1555f73882f4dd6b90"
+  ],
+  "questionHashes": {
+    "dse2024-q9": "7049bb08fbfd805654342a7090746c4f0d88c64b46bf987d82065386bae42d8f",
+    "dse2024-q10": "69ad471dc845b618d7171b690435353514ecf7580ae6b8fc9242b68e919c4158",
+    "dse2024-q11": "6b336ba810214e949fb18b0a55dd09a696d8486f96cc646ed7d52af6319c0d24",
+    "dse2024-q12": "646fddf04a9733625bd8c71586fe796643c283db6b3ac396c62aa68e2ebbbe16",
+    "dse2024-q13": "2b96fdec147475c1a94b01e27881f0ea132e245eaf99d3c53b33cea05d7ead13",
+    "dse2024-q14": "4e56ee0e74b0d71b50b83cf5e87874326d4c5f31c24934a3cba93813ab29946b",
+    "dse2024-q15": "248a87d44b6c121b33557fa74a8c8952dc6ee163c058e9815777eff4fd9f2e5b",
+    "dse2024-q16": "86711371a2e1bfd9f4d4945bddb8af6497dd39bbd4ffaa34a794f7a3be0b3cdd",
+    "dse2024-q17": "eac4585b8e075fa784f53148cfd06f2e00b92086de5d5a5a1d2ec0ff9587fc5a",
+    "dse2024-q18": "f9ae2c752a637dead54fb4f615738ee6424c6b913ce90f1d36d4d0eb8e41b796",
+    "dse2024-q19": "ecf7c5c1e2c2f18da1ddf565bb8721cb81e966114d7f3d566e2bc9755499354c",
+    "dse2024-q20": "33f78ee22281c01381d5b24011f9e7f2a6fd663d381875c03b4663bed1fd3d6a"
+  },
+  "answerHashes": {
+    "dse2024-q9": "80e47bdbfc0440c6582dc39987cb6d4765ea9263ea17fb355b82653d53579262",
+    "dse2024-q10": "671a30790c0553475f241bde85942c33a3b16d0b6e9b7672b5221ee47154193b",
+    "dse2024-q11": "38ac09c29564ec11823c3014744a6944d411355e98d4462c88c27df801ec56c3",
+    "dse2024-q12": "0792f3208fc96c2742f959c9e7c8f88c4ddcd24a26844a648eca53012290e106",
+    "dse2024-q13": "d59a832dac76c3dfbc1ce7d2f4a38fe5731db1f2ea6ac95fa1c502f5383cd51a",
+    "dse2024-q14": "c5a94f41f9fe5855346a7cbeb27066b7b5354ade94a7cf30c6dac272cffe4604",
+    "dse2024-q15": "2014574db1681bda2b067669ff86130ecac29c7a1c3dcf7d11f3a0b3abfca5ee",
+    "dse2024-q16": "81c63168fff4b66a2ac5d818925797f28c240a9bf2a7cb1de1f98f55110e1cf9",
+    "dse2024-q17": "487db2365b43483c70a21c1456f9b0d79a0f86c2516c33899b05145a694ee3ee",
+    "dse2024-q18": "7f6eaadac6c22e743b5b0463342346597b12b4da750a868eaa3c7006e17748be",
+    "dse2024-q19": "fddec0baa9020573658c6370f6f847436ab71f2c1ecad0b49c663ad85e50d302",
+    "dse2024-q20": "246c3630f74f15c2dc83cc3f068d3d8ecd387dd5eef2ab2b6d54bcaab7b662f0"
+  },
+  "questionMarks": {
+    "dse2024-q9": 2,
+    "dse2024-q10": 2,
+    "dse2024-q11": 4,
+    "dse2024-q12": 2,
+    "dse2024-q13": 5,
+    "dse2024-q14": 2,
+    "dse2024-q15": 4,
+    "dse2024-q16": 4,
+    "dse2024-q17": 2,
+    "dse2024-q18": 2,
+    "dse2024-q19": 2,
+    "dse2024-q20": 4
+  },
+  "objectiveAnswers": {
+    "9": "D",
+    "10": "B",
+    "12(i)": "D",
+    "12(ii)": "A",
+    "14": "C",
+    "18(i)": "B",
+    "18(ii)": "A",
+    "19(i)": "A",
+    "19(ii)": "A"
+  },
+  "sources": [
+    {
+      "name": "2024-DSE-CHIN LANG-P1-RM.pdf",
+      "pages": "2–3",
+      "role": "文章：第一篇，15段；以原卷刪改版本為準。"
+    },
+    {
+      "name": "2024-DSE-CHIN LANG-P1-QAB.pdf",
+      "pages": "5–9",
+      "role": "原題：第9–20題，保留選項、引文、表格及分題。"
+    },
+    {
+      "name": "2024 中國語文試卷一(客觀題答案).pdf",
+      "pages": "1",
+      "role": "第9、10、12、14、18、19題的客觀題答案。"
+    },
+    {
+      "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+      "pages": "2–8",
+      "role": "第11、13、17題的答案、評分準則及答案舉隅。"
+    },
+    {
+      "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+      "pages": "2–10",
+      "role": "第15、16、20題的答案、評分準則及答案舉隅。"
+    }
+  ]
+}
