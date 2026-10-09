@@ -1,0 +1,110 @@
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.CoachCore = api;
+}(typeof window !== 'undefined' ? window : globalThis, function () {
+  'use strict';
+  const TYPES = {purpose:'引文目的／效果',inference:'推論／人物',comparison:'比較／綜合'};
+  const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const countChars = value => Array.from(String(value || '').replace(/\s/g,'')).length;
+  function parsePassage(p) {
+    return {...p,paragraphs:p.paragraphs.map((text,i)=>({id:p.id+'-p'+(i+1),number:i+1,text,sentences:(text.match(/[^。！？]+[。！？]+[」』”]?|[^。！？]+$/g)||[text]).map((t,j)=>({id:p.id+'-p'+(i+1)+'-s'+(j+1),text:t,paragraph:i+1,passage:p.id}))}))};
+  }
+  function compile(data) {
+    const passages=data.passages.map(parsePassage);
+    const sentences=Object.fromEntries(passages.flatMap(p=>p.paragraphs.flatMap(a=>a.sentences)).map(s=>[s.id,s]));
+    const questions=data.questions.map(q=>({...q,marks:q.rubric.length,evidenceGroups:(q.evidenceGroups||[]).map(g=>({...g,ids:g.ids||Object.values(sentences).filter(s=>q.passages.includes(s.passage)&&((g.needles||[]).some(n=>s.text.includes(n))||(g.paragraphs||[]).includes(s.passage+'-p'+s.paragraph))).map(s=>s.id)}))}));
+    return {passages,questions,sentences};
+  }
+  function evidenceStatus(q,selected,sentences) {
+    const chosen=new Set(selected.filter(id=>sentences[id]));
+    return {groups:q.evidenceGroups.map(g=>({label:g.label,found:g.ids.some(id=>chosen.has(id))})),extra:Array.from(chosen).filter(id=>!q.evidenceGroups.some(g=>g.ids.includes(id))),count:chosen.size};
+  }
+  function assembleAnswer(draft,fields) {
+    if(draft.mode==='free') return draft.free||'';
+    return fields.map(f=>(draft.fields?.[f.key]||'').trim()).filter(Boolean).join('\n');
+  }
+  function selfScore(q,draft) { return q.rubric.reduce((n,_,i)=>n+(draft.checks?.[i]==='yes'?1:0),0); }
+  function structuralFeedback(q,draft,fields) {
+    const answer=assembleAnswer(draft,fields), out=[];
+    if(countChars(answer)<20) out.push('答案仍很短。先直接回應題目，再補上文本依據和解釋。');
+    if(draft.mode!=='free') {
+      if(!(draft.fields?.point||'').trim()) out.push('尚未寫出直接回應題目的判斷或比較角度。');
+      if(!(draft.fields?.explanation||'').trim()) out.push('補上「這些線索如何支持答案」的解釋。');
+      if(q.type==='comparison'&&(!(draft.fields?.evidenceA||'').trim()||!(draft.fields?.evidenceB||'').trim())) out.push('比較題要用同一角度兼顧兩方；檢查甲、乙項是否都已說明。');
+      else if(q.type!=='comparison'&&!(draft.fields?.evidence||'').trim()) out.push('加入最貼題的字句或情節，讓讀者看到判斷的依據。');
+    }
+    if(q.wordLimit&&countChars(answer)>q.wordLimit) out.push('目前超出本題'+q.wordLimit+'字限制，請保留最能回應題目的內容。');
+    if(/生動形象|吸引讀者|更感人/.test(answer)&&countChars(answer)<70) out.push('「生動」「吸引讀者」仍需具體化：寫清呈現甚麼內容、造成甚麼效果。');
+    if(!out.length) out.push('答案各部分已有內容。請逐項核對意思是否準確，證據和解釋能否連起來；系統未判定答案正確。');
+    return out;
+  }
+  function validateBank(bank) {
+    const errors=[];
+    if(!bank||bank.schemaVersion!==1||!Array.isArray(bank.passages)||!Array.isArray(bank.questions)) return ['題庫格式不符：需要第1版題庫及文章、題目列表。'];
+    if(bank.questions.length>80||bank.passages.length>100) errors.push('一次最多匯入80題及100篇文章。');
+    const ids=new Set();
+    const validId=id=>typeof id==='string'&&/^custom-[a-zA-Z0-9_-]+$/.test(id);
+    const validText=(s,max=1000)=>typeof s==='string'&&s.trim().length>0&&s.length<=max;
+    bank.passages.forEach((p,i)=>{
+      if(!p||typeof p!=='object'){errors.push('文章'+(i+1)+'的資料有誤。');return;}
+      if(!validId(p.id)||ids.has(p.id)) errors.push('文章'+(i+1)+'的識別碼有誤或重複。');else ids.add(p.id);
+      if(!validText(p.title,160)||!Array.isArray(p.paragraphs)||!p.paragraphs.length||p.paragraphs.length>40||p.paragraphs.some(v=>!validText(v,4000))) errors.push('文章'+(i+1)+'的標題或段落有誤。');
+      if(p.label!==undefined&&!validText(p.label,200)) errors.push('文章'+(i+1)+'的資料標籤有誤。');
+    });
+    const qids=new Set();
+    bank.questions.forEach((q,i)=>{
+      const n='題目'+(i+1);
+      if(!q||typeof q!=='object'){errors.push(n+'的資料有誤。');return;}
+      if(!validId(q.id)||qids.has(q.id)) errors.push(n+'的識別碼有誤或重複。');else qids.add(q.id);
+      if(typeof q.type!=='string'||!Object.prototype.hasOwnProperty.call(TYPES,q.type)||typeof q.title!=='string'||!q.title.trim()||q.title.length>160||typeof q.prompt!=='string'||!q.prompt.trim()||q.prompt.length>2500) errors.push(n+'的題型、標題或題幹有誤。');
+      if(!Array.isArray(q.passages)||!q.passages.length||q.passages.some(id=>!ids.has(id))) errors.push(n+'引用的文章不存在。');
+      if(!Array.isArray(q.rubric)||!q.rubric.length||q.rubric.length>8||q.rubric.some(r=>!r||!validText(r.label,160)||!validText(r.detail,1000))) errors.push(n+'需要1至8個有效的評分要點。');
+      if(!Array.isArray(q.examples)||!q.examples.length||q.examples.length>8||q.examples.some(e=>!e||!validText(e.text,8000)||!validText(e.label,160)||!validText(e.note,1000)||!Number.isInteger(e.score)||e.score<0||e.score>(q.rubric?.length||0))) errors.push(n+'的例答資料有誤。');
+      if(!Array.isArray(q.hints)||q.hints.length>3||q.hints.some(s=>typeof s!=='string'||s.length>1200)) errors.push(n+'的提示資料有誤。');
+      if(!Array.isArray(q.requirements)||q.requirements.length>8||q.requirements.some(r=>!r||typeof r.text!=='string'||r.text.length>300||typeof r.correct!=='boolean')||typeof q.directive!=='string'||!Array.isArray(q.options)||!q.options.includes(q.directive)) errors.push(n+'的拆題資料有誤。');
+      if(Array.isArray(q.options)&&(q.options.length<2||q.options.length>8||q.options.some(s=>!validText(s,100))||new Set(q.options).size!==q.options.length)) errors.push(n+'的拆題選項有誤。');
+      if(Array.isArray(q.requirements)&&(!q.requirements.some(r=>r?.correct===true)||q.requirements.some(r=>!validText(r?.text,300)))) errors.push(n+'須有最少一項有效作答要求。');
+      for(const key of ['level','scope']) if(q[key]!==undefined&&!validText(q[key],200)) errors.push(n+'的難度或作答範圍有誤。');
+      if(q.minutes!==undefined&&(!Number.isInteger(q.minutes)||q.minutes<1||q.minutes>90)) errors.push(n+'的建議時間有誤。');
+      if(q.evidenceGroups!==undefined&&(!Array.isArray(q.evidenceGroups)||q.evidenceGroups.length>12||q.evidenceGroups.some(g=>!g||typeof g.label!=='string'||(g.needles!==undefined&&(!Array.isArray(g.needles)||g.needles.some(v=>typeof v!=='string')))||(g.paragraphs!==undefined&&(!Array.isArray(g.paragraphs)||g.paragraphs.some(v=>typeof v!=='string')))||(g.ids!==undefined&&(!Array.isArray(g.ids)||g.ids.some(v=>typeof v!=='string')))))) errors.push(n+'的證據資料有誤。');
+      if(q.wordLimit!==undefined&&(!Number.isInteger(q.wordLimit)||q.wordLimit<10||q.wordLimit>2000)) errors.push(n+'的字數限制有誤。');
+    });
+    return errors;
+  }
+  function mergeBanks(oldBank,newBank) {
+    const merge=(a,b)=>Array.from(new Map([...a,...b].map(x=>[x.id,x])).values());
+    return {schemaVersion:1,passages:merge(oldBank.passages,newBank.passages),questions:merge(oldBank.questions,newBank.questions)};
+  }
+  function newDraft() { return {mode:'guided',free:'',fields:{},checks:[],evidence:[],hintCount:0,step:0,requirements:[],directive:'',reflection:''}; }
+  function sanitizeDraft(raw,q,fields,sentences) {
+    const draft=newDraft();
+    if(!raw||typeof raw!=='object')return draft;
+    const str=s=>typeof s==='string'?s.slice(0,20000):'';
+    draft.mode=raw.mode==='free'?'free':'guided';draft.free=str(raw.free);
+    for(const f of fields)draft.fields[f.key]=str(raw.fields?.[f.key]);
+    draft.checks=q.rubric.map((_,i)=>['yes','unsure','no'].includes(raw.checks?.[i])?raw.checks[i]:null);
+    draft.evidence=Array.isArray(raw.evidence)?[...new Set(raw.evidence.filter(id=>sentences[id]&&q.passages.includes(sentences[id].passage)))]:[];
+    draft.hintCount=Number.isInteger(raw.hintCount)?Math.max(0,Math.min(q.hints.length,raw.hintCount)):0;
+    draft.step=Number.isInteger(raw.step)?Math.max(0,Math.min(3,raw.step)):0;
+    draft.requirements=Array.isArray(raw.requirements)?raw.requirements.filter(i=>Number.isInteger(i)&&i>=0&&i<q.requirements.length):[];
+    draft.directive=q.options.includes(raw.directive)?raw.directive:'';
+    draft.reflection=str(raw.reflection);draft.examplesViewed=raw.examplesViewed===true;
+    draft.updatedAt=typeof raw.updatedAt==='string'?raw.updatedAt:'';
+    const finished=typeof raw.completedAt==='string'&&Number.isFinite(Date.parse(raw.completedAt));
+    if(finished&&assembleAnswer(draft,fields).trim()&&draft.checks.every(Boolean))draft.completedAt=raw.completedAt;
+    return draft;
+  }
+  function changeAnswer(draft,key,value) {
+    const target=key==='free'?draft:draft.fields;
+    if(target[key]===value)return;
+    target[key]=value;draft.checks=[];delete draft.completedAt;
+  }
+  function completionError(q,draft,fields) {
+    if(!assembleAnswer(draft,fields).trim())return '請先寫下自己的答案，再進行自檢。';
+    if(q.wordLimit&&countChars(assembleAnswer(draft,fields))>q.wordLimit)return '答案超出本題字數限制，請先修訂。';
+    if(q.rubric.some((_,i)=>!['yes','unsure','no'].includes(draft.checks[i])))return '請為每項選擇「已做到」「不確定」或「未做到」。不需要全部選「已做到」才算完成。';
+    return '';
+  }
+  return {TYPES,escapeHTML,countChars,parsePassage,compile,evidenceStatus,assembleAnswer,selfScore,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
+}));
