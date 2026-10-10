@@ -1,0 +1,381 @@
+{
+  "reviewedOn": "2026-10-10",
+  "method": "引用逐一與提供的評卷參考第二／三組文字核對（只忽略排版空白），分值按原PDF分數欄；教練推測及修訂指引不作來源答案。",
+  "evidenceCount": 73,
+  "cases": [
+    {
+      "id": "dse2024-q11",
+      "part": "(i) 魚兒的感受",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "7edfe8b3ff168f9760d6c475a4bdc5e0f277c03183ab2859ddf1f2e448c971d7",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2–3"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(i) 魚兒的感受",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "9282b5a9455d075cf6b4b5b01b72b38912829337f57f8051b7fab0e67b69200f",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2–3"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(i) 魚兒的感受",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "6c2dc9ac911c6554251049c359af52efcbaad0ecd7bd70314aa1cd4ad29ad768",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2–3"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(i) 魚兒的感受",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "1e31242582d8226d74731ed4da29af672b94994d065e1e49e26b4464c591997d",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(i) 魚兒的感受",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "3e0159217d0416d5044d1a3b24d585876518876164ecea81f44d878615b2766a",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(ii) 用意",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "2923a0af105c29e1ffc2d212a99df2565898d97e5c26fe5d00541907923c9190",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2–3"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(ii) 用意",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "5dbd4dfb6752635e6d1c5b4e86ef2c70ce88fdba9c890aae59acb2fc0aeec95f",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2–3"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(ii) 用意",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "7ffd15661aed4fd14f4f7e2ff2a7f544e958139dd44d4d4ec1935cf8339888cf",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2–3"
+      }
+    },
+    {
+      "id": "dse2024-q11",
+      "part": "(ii) 用意",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "542fa954c9e7b62c2cc96028f7f0b98c895c561645108e1f09fec282c17f0d2f",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "2"
+      }
+    },
+    {
+      "id": "dse2024-q13",
+      "part": "(ii) 效果",
+      "score": 1,
+      "outOf": 4,
+      "textHash": "ad9398a30e87d3789d4c0fd4d2ce282b0bb5a54687e19b7326b372310d920c8f",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "3–7"
+      }
+    },
+    {
+      "id": "dse2024-q13",
+      "part": "(ii) 效果",
+      "score": 2,
+      "outOf": 4,
+      "textHash": "17d1f7b974a9e19df5a0131bbec1f35ab6ed879a60161731e48601f0d2509bf0",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "7"
+      }
+    },
+    {
+      "id": "dse2024-q13",
+      "part": "(ii) 效果",
+      "score": 0,
+      "outOf": 4,
+      "textHash": "31fa433bb7ccc6d24dcee1a7f26dc9c53b1c7daa12d750ed3d4134d15219d1b6",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "7"
+      }
+    },
+    {
+      "id": "dse2024-q15",
+      "part": "第15題",
+      "score": 1,
+      "outOf": 4,
+      "textHash": "cea6f16dbb117e5f5449cf5614354e66fd22f3c5fae543de5c54814987d3b2ec",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "2–5"
+      }
+    },
+    {
+      "id": "dse2024-q15",
+      "part": "第15題",
+      "score": 2,
+      "outOf": 4,
+      "textHash": "a161f4fb7bfd8030e9c967929c68b9541fb9889a3208273572880035cf12fac1",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "2–5"
+      }
+    },
+    {
+      "id": "dse2024-q15",
+      "part": "第15題",
+      "score": 1,
+      "outOf": 4,
+      "textHash": "f4331b78ce5502e1b9d6312f51c493e47ae6c1604818525838e113b654097814",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "4"
+      }
+    },
+    {
+      "id": "dse2024-q15",
+      "part": "第15題",
+      "score": 0,
+      "outOf": 4,
+      "textHash": "3cca7790926ce3691bbd1500fc229c45e4c849173f16b988cc19e71d601bec43",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "5"
+      }
+    },
+    {
+      "id": "dse2024-q15",
+      "part": "第15題",
+      "score": 0,
+      "outOf": 4,
+      "textHash": "c1b1653412951cffc7b248dab1e94ac4f6afb921a15aada948d510b8e4d6380f",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "5"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(i) 紅色的事物",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "a8a0510564d6180bbb4a5c1ce40fde6d465f157b34baaac4c192d927837223d9",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(i) 紅色的事物",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "45c741e0bca692e018a891eb3d0cc4e31a2c82cc5d303952bbef0f486bb6b525",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(i) 紅色的事物",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "278eac62231b95564df05f217ba5c7e9cdbd67c230f96daecbe028ff7caa1408",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(i) 紅色的事物",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "13916a3033e15efe873863bb19b145711dea6d5ee7c860880ca6ade2a23137c6",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(ii) 金色的寓意",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "0dab3126d76f556ea0ccb3c8f26b471d6935d75833e8fb41afa7ab96ee05e1f2",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(ii) 金色的寓意",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "bab29b7fdcc864831e829ddbe09ce4c64916edf938b835fa9fe0a79207aa20d3",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(ii) 金色的寓意",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "1f8b7413372ce954a9e970cd371fe25bfef7aa7846042e39d573717fb014cd67",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q16",
+      "part": "(ii) 金色的寓意",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "b3c4988bada52d77aab5dd3f77697973b14cff9ea98d0a2ad440ba853c56a7d6",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "6"
+      }
+    },
+    {
+      "id": "dse2024-q17",
+      "part": "母親的性格",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "b03e69085483f8e4cde3dba8b13cdf9ad6906785be7cc30b7a7fa703383a1e6e",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "8"
+      }
+    },
+    {
+      "id": "dse2024-q17",
+      "part": "母親的性格",
+      "score": 1,
+      "outOf": 2,
+      "textHash": "ffdecc386e1400aac42e19c37931d9505c03161322f5e55f2174404dc77a5f03",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "8"
+      }
+    },
+    {
+      "id": "dse2024-q17",
+      "part": "母親的性格",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "485d0da199c7190198a6ffb75d4e13890c7e321a2a74dcd6e0f87586967e9abf",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "8"
+      }
+    },
+    {
+      "id": "dse2024-q17",
+      "part": "母親的性格",
+      "score": 0,
+      "outOf": 2,
+      "textHash": "1556cfbf667a3b4df70f2a68f03489058d31a938c1439ca416bdd3f803da31da",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第二組) 定稿.pdf",
+        "pages": "8"
+      }
+    },
+    {
+      "id": "dse2024-q20",
+      "part": "第20題",
+      "score": 1,
+      "outOf": 4,
+      "textHash": "ba9821fac3eafb416c0b95bb6e6d917ac440e7c1d0da1d4ea83056ec09215bbf",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "7–10"
+      }
+    },
+    {
+      "id": "dse2024-q20",
+      "part": "第20題",
+      "score": 1,
+      "outOf": 4,
+      "textHash": "a4c25bd8f3c057792f04df62798b32ffb52ae88200c01c3df9f901637651857c",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "10"
+      }
+    },
+    {
+      "id": "dse2024-q20",
+      "part": "第20題",
+      "score": 2,
+      "outOf": 4,
+      "textHash": "ca8b184b58220e31140e647e684458c348827f29901de08a2618caed4437e00e",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "10"
+      }
+    },
+    {
+      "id": "dse2024-q20",
+      "part": "第20題",
+      "score": 0,
+      "outOf": 4,
+      "textHash": "4c28fb850d44cfc4a29595ccaeb94e73380c0f9c3143c71a080a975a233c8524",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "10"
+      }
+    },
+    {
+      "id": "dse2024-q20",
+      "part": "第20題",
+      "score": 0,
+      "outOf": 4,
+      "textHash": "2133e8c6b1a11b5974f1398f0ce472c128e2a4456aa379a25f074a7241a95704",
+      "source": {
+        "name": "2024 中國語文試卷一評卷參考 (第三組) 定稿.pdf",
+        "pages": "10"
+      }
+    }
+  ]
+}

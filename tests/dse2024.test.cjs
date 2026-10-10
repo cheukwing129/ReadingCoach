@@ -120,7 +120,7 @@ test('Cloudflare root and dist entries load the same complete dependency set',()
   const repo=path.join(__dirname,'..');
   for(const [file,prefix] of [['index.html','dist/'],['dist/index.html','']]){
     const html=fs.readFileSync(path.join(repo,file),'utf8');
-    for(const asset of ['styles.css','core.js','data.js','dse2024-data.js','exam.js','app.js'])assert.ok(html.includes('="'+prefix+asset+'"'),file+': '+asset);
+    for(const asset of ['styles.css','core.js','data.js','dse2024-data.js','dse2024-coaching.js','exam.js','app.js'])assert.ok(html.includes('="'+prefix+asset+'"'),file+': '+asset);
     for(const match of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))"/g))assert.ok(fs.existsSync(path.resolve(repo,path.dirname(file),match[1])));
   }
 });

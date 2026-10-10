@@ -22,7 +22,7 @@ function harness(saved=null,blocked=false){
   const sandbox={document,location,localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>{if(blocked)throw new Error('blocked');store.set(k,v);}},console,Intl,Date,Set,Map,URL,Blob,crypto:require('node:crypto').webcrypto,FormData:FormDataFacade,JSON,setTimeout:()=>0,clearTimeout:()=>{}};
   sandbox.window=sandbox;sandbox.addEventListener=(name,fn)=>listeners[name]=fn;sandbox.scrollTo=()=>{};
   const context=vm.createContext(sandbox);
-  for(const name of ['core.js','data.js','dse2024-data.js','exam.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../dist',name),'utf8'),context,{filename:name});
+  for(const name of ['core.js','data.js','dse2024-data.js','dse2024-coaching.js','exam.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../dist',name),'utf8'),context,{filename:name});
   const main=node('main');
   const navigate=hash=>{location.hash=hash;listeners.hashchange();};
   const click=async dataset=>{const button={dataset,disabled:false};await main.handlers.click({target:{closest:()=>button}});};
@@ -99,4 +99,39 @@ test('multipart source answers remain gated until all parts are written, and ana
   assert.match(h.main.innerHTML,/原題 4分/);assert.match(h.main.innerHTML,/答案如何連到文本證據/);
   await h.click({action:'add-source-evidence',index:'0'});assert.ok(h.state().drafts['dse2024-q13'].evidence.length);
   h.navigate('#records');assert.match(h.main.innerHTML,/書面題待教師評閱/);assert.doesNotMatch(h.main.innerHTML,/學生自評<\/span><strong[^>]*>0 \/ 5/);
+});
+
+test('all twelve direct coaching routes expose worked reasoning without changing review or completion status',async()=>{
+  const h=harness();h.navigate('#exercise/dse2024-fansheng');
+  assert.match(h.main.innerHTML,/直接閱讀逐題精講/);assert.match(h.main.innerHTML,/篇章地圖/);
+  for(let n=9;n<=20;n++){
+    assert.ok(h.main.innerHTML.includes('#coaching/dse2024-q'+n));
+  }
+  for(let n=9;n<=20;n++){
+    h.navigate('#coaching/dse2024-q'+n);h.listeners.pagehide();
+    assert.match(h.main.innerHTML,/從原文到答案/);assert.match(h.main.innerHTML,/下一篇可怎樣重用/);
+    const d=h.state().drafts['dse2024-q'+n];
+    assert.ok(!d.examReviewed&&!d.completedAt);assert.deepEqual(d.fields,{});
+  }
+  h.navigate('#coaching/not-found');assert.match(h.main.innerHTML,/直接閱讀逐題精講/);
+});
+
+test('coaching evidence is shared with the answer draft and font or question changes keep the coaching route',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q15');await h.click({step:'2'});h.input('answer','我自己的原有試答');h.listeners.pagehide();
+  h.navigate('#coaching/dse2024-q15');await h.click({action:'add-coach-evidence',index:'0'});
+  const before=h.state().drafts['dse2024-q15'];assert.ok(before.evidence.length);assert.equal(before.fields.answer,'我自己的原有試答');assert.ok(!before.examReviewed&&!before.completedAt);
+  await h.click({action:'add-coach-evidence',index:'0'});assert.deepEqual(h.state().drafts['dse2024-q15'].evidence,before.evidence);
+  await h.click({action:'font-more'});assert.match(h.main.innerHTML,/逐題精講與失分修訂/);assert.equal(h.state().readingSize,20);
+  await h.change({id:'question-select',value:'dse2024-q16'});h.navigate('#coaching/dse2024-q16');assert.match(h.main.innerHTML,/填表先分事物與寓意/);
+  h.navigate('#practice/dse2024-q15');assert.match(h.main.innerHTML,/我自己的原有試答/);assert.equal(h.state().drafts['dse2024-q15'].step,2);
+});
+
+test('worked answers and loss diagnosis stay gated during practice until a complete source check',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q11');
+  assert.match(h.main.innerHTML,/題目|感受/);assert.doesNotMatch(h.main.innerHTML,/文件失分例診斷/);
+  await h.click({step:'2'});h.input('i','恐懼');h.listeners.pagehide();await h.click({step:'3'});await h.click({action:'review-source'});
+  assert.doesNotMatch(h.main.innerHTML,/文件失分例診斷/);
+  await h.click({step:'2'});h.input('ii','魚由無憂無慮變成避險，呈現濫捕使物性改變。');h.listeners.pagehide();
+  await h.click({step:'3'});await h.click({action:'review-source'});assert.match(h.main.innerHTML,/文件失分例診斷/);assert.match(h.main.innerHTML,/可能怎樣想到/);
+  await h.click({action:'add-coach-evidence',index:'0'});assert.ok(h.state().drafts['dse2024-q11'].evidence.length);
 });
