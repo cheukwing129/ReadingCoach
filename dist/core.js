@@ -25,6 +25,14 @@
     {id:'argument',text:'檢視論點、論據與論證關係'},
     {id:'evaluation',text:'評析觀點或行為，提出有據的看法'}
   ].map(Object.freeze));
+  const TASK_CATEGORIES = Object.freeze([
+    {id:'narration',label:'記敘',focus:'從事件脈絡、人物言行及前後變化入手。',principleIds:['summary','cause','change','emotion','trait','compare','symbolism','technique','effect','structure','theme','title','meaning','referent','evaluation']},
+    {id:'description',label:'描寫',focus:'從人物形象、事物特點、景物與意象入手。',principleIds:['referent','trait','emotion','symbolism','technique','effect','compare','change','summary','structure','theme','title','meaning']},
+    {id:'reasoning',label:'說理',focus:'從觀點、理由、論據及論證關係入手。',principleIds:['theme','argument','cause','evaluation','compare','technique','effect','structure','summary','title','meaning','referent']}
+  ].map(group=>Object.freeze({...group,principleIds:Object.freeze(group.principleIds)})));
+  function taskCategories(q) {
+    return TASK_CATEGORIES.map(group=>({...group,requirements:group.principleIds.map(id=>q.requirements.find(r=>r.id===id)).filter(Boolean)}));
+  }
   const requirementKey = (r,i) => r.id ?? i;
   function validTaskPlan(plan) {
     if(!plan||typeof plan!=='object'||Array.isArray(plan))return false;
@@ -40,8 +48,7 @@
     const missing=q.requirements.filter((r,i)=>r.correct&&!selected.has(requirementKey(r,i)));
     const support=q.requirements.filter((r,i)=>r.optional&&selected.has(requirementKey(r,i)));
     const extra=q.requirements.filter((r,i)=>!r.correct&&!r.optional&&selected.has(requirementKey(r,i)));
-    const directiveCorrect=draft.directive===q.directive;
-    return {correct:directiveCorrect&&!missing.length&&!extra.length,directiveCorrect,required,missing,support,extra};
+    return {correct:!missing.length&&!extra.length,required,missing,support,extra};
   }
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const countChars = value => Array.from(String(value || '').replace(/\s/g,'')).length;
@@ -135,8 +142,11 @@
         if(!Array.isArray(q.requirements)||q.requirements.length>8||q.requirements.some(r=>!r||typeof r.text!=='string'||r.text.length>300||typeof r.correct!=='boolean')) errors.push(n+'的拆題資料有誤。');
         if(Array.isArray(q.requirements)&&(!q.requirements.some(r=>r?.correct===true)||q.requirements.some(r=>!validText(r?.text,300)))) errors.push(n+'須有最少一項有效作答要求。');
       }
-      if(typeof q.directive!=='string'||!Array.isArray(q.options)||!q.options.includes(q.directive)) errors.push(n+'的拆題資料有誤。');
-      if(Array.isArray(q.options)&&(q.options.length<2||q.options.length>8||q.options.some(s=>!validText(s,100))||new Set(q.options).size!==q.options.length)) errors.push(n+'的拆題選項有誤。');
+      // Old banks may contain the removed directive question; it is optional metadata.
+      if(q.directive!==undefined||q.options!==undefined){
+        if(typeof q.directive!=='string'||!Array.isArray(q.options)||!q.options.includes(q.directive)) errors.push(n+'的舊式拆題資料有誤。');
+        if(Array.isArray(q.options)&&(q.options.length<2||q.options.length>8||q.options.some(s=>!validText(s,100))||new Set(q.options).size!==q.options.length)) errors.push(n+'的舊式拆題選項有誤。');
+      }
       for(const key of ['level','scope']) if(q[key]!==undefined&&!validText(q[key],200)) errors.push(n+'的難度或作答範圍有誤。');
       if(q.minutes!==undefined&&(!Number.isInteger(q.minutes)||q.minutes<1||q.minutes>90)) errors.push(n+'的建議時間有誤。');
       if(q.evidenceGroups!==undefined&&(!Array.isArray(q.evidenceGroups)||q.evidenceGroups.length>12||q.evidenceGroups.some(g=>!g||typeof g.label!=='string'||(g.needles!==undefined&&(!Array.isArray(g.needles)||g.needles.some(v=>typeof v!=='string')))||(g.paragraphs!==undefined&&(!Array.isArray(g.paragraphs)||g.paragraphs.some(v=>typeof v!=='string')))||(g.ids!==undefined&&(!Array.isArray(g.ids)||g.ids.some(v=>typeof v!=='string')))))) errors.push(n+'的證據資料有誤。');
@@ -148,7 +158,7 @@
     const merge=(a,b)=>Array.from(new Map([...a,...b].map(x=>[x.id,x])).values());
     return {schemaVersion:1,passages:merge(oldBank.passages,newBank.passages),questions:merge(oldBank.questions,newBank.questions)};
   }
-  function newDraft(q) { return {mode:'guided',free:'',fields:{},checks:[],evidence:[],hintCount:0,step:0,requirements:[],...(q?.requirementsVersion?{requirementsVersion:q.requirementsVersion}:{}),directive:'',reflection:''}; }
+  function newDraft(q) { return {mode:'guided',free:'',fields:{},checks:[],evidence:[],hintCount:0,step:0,requirements:[],...(q?.requirementsVersion?{requirementsVersion:q.requirementsVersion}:{}),reflection:''}; }
   function sanitizeDraft(raw,q,fields,sentences) {
     const draft=newDraft(q);
     if(!raw||typeof raw!=='object')return draft;
@@ -164,7 +174,6 @@
       // Old numeric positions refer to different text. Reset only these choices.
       draft.requirements=raw.requirementsVersion===q.requirementsVersion&&Array.isArray(raw.requirements)?[...new Set(raw.requirements.filter(id=>q.requirements.some(r=>r.id===id)))]:[];
     }else draft.requirements=Array.isArray(raw.requirements)?[...new Set(raw.requirements.filter(i=>Number.isInteger(i)&&i>=0&&i<q.requirements.length))]:[];
-    draft.directive=q.options.includes(raw.directive)?raw.directive:'';
     draft.reflection=str(raw.reflection);draft.examplesViewed=raw.examplesViewed===true;
     draft.updatedAt=typeof raw.updatedAt==='string'?raw.updatedAt:'';
     const finished=typeof raw.completedAt==='string'&&Number.isFinite(Date.parse(raw.completedAt));
@@ -184,5 +193,5 @@
     if(q.rubric.some((_,i)=>!['yes','unsure','no'].includes(draft.checks[i])))return '請為每項選擇「已做到」「不確定」或「未做到」。不需要全部選「已做到」才算完成。';
     return '';
   }
-  return {TYPES,TASK_VERSION,TASK_PRINCIPLES,requirementKey,validTaskPlan,taskFeedback,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
+  return {TYPES,TASK_VERSION,TASK_PRINCIPLES,TASK_CATEGORIES,taskCategories,requirementKey,validTaskPlan,taskFeedback,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
 }));

@@ -26,7 +26,7 @@ test('all 21 built-in questions share neutral principles, with valid question-sp
 });
 
 test('task checks distinguish the requested work from helpful reasoning and other question types',()=>{
-  const q11=question('dse2024-q11'),d=C.newDraft(q11);d.directive=q11.directive;
+  const q11=question('dse2024-q11'),d=C.newDraft(q11);
   d.requirements=['emotion'];
   assert.deepEqual(C.taskFeedback(q11,d).missing.map(r=>r.id),['effect']);
   d.requirements=['emotion','effect','compare'];
@@ -40,7 +40,8 @@ test('task checks distinguish the requested work from helpful reasoning and othe
   assert.deepEqual(C.taskFeedback(q16,{directive:q16.directive,requirements:['symbolism']}).missing.map(r=>r.id),['referent']);
   const q20=question('dse2024-q20');
   assert.equal(C.taskFeedback(q20,{directive:q20.directive,requirements:['effect','compare','theme']}).correct,true);
-  assert.equal(C.taskFeedback(q20,{directive:'概括事件',requirements:['effect']}).correct,false);
+  assert.equal(C.taskFeedback(q20,{requirements:['effect']}).correct,true);
+  assert.equal(C.taskFeedback(q20,{directive:'已刪除的舊選擇',requirements:['effect']}).correct,true);
 });
 
 test('old positional task choices reset without losing an answer, evidence, source review or completion',()=>{
@@ -68,4 +69,28 @@ test('teacher banks validate shared task plans while retaining legacy authored c
   const restored=C.sanitizeDraft({requirements:[0,1,9,0]},cq,base.fields[cq.type],compiled.sentences);
   assert.deepEqual(restored.requirements,[0,1]);
   assert.ok(C.validateBank({...bank,questions:[{...q,requirements:legacy.requirements}]}).length);
+});
+
+test('narration, description and reasoning share existing principles and cover every method',()=>{
+  const q=question('dse2024-q17'),groups=C.taskCategories(q);
+  assert.deepEqual(groups.map(g=>g.label),['記敘','描寫','說理']);
+  assert.deepEqual(new Set(groups.flatMap(g=>g.requirements.map(r=>r.id))),new Set(C.TASK_PRINCIPLES.map(r=>r.id)));
+  for(const group of groups)assert.equal(new Set(group.requirements.map(r=>r.id)).size,group.requirements.length);
+  const traits=groups.filter(g=>g.requirements.some(r=>r.id==='trait'));
+  assert.deepEqual(traits.map(g=>g.id),['narration','description']);
+  assert.equal(traits[0].requirements.find(r=>r.id==='trait'),traits[1].requirements.find(r=>r.id==='trait'));
+  assert.ok(groups.find(g=>g.id==='reasoning').requirements.some(r=>r.id==='argument'));
+  assert.equal(C.taskFeedback(q,{requirements:['trait','trait']}).required.length,1);
+});
+
+test('grouped principle choices restore intact while retired directive selections are ignored',()=>{
+  const q=question('lamp-inference'),fields=base.fields[q.type],old=C.newDraft(q);
+  old.requirements=['change','emotion'];old.directive='已刪除的選擇';old.fields.point='由急躁轉為耐心。';old.evidence=[q.evidenceGroups[0].ids[0]];
+  const restored=C.sanitizeDraft(old,q,fields,compiled.sentences);
+  assert.deepEqual(restored.requirements,['change','emotion']);assert.equal(restored.directive,undefined);
+  assert.equal(restored.fields.point,old.fields.point);assert.deepEqual(restored.evidence,old.evidence);
+  assert.equal(C.taskFeedback(q,restored).correct,true);
+  const p={...base.passages[0],id:'custom-p-new'},custom={...base.questions[0],id:'custom-q-new',passages:[p.id]};
+  delete custom.directive;delete custom.options;
+  assert.deepEqual(C.validateBank({schemaVersion:1,passages:[p],questions:[custom]}),[]);
 });

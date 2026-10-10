@@ -21,3 +21,9 @@
 .task-principles-help{margin:0 0 14px;line-height:1.8}
 .task-principle-editor .field-label{font-size:13px}
 .task-principle-editor .field{margin-bottom:10px}
+.task-category{margin:12px 0;border:1px solid var(--line);border-radius:10px;background:var(--white)}
+.task-category>summary{padding:12px 14px;min-height:44px;font-size:15px;font-weight:650;color:var(--brand);cursor:pointer}
+.task-category[open]>summary{border-bottom:1px solid var(--line)}
+.task-category-focus{margin:12px 14px;line-height:1.8}
+.task-category .task-principles,.task-category .task-principle-editor{padding:0 12px 14px}
+.task-selection-count{margin:0 0 12px;line-height:1.8}

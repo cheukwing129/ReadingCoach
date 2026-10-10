@@ -10,7 +10,11 @@ function harness(saved=null,blocked=false){
   class Element{
     constructor(id){this.id=id;this.innerHTML='';this.textContent='';this.dataset={};this.value='';this.hidden=false;this.classList={toggle(){},add(){},remove(){}};this.handlers={};}
     addEventListener(name,fn){this.handlers[name]=fn;}
-    querySelectorAll(){return [];}
+    querySelectorAll(selector){
+      if(selector==='input[name="requirement"]')return (this.controls||[]).filter(el=>el.name==='requirement');
+      if(selector==='select[data-task-role]')return (this.controls||[]).filter(el=>el.dataset.taskRole);
+      return [];
+    }
     querySelector(selector){return node(selector);}
     setAttribute(){} removeAttribute(){} focus(){} scrollIntoView(){} append(){} remove(){} insertAdjacentHTML(_,html){this.innerHTML+=html;}
     showModal(){this.returnValue='confirm';this.handlers.close?.();}
@@ -18,7 +22,7 @@ function harness(saved=null,blocked=false){
   const node=id=>{if(!nodes.has(id))nodes.set(id,new Element(id));return nodes.get(id);};
   const location={hash:'#home'};
   const document={getElementById:node,querySelectorAll:()=>[],querySelector:node,createElement:()=>new Element('temp'),body:new Element('body')};
-  class FormDataFacade {constructor(form){this.data=form.formValues||{};}get(key){return this.data[key]??null;}}
+  class FormDataFacade {constructor(form){this.data=form.formValues||{};}get(key){return this.data[key]??node('main').controls?.find(el=>el.name===key)?.value??null;}}
   const sandbox={document,location,localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>{if(blocked)throw new Error('blocked');store.set(k,v);}},console,Intl,Date,Set,Map,URL,Blob,crypto:require('node:crypto').webcrypto,FormData:FormDataFacade,JSON,setTimeout:()=>0,clearTimeout:()=>{}};
   sandbox.window=sandbox;sandbox.addEventListener=(name,fn)=>listeners[name]=fn;sandbox.scrollTo=()=>{};
   const context=vm.createContext(sandbox);
@@ -31,6 +35,14 @@ function harness(saved=null,blocked=false){
   const state=()=>JSON.parse(store.get('dse-reading-coach-v1'));
   const submit=async values=>{const form=node('teacher-form');form.formValues=values;await main.handlers.submit({target:form,preventDefault(){}});};
   return {main,node,navigate,click,input,change,submit,state,listeners,store};
+}
+function categoryControls(h,html=h.main.innerHTML){
+  const groups=[...html.matchAll(/<details class="task-category" data-task-category="([^"]+)" open>([\s\S]*?)<\/details>/g)];
+  h.main.controls=groups.flatMap(g=>[
+    ...[...g[2].matchAll(/<input type="checkbox" name="requirement" value="([^"]+)"([^>]*)>/g)].map(m=>({name:'requirement',value:m[1],checked:m[2].includes('checked'),dataset:{},category:g[1]})),
+    ...[...g[2].matchAll(/<select name="(task-[^"]+)" data-task-role="([^"]+)">([\s\S]*?)<\/select>/g)].map(m=>({name:m[1],value:m[3].match(/value="([^"]+)" selected/)?.[1]||'none',dataset:{taskRole:m[2]},category:g[1]}))
+  ]);
+  return h.main.controls;
 }
 test('home and all four stages of all nine lessons render without dependencies',async()=>{
   const h=harness();assert.match(h.main.innerHTML,/3 組原創材料、9 道練習/);
@@ -142,14 +154,16 @@ test('all built-in task screens expose the same full set of generic processing p
   for(const id of ids){
     h.navigate('#practice/'+id);
     const methods=[...h.main.innerHTML.matchAll(/name="requirement" value="([^"]+)"[^>]*><span>([^<]+)<\/span>/g)].map(m=>[m[1],m[2]]);
-    assert.equal(methods.length,16,id);if(!first)first=methods;else assert.deepEqual(methods,first,id);
+    assert.equal(new Set(methods.map(m=>m[0])).size,16,id);if(!first)first=methods;else assert.deepEqual(methods,first,id);
+    assert.equal((h.main.innerHTML.match(/data-task-category=/g)||[]).length,3,id);
+    for(const label of ['記敘','描寫','說理'])assert.ok(h.main.innerHTML.includes('<summary>'+label+'</summary>'),id);
+    assert.doesNotMatch(h.main.innerHTML,/name="directive"|這道題主要要求你做甚麼/);
     assert.doesNotMatch(h.main.innerHTML,/只寫與題目無關的個人意見/);
   }
 });
 
 test('task check feedback handles missing work, accepts supporting methods, and persists stable choices',async()=>{
   const h=harness();h.navigate('#practice/dse2024-q11');
-  await h.change({name:'directive',value:'分別指出感受與用意',dataset:{}});
   const choose=(value,checked=true)=>h.change({name:'requirement',value,checked,dataset:{}});
   await choose('emotion');await h.click({action:'check-task'});
   assert.match(h.node('task-feedback').innerHTML,/材料安排的作用（尚未勾選）/);
@@ -170,9 +184,38 @@ test('new teacher exercises configure required and supporting methods from the s
   const values={passage:'new',articleTitle:'態度',articleText:'他起初不停催促。\n\n後來他耐心等候。',title:'前後態度',type:'inference',prompt:'他的態度有甚麼轉變？',scope:'全文',taskPlanVersion:'principles-v1','task-change':'required','task-emotion':'support',taskNote:'兼顧前後態度。',rubric:'原來｜催促\n後來｜耐心',fullExample:'由催促轉為耐心。',fullNote:'兼顧前後。'};
   await h.submit({...values,'task-change':'none'});assert.equal(h.state().bank.questions.length,0);assert.match(h.node('teacher-errors').textContent,/至少一項/);
   await h.submit(values);const q=h.state().bank.questions[0];assert.deepEqual(q.taskPlan,{required:['change'],support:['emotion'],note:'兼顧前後態度。'});assert.equal(q.requirements,undefined);
-  h.navigate('#practice/'+q.id);assert.equal((h.main.innerHTML.match(/name="requirement"/g)||[]).length,16);
-  await h.change({name:'directive',value:'推論並說明',dataset:{}});
+  h.navigate('#practice/'+q.id);assert.equal(new Set([...h.main.innerHTML.matchAll(/name="requirement" value="([^"]+)"/g)].map(m=>m[1])).size,16);
   for(const value of ['change','emotion'])await h.change({name:'requirement',value,checked:true,dataset:{}});
   await h.click({action:'check-task'});assert.match(h.node('task-feedback').innerHTML,/拆題準確/);
   h.navigate('#teacher');await h.click({action:'edit-question',id:q.id});assert.match(h.main.innerHTML,/name="task-change"[^]*?value="required" selected/);
+});
+
+test('shared checkboxes synchronise both directions, count once and restore consistently in each category',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q17');
+  const controls=categoryControls(h),traits=controls.filter(el=>el.value==='trait');
+  assert.deepEqual(traits.map(el=>el.category),['narration','description']);
+  traits[0].checked=true;await h.change(traits[0]);assert.ok(traits.every(el=>el.checked));
+  assert.deepEqual(h.state().drafts['dse2024-q17'].requirements,['trait']);assert.match(h.node('task-selection-count').textContent,/已選 1 項/);
+  await h.change(traits[1]);assert.deepEqual(h.state().drafts['dse2024-q17'].requirements,['trait']);
+  await h.click({action:'check-task'});assert.match(h.node('task-feedback').innerHTML,/拆題準確/);assert.doesNotMatch(h.node('task-feedback').innerHTML,/主要指令/);
+  traits[1].checked=false;await h.change(traits[1]);assert.ok(traits.every(el=>!el.checked));
+  assert.deepEqual(h.state().drafts['dse2024-q17'].requirements,[]);assert.match(h.node('task-selection-count').textContent,/已選 0 項/);
+  traits[1].checked=true;await h.change(traits[1]);
+  const effects=controls.filter(el=>el.value==='effect');assert.equal(effects.length,3);effects[2].checked=true;await h.change(effects[2]);assert.ok(effects.every(el=>el.checked));
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q17');
+  const recovered=categoryControls(restored);assert.ok(recovered.filter(el=>['trait','effect'].includes(el.value)).every(el=>el.checked));
+  assert.ok(recovered.filter(el=>!['trait','effect'].includes(el.value)).every(el=>!el.checked));
+  assert.deepEqual(restored.state().drafts['dse2024-q17'].requirements,['trait','effect']);
+});
+
+test('shared teacher method settings synchronise across categories and submit one role per principle',async()=>{
+  const h=harness();h.navigate('#teacher');await h.click({action:'new-question'});
+  const controls=categoryControls(h,h.node('editor-container').innerHTML),changes=controls.filter(el=>el.dataset.taskRole==='change'),emotions=controls.filter(el=>el.dataset.taskRole==='emotion');
+  assert.equal(changes.length,2);changes[1].value='required';await h.change(changes[1]);assert.ok(changes.every(el=>el.value==='required'));
+  emotions[0].value='support';await h.change(emotions[0]);assert.ok(emotions.every(el=>el.value==='support'));
+  const values={passage:'new',articleTitle:'轉變',articleText:'他原本催促，後來耐心等待。',title:'態度轉變',type:'inference',prompt:'他的態度有甚麼轉變？',taskPlanVersion:'principles-v1',rubric:'轉變｜交代前後態度',fullExample:'由催促轉為耐心。',fullNote:'兼顧前後。'};
+  await h.submit(values);const q=h.state().bank.questions[0];assert.deepEqual(q.taskPlan,{required:['change'],support:['emotion'],note:''});assert.equal(q.directive,undefined);assert.equal(q.options,undefined);
+  h.navigate('#teacher');await h.click({action:'edit-question',id:q.id});
+  const restored=categoryControls(h);assert.ok(restored.filter(el=>el.dataset.taskRole==='change').every(el=>el.value==='required'));assert.ok(restored.filter(el=>el.dataset.taskRole==='emotion').every(el=>el.value==='support'));
+  restored.find(el=>el.dataset.taskRole==='emotion').value='none';await h.change(restored.find(el=>el.dataset.taskRole==='emotion'));assert.ok(restored.filter(el=>el.dataset.taskRole==='emotion').every(el=>el.value==='none'));
 });
