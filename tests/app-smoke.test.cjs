@@ -227,7 +227,33 @@ test('autonomous practice starts at the original answer and keeps analysis and s
   await h.click({action:'save-first'});assert.match(h.node('first-attempt-error').textContent,/每個分題/);
   h.input('i','種子');h.input('ii','我自己的試答');await h.click({action:'save-first'});
   const first=h.state().drafts['dse2024-q16'].firstAttempt;assert.equal(first.practiceMode,'independent');assert.equal(first.supportLog.length,0);
+  assert.equal(h.state().drafts['dse2024-q16'].practiceMode,'independent');
+  assert.match(h.main.innerHTML,/首答已保存 · 先自行修訂/);
+  assert.doesNotMatch(h.main.innerHTML,/class="lesson-stage"|class="hint-box"|文件失分例診斷|來源答案及評分資料/);
   h.input('ii','修改過的試答');h.listeners.pagehide();assert.equal(h.state().drafts['dse2024-q16'].firstAttempt.fields.ii,'我自己的試答');
+});
+
+test('revision prompts preserve independence until help is explicitly opened',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q13');h.input('i','對比');h.input('ii','乳汁與鮮血形成反差。');await h.click({action:'save-first'});
+  assert.equal(h.state().drafts['dse2024-q13'].practiceMode,'independent');
+  assert.deepEqual(h.state().drafts['dse2024-q13'].supportLog.map(item=>item.kind),['revision']);
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q13');
+  assert.doesNotMatch(restored.main.innerHTML,/第13題必讀：分清指涉/);
+  await restored.click({action:'revision-help'});assert.match(restored.main.innerHTML,/第13題必讀：分清指涉/);
+  assert.equal(restored.state().drafts['dse2024-q13'].step,2);assert.equal(restored.state().drafts['dse2024-q13'].firstAttempt.supportLog.length,0);
+});
+
+test('teacher confirmation is separate from self-check and becomes stale when the student revises',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q20');h.input('answer','作者與那個人有共同經歷。');await h.click({step:'3'});await h.click({action:'review-source'});
+  await h.click({action:'confirm-teacher-review'});assert.match(h.node('teacher-review-error').textContent,/每項/);
+  for(let i=0;i<3;i++)await h.change({dataset:{teacherResult:String(i)},value:i===2?'revise':'confirmed'});
+  await h.click({action:'confirm-teacher-review'});assert.match(h.node('teacher-review-error').textContent,/具體缺口/);
+  h.main.handlers.input({target:{dataset:{teacherPoint:'2'},value:'把共同處境連到作者的感情需要。',hasAttribute:()=>false}});h.listeners.pagehide();
+  await h.click({action:'confirm-teacher-review'});assert.ok(h.state().drafts['dse2024-q20'].teacherReview.at);
+  assert.equal(h.state().drafts['dse2024-q20'].completedAt,undefined);
+  h.navigate('#progress/dse2024-fansheng');assert.match(h.main.innerHTML,/已覆核 · 需補充1項/);assert.match(h.main.innerHTML,/不推算35分總成績/);
+  h.navigate('#practice/dse2024-q20');await h.click({step:'2'});h.input('answer','修訂後的答案。');h.listeners.pagehide();
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#progress/dse2024-fansheng');assert.match(restored.main.innerHTML,/答案已修改 · 須重新覆核/);
 });
 test('viewing overview teaching or direct lessons is recorded even with zero extra hints',async()=>{
   const h=harness();h.navigate('#exercise/dse2024-fansheng');await h.click({action:'overview-help'});

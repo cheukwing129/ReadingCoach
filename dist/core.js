@@ -94,6 +94,33 @@
     q.rubric.forEach((_,i)=>{const value=draft.checks?.[i];if(['yes','unsure','no'].includes(value)){counts.reviewed++;counts[value]++;}});
     return counts;
   }
+  const TEACHER_RESULTS=['confirmed','revise','discuss'];
+  function teacherReviewStats(q,draft,fields) {
+    const review=draft.teacherReview;
+    const counts={confirmed:0,revise:0,discuss:0,pending:q.rubric.length,total:q.rubric.length,status:'pending'};
+    if(!review)return counts;
+    q.rubric.forEach((_,i)=>{const status=review.items?.[i]?.status;if(TEACHER_RESULTS.includes(status)){counts[status]++;counts.pending--;}});
+    if(review.answer!==assembleAnswer(draft,fields))counts.status='stale';
+    else if(review.at&&Number.isFinite(Date.parse(review.at))&&!counts.pending)counts.status='reviewed';
+    else if(counts.pending<counts.total||review.reviewer||review.items?.some(item=>item.note))counts.status='in-progress';
+    return counts;
+  }
+  function prepareTeacherReview(q,draft,fields) {
+    const answer=assembleAnswer(draft,fields),old=draft.teacherReview;
+    if(old&&(old.at||old.answer!==answer)&&(old.at||old.items?.some(item=>item.status||item.note))){
+      draft.teacherReviewHistory=[...(draft.teacherReviewHistory||[]),JSON.parse(JSON.stringify(old))].slice(-5);
+    }
+    if(!old||old.answer!==answer)draft.teacherReview={answer,reviewer:old?.reviewer||'',items:q.rubric.map(()=>({status:'',note:''}))};
+    else delete old.at;
+    return draft.teacherReview;
+  }
+  function teacherReviewError(q,draft,fields) {
+    if(!answerComplete(q,draft,fields)||!draft.examReviewed)return '請先完成答案及來源核對，再記錄教師覆核。';
+    const review=draft.teacherReview;
+    if(!review||review.answer!==assembleAnswer(draft,fields)||q.rubric.some((_,i)=>!TEACHER_RESULTS.includes(review.items?.[i]?.status)))return '請由教師為每項選擇覆核結果。';
+    if(review.items.some(item=>['revise','discuss'].includes(item.status)&&!(item.note||'').trim()))return '需要補充或待釐清的項目，請寫下具體缺口或修訂建議。';
+    return '';
+  }
   function answerSentences(draft,fields) {
     return [...new Set((assembleAnswer(draft,fields).match(/[^\n。！？]+[。！？]?/g)||[]).map(s=>s.trim()).filter(Boolean))];
   }
@@ -193,14 +220,14 @@
     const merge=(a,b)=>Array.from(new Map([...a,...b].map(x=>[x.id,x])).values());
     return {schemaVersion:1,passages:merge(oldBank.passages,newBank.passages),questions:merge(oldBank.questions,newBank.questions)};
   }
-  function newDraft(q) { return {mode:'guided',practiceMode:q?.authentic?'independent':'guided',free:'',fields:{},checks:[],checkEvidence:{},reviewVersion:'answer-linked-v1',supportLog:[],revisions:[],bridge:{},readingTop:0,hintCount:0,step:q?.authentic?2:0,evidence:[],requirements:[],...(q?.requirementsVersion?{requirementsVersion:q.requirementsVersion}:{}),reflection:''}; }
+  function newDraft(q) { return {mode:'guided',practiceMode:q?.authentic?'independent':'guided',free:'',fields:{},checks:[],checkEvidence:{},reviewVersion:'answer-linked-v1',supportLog:[],revisions:[],teacherReviewHistory:[],bridge:{},readingTop:0,hintCount:0,step:q?.authentic?2:0,evidence:[],requirements:[],...(q?.requirementsVersion?{requirementsVersion:q.requirementsVersion}:{}),reflection:''}; }
   function sanitizeDraft(raw,q,fields,sentences) {
     const draft=newDraft(q);
     if(!raw||typeof raw!=='object')return draft;
     const str=s=>typeof s==='string'?s.slice(0,20000):'';
     draft.mode=!q.authentic&&raw.mode==='free'?'free':'guided';draft.free=str(raw.free);
     draft.practiceMode=raw.practiceMode==='independent'?'independent':'guided';
-    const supportKinds=['legacy','overview','guide','task','evidence','writing','hint','lesson','source','examples'];
+    const supportKinds=['legacy','revision','overview','guide','task','evidence','writing','hint','lesson','source','examples'];
     const cleanLog=log=>Array.isArray(log)?log.filter(s=>s&&supportKinds.includes(s.kind)).slice(0,20).map(s=>({kind:s.kind,at:typeof s.at==='string'?s.at.slice(0,40):'',...(s.kind==='hint'&&Number.isInteger(s.level)&&s.level>=1&&s.level<=3?{level:s.level}:{})})):[];
     draft.supportLog=cleanLog(raw.supportLog);
     if(raw.practiceMode===undefined)draft.supportLog=[{kind:'legacy',at:''}];
@@ -217,6 +244,16 @@
     draft.taskCategory=TASK_CATEGORIES.some(g=>g.id===raw.taskCategory)?raw.taskCategory:'narration';
     draft.reflection=str(raw.reflection);draft.examplesViewed=raw.examplesViewed===true;
     draft.revisionReason=str(raw.revisionReason);draft.teacherNote=str(raw.teacherNote);
+    const cleanTeacherReview=review=>{
+      if(!review||typeof review!=='object'||typeof review.answer!=='string')return null;
+      const clean={answer:review.answer.slice(0,100000),reviewer:str(review.reviewer).slice(0,120),items:q.rubric.map((_,i)=>({status:TEACHER_RESULTS.includes(review.items?.[i]?.status)?review.items[i].status:'',note:str(review.items?.[i]?.note).slice(0,1500)}))};
+      if(typeof review.at==='string'&&Number.isFinite(Date.parse(review.at))&&clean.items.every(item=>item.status&&(!['revise','discuss'].includes(item.status)||item.note.trim())))clean.at=review.at;
+      return clean;
+    };
+    if(q.authentic&&fields.some(f=>f.kind!=='choice')){
+      const review=cleanTeacherReview(raw.teacherReview);if(review)draft.teacherReview=review;
+      draft.teacherReviewHistory=Array.isArray(raw.teacherReviewHistory)?raw.teacherReviewHistory.slice(-5).map(cleanTeacherReview).filter(Boolean):[];
+    }
     draft.reviewVersion=raw.reviewVersion==='answer-linked-v1'?'answer-linked-v1':'legacy';
     const answer=assembleAnswer(draft,fields);
     for(let i=0;i<q.rubric.length;i++)draft.checkEvidence[i]=Array.isArray(raw.checkEvidence?.[i])?[...new Set(raw.checkEvidence[i].filter(s=>typeof s==='string'&&s.trim()&&answer.includes(s)))].slice(0,12):[];
@@ -250,5 +287,5 @@
     if(q.authentic&&draft.reviewVersion==='answer-linked-v1'&&q.rubric.some((_,i)=>draft.checks[i]==='yes'&&!draft.checkEvidence?.[i]?.some(s=>assembleAnswer(draft,fields).includes(s))))return '請為「已做到」項圈選答案中的支持句；若尚未說清楚，可選「不確定」或「未做到」。';
     return '';
   }
-  return {TYPES,TASK_VERSION,TASK_PRINCIPLES,TASK_CATEGORIES,taskCategories,requirementKey,validTaskPlan,taskFeedback,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,reviewStats,answerSentences,answerComplete,captureFirstAttempt,recordSupport,saveRevision,bridgeFeedback,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
+  return {TYPES,TASK_VERSION,TASK_PRINCIPLES,TASK_CATEGORIES,taskCategories,requirementKey,validTaskPlan,taskFeedback,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,reviewStats,teacherReviewStats,prepareTeacherReview,teacherReviewError,answerSentences,answerComplete,captureFirstAttempt,recordSupport,saveRevision,bridgeFeedback,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
 }));
