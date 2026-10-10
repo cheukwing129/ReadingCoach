@@ -95,7 +95,7 @@ test('two-character task gives format feedback without inventing a semantic grad
 });
 
 test('draft restoration rejects invalid options and revision invalidates the old source check',()=>{
-  const question=q(12),d=filled(question);d.examReviewed=true;d.checks=question.rubric.map(()=> 'yes');d.completedAt='2026-10-09T23:40:00Z';
+  const question=q(12),d=filled(question);d.examReviewed=true;d.checks=question.rubric.map(()=> 'yes');d.checkEvidence=Object.fromEntries(question.rubric.map((_,i)=>[i,C.answerSentences(d,question.answerParts)]));d.completedAt='2026-10-09T23:40:00Z';
   const restored=C.sanitizeDraft(d,question,question.answerParts,compiled.sentences);
   assert.equal(restored.completedAt,d.completedAt);
   assert.equal(restored.fields.i,'D');assert.equal(E.objectiveResult(question,restored).earned,2);

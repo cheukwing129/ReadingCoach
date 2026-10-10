@@ -89,6 +89,41 @@
     }).filter(Boolean).join('\n');
   }
   function selfScore(q,draft) { return q.rubric.reduce((n,_,i)=>n+(draft.checks?.[i]==='yes'?1:0),0); }
+  function reviewStats(q,draft) {
+    const counts={reviewed:0,yes:0,unsure:0,no:0,total:q.rubric.length};
+    q.rubric.forEach((_,i)=>{const value=draft.checks?.[i];if(['yes','unsure','no'].includes(value)){counts.reviewed++;counts[value]++;}});
+    return counts;
+  }
+  function answerSentences(draft,fields) {
+    return [...new Set((assembleAnswer(draft,fields).match(/[^\n。！？]+[。！？]?/g)||[]).map(s=>s.trim()).filter(Boolean))];
+  }
+  function answerComplete(q,draft,fields) {
+    return q.authentic?fields.every(f=>f.kind==='choice'?f.choices.some(c=>c.value===draft.fields?.[f.key]):!!draft.fields?.[f.key]?.trim()):!!assembleAnswer(draft,fields).trim();
+  }
+  function attemptSnapshot(q,draft,fields,at=new Date().toISOString()) {
+    return {mode:draft.mode,free:draft.free,fields:{...draft.fields},at,complete:answerComplete(q,draft,fields),practiceMode:draft.practiceMode,supportLog:(draft.supportLog||[]).map(s=>({...s})),hintCount:draft.hintCount,reason:draft.revisionReason||''};
+  }
+  function captureFirstAttempt(q,draft,fields,at) {
+    if(draft.firstAttempt||!assembleAnswer(draft,fields).trim())return false;
+    draft.firstAttempt=attemptSnapshot(q,draft,fields,at);return true;
+  }
+  function recordSupport(q,draft,fields,kind,at=new Date().toISOString(),level) {
+    captureFirstAttempt(q,draft,fields,at);
+    draft.supportLog||=[];
+    if(!draft.supportLog.some(s=>s.kind===kind&&s.level===level))draft.supportLog.push({kind,at,...(level?{level}:{})});
+  }
+  function saveRevision(q,draft,fields,kind,at=new Date().toISOString()) {
+    captureFirstAttempt(q,draft,fields,at);
+    if(!assembleAnswer(draft,fields).trim())return false;
+    const revisions=draft.revisions||=[];
+    const last=revisions.at(-1);
+    if(last&&assembleAnswer(last,fields)===assembleAnswer(draft,fields)&&last.reason===(draft.revisionReason||''))return false;
+    revisions.push({...attemptSnapshot(q,draft,fields,at),kind});draft.revisions=revisions.slice(-10);return true;
+  }
+  function bridgeFeedback(draft) {
+    const labels={observation:'原文線索：寫出選句提供的具體內容。',inference:'推論：解釋線索怎樣支持你的理解。',answer:'回應題目：指出這個理解回答了哪一項要求。'};
+    return Object.entries(labels).filter(([key])=>!draft.bridge?.[key]?.trim()).map(([,label])=>label);
+  }
   function structuralFeedback(q,draft,fields) {
     const answer=assembleAnswer(draft,fields), out=[];
     if(q.authentic){
@@ -158,12 +193,17 @@
     const merge=(a,b)=>Array.from(new Map([...a,...b].map(x=>[x.id,x])).values());
     return {schemaVersion:1,passages:merge(oldBank.passages,newBank.passages),questions:merge(oldBank.questions,newBank.questions)};
   }
-  function newDraft(q) { return {mode:'guided',free:'',fields:{},checks:[],evidence:[],hintCount:0,step:0,requirements:[],...(q?.requirementsVersion?{requirementsVersion:q.requirementsVersion}:{}),reflection:''}; }
+  function newDraft(q) { return {mode:'guided',practiceMode:q?.authentic?'independent':'guided',free:'',fields:{},checks:[],checkEvidence:{},reviewVersion:'answer-linked-v1',supportLog:[],revisions:[],bridge:{},readingTop:0,hintCount:0,step:q?.authentic?2:0,evidence:[],requirements:[],...(q?.requirementsVersion?{requirementsVersion:q.requirementsVersion}:{}),reflection:''}; }
   function sanitizeDraft(raw,q,fields,sentences) {
     const draft=newDraft(q);
     if(!raw||typeof raw!=='object')return draft;
     const str=s=>typeof s==='string'?s.slice(0,20000):'';
     draft.mode=!q.authentic&&raw.mode==='free'?'free':'guided';draft.free=str(raw.free);
+    draft.practiceMode=raw.practiceMode==='independent'?'independent':'guided';
+    const supportKinds=['legacy','overview','guide','task','evidence','writing','hint','lesson','source','examples'];
+    const cleanLog=log=>Array.isArray(log)?log.filter(s=>s&&supportKinds.includes(s.kind)).slice(0,20).map(s=>({kind:s.kind,at:typeof s.at==='string'?s.at.slice(0,40):'',...(s.kind==='hint'&&Number.isInteger(s.level)&&s.level>=1&&s.level<=3?{level:s.level}:{})})):[];
+    draft.supportLog=cleanLog(raw.supportLog);
+    if(raw.practiceMode===undefined)draft.supportLog=[{kind:'legacy',at:''}];
     for(const f of fields){const value=str(raw.fields?.[f.key]);draft.fields[f.key]=f.kind==='choice'&&!f.choices.some(c=>c.value===value)?'':value;}
     if(q.authentic)draft.examReviewed=raw.examReviewed===true&&fields.every(f=>!!draft.fields[f.key].trim());
     draft.checks=q.rubric.map((_,i)=>['yes','unsure','no'].includes(raw.checks?.[i])?raw.checks[i]:null);
@@ -174,7 +214,23 @@
       // Old numeric positions refer to different text. Reset only these choices.
       draft.requirements=raw.requirementsVersion===q.requirementsVersion&&Array.isArray(raw.requirements)?[...new Set(raw.requirements.filter(id=>q.requirements.some(r=>r.id===id)))]:[];
     }else draft.requirements=Array.isArray(raw.requirements)?[...new Set(raw.requirements.filter(i=>Number.isInteger(i)&&i>=0&&i<q.requirements.length))]:[];
+    draft.taskCategory=TASK_CATEGORIES.some(g=>g.id===raw.taskCategory)?raw.taskCategory:'narration';
     draft.reflection=str(raw.reflection);draft.examplesViewed=raw.examplesViewed===true;
+    draft.revisionReason=str(raw.revisionReason);draft.teacherNote=str(raw.teacherNote);
+    draft.reviewVersion=raw.reviewVersion==='answer-linked-v1'?'answer-linked-v1':'legacy';
+    const answer=assembleAnswer(draft,fields);
+    for(let i=0;i<q.rubric.length;i++)draft.checkEvidence[i]=Array.isArray(raw.checkEvidence?.[i])?[...new Set(raw.checkEvidence[i].filter(s=>typeof s==='string'&&s.trim()&&answer.includes(s)))].slice(0,12):[];
+    for(const key of ['observation','inference','answer'])draft.bridge[key]=str(raw.bridge?.[key]);
+    draft.readingTop=Number.isFinite(raw.readingTop)?Math.max(0,Math.min(1e7,raw.readingTop)):0;
+    const cleanSnapshot=s=>{
+      if(!s||typeof s!=='object'||!Number.isFinite(Date.parse(s.at)))return null;
+      const snapshot={mode:!q.authentic&&s.mode==='free'?'free':'guided',free:str(s.free),fields:{},at:s.at,practiceMode:s.practiceMode==='independent'?'independent':'guided',supportLog:cleanLog(s.supportLog),hintCount:Number.isInteger(s.hintCount)?Math.max(0,Math.min(q.hints.length,s.hintCount)):0,reason:str(s.reason)};
+      for(const f of fields){const value=str(s.fields?.[f.key]);snapshot.fields[f.key]=f.kind==='choice'&&!f.choices.some(c=>c.value===value)?'':value;}
+      snapshot.complete=answerComplete(q,snapshot,fields);
+      return assembleAnswer(snapshot,fields).trim()?snapshot:null;
+    };
+    const first=cleanSnapshot(raw.firstAttempt);if(first)draft.firstAttempt=first;
+    draft.revisions=Array.isArray(raw.revisions)?raw.revisions.slice(-10).map(s=>{const clean=cleanSnapshot(s);return clean?{...clean,kind:['manual','source','complete'].includes(s.kind)?s.kind:'manual'}:null;}).filter(Boolean):[];
     draft.updatedAt=typeof raw.updatedAt==='string'?raw.updatedAt:'';
     const finished=typeof raw.completedAt==='string'&&Number.isFinite(Date.parse(raw.completedAt));
     if(finished&&!completionError(q,draft,fields))draft.completedAt=raw.completedAt;
@@ -183,7 +239,7 @@
   function changeAnswer(draft,key,value) {
     const target=key==='free'?draft:draft.fields;
     if(target[key]===value)return;
-    target[key]=value;draft.checks=[];delete draft.completedAt;delete draft.examReviewed;
+    target[key]=value;draft.checks=[];draft.checkEvidence={};delete draft.completedAt;delete draft.examReviewed;
   }
   function completionError(q,draft,fields) {
     if(!assembleAnswer(draft,fields).trim())return '請先寫下自己的答案，再進行自檢。';
@@ -191,7 +247,8 @@
     if(q.authentic&&!draft.examReviewed)return '請先核對來源答案，再完成自檢記錄。';
     if(q.wordLimit&&countChars(assembleAnswer(draft,fields))>q.wordLimit)return '答案超出本題字數限制，請先修訂。';
     if(q.rubric.some((_,i)=>!['yes','unsure','no'].includes(draft.checks[i])))return '請為每項選擇「已做到」「不確定」或「未做到」。不需要全部選「已做到」才算完成。';
+    if(q.authentic&&draft.reviewVersion==='answer-linked-v1'&&q.rubric.some((_,i)=>draft.checks[i]==='yes'&&!draft.checkEvidence?.[i]?.some(s=>assembleAnswer(draft,fields).includes(s))))return '請為「已做到」項圈選答案中的支持句；若尚未說清楚，可選「不確定」或「未做到」。';
     return '';
   }
-  return {TYPES,TASK_VERSION,TASK_PRINCIPLES,TASK_CATEGORIES,taskCategories,requirementKey,validTaskPlan,taskFeedback,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
+  return {TYPES,TASK_VERSION,TASK_PRINCIPLES,TASK_CATEGORIES,taskCategories,requirementKey,validTaskPlan,taskFeedback,escapeHTML,countChars,parsePassage,quoteSentenceIds,compile,evidenceStatus,assembleAnswer,selfScore,reviewStats,answerSentences,answerComplete,captureFirstAttempt,recordSupport,saveRevision,bridgeFeedback,structuralFeedback,validateBank,mergeBanks,newDraft,sanitizeDraft,changeAnswer,completionError};
 }));

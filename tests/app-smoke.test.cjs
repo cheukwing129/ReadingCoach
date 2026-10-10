@@ -37,7 +37,7 @@ function harness(saved=null,blocked=false){
   return {main,node,navigate,click,input,change,submit,state,listeners,store};
 }
 function categoryControls(h,html=h.main.innerHTML){
-  const groups=[...html.matchAll(/<details class="task-category" data-task-category="([^"]+)" open>([\s\S]*?)<\/details>/g)];
+  const groups=[...html.matchAll(/<details class="task-category" data-task-category="([^"]+)"\s*(?:open)?>([\s\S]*?)<\/details>/g)];
   h.main.controls=groups.flatMap(g=>[
     ...[...g[2].matchAll(/<input type="checkbox" name="requirement" value="([^"]+)"([^>]*)>/g)].map(m=>({name:'requirement',value:m[1],checked:m[2].includes('checked'),dataset:{},category:g[1]})),
     ...[...g[2].matchAll(/<select name="(task-[^"]+)" data-task-role="([^"]+)">([\s\S]*?)<\/select>/g)].map(m=>({name:m[1],value:m[3].match(/value="([^"]+)" selected/)?.[1]||'none',dataset:{taskRole:m[2]},category:g[1]}))
@@ -85,9 +85,9 @@ test('authentic exercise overview and all twelve questions render in all four st
   const h=harness();assert.match(h.main.innerHTML,/2024 DSE/);assert.match(h.main.innerHTML,/12 題 · 35 分/);
   h.navigate('#exercise/dse2024-fansheng');assert.match(h.main.innerHTML,/第9–20題 · 35分/);assert.match(h.main.innerHTML,/下載答案與教練分析/);
   for(let number=9;number<=20;number++){
-    h.navigate('#practice/dse2024-q'+number);
+    h.navigate('#practice/dse2024-q'+number);await h.click({action:'start-guided'});
     for(let step=0;step<4;step++){await h.click({step:String(step)});assert.match(h.main.innerHTML,new RegExp('STEP 0'+(step+1)));}
-    assert.match(h.main.innerHTML,/不換算分數/);
+    assert.match(h.main.innerHTML,/核對來源答案/);
   }
   h.navigate('#practice/dse2024-q11');assert.match(h.main.innerHTML,/exam-table/);assert.match(h.main.innerHTML,/凸顯環境改變之急速/);
 });
@@ -148,11 +148,11 @@ test('worked answers and loss diagnosis stay gated during practice until a compl
   await h.click({action:'add-coach-evidence',index:'0'});assert.ok(h.state().drafts['dse2024-q11'].evidence.length);
 });
 
-test('all built-in task screens expose the same full set of generic processing principles',()=>{
+test('all built-in task screens expose the same full set of generic processing principles',async()=>{
   const h=harness(),ids=['lamp-purpose','lamp-inference','lamp-comparison','seed-purpose','seed-inference','seed-comparison','pace-purpose','pace-inference','pace-comparison',...Array.from({length:12},(_,i)=>'dse2024-q'+(i+9))];
   let first;
   for(const id of ids){
-    h.navigate('#practice/'+id);
+    h.navigate('#practice/'+id);await h.click({action:'start-guided'});
     const methods=[...h.main.innerHTML.matchAll(/name="requirement" value="([^"]+)"[^>]*><span>([^<]+)<\/span>/g)].map(m=>[m[1],m[2]]);
     assert.equal(new Set(methods.map(m=>m[0])).size,16,id);if(!first)first=methods;else assert.deepEqual(methods,first,id);
     assert.equal((h.main.innerHTML.match(/data-task-category=/g)||[]).length,3,id);
@@ -163,7 +163,7 @@ test('all built-in task screens expose the same full set of generic processing p
 });
 
 test('task check feedback handles missing work, accepts supporting methods, and persists stable choices',async()=>{
-  const h=harness();h.navigate('#practice/dse2024-q11');
+  const h=harness();h.navigate('#practice/dse2024-q11');await h.click({action:'start-guided'});
   const choose=(value,checked=true)=>h.change({name:'requirement',value,checked,dataset:{}});
   await choose('emotion');await h.click({action:'check-task'});
   assert.match(h.node('task-feedback').innerHTML,/材料安排的作用（尚未勾選）/);
@@ -173,7 +173,7 @@ test('task check feedback handles missing work, accepts supporting methods, and 
   assert.match(h.node('task-feedback').innerHTML,/本題沒有要求處理/);assert.match(h.node('task-feedback').innerHTML,/篇名的含義/);
   await choose('title',false);assert.equal(h.node('task-feedback').innerHTML,'');
   await choose('invalid');assert.deepEqual(h.state().drafts['dse2024-q11'].requirements,['emotion','effect','compare']);
-  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q11');
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q11');await restored.click({step:'0'});
   for(const id of ['emotion','effect','compare'])assert.ok(restored.main.innerHTML.includes('value="'+id+'" checked'));
   await restored.click({action:'check-task'});assert.match(restored.node('task-feedback').innerHTML,/拆題準確/);
 });
@@ -191,7 +191,7 @@ test('new teacher exercises configure required and supporting methods from the s
 });
 
 test('shared checkboxes synchronise both directions, count once and restore consistently in each category',async()=>{
-  const h=harness();h.navigate('#practice/dse2024-q17');
+  const h=harness();h.navigate('#practice/dse2024-q17');await h.click({action:'start-guided'});
   const controls=categoryControls(h),traits=controls.filter(el=>el.value==='trait');
   assert.deepEqual(traits.map(el=>el.category),['narration','description']);
   traits[0].checked=true;await h.change(traits[0]);assert.ok(traits.every(el=>el.checked));
@@ -218,4 +218,45 @@ test('shared teacher method settings synchronise across categories and submit on
   h.navigate('#teacher');await h.click({action:'edit-question',id:q.id});
   const restored=categoryControls(h);assert.ok(restored.filter(el=>el.dataset.taskRole==='change').every(el=>el.value==='required'));assert.ok(restored.filter(el=>el.dataset.taskRole==='emotion').every(el=>el.value==='support'));
   restored.find(el=>el.dataset.taskRole==='emotion').value='none';await h.change(restored.find(el=>el.dataset.taskRole==='emotion'));assert.ok(restored.filter(el=>el.dataset.taskRole==='emotion').every(el=>el.value==='none'));
+});
+
+test('autonomous practice starts at the original answer and keeps analysis and self-checks hidden',async()=>{
+  const h=harness();h.navigate('#exercise/dse2024-fansheng');assert.doesNotMatch(h.main.innerHTML,/class="method-grid"/);
+  h.navigate('#practice/dse2024-q16');assert.match(h.main.innerHTML,/STEP 03/);
+  assert.doesNotMatch(h.main.innerHTML,/class="lesson-stage"|class="hint-box"|class="rubric-item"|name="requirement"/);
+  await h.click({action:'save-first'});assert.match(h.node('first-attempt-error').textContent,/每個分題/);
+  h.input('i','種子');h.input('ii','我自己的試答');await h.click({action:'save-first'});
+  const first=h.state().drafts['dse2024-q16'].firstAttempt;assert.equal(first.practiceMode,'independent');assert.equal(first.supportLog.length,0);
+  h.input('ii','修改過的試答');h.listeners.pagehide();assert.equal(h.state().drafts['dse2024-q16'].firstAttempt.fields.ii,'我自己的試答');
+});
+test('viewing overview teaching or direct lessons is recorded even with zero extra hints',async()=>{
+  const h=harness();h.navigate('#exercise/dse2024-fansheng');await h.click({action:'overview-help'});
+  assert.match(h.main.innerHTML,/class="method-grid"/);h.navigate('#practice/dse2024-q14');
+  await h.change({dataset:{examAnswer:'answer'},value:'C'});await h.click({action:'save-first'});
+  assert.ok(h.state().drafts['dse2024-q14'].firstAttempt.supportLog.some(s=>s.kind==='overview'));
+  h.navigate('#coaching/dse2024-q16');h.navigate('#practice/dse2024-q16');h.input('i','種子');h.input('ii','答案');await h.click({action:'save-first'});
+  const d=h.state().drafts['dse2024-q16'];assert.equal(d.hintCount,0);assert.ok(d.firstAttempt.supportLog.some(s=>s.kind==='lesson'));assert.equal(d.completedAt,undefined);
+});
+test('answer-linked self-review asks for missing support and preserves source-gated followups',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q20');h.input('answer','他和作者都有艱難的經歷。這使作者感同身受。');await h.click({step:'3'});
+  assert.doesNotMatch(h.main.innerHTML,/作者向他哭泣，反映作者自己/);await h.click({action:'review-source'});
+  assert.match(h.main.innerHTML,/作者向他哭泣，反映作者自己/);
+  for(let i=0;i<3;i++)await h.change({dataset:{check:String(i)},value:i===2?'unsure':'yes'});
+  await h.click({action:'complete'});assert.match(h.node('completion-error').textContent,/支持句/);
+  for(let i=0;i<2;i++)await h.change({dataset:{checkEvidence:String(i),sentence:'0'},checked:true});
+  await h.click({action:'complete'});assert.ok(h.state().drafts['dse2024-q20'].completedAt);
+  h.navigate('#records');assert.match(h.main.innerHTML,/已檢視 3\/3 項；已做到 2；不確定 1/);assert.match(h.main.innerHTML,/作用與主旨 · 不確定/);
+});
+test('completed-question transfer opens another passage without hints or answer frames',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q15');await h.click({action:'start-transfer',id:'lamp-comparison'});h.navigate('#practice/lamp-comparison');
+  assert.doesNotMatch(h.main.innerHTML,/class="hint-box"|data-answer="point"|完整例答/);assert.match(h.main.innerHTML,/data-answer="free"/);
+  h.input('free','兩種光的亮度和照亮對象不同。');await h.click({step:'3'});assert.doesNotMatch(h.main.innerHTML,/完整例答/);
+  await h.click({action:'review-original'});assert.match(h.main.innerHTML,/完整例答/);assert.equal(h.state().drafts['lamp-comparison'].firstAttempt.practiceMode,'independent');
+});
+test('paragraph navigation, reading location, and focused categories persist across steps',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q13');await h.click({action:'start-guided'});
+  assert.equal((h.main.innerHTML.match(/data-task-category="[^\"]+" open/g)||[]).length,1);
+  h.node('.passage-scroll').scrollTop=650;await h.click({step:'2'});assert.equal(h.node('.passage-scroll').scrollTop,650);
+  assert.match(h.main.innerHTML,/data-paragraph-target/);assert.match(h.main.innerHTML,/value="dse2024-fansheng-p6"/);
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q13');assert.equal(restored.node('.passage-scroll').scrollTop,650);
 });
