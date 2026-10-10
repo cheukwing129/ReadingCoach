@@ -126,20 +126,6 @@
         "只重述文章內容",
         "加入自己的經歷"
       ],
-      "requirements": [
-        {
-          "text": "理解農人的跋涉與困境",
-          "correct": true
-        },
-        {
-          "text": "選出痛哭最貼合文本的原因",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
-      ],
       "guidance": "把痛哭前的處境和眼前所見連起來，逐項檢查選項有沒有加入原文未交代的想法。",
       "hints": [
         "留意「再無路可走」和「沒日沒夜」這些處境線索。",
@@ -195,7 +181,17 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "cause"
+        ],
+        "support": [
+          "emotion",
+          "summary"
+        ],
+        "note": "問「為什麼」，核心是找出行為的成因；感受及經歷可協助核對因果。"
+      }
     },
     {
       "id": "dse2024-q10",
@@ -259,20 +255,6 @@
         "只重述文章內容",
         "加入自己的經歷"
       ],
-      "requirements": [
-        {
-          "text": "以第5段人們的行為作判斷",
-          "correct": true
-        },
-        {
-          "text": "選出最貼切的成語",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
-      ],
       "guidance": "先用自己的話概括人們如何處理小魚，再對照成語的行為特點。",
       "hints": [
         "不要只看魚群多寡，應找「人們」做了甚麼。",
@@ -317,7 +299,15 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "summary",
+          "meaning"
+        ],
+        "support": [],
+        "note": "須把段落中的行為概括，再核對成語在這個語境是否貼切。"
+      }
     },
     {
       "id": "dse2024-q11",
@@ -385,20 +375,6 @@
         "分別指出感受與用意",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "(i) 概括魚兒的感受",
-          "correct": true
-        },
-        {
-          "text": "(ii) 說明作者寫這種感受的用意",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "第一格概括魚兒的心理；第二格轉到作者層面，解釋這種心理顯示自然或物種有甚麼變化。",
       "hints": [
@@ -516,7 +492,18 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "emotion",
+          "effect"
+        ],
+        "support": [
+          "compare",
+          "theme"
+        ],
+        "note": "兩個分題分別問感受及用意；辨清感受後，還須說明作者這樣寫的作用。"
+      }
     },
     {
       "id": "dse2024-q12",
@@ -605,20 +592,6 @@
         "只重述文章內容",
         "加入自己的經歷"
       ],
-      "requirements": [
-        {
-          "text": "分別判斷兩個文句",
-          "correct": true
-        },
-        {
-          "text": "檢查是否以另一事物作比喻",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
-      ],
       "guidance": "逐句找本體、喻體及連接方式；有細緻描寫不等於必然有比喻。",
       "hints": [
         "第一句描寫魚的牙齒和咬繩行為，有沒有借另一事物來作比？",
@@ -685,7 +658,16 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "technique"
+        ],
+        "support": [
+          "meaning"
+        ],
+        "note": "只需逐句辨識所列的修辭類型；理解句意可輔助判斷，題目沒有要求另寫效果分析。"
+      }
     },
     {
       "id": "dse2024-q13",
@@ -736,24 +718,6 @@
         "指出手法並分析效果",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "(i) 指出手法",
-          "correct": true
-        },
-        {
-          "text": "(ii) 分析乳汁與鮮血的特點",
-          "correct": true
-        },
-        {
-          "text": "(ii) 說明生態改變及表達效果",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "(i) 寫出手法；(ii) 分析乳汁和鮮血的特點，再解釋如何凸顯魚群生境的變化及營造效果。原卷(i)的兩格是答題位置，不另設二字限制。",
       "hints": [
@@ -872,7 +836,20 @@
           ]
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "technique",
+          "effect"
+        ],
+        "support": [
+          "compare",
+          "meaning",
+          "change",
+          "theme"
+        ],
+        "note": "分題分別要求手法及效果；可按所選手法比較、解釋或梳理變化，再連到作用。"
+      }
     },
     {
       "id": "dse2024-q14",
@@ -936,20 +913,6 @@
         "只重述文章內容",
         "加入自己的經歷"
       ],
-      "requirements": [
-        {
-          "text": "認清「並不是」的否定指令",
-          "correct": true
-        },
-        {
-          "text": "綜合河谷歷史理解作者寄意",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
-      ],
       "guidance": "圈出否定指令「並不是」。把文章呈現的矛盾、同情與環境破壞，和選項逐一對照。",
       "hints": [
         "本題要選不符合作者寄意的陳述。",
@@ -1005,7 +968,18 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "theme"
+        ],
+        "support": [
+          "summary",
+          "cause",
+          "change"
+        ],
+        "note": "先認清「並不是」的否定指令，再按全文核對哪項不屬作者要傳達的信息。"
+      }
     },
     {
       "id": "dse2024-q15",
@@ -1049,24 +1023,6 @@
         "分析象徵意義並連繫主旨",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "說明引文不同描述的象徵意義",
-          "correct": true
-        },
-        {
-          "text": "連繫一家人或其他生命的處境",
-          "correct": true
-        },
-        {
-          "text": "說明作者感情或文章主旨",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "把光芒、黑暗、撐開、縫隙及靠攏的描述連起來，說明微弱希望如何支持困境中的生命。",
       "hints": [
@@ -1184,7 +1140,18 @@
           ]
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "symbolism",
+          "theme"
+        ],
+        "support": [
+          "meaning",
+          "effect"
+        ],
+        "note": "象徵分析須由具體描寫推到抽象意義，並連繫文章的思想感情或主旨。"
+      }
     },
     {
       "id": "dse2024-q16",
@@ -1252,20 +1219,6 @@
         "分別指出事物與寓意",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "(i) 根據寓意找出紅色的具體事物",
-          "correct": true
-        },
-        {
-          "text": "(ii) 說明金色向日葵與主旨的關係",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "留意兩個空格問的內容不同：紅色一格填具體事物；金色一格填盛放向日葵的寓意。",
       "hints": [
@@ -1414,7 +1367,17 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "referent",
+          "symbolism"
+        ],
+        "support": [
+          "theme"
+        ],
+        "note": "分清表格要填的是具體事物還是抽象寓意，避免把兩種內容倒置。"
+      }
     },
     {
       "id": "dse2024-q17",
@@ -1459,20 +1422,6 @@
         "以二字概括性格",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "用一個二字詞作答",
-          "correct": true
-        },
-        {
-          "text": "由引文概括母親的性格",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "從挫折後仍繼續種植的態度，選一個準確的二字性格詞。這題不要求另寫長篇分析。",
       "hints": [
@@ -1557,7 +1506,17 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "trait"
+        ],
+        "support": [
+          "emotion",
+          "summary"
+        ],
+        "note": "核心是由言行歸納穩定的性格；感受可作線索，最後仍須按原題字數格式作答。"
+      }
     },
     {
       "id": "dse2024-q18",
@@ -1629,20 +1588,6 @@
         "逐項判斷敍事手法",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "綜合全文的敍事方式",
-          "correct": true
-        },
-        {
-          "text": "分別判斷兩項手法",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "區分先後敍述與層層深化；再辨認具體生活描寫和想像場景是否交替出現。",
       "hints": [
@@ -1721,7 +1666,19 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "technique",
+          "structure"
+        ],
+        "support": [
+          "summary",
+          "compare",
+          "change"
+        ],
+        "note": "須綜合全文核對敍事手法及內容組織；局部出現某種寫法，不代表它是全文的敍事方式。"
+      }
     },
     {
       "id": "dse2024-q19",
@@ -1794,20 +1751,6 @@
         "只重述文章內容",
         "加入自己的經歷"
       ],
-      "requirements": [
-        {
-          "text": "分別判斷兩項寄意",
-          "correct": true
-        },
-        {
-          "text": "把篇名與文章的荒涼及期盼連繫",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
-      ],
       "guidance": "篇名可以同時有多重寄意。分別找出荒涼枯萎的實況，以及仍懷希望的態度。",
       "hints": [
         "不要假設兩個判斷一定一是、一否。",
@@ -1874,7 +1817,18 @@
           "bands": []
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "title"
+        ],
+        "support": [
+          "symbolism",
+          "theme",
+          "compare"
+        ],
+        "note": "核心是判斷篇名的作用與寄意；可用主旨、象徵及對照協助核對陳述。"
+      }
     },
     {
       "id": "dse2024-q20",
@@ -1918,24 +1872,6 @@
         "說明作用並連繫感情或主旨",
         "只重述文章內容",
         "加入自己的經歷"
-      ],
-      "requirements": [
-        {
-          "text": "指出百年前那個人的特點",
-          "correct": true
-        },
-        {
-          "text": "連繫作者的共同經歷或感受",
-          "correct": true
-        },
-        {
-          "text": "說明重現的作用、感情或主旨",
-          "correct": true
-        },
-        {
-          "text": "只寫與題目無關的個人意見",
-          "correct": false
-        }
       ],
       "guidance": "從那個人的特點和作者的共同處境入手，說明想像他的重現如何表達感情或深化主旨。不要停留在手法名稱。",
       "hints": [
@@ -2056,7 +1992,19 @@
           ]
         }
       ],
-      "examples": []
+      "examples": [],
+      "taskPlan": {
+        "required": [
+          "effect"
+        ],
+        "support": [
+          "trait",
+          "compare",
+          "theme",
+          "structure"
+        ],
+        "note": "題幹問末段這樣寫的作用；人物特點、前後連繫及思想感情可支持分析，不是每種方法都須另寫一段。"
+      }
     }
   ],
   "verification": {

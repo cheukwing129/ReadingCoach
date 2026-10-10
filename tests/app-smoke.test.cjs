@@ -135,3 +135,44 @@ test('worked answers and loss diagnosis stay gated during practice until a compl
   await h.click({step:'3'});await h.click({action:'review-source'});assert.match(h.main.innerHTML,/文件失分例診斷/);assert.match(h.main.innerHTML,/可能怎樣想到/);
   await h.click({action:'add-coach-evidence',index:'0'});assert.ok(h.state().drafts['dse2024-q11'].evidence.length);
 });
+
+test('all built-in task screens expose the same full set of generic processing principles',()=>{
+  const h=harness(),ids=['lamp-purpose','lamp-inference','lamp-comparison','seed-purpose','seed-inference','seed-comparison','pace-purpose','pace-inference','pace-comparison',...Array.from({length:12},(_,i)=>'dse2024-q'+(i+9))];
+  let first;
+  for(const id of ids){
+    h.navigate('#practice/'+id);
+    const methods=[...h.main.innerHTML.matchAll(/name="requirement" value="([^"]+)"[^>]*><span>([^<]+)<\/span>/g)].map(m=>[m[1],m[2]]);
+    assert.equal(methods.length,16,id);if(!first)first=methods;else assert.deepEqual(methods,first,id);
+    assert.doesNotMatch(h.main.innerHTML,/只寫與題目無關的個人意見/);
+  }
+});
+
+test('task check feedback handles missing work, accepts supporting methods, and persists stable choices',async()=>{
+  const h=harness();h.navigate('#practice/dse2024-q11');
+  await h.change({name:'directive',value:'分別指出感受與用意',dataset:{}});
+  const choose=(value,checked=true)=>h.change({name:'requirement',value,checked,dataset:{}});
+  await choose('emotion');await h.click({action:'check-task'});
+  assert.match(h.node('task-feedback').innerHTML,/材料安排的作用（尚未勾選）/);
+  await choose('effect');await choose('compare');await h.click({action:'check-task'});
+  assert.match(h.node('task-feedback').innerHTML,/拆題準確/);assert.match(h.node('task-feedback').innerHTML,/可輔助本題思考/);
+  await choose('title');await h.click({action:'check-task'});
+  assert.match(h.node('task-feedback').innerHTML,/本題沒有要求處理/);assert.match(h.node('task-feedback').innerHTML,/篇名的含義/);
+  await choose('title',false);assert.equal(h.node('task-feedback').innerHTML,'');
+  await choose('invalid');assert.deepEqual(h.state().drafts['dse2024-q11'].requirements,['emotion','effect','compare']);
+  const restored=harness(JSON.stringify(h.state()));restored.navigate('#practice/dse2024-q11');
+  for(const id of ['emotion','effect','compare'])assert.ok(restored.main.innerHTML.includes('value="'+id+'" checked'));
+  await restored.click({action:'check-task'});assert.match(restored.node('task-feedback').innerHTML,/拆題準確/);
+});
+
+test('new teacher exercises configure required and supporting methods from the shared catalogue',async()=>{
+  const h=harness();h.navigate('#teacher');await h.click({action:'new-question'});
+  assert.match(h.node('editor-container').innerHTML,/taskPlanVersion/);assert.doesNotMatch(h.node('editor-container').innerHTML,/name="distractor"/);
+  const values={passage:'new',articleTitle:'態度',articleText:'他起初不停催促。\n\n後來他耐心等候。',title:'前後態度',type:'inference',prompt:'他的態度有甚麼轉變？',scope:'全文',taskPlanVersion:'principles-v1','task-change':'required','task-emotion':'support',taskNote:'兼顧前後態度。',rubric:'原來｜催促\n後來｜耐心',fullExample:'由催促轉為耐心。',fullNote:'兼顧前後。'};
+  await h.submit({...values,'task-change':'none'});assert.equal(h.state().bank.questions.length,0);assert.match(h.node('teacher-errors').textContent,/至少一項/);
+  await h.submit(values);const q=h.state().bank.questions[0];assert.deepEqual(q.taskPlan,{required:['change'],support:['emotion'],note:'兼顧前後態度。'});assert.equal(q.requirements,undefined);
+  h.navigate('#practice/'+q.id);assert.equal((h.main.innerHTML.match(/name="requirement"/g)||[]).length,16);
+  await h.change({name:'directive',value:'推論並說明',dataset:{}});
+  for(const value of ['change','emotion'])await h.change({name:'requirement',value,checked:true,dataset:{}});
+  await h.click({action:'check-task'});assert.match(h.node('task-feedback').innerHTML,/拆題準確/);
+  h.navigate('#teacher');await h.click({action:'edit-question',id:q.id});assert.match(h.main.innerHTML,/name="task-change"[^]*?value="required" selected/);
+});
