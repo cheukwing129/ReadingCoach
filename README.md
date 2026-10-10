@@ -1,5 +1,7 @@
 # 閱讀理解答題教練 ReadingCoach
 
+正式網站：[閱讀理解答題教練](https://readingcoach.pages.dev/#home)
+
 香港高中中文閱讀理解的分步練習工具。內置 **2024 DSE 李娟《繁盛》真題練習：15段原文、第9–20題、12題共35分**，並保留 **3組原創材料、9道練習**；第三組原創材料為甲乙雙篇。
 
 首頁選「開始《繁盛》練習」，或在網址後加入 `#exercise/dse2024-fansheng` 查看整份練習。真題資料及答案依使用者提供的Google Drive文件，核對記錄見 [來源說明](docs/2024-fansheng-sources.md)。
