@@ -1,8 +1,8 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const C=require('../dist/self-study-core.js');const root=path.resolve(__dirname,'..');
-function load(){const c={window:{}};vm.createContext(c);for(const f of ['dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','self-study-data.js'])vm.runInContext(fs.readFileSync(path.join(root,'dist',f),'utf8'),c);return JSON.parse(JSON.stringify(c.window));}
+function load(){const c={window:{}};vm.createContext(c);for(const f of ['dse2022-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','self-study-data.js'])vm.runInContext(fs.readFileSync(path.join(root,'dist',f),'utf8'),c);return JSON.parse(JSON.stringify(c.window));}
 const w=load(),D=w.SelfStudyData,S=w.SELF_STUDY_SAMPLES,q=id=>D.questions.find(q=>q.id===id);
-test('four verified articles retain the original paragraph numbers and exact source text',()=>{assert.equal(D.articles.length,4);assert.equal(D.questions.length,18);const sources=[...w.COACH_EXAM_DATA.passages,...w.COACH_TRANSFER_DATA.passages];for(const p of D.articles){assert.deepEqual(p.paragraphs.map(x=>x.number),p.id==='dse2024-fansheng'?[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]:[1,2,3,4,5,6,7,8,9,10]);assert.deepEqual(p.paragraphs.map(x=>x.text),sources.find(x=>x.id===p.id).paragraphs);}assert.equal(D.articles.find(x=>x.id==='dse2025-alley').paragraphs[8].text.split('\n').length,7);});
+test('six verified articles retain the original paragraph numbers and exact source text',()=>{assert.equal(D.articles.length,6);assert.equal(D.questions.length,29);const sources=[...w.COACH_DSE2022_DATA.passages,...w.COACH_EXAM_DATA.passages,...w.COACH_TRANSFER_DATA.passages];for(const p of D.articles){assert.deepEqual(p.paragraphs.map(x=>x.number),sources.find(x=>x.id===p.id).paragraphs.map((_,i)=>i+1));assert.deepEqual(p.paragraphs.map(x=>x.text),sources.find(x=>x.id===p.id).paragraphs);}assert.equal(D.articles.find(x=>x.id==='dse2025-alley').paragraphs[8].text.split('\n').length,7);});
 test('every real question has classification, non-answer hints, relevant paragraph locations and transferable methods',()=>{for(const x of D.questions){const l=x.lesson;assert.ok(l.choices.includes(l.type),x.id);assert.equal(new Set(l.choices).size,l.choices.length);assert.ok(l.choices.every(t=>D.types[t]));assert.ok(l.prompts.length>=2);assert.ok(l.transfer.length>=2);assert.ok(l.review.length);assert.ok(l.locate.every(n=>D.articles.find(p=>p.id===x.exerciseId).paragraphs.some(a=>a.number===n)));}assert.doesNotMatch(q('dse2024-q15').lesson.prompts.join(''),/象徵希望|頑強|困頓|勇氣|決心/);assert.match(D.types.technique.note,/本體與喻體/);assert.match(D.types.quote.note,/所有關鍵元素/);});
 test('every written part has at least four examples; long answers span the actual 0–4 bands',()=>{for(const x of D.questions)for(const p of x.answerParts.filter(p=>p.kind!=='choice')){const items=C.samples(x,p,C.draft(),S);assert.ok(items.length>=4,x.id+'/'+p.key);assert.ok(items.every(s=>C.validScore(s.score,p.marks)&&s.analysis.length>10),x.id+'/'+p.key);assert.equal(new Set(items.map(s=>C.normalize(s.text))).size,items.length);if(p.marks===4)assert.deepEqual(items.map(s=>s.score).sort(),[0,1,2,3,4]);}});
 test('short own answer merges once with a selected exemplar and preserves its known score',()=>{const x=q('dse2024-q17'),p=x.answerParts[0],d=C.draft(),sample=C.samples(x,p,d,S).find(s=>s.score===2);d.answers.answer=' '+sample.text+'。 ';const items=C.samples(x,p,d,S);assert.equal(items.filter(s=>C.normalize(s.text)===C.normalize(sample.text)).length,1);assert.equal(items.find(s=>s.own).score,2);assert.equal(items.find(s=>s.own).merged,true);});
@@ -17,15 +17,15 @@ test('restore ignores foreign questions and bounds persisted values',()=>{const 
 test('next-question navigation stays within the same year and article, including the final question',()=>{for(const x of D.questions){const next=C.nextQuestion(D,x);if(next){assert.equal(next.exerciseId,x.exerciseId);assert.equal(next.year,x.year);assert.ok(next.number>x.number);}else{const qs=D.questions.filter(z=>z.exerciseId===x.exerciseId);assert.equal(x.number,Math.max(...qs.map(z=>z.number)));}}assert.equal(C.nextQuestion(D,q('dse2025-q13')),null);});
 test('choice results use actual correct options and remain separate from self-assessed marks',()=>{const x=q('dse2024-q12'),d=C.draft();d.answers={i:'D',ii:'A'};assert.deepEqual(C.choiceResult(x,d).map(r=>r.score),[1,1]);d.answers.ii='D';assert.deepEqual(C.choiceResult(x,d).map(r=>r.score),[1,0]);assert.deepEqual(C.gradingItems(x,d,S),[]);});
 test('retired teacher/export/source UI is not loaded by either public entry',()=>{for(const f of ['index.html','dist/index.html']){const html=fs.readFileSync(path.join(root,f),'utf8');assert.doesNotMatch(html,/academy-|dist\/app\.js|src="app\.js|dist\/data\.js|src="data\.js|真題管理|教師|匯出|來源|出處/);}assert.equal(C.escapeHTML('<script>"&'), '&lt;script&gt;&quot;&amp;');});
-test('all 45 long graded exemplars have an internal file-and-page audit and concrete score analyses',()=>{const audit=JSON.parse(fs.readFileSync(path.join(root,'docs/self-study-sample-audit.json')));const cases=Object.values(S).flatMap(parts=>Object.values(parts).flat());assert.equal(cases.length,45);for(const s of cases){const row=audit.samples.find(a=>a.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,require('node:crypto').createHash('sha256').update(s.text).digest('hex'));assert.ok(s.analysis.includes(s.score+'分'));}});
-test('all 45 original paragraphs have one distinct four-part reading analysis',()=>{
- let total=0;for(const p of D.articles){const rows=w.SelfStudyAnalysis[p.id];assert.deepEqual(rows.map(a=>a.number),p.paragraphs.map(a=>a.number));assert.equal(new Set(rows.map(a=>a.number)).size,rows.length);for(const a of rows)for(const key of ['summary','technique','meaning','structure'])assert.ok(typeof a[key]==='string'&&a[key].length>=15,p.id+'/'+a.number+'/'+key);total+=rows.length;}assert.equal(total,45);
+test('all 64 long graded exemplars have an internal file-and-page audit and concrete score analyses',()=>{const audit=JSON.parse(fs.readFileSync(path.join(root,'docs/self-study-sample-audit.json')));const cases=Object.values(S).flatMap(parts=>Object.values(parts).flat());assert.equal(cases.length,64);for(const s of cases){const row=audit.samples.find(a=>a.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,require('node:crypto').createHash('sha256').update(s.text).digest('hex'));assert.ok(s.analysis.includes(s.score+'分'));}});
+test('all 55 original paragraphs have one distinct four-part reading analysis',()=>{
+ let total=0;for(const p of D.articles){const rows=w.SelfStudyAnalysis[p.id];assert.deepEqual(rows.map(a=>a.number),p.paragraphs.map(a=>a.number));assert.equal(new Set(rows.map(a=>a.number)).size,rows.length);for(const a of rows)for(const key of ['summary','technique','meaning','structure'])assert.ok(typeof a[key]==='string'&&a[key].length>=15,p.id+'/'+a.number+'/'+key);total+=rows.length;}assert.equal(total,55);
  assert.match(w.SelfStudyAnalysis['dse2025-alley'][8].technique,/七行.*同一原文段落/);
  assert.match(w.SelfStudyAnalysis['dse2024-fansheng'][10].meaning,/撐開.*小小/);
  assert.match(w.SelfStudyAnalysis['dse2026-voice'][5].meaning,/預想/);
 });
 test('every classification option has its own concrete identifying feature',()=>{
- const features=Object.values(D.types).map(t=>t.feature);assert.equal(features.length,14);assert.equal(new Set(features).size,14);for(const x of D.questions)for(const type of x.lesson.choices)assert.ok(D.types[type].feature.length>=20);assert.match(D.types.summary.feature,/中心内容|中心內容/);assert.match(D.types.segmentation.feature,/劃分/);assert.match(D.types.technique.feature,/手法/);
+ const features=Object.values(D.types).map(t=>t.feature);assert.equal(features.length,18);assert.equal(new Set(features).size,18);for(const x of D.questions)for(const type of x.lesson.choices)assert.ok(D.types[type].feature.length>=20);assert.match(D.types.summary.feature,/中心内容|中心內容/);assert.match(D.types.segmentation.feature,/劃分/);assert.match(D.types.technique.feature,/手法/);
 });
 test('auto-location reads paragraph numbers in prompts, quotes, table cells and subquestions',()=>{
  const p=D.articles.find(p=>p.id==='dse2024-fansheng');
@@ -41,4 +41,34 @@ test('paragraph references support ranges, Chinese numbers and valid fallback wi
 test('revealed analyses can complete without any sample-read confirmations',()=>{
  const d=C.draft();assert.equal(C.canComplete(d),false);d.revealed=true;assert.deepEqual(d.reviewed,[]);assert.equal(C.canComplete(d),true);C.updateAnswer(d,'answer','修改');assert.equal(C.canComplete(d),false);
  const app=fs.readFileSync(path.join(root,'dist/self-study-app.js'),'utf8');assert.doesNotMatch(app,/data-reviewed|我明白這份答案的評閱重點|勾選你已明白/);
+});
+test('2022 contains exactly the two vernacular passages and all original questions 7–17, totaling 41 marks',()=>{
+ const articles=D.articles.filter(a=>a.year===2022),questions=D.questions.filter(q=>q.year===2022);
+ assert.deepEqual(articles.map(a=>[a.title,a.author,a.paragraphs.length]),[['一個人和三個人稱','周國平',4],['每個人都是一個宇宙','周國平',6]]);
+ assert.deepEqual(questions.map(q=>q.number),[7,8,9,10,11,12,13,14,15,16,17]);assert.equal(questions.reduce((n,q)=>n+q.marks,0),41);
+ assert.deepEqual(questions.map(q=>q.marks),[6,2,4,4,3,4,4,4,2,4,4]);assert.equal(articles[1].paragraphs[3].text.split('\n\n')[1].split('\n').length,15);
+ assert.match(articles[1].paragraphs[3].text,/朋友，親戚，時日/);assert.match(articles[0].paragraphs[2].text,/他們只是在依據/);assert.match(articles[1].paragraphs[2].text,/你誠然不能脫離社會/);
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2022-source-manifest.json')));for(const a of articles)for(const p of a.paragraphs)assert.equal(require('node:crypto').createHash('sha256').update(p.text).digest('hex'),manifest.paragraphHashes[a.id].find(x=>x.number===p.number).textSha256);
+});
+test('2022 short-answer marks retain concept distinctions, noun requirements and four-character format',()=>{
+ const seven=q('dse2022-q7'),twelve=q('dse2022-q12');
+ for(const [key,text,score]of [['i','社會的標準',2],['i','別人眼中的自己',1],['i','社會外在因素',0],['ii','既主觀又客觀',1],['iii','人生的方向',0]])assert.equal(C.pool(seven,seven.answerParts.find(p=>p.key===key),S).find(s=>s.text===text).score,score);
+ assert.equal(C.pool(twelve,twelve.answerParts[0],S).find(s=>s.text==='應珍惜獨立自主的人格').score,1);
+ assert.equal(C.pool(twelve,twelve.answerParts[1],S).find(s=>s.text==='精神崩潰的人').score,1);
+ const eight=q('dse2022-q8'),d=C.draft(),p=eight.answerParts[0];d.answers.i='自以為是';assert.equal(C.samples(eight,p,d,S).filter(s=>s.own).length,1);assert.equal(C.samples(eight,p,d,S).find(s=>s.own).score,1);
+ d.answers.i='十分自我中心';assert.equal(C.samples(eight,p,d,S).find(s=>s.own).score,0);assert.match(C.samples(eight,p,d,S).find(s=>s.own).analysis,/四個字/);
+ d.answers.i='自負自傲';assert.equal(C.samples(eight,p,d,S).find(s=>s.own).score,null);
+});
+test('2022 objective questions use the real keys and give a reason for every option',()=>{
+ for(const [id,answers]of [['dse2022-q9',['錯誤','正確']],['dse2022-q13',['錯誤','正確']],['dse2022-q15',['A']],['dse2022-q16',['暗喻','暗喻','三者皆非','借喻']]]){
+  const x=q(id);assert.deepEqual(x.answerParts.map(p=>p.answer),answers);for(const p of x.answerParts)for(const o of p.choices){const rows=x.optionAnalysis.filter(r=>r.part===p.key&&r.value===o.value);assert.equal(rows.length,1);assert.ok(rows[0].reason.length>=20);}
+ }
+ assert.deepEqual(S['dse2022-q11'].answer.map(s=>s.score),[3,2,1,0]);
+ assert.match(q('dse2022-q10').official[0].criteria.join(''),/完全沒提及不足，最高2分/);assert.match(q('dse2022-q17').official[0].criteria.join(''),/質量互補/);
+});
+test('cross-passage question 17 has explicit same-year reading targets without mixing equal paragraph numbers',()=>{
+ const x=q('dse2022-q17'),first=D.articles.find(p=>p.id==='dse2022-pronouns'),second=D.articles.find(p=>p.id==='dse2022-universe');
+ assert.equal(x.exerciseId,second.id);assert.equal(x.readingArticleId,first.id);assert.deepEqual(C.questionParagraphs(x,first),[4,2,3]);assert.deepEqual(C.questionParagraphs(x,second),[6]);
+ for(const id of Object.keys(x.readingReferences))assert.equal(D.articles.find(p=>p.id===id).year,x.year);
+ assert.equal(C.nextQuestion(D,x),null);
 });

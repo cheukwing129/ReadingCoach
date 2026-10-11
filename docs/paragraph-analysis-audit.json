@@ -3,6 +3,65 @@
   "basis": "基於已核對原文、真題及評分資料整理教學分析，並非官方逐段分析原文。公開頁面不顯示本核對表。",
   "articles": [
     {
+      "id": "dse2022-pronouns",
+      "fileId": "1667V7JX_aVlTDHxChMKs1Fsy9qWmi4NA",
+      "readingMaterialPages": [
+        2
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "0a631bfa8c4209aed019d7e0a3dffe75f90a89756afaa0e034bd45551225d0d3"
+        },
+        {
+          "number": 2,
+          "textSha256": "a53033fbdb0afd52cc226458751ed4ce1ed26183d562c4c5934a989556b160e9"
+        },
+        {
+          "number": 3,
+          "textSha256": "c3eea8e8ac155b37ea3568e1cfa362e302aed9cb0941c1d6a831e8984ba1824c"
+        },
+        {
+          "number": 4,
+          "textSha256": "a763394d25ee6b074899f8647a4a393746eb5fb9a2c3124fbbddba049c8bae86"
+        }
+      ]
+    },
+    {
+      "id": "dse2022-universe",
+      "fileId": "1667V7JX_aVlTDHxChMKs1Fsy9qWmi4NA",
+      "readingMaterialPages": [
+        2,
+        3
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "bdb17429d4d381d199cc1137440fd1d3720427965324414e7a014eae16003761"
+        },
+        {
+          "number": 2,
+          "textSha256": "a2ff522b3837da30a797cbf9d12248da1e7ee2d838e352fda893f5ff0b9096c2"
+        },
+        {
+          "number": 3,
+          "textSha256": "5f4a08a606ecd1da95bcc185c0324ec6e85e78a9949f74fca0fdc19c72044d23"
+        },
+        {
+          "number": 4,
+          "textSha256": "90a53503a86fbe60a6ca54bc6572917880233b6558787cd6683f8af5ae970e14"
+        },
+        {
+          "number": 5,
+          "textSha256": "ffe403ebd9dd3d9928d57eec17f32b1aa21e66bcd4baca192bec02a0455c5b64"
+        },
+        {
+          "number": 6,
+          "textSha256": "5a6764ce690421ed641a27f126a9d4eb48b5fe6266645e1f0dc13ae455f238d9"
+        }
+      ]
+    },
+    {
       "id": "dse2024-fansheng",
       "fileId": "1r1QGJSpKrpuvDAEnkwnfeJHvZLZRyb-L",
       "readingMaterialPages": [

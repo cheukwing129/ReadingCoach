@@ -65,4 +65,9 @@
 }
 
 .lesson-layout,.reader-content{overflow-anchor:none}.reader-content{overscroll-behavior:contain}
+.reading-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.reading-selector button{border:1px solid var(--line);border-radius:7px;background:var(--white);padding:10px 12px;font-size:12px;min-height:48px;text-align:left;overflow-wrap:anywhere}
+.reading-selector button[aria-pressed=true]{background:var(--green-pale);border-color:var(--green);color:var(--green);font-weight:600}
+.lesson-layout.is-split .reader-panel:has(.reading-selector) .reader-content{max-height:calc(100dvh - 280px)}
+.lesson-layout.is-tabs .reader-panel:has(.reading-selector) .reader-content{max-height:calc(100dvh - 320px)}
 body.studying{overflow-anchor:none}

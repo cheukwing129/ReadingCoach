@@ -28,9 +28,9 @@ function shortPool(q,p){
   'dse2024-q16:ii':'將金色盛放的葵花連到生命或生活的寓意，沒有把願望當成已全面實現。',
   'dse2024-q17:answer':'是準確概括母親遭遇挫折後不放棄或對來年仍抱希望的二字性格詞。'
  };
- for(const a of o.answers||[])for(const text of a.split('／'))add(text,p.marks,correct[q.id+':'+p.key]||'答案的概括與題目所問內容相符。');
+ for(const a of o.answers||[])for(const text of a.split('／'))add(text,p.marks,o.correctAnalysis||correct[q.id+':'+p.key]||'答案的概括與題目所問內容相符。');
  const notes=q.caseNotes||{};
- for(const e of o.examples||[]){const note=notes[e.text];for(const text of e.text.split('／'))add(text,e.score,note?cleanAnalysis(note):e.score===0?'理解或概括與指定文意不合。':'方向相關，但概念或用詞未足夠準確。');}
+ for(const e of o.examples||[]){const note=notes[e.text];for(const text of e.text.split('／'))add(text,e.score,e.analysis||(note?cleanAnalysis(note):e.score===0?'理解或概括與指定文意不合。':'方向相關，但概念或用詞未足夠準確。'));}
  if(q.id==='dse2024-q13'&&p.key==='i')for(const text of ['暗喻','借喻','正襯','象徵','層遞','誇張','擬人','對偶'])add(text,0,'本引文未構成這種手法。須對照「乳汁」「鮮血」的形象及前後關係辨識，不能只憑名稱猜測。');
  return pool;
 }
@@ -52,7 +52,7 @@ function samples(q,p,d,sourceSamples){
  const extras=p.marks===2?[...all].sort((a,b)=>(a.score===1?0:a.score===0?1:2)-(b.score===1?0:b.score===0?1:2)):all;
  for(const s of extras)if(chosen.length<4&&!chosen.some(c=>c.id===s.id))chosen.push({...s});
  const own=String(d.answers[p.key]||'').trim();
- if(own){const match=all.find(s=>normalize(s.text)===normalize(own));const same=chosen.find(s=>normalize(s.text)===normalize(own));if(same){same.own=true;same.merged=true;same.text=own;}else if(match){chosen.push({...match,text:own,own:true,merged:true});}else{const formatScore=p.exactChars&&Array.from(normalize(own)).length!==p.exactChars?0:null;chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatScore,outOf:p.marks,key:p.key,own:true,analysis:formatScore===0?'答案不符合原題的兩字詞格式要求。':'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。'});}}
+ if(own){const match=all.find(s=>normalize(s.text)===normalize(own));const same=chosen.find(s=>normalize(s.text)===normalize(own));if(same){same.own=true;same.merged=true;same.text=own;}else if(match){chosen.push({...match,text:own,own:true,merged:true});}else{const formatScore=p.exactChars&&Array.from(normalize(own)).length!==p.exactChars?0:null;chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatScore,outOf:p.marks,key:p.key,own:true,analysis:formatScore===0?'答案不符合原題的'+(p.exactChars===2?'兩字詞':p.exactChars===4?'四個字':p.exactChars+'字')+'格式要求。':'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。'});}}
  return shuffled(chosen,q.id+'-'+p.key);
 }
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}
@@ -61,6 +61,7 @@ function gradingResult(items,d){return{correct:items.filter(s=>s.score!==null&&d
 function choiceResult(q,d){return q.answerParts.filter(p=>p.kind==='choice').map(p=>({key:p.key,chosen:d.answers[p.key]||'',correct:p.answer,score:d.answers[p.key]===p.answer?p.marks:0,outOf:p.marks}));}
 function nextQuestion(data,q){const items=data.questions.filter(x=>x.exerciseId===q.exerciseId).sort((a,b)=>a.number-b.number),i=items.findIndex(x=>x.id===q.id);return items[i+1]||null;}
 function questionParagraphs(q,article){
+ if(q.readingReferences?.[article.id])return q.readingReferences[article.id].filter(n=>article.paragraphs.some(p=>p.number===n));
  const text=[q.prompt,q.quote,...(q.answerParts||[]).map(p=>p.label),...(q.table?.headers||[]),...(q.table?.rows||[]).flat()].filter(Boolean).join('\n');
  const valid=new Set(article.paragraphs.map(p=>p.number)),found=[];
  const add=n=>{if(valid.has(n)&&!found.includes(n))found.push(n);};

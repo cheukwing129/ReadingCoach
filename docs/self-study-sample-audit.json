@@ -345,6 +345,158 @@
       "score": 0,
       "textVerified": true,
       "textSha256": "673fa01a8cf669f3868187b561b46116714952babe09d3570237927071d9e904"
+    },
+    {
+      "id": "dse2022-q10-answer-s1",
+      "file": "ms2022ii",
+      "page": 7,
+      "index": 1,
+      "score": 4,
+      "textSha256": "28dc22f5aba3ea4c8ac0b4c9cf56d7ed6e46e0a4274b53f35788d06877ca7a74"
+    },
+    {
+      "id": "dse2022-q10-answer-s3",
+      "file": "ms2022ii",
+      "page": 7,
+      "index": 3,
+      "score": 3,
+      "textSha256": "67ee64d9bf146f1c12417490874016e06867c4d90eb1e268d60b85ca1e764fb2"
+    },
+    {
+      "id": "dse2022-q10-answer-s5",
+      "file": "ms2022ii",
+      "page": 8,
+      "index": 5,
+      "score": 2,
+      "textSha256": "ebeacb0754325e3888dffd66b2015c55275f79417a947ff71b462c7076e3f5cd"
+    },
+    {
+      "id": "dse2022-q10-answer-s7",
+      "file": "ms2022ii",
+      "page": 8,
+      "index": 7,
+      "score": 1,
+      "textSha256": "c9f2e57a33aace4a05f717d985dd7fb349b1b5391134d0ccec3e39bcb754663f"
+    },
+    {
+      "id": "dse2022-q10-answer-s9",
+      "file": "ms2022ii",
+      "page": 9,
+      "index": 9,
+      "score": 0,
+      "textSha256": "2909e01207d4ba05cfde3956b4d91cdddcb6e21074b25b65b4112a6a481cca74"
+    },
+    {
+      "id": "dse2022-q11-answer-s3",
+      "file": "ms2022iii",
+      "page": 5,
+      "index": 3,
+      "score": 3,
+      "textSha256": "9be05b3d0bf09218f2d3d86ccd396b3df763ee76dc08b3d01b4ce7f71a8b8915"
+    },
+    {
+      "id": "dse2022-q11-answer-s5",
+      "file": "ms2022iii",
+      "page": 5,
+      "index": 5,
+      "score": 2,
+      "textSha256": "6f36274615c64ca63d0471b989df1e4a1e0876a64ab10aaaf2a6ac5f3941714a"
+    },
+    {
+      "id": "dse2022-q11-answer-s6",
+      "file": "ms2022iii",
+      "page": 6,
+      "index": 6,
+      "score": 1,
+      "textSha256": "d2817856f635e37377a842ebb543507f02c7dd0d60810a9f019e0f2e3ad03f0f"
+    },
+    {
+      "id": "dse2022-q11-answer-s11",
+      "file": "ms2022iii",
+      "page": 6,
+      "index": 11,
+      "score": 0,
+      "textSha256": "c435fe29bbfb0a424e21a947d810bd2809ad42191177c0832a6b6ce8c20c8621"
+    },
+    {
+      "id": "dse2022-q14-answer-s1",
+      "file": "ms2022ii",
+      "page": 11,
+      "index": 1,
+      "score": 4,
+      "textSha256": "489f81ad06985b94ca887912d45248ca8f6a2de0dd658425bfe63e8512191130"
+    },
+    {
+      "id": "dse2022-q14-answer-s3",
+      "file": "ms2022ii",
+      "page": 12,
+      "index": 3,
+      "score": 3,
+      "textSha256": "7c17fc43afa28ac1bc251ac3fc18a7f3b9afccd2380133695ff0212237d12e7f"
+    },
+    {
+      "id": "dse2022-q14-answer-s8",
+      "file": "ms2022ii",
+      "page": 13,
+      "index": 8,
+      "score": 2,
+      "textSha256": "0de449555640be3d12e6ea30c31300c1269d94424ade9ffd050cc8834dab571b"
+    },
+    {
+      "id": "dse2022-q14-answer-s9",
+      "file": "ms2022ii",
+      "page": 13,
+      "index": 9,
+      "score": 1,
+      "textSha256": "e666bd59b1d6af81a2969819ed2c3e4f5dcf903696d3d718bfce1642afc91649"
+    },
+    {
+      "id": "dse2022-q14-answer-s12",
+      "file": "ms2022ii",
+      "page": 13,
+      "index": 12,
+      "score": 0,
+      "textSha256": "5de42ca325b1b4cd43eb2e5d89230d0fea702eb24c08eaf55ef904ed23745998"
+    },
+    {
+      "id": "dse2022-q17-answer-s3",
+      "file": "ms2022iii",
+      "page": 11,
+      "index": 3,
+      "score": 4,
+      "textSha256": "42557ab2a4ae618eb48eb0e757a1e06c50372371074abe58bd46c2e408240278"
+    },
+    {
+      "id": "dse2022-q17-answer-s5",
+      "file": "ms2022iii",
+      "page": 11,
+      "index": 5,
+      "score": 3,
+      "textSha256": "3b4dbd6bf48080e2aa8de21ae930c09c62a3ad21ea6d8c280af8ab1e8771c9a7"
+    },
+    {
+      "id": "dse2022-q17-answer-s7",
+      "file": "ms2022iii",
+      "page": 12,
+      "index": 7,
+      "score": 2,
+      "textSha256": "0cf41de30b393a666091a0405733d50e3e52ed888f40f0e21bc826d936f5bd05"
+    },
+    {
+      "id": "dse2022-q17-answer-s12",
+      "file": "ms2022iii",
+      "page": 13,
+      "index": 12,
+      "score": 1,
+      "textSha256": "30561ea8aad3003df1d44eaf473b164a85dc36dbb8e4e8e7ef49b071994aeb27"
+    },
+    {
+      "id": "dse2022-q17-answer-s13",
+      "file": "ms2022iii",
+      "page": 13,
+      "index": 13,
+      "score": 0,
+      "textSha256": "bf5e7a936122104412301cd47e4c6019a9370cc35595a980a713341eb4b3e091"
     }
   ],
   "resources": {
