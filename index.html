@@ -3,35 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#244e3c">
+  <meta name="theme-color" content="#2b6c6a">
   <meta name="description" content="按年份與文章逐題自學DSE白話文閱讀：辨認題型、找線索、作答、評分示例，再把方法帶到其他文章。">
   <title>閱讀答題教練</title>
-  <link rel="stylesheet" href="dist/self-study.css?v=20261012-dse2020">
-  <script defer src="dist/dse2020-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/dse2021-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/dse2022-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/dse2023-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/dse2024-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/dse2024-coaching.js?v=20261012-dse2020"></script>
-  <script defer src="dist/transfer-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/self-study-samples.js?v=20261012-dse2020"></script>
-  <script defer src="dist/self-study-analysis.js?v=20261012-dse2020"></script>
-  <script defer src="dist/self-study-data.js?v=20261012-dse2020"></script>
-  <script defer src="dist/self-study-core.js?v=20261012-dse2020"></script>
-  <script defer src="dist/self-study-app.js?v=20261012-dse2020"></script>
+  <link rel="stylesheet" href="dist/vendor/lumen.css?v=20261012-lumen-v1">
+  <link rel="stylesheet" href="dist/self-study.css?v=20261012-lumen-v1">
+  <link rel="stylesheet" href="dist/lumen-theme.css?v=20261012-lumen-v1">
+  <script defer src="dist/vendor/lumen-elements.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/dse2020-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/dse2021-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/dse2022-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/dse2023-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/dse2024-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/dse2024-coaching.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/transfer-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/self-study-samples.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/self-study-analysis.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/self-study-data.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/self-study-core.js?v=20261012-lumen-v1"></script>
+  <script defer src="dist/self-study-app.js?v=20261012-lumen-v1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳至主要內容</a>
-  <header class="site-header">
+  <aside class="site-sidebar" aria-label="網站導覽">
     <a class="brand" href="#home" aria-label="閱讀答題教練・年份目錄">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#244e3c"/><path d="M8 9h6c2 0 3 1 3 3v14c0-2-1-3-3-3H8V9zm18 0h-6c-2 0-3 1-3 3v14c0-2 1-3 3-3h6V9z" fill="none" stroke="#f7f5ef" stroke-width="1.5"/></svg>
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#2b6c6a"/><path d="M8 9h6c2 0 3 1 3 3v14c0-2-1-3-3-3H8V9zm18 0h-6c-2 0-3 1-3 3v14c0-2 1-3 3-3h6V9z" fill="none" stroke="#f7f5ef" stroke-width="1.5"/></svg>
       <span>閱讀答題教練<small>READ · THINK · TRANSFER</small></span>
     </a>
-    <nav aria-label="主要導覽"><a href="#home">年份目錄</a><span class="header-label">學生自主學習</span></nav>
+    <p class="sidebar-label">我的閱讀</p>
+    <nav id="context-nav" aria-label="篇章與題目"><a href="#home">篇章目錄</a></nav>
+    <p class="sidebar-label year-label">DSE 年份</p>
+    <nav id="sidebar-years" aria-label="年份"></nav>
+    <div class="sidebar-edition"><span>READ · THINK</span><strong>閱讀教練</strong><small>從文字出發。</small></div>
+  </aside>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="閱讀答題教練・年份目錄">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#2b6c6a"/><path d="M8 9h6c2 0 3 1 3 3v14c0-2-1-3-3-3H8V9zm18 0h-6c-2 0-3 1-3 3v14c0-2 1-3 3-3h6V9z" fill="none" stroke="#f7f5ef" stroke-width="1.5"/></svg>
+      <span>閱讀答題教練<small>READ · THINK · TRANSFER</small></span>
+    </a>
+    <span class="current-location" id="current-location">篇章目錄</span><nav aria-label="主要導覽"><a href="#home">篇章目錄 <span aria-hidden="true">↗</span></a></nav>
   </header>
   <div id="storage-warning" class="storage-warning" hidden role="status"></div>
   <main id="main" tabindex="-1"></main>
-  <footer class="site-footer"><span>從文本出發，把理由說清楚。</span><span>答案及進度會保存在這個瀏覽器。</span></footer>
+  <footer class="site-footer"><span>閱讀教練 · READING COACH</span><span>答案及進度會保存在這個瀏覽器。</span></footer>
   <div id="live-status" class="sr-only" role="status" aria-live="polite"></div>
   <noscript><p class="storage-warning">請啟用 JavaScript，以使用逐題學習及評分練習。</p></noscript>
 </body>

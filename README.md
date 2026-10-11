@@ -65,7 +65,7 @@
 
 ## 開發及驗證
 
-原生 HTML/CSS/JavaScript，無建置依賴。根目錄與 `dist/index.html` 共用同一版本的資料及程式。現有 Cloudflare Pages 部署設定不需更動。
+原生 HTML/CSS/JavaScript，正式頁面不依賴執行時建置。Lumen Elements 4.0.0 的 Button、Card 與官方樣式已預先打包於 `dist/vendor/`；只在更新這些資源時執行 `npm ci && npm run build:ui`。根目錄與 `dist/index.html` 共用同一版本的資料及程式。現有 Cloudflare Pages 部署設定不需更動。
 
 ```sh
 python -m http.server 8080
@@ -86,3 +86,14 @@ PLAYWRIGHT_MODULE_PATH=/path/to/playwright-core BROWSER_EXECUTABLE_PATH=/path/to
 
 
 辨認題型時會展示原題的分題及選項；點選題型只更新教學區，保留頁面和原文的捲動位置。評分員模式按分題分組，分數選單只顯示分數。自己的答案不列入示例評分完成條件或準確率；公布示例分數後才自評，與已知短答相同的答案會自動評分。自評按分題保存，修改答案後清除舊自評。
+
+
+## Lumen UI 全站設計（2026-10-12）
+
+全站沿用已選定 demo 的青綠配色、白底閱讀卡片、宋體篇章標題及精簡導覽。包括年份目錄、文章原文、逐題目錄、辨認題型、作答、例答評分與解析；十一篇原文、59道題目和既有學習資料均保留。
+
+1280px以上使用側欄；較窄螢幕使用頂部導覽。原有橫屏雙欄／直屏分頁與黏性題目仍由原程式管理。文章和題目原文均可調整14–26px字體，另以 `readingcoach-font-size` 保存設定，不改動原有草稿鍵。
+
+動畫限於180–220ms內容淡入、按鈕回饋、分析展開和選取切換；沒有滾動視差或持續動畫。`prefers-reduced-motion` 會關閉動畫，sticky祖先不會套用transform。
+
+Lumen官方樣式使用semantic tokens。原有native答題控制保留disabled、label、change與localStorage流程，新字體按鈕和年份卡片使用正式Lumen Web Components。開發依賴有固定版本，部署使用已提交vendor檔案。

@@ -1,0 +1,7 @@
+{
+  "name": "readingcoach",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"build:ui": "node scripts/build-lumen.mjs", "test": "node --test tests/*.test.cjs"},
+  "devDependencies": {"@santi020k/lumen-elements": "4.0.0", "esbuild": "0.25.12"}
+}
