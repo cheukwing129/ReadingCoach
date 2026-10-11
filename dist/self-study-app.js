@@ -78,7 +78,10 @@ function setArticleAnalysis(p,enabled){
  main.querySelectorAll('[data-analysis-paragraph]').forEach(slot=>{slot.innerHTML=enabled?paragraphAnalysis(p,Number(slot.dataset.analysisParagraph)):'';});
  announce(enabled?'逐段分析按鈕已顯示；點擊某一段才會打開分析。':'逐段分析已隱藏。');
 }
-function questionParts(q){return '<div class="question-subparts">'+q.answerParts.map(p=>{
+function questionParts(q){
+ // The source table already contains its subpart labels and options.
+ if(q.table)return '';
+ return '<div class="question-subparts">'+q.answerParts.map(p=>{
  const label=q.answerParts.length>1?'<p class="question-part-label">'+E(p.label)+'</p>':'';
  const choices=p.kind==='choice'?'<ul class="question-options">'+p.choices.map(c=>'<li>'+(c.value!==c.text?'<b>'+E(c.value)+'</b> ':'')+E(c.text)+'</li>').join('')+'</ul>':'';
  return label+choices;
