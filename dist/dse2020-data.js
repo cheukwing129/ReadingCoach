@@ -6,7 +6,7 @@ root.COACH_DSE2020_DATA = {
       "id": "dse2020-father",
       "year": 2020,
       "title": "夢中的父親",
-      "author": "利格拉樂・阿𡠄",
+      "author": "利格拉樂．阿𡠄",
       "paragraphNumbers": [
         1,
         2,

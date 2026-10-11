@@ -209,3 +209,8 @@ input[type=checkbox],input[type=radio]{accent-color:hsl(var(--brand))}.field-not
 }
 @media(prefers-reduced-motion:reduce){html,.reader-content{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 [hidden]{display:none!important}
+
+/* Author names are not metadata separators; keep the rare glyph attached to 阿. */
+.article-info p .author-name{padding:0}
+.article-intro p>.author-name{margin:0}
+.author-name .rare-author-glyph{margin:0;padding:0}

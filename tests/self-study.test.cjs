@@ -139,7 +139,7 @@ test('2021 cross-text references keep paragraph numbers separate and retain the 
 
 test('2020 retains the thirteen original paragraphs, footnote and complete questions 8–17 totaling 45 marks',()=>{
  const articles=D.articles.filter(a=>a.year===2020),questions=D.questions.filter(q=>q.year===2020),a=articles[0];
- assert.equal(articles.length,1);assert.equal(a.title,'夢中的父親');assert.equal(a.author,'利格拉樂・阿𡠄');assert.equal(a.paragraphs.length,13);assert.match(a.notes[0],/長壽：香菸牌子/);
+ assert.equal(articles.length,1);assert.equal(a.title,'夢中的父親');assert.equal(a.author,'利格拉樂．阿𡠄');assert.equal(a.paragraphs.length,13);assert.match(a.notes[0],/長壽：香菸牌子/);
  assert.deepEqual(questions.map(q=>q.number),[8,9,10,11,12,13,14,15,16,17]);assert.deepEqual(questions.map(q=>q.marks),[9,4,4,6,4,2,4,2,4,6]);assert.equal(questions.reduce((n,q)=>n+q.marks,0),45);
  assert.match(a.paragraphs[6].text,/父親出現在縹緲裏/);assert.match(a.paragraphs[7].text,/紀念日只剩下二個/);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2020-source-manifest.json')));for(const p of a.paragraphs)assert.equal(require('node:crypto').createHash('sha256').update(p.text).digest('hex'),manifest.paragraphHashes[a.id].find(x=>x.number===p.number).textSha256);assert.equal(manifest.longExemplars.length,32);

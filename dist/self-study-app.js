@@ -30,8 +30,17 @@ function animateContent(target){if(window.matchMedia('(prefers-reduced-motion: r
 function articleQuestions(p){return D.questions.filter(q=>q.exerciseId===p.id).sort((a,b)=>a.number-b.number);}
 function status(q){const d=state.questions[q.id];return d?.completed?'已完成':d&&(d.type||Object.values(d.answers).some(v=>v.trim()))?'練習中':'未開始';}
 function coverage(p){return '第'+articleQuestions(p).map(q=>q.number).join('、')+'題';}
-// Preserve the source name and copyable Unicode even on fonts without this rare glyph.
-function authorLabel(p){return E(p.author).replace(/𡠄/g,'<span class="rare-author-glyph">𡠄</span>');}
+// Use the verified source glyph only when its mask can load; otherwise use the shortened display name.
+let rareAuthorReady=false;
+function rareAuthorName(){return rareAuthorReady?'利格拉樂．阿<span class="rare-author-glyph">𡠄</span>':'利格拉樂';}
+function authorLabel(p){return p.id==='dse2020-father'?'<span class="author-name" data-rare-author>'+rareAuthorName()+'</span>':E(p.author);}
+const maskSupported=window.CSS&&(CSS.supports('mask-image','url("glyph.svg")')||CSS.supports('-webkit-mask-image','url("glyph.svg")'));
+if(maskSupported&&document.currentScript?.src){
+ const glyph=new Image();
+ glyph.onload=()=>{rareAuthorReady=glyph.naturalWidth>0;main.querySelectorAll('[data-rare-author]').forEach(el=>{el.innerHTML=rareAuthorName();});};
+ glyph.onerror=()=>{rareAuthorReady=false;main.querySelectorAll('[data-rare-author]').forEach(el=>{el.textContent='利格拉樂';});};
+ glyph.src=new URL('author-au-glyph.svg',document.currentScript.src).href;
+}
 function articleRow(p){
  const qs=articleQuestions(p),done=qs.filter(q=>state.questions[q.id]?.completed).length,index=D.articles.filter(a=>a.year===p.year).findIndex(a=>a.id===p.id)+1;
  return '<a class="article-row" href="#article/'+p.id+'"><div class="article-index">'+String(index).padStart(2,'0')+'</div><div class="article-info"><h3>'+E(p.title)+'</h3><p>'+authorLabel(p)+'<span>·</span>'+p.paragraphs.length+'段<span>·</span>'+qs.length+'題</p><small>已收錄'+E(coverage(p))+'</small></div><div class="article-progress"><span>'+done+' / '+qs.length+' 完成</span><progress class="article-meter" max="'+qs.length+'" value="'+done+'" aria-label="'+E(p.title)+'答題進度"></progress></div><span class="arrow" aria-hidden="true">→</span></a>';
