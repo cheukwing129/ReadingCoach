@@ -1,0 +1,357 @@
+{
+  "year": 2023,
+  "scope": "乙部兩篇白話文，第9–19題；不含甲部及第三篇文言",
+  "paragraphs": 17,
+  "questions": 11,
+  "marks": 40,
+  "verifiedAt": "2026-10-11",
+  "rm": {
+    "fileId": "1nhU7UFFgl_xdf-2DjYMKy0I68BjCaYtx",
+    "pages": [
+      2,
+      3
+    ],
+    "transcriptionFileId": "1IwJ5eWDtaWvTBIueGDubUhwae8_Z3t0K",
+    "layout": [
+      "《一竿冷》第1段內詩句與正文分行但保留同一段",
+      "《一竿冷》第3段跨頁但保留同一段"
+    ]
+  },
+  "qab": {
+    "fileId": "1DUqyOsHX3YX6xb77mBbFxYFIuN41Z2Ml",
+    "pages": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "transcriptionFileId": "1fVDVhNBKUIfnU1ahXuaA26l_4eG4BnsH",
+    "corrections": [
+      "第15題第三列依原QAB為「中途」，不採文字版的「途中」",
+      "第15題依原QAB共4分，不採評卷參考題幹誤植6分；各分題2分"
+    ]
+  },
+  "marking": [
+    {
+      "fileId": "1HJ9ffj51ddh2K_oqs183cTmIS1QU7QRf",
+      "file": "2023-ms2",
+      "questions": [
+        10,
+        11,
+        12
+      ],
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "fileId": "1ZZUaMMHHaJzd2JdbOVM3Mg4hmEMHqkhK",
+      "file": "2023-ms3",
+      "questions": [
+        14,
+        15,
+        18,
+        19
+      ],
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "fileId": "1NRcnkP74dpXmm2enYqCWNfxO2GyOMJzD",
+      "role": "客觀題答案",
+      "questions": [
+        9,
+        13,
+        16,
+        17
+      ]
+    },
+    {
+      "fileId": "1q2sCwaMDfEAo5anl0L1rbMQdSgmZR0-t",
+      "role": "教師會議說明：常見失誤及入品方向"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2023-q10-ii-s1",
+      "file": "2023-ms2",
+      "page": 4,
+      "index": 1,
+      "score": 4,
+      "textSha256": "10e835233b9494d12283491400b3fc96c1ab026ac855af0c18f75dc7be29d9f4"
+    },
+    {
+      "id": "dse2023-q10-ii-s2",
+      "file": "2023-ms2",
+      "page": 4,
+      "index": 2,
+      "score": 3,
+      "textSha256": "04b6fa7ceee6e13ccc3ee5362908f86fc324f05ad6122d75a15008e63130574b"
+    },
+    {
+      "id": "dse2023-q10-ii-s3",
+      "file": "2023-ms2",
+      "page": 5,
+      "index": 3,
+      "score": 2,
+      "textSha256": "7e093188ffbbbaaec9032672467a041474c1f1276bffd5e1c0bea85855d643a6"
+    },
+    {
+      "id": "dse2023-q10-ii-s4",
+      "file": "2023-ms2",
+      "page": 5,
+      "index": 4,
+      "score": 1,
+      "textSha256": "8b0084b9525bebe6dc2959d39ef758c2386fdadb8a1ec4839cb6e72d2a6d0607"
+    },
+    {
+      "id": "dse2023-q10-ii-s7",
+      "file": "2023-ms2",
+      "page": 5,
+      "index": 7,
+      "score": 0,
+      "textSha256": "031930aab2a7b8b520cadcc53e98893acd782f1ebba094360831b3d1da7a1335"
+    },
+    {
+      "id": "dse2023-q11-answer-s1",
+      "file": "2023-ms2",
+      "page": 7,
+      "index": 1,
+      "score": 3,
+      "textSha256": "986baf61dbffb6bdc7e6145c42c1cce7cf3630dcbc0749d2d15d219b5d468f74"
+    },
+    {
+      "id": "dse2023-q11-answer-s2",
+      "file": "2023-ms2",
+      "page": 7,
+      "index": 2,
+      "score": 2,
+      "textSha256": "50c794450553b3d814a96ee335d3f34e630a17d2f67f3d49e22b35d4a7c3a63a"
+    },
+    {
+      "id": "dse2023-q11-answer-s4",
+      "file": "2023-ms2",
+      "page": 8,
+      "index": 4,
+      "score": 1,
+      "textSha256": "5feeced9891dc97a999c7379efc1651e05b7e1062312f7f0fbf3644cc45715e4"
+    },
+    {
+      "id": "dse2023-q11-answer-s8",
+      "file": "2023-ms2",
+      "page": 8,
+      "index": 8,
+      "score": 0,
+      "textSha256": "27f855923c294e0f0969ae2907bb69e0cef66d99e3a68e3543ff6edfc0400a31"
+    },
+    {
+      "id": "dse2023-q12-answer-s1",
+      "file": "2023-ms2",
+      "page": 11,
+      "index": 1,
+      "score": 4,
+      "textSha256": "cfa9187d2275cb2970d2c5ed7cf8e18e46c501ef2e33e914227d430c881738a6"
+    },
+    {
+      "id": "dse2023-q12-answer-s2",
+      "file": "2023-ms2",
+      "page": 11,
+      "index": 2,
+      "score": 3,
+      "textSha256": "00ae9d4518eab450e9754d3572093fe0ef8e5bc203057cae269c6e026700ce76"
+    },
+    {
+      "id": "dse2023-q12-answer-s3",
+      "file": "2023-ms2",
+      "page": 11,
+      "index": 3,
+      "score": 2,
+      "textSha256": "2db2cbaf136bdf6316eaa8a54abd34adf1ba9e0f2b290d39676b49679a1afaa4"
+    },
+    {
+      "id": "dse2023-q12-answer-s5",
+      "file": "2023-ms2",
+      "page": 11,
+      "index": 5,
+      "score": 1,
+      "textSha256": "b9fd6f30e15b532abed9b731a62dd95c125a5db0cf684d28f87736d40465f555"
+    },
+    {
+      "id": "dse2023-q12-answer-s6",
+      "file": "2023-ms2",
+      "page": 11,
+      "index": 6,
+      "score": 0,
+      "textSha256": "efe885a107bbb7f549fd38545846d46d9b8b56bbc85f5d52607f5f31fddc714e"
+    },
+    {
+      "id": "dse2023-q18-answer-s1",
+      "file": "2023-ms3",
+      "page": 9,
+      "index": 1,
+      "score": 4,
+      "textSha256": "0237cc77dff7a53b2e1c6700bc0f3b05e305b6388cd6cce53f7bef44f6d03842"
+    },
+    {
+      "id": "dse2023-q18-answer-s3",
+      "file": "2023-ms3",
+      "page": 9,
+      "index": 3,
+      "score": 3,
+      "textSha256": "f45d417f5a505d2375ef7e662fbcb4888093c3d1860e9cb7d512aa3acbcc9790"
+    },
+    {
+      "id": "dse2023-q18-answer-s5",
+      "file": "2023-ms3",
+      "page": 10,
+      "index": 5,
+      "score": 2,
+      "textSha256": "eeeaa2197eff051d751ecad5eb74569249a376a572b29715ff25616d1b8cc43a"
+    },
+    {
+      "id": "dse2023-q18-answer-s8",
+      "file": "2023-ms3",
+      "page": 10,
+      "index": 8,
+      "score": 1,
+      "textSha256": "5e7682a77bf8504c8b853e8f7b7c4d0de06377e4e948874556e226fbc21be90f"
+    },
+    {
+      "id": "dse2023-q18-answer-s11",
+      "file": "2023-ms3",
+      "page": 10,
+      "index": 11,
+      "score": 0,
+      "textSha256": "16f28592604e9d4cd863200fce39daacf6b319882c3cb734d8a1a780b9d1fe99"
+    },
+    {
+      "id": "dse2023-q19-answer-s1",
+      "file": "2023-ms3",
+      "page": 12,
+      "index": 1,
+      "score": 3,
+      "textSha256": "af5c831c02abb5d3f54516f275254370aac619b5e11f2289f162bd6f7f937186"
+    },
+    {
+      "id": "dse2023-q19-answer-s4",
+      "file": "2023-ms3",
+      "page": 13,
+      "index": 4,
+      "score": 2,
+      "textSha256": "669d43e99a842402c3922f3d593cb0b9a657cf97755f102cc0a56dac77014301"
+    },
+    {
+      "id": "dse2023-q19-answer-s5",
+      "file": "2023-ms3",
+      "page": 13,
+      "index": 5,
+      "score": 1,
+      "textSha256": "f24289688bdc674a6dffa88aa94b0e0a6a4e3a596980583da62542b51ef36255"
+    },
+    {
+      "id": "dse2023-q19-answer-s8",
+      "file": "2023-ms3",
+      "page": 14,
+      "index": 8,
+      "score": 0,
+      "textSha256": "21337c6751f3907e2a59ccd895e9767707efb1c9cf5a17edf42e5d3caaa54dba"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2023-song": [
+      {
+        "number": 1,
+        "textSha256": "bcd9e4d523cdcaa0cf49dcc3e839ee09d5fc8d55a69f151cbed42bf819926886"
+      },
+      {
+        "number": 2,
+        "textSha256": "b5ef51cc23b577ec9df6ecc1d025039d18e68f20fad09076b931dd74eaf92251"
+      },
+      {
+        "number": 3,
+        "textSha256": "0e318b94db457ffbef496ae1627163c0de06f0c6e4941d33eafeb1112e783099"
+      },
+      {
+        "number": 4,
+        "textSha256": "4669dc0e20cd090bc983bfd7814469148e2b8e1d8a21cc718e2cb6362f489693"
+      },
+      {
+        "number": 5,
+        "textSha256": "dee4bae335511a68ceaf36eed4f00f0201d19eb71f5304ae5f78aec3d1831ee7"
+      }
+    ],
+    "dse2023-cold": [
+      {
+        "number": 1,
+        "textSha256": "d88e7d5fd1a5279dee85e9c9f8c8b73d2c26fecf9400579a808e8752ae250609"
+      },
+      {
+        "number": 2,
+        "textSha256": "ca0fc158ab7fc2d9803faa5217423651498b11803b0fd2a65487163b0d843a64"
+      },
+      {
+        "number": 3,
+        "textSha256": "3509c6d79032e692610bdce59100ef93f0a1d26d372a5837984c2a65d78d060e"
+      },
+      {
+        "number": 4,
+        "textSha256": "8865714db63e08ffdfce75abf4386608214f62aeee3fd34c0acd3af17485142b"
+      },
+      {
+        "number": 5,
+        "textSha256": "e27edbf96ff497e2be2b2d399fe51f0982fb828cefaded00f31d10131217e05f"
+      },
+      {
+        "number": 6,
+        "textSha256": "ad0ffc5dabdeb2abb481abff383b462dfa677ccca4a86c83894764ca7ff70873"
+      },
+      {
+        "number": 7,
+        "textSha256": "70c22d53e26b1552ee9824aa2c90a838a76c24303a791ce1ed65958cee793d88"
+      },
+      {
+        "number": 8,
+        "textSha256": "c1e61aa6679ea3a11b3004075ba2155c4b663ed1d47ae04988e390b4952fc708"
+      },
+      {
+        "number": 9,
+        "textSha256": "db3b7f4328bef4a3739f2ceb068616b38705ac01dfb6be766499329f51af39d9"
+      },
+      {
+        "number": 10,
+        "textSha256": "25785954eae34c92da67304cf6ddde545f55afb680c5578d85fcb6daac61d044"
+      },
+      {
+        "number": 11,
+        "textSha256": "6e6b594fdcbd656c6e99b3c719447dbd5cc9c49ff85095d7e0e4cfd34c2b2ed3"
+      },
+      {
+        "number": 12,
+        "textSha256": "bdcd6c827e7cb29d214872a860a1b3df1644b5004be491c304643c77352a9e67"
+      }
+    ]
+  }
+}

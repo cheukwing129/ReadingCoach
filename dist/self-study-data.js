@@ -33,8 +33,8 @@
     segmentation:'要求把原文段落歸成幾個部分；依內容、時間、對象或論點的轉折劃分。'
   };
   for(const [key,feature] of Object.entries(typeFeatures))types[key].feature=feature;
-  const extra=root.COACH_DSE2022_DATA;
-  Object.assign(types,extra.types);
+  const extras=[root.COACH_DSE2022_DATA,root.COACH_DSE2023_DATA];
+  for(const extra of extras)Object.assign(types,extra.types);
   const lesson=(type,choices,reason,locate,prompts,review,transfer)=>({type,choices,reason,locate,prompts,review,transfer});
   const lessons={
     'dse2024-q9':lesson('cause',['cause','trait','summary','technique'],'「為什麼……痛哭」要求找出反應的成因。',[1],['將哭之前的處境、看見的景物、哭的動作分成三欄。哪一組前後關係能解釋這一次反應？','每個選項都含兩層意思。兩層都能在第1段找到支持嗎？'],['「再無路可走」「沒日沒夜」是長期困頓；綠色河谷帶來突然的轉折，於是積壓的感情釋放。','選D，不能單憑痛哭推成希望破滅，也不能自行保證美好未來。'],['遇到新的情緒原因題，先找反應之前的處境，再找觸發點。','逐個小分句核驗選項；相關的前半句不能替無據的後半句得分。']),
@@ -56,9 +56,11 @@
     'dse2026-q18':lesson('quote',['quote','trait','structure','title'],'引文有「邊緣」和「英雄」兩個關鍵概念，須以英珠說明兩者。',[1,2,9],['將「邊緣」和「英雄」分兩欄：英珠的處境與她的表現，各可放在哪一欄？','留意她如何提出租馬、如何對待幼駒與旅伴。這些行為放回她的日常處境，有何意義？','再看第2段作者怎樣概括這一群人，檢驗你對「英雄」的理解。'],['「邊緣」關乎被忽略的小人物、艱辛謀生及不被理解的信念。','英珠在艱難環境中謀生，卻善待幼駒、以歌聲安撫旅伴，保有人情溫度與堅執信念，故是平凡的英雄。','不能把賺大錢或世俗成功當作這裏的英雄標準。'],['拆出引文的全部關鍵概念。','以同一人物的處境和言行連接各概念，不只概括事件。']),
     'dse2026-q19':lesson('title',['title','cause','segmentation','trait'],'「綜合全文」「以……為題」要求篇名意涵及命名作用。',[2,10,1,3,5,6,7,8,9],['先看第2段及末段怎樣談「聲音」，再列出全文人物。每個人都實際唱歌嗎？','各人物有哪些共同與不同之處？「零落聲響」與「大的和音」如何構成關係？','你對篇名的解釋能涵蓋全文嗎？命名如何影響讀者看待這些人的方式？'],['聲音不只指歌聲，而涵括普通人的人生、信念及真實人情。','英珠、小說人物和馬師傅各在時代中生活，共同凝聚民間的輪廓。','以此為題貫穿全文，讓被忽略的平常人被聽見，表達欣賞、惋惜和對真實溫存的珍視。只釋意而不以人物／情節說明作用，最高2分。'],['先解篇名字面及深層意義。','核對全文覆蓋，再由內容說明命名的思想感情與作用。'])
   };
-  Object.assign(lessons,extra.lessons);
-  Object.assign(root.SELF_STUDY_SAMPLES,extra.samples);
-  Object.assign(root.SelfStudyAnalysis,extra.analyses);
+  for(const extra of extras){
+    Object.assign(lessons,extra.lessons);
+    Object.assign(root.SELF_STUDY_SAMPLES,extra.samples);
+    Object.assign(root.SelfStudyAnalysis,extra.analyses);
+  }
   const numbers={
     'dse2024-fansheng':[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
     'dse2025-fiction':[1,2,3,4,5,6,7,8,9,10],
@@ -66,7 +68,7 @@
     'dse2026-voice':[1,2,3,4,5,6,7,8,9,10]
   };
   const authors={'dse2024-fansheng':'李娟','dse2025-fiction':'蔣方舟','dse2025-alley':'柯裕棻','dse2026-voice':'葛亮'};
-  const articles=[...extra.passages,...root.COACH_EXAM_DATA.passages,...root.COACH_TRANSFER_DATA.passages].map(p=>({id:p.id,title:p.title,author:p.author||authors[p.id],year:p.year||2024,paragraphs:p.paragraphs.map((text,i)=>({number:(p.paragraphNumbers||numbers[p.id])[i],text}))}));
-  const questions=[...extra.questions,...root.COACH_EXAM_DATA.questions,...root.COACH_TRANSFER_DATA.questions].map(q=>({...q,year:q.year||2024,lesson:lessons[q.id],caseNotes:Object.fromEntries((root.COACH_EXAM_COACHING.lessons[q.id]?.mistakes||[]).map(m=>[m.text,m.diagnosis]))}));
+  const articles=[...extras.flatMap(extra=>extra.passages),...root.COACH_EXAM_DATA.passages,...root.COACH_TRANSFER_DATA.passages].map(p=>({id:p.id,title:p.title,author:p.author||authors[p.id],year:p.year||2024,paragraphs:p.paragraphs.map((text,i)=>({number:(p.paragraphNumbers||numbers[p.id])[i],text}))}));
+  const questions=[...extras.flatMap(extra=>extra.questions),...root.COACH_EXAM_DATA.questions,...root.COACH_TRANSFER_DATA.questions].map(q=>({...q,year:q.year||2024,lesson:lessons[q.id],caseNotes:Object.fromEntries((root.COACH_EXAM_COACHING.lessons[q.id]?.mistakes||[]).map(m=>[m.text,m.diagnosis]))}));
   root.SelfStudyData={types,lessons,articles,questions};
 })(typeof window!=='undefined'?window:globalThis);

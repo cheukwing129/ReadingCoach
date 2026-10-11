@@ -118,7 +118,7 @@ test('downloads retain original questions and distinguish source answers from co
 
 test('Cloudflare root and dist entries load the same complete versioned dependency set',()=>{
   const repo=path.join(__dirname,'..');
-  const expected=['self-study.css','dse2022-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','self-study-data.js','self-study-core.js','self-study-app.js'];
+  const expected=['self-study.css','dse2022-data.js','dse2023-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','self-study-data.js','self-study-core.js','self-study-app.js'];
   for(const [file,prefix] of [['index.html','dist/'],['dist/index.html','']]){
     const html=fs.readFileSync(path.join(repo,file),'utf8');
     const urls=[...html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css)(?:\?[^"#]+)?)"/g)].map(m=>m[1]);

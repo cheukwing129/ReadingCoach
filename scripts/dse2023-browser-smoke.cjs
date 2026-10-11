@@ -1,0 +1,28 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE_PATH||'playwright-core');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
+const root=path.resolve(__dirname,'..'),out=process.env.BROWSER_QA_OUTPUT_DIR||'/tmp/readingcoach-2023-qa';fs.mkdirSync(out,{recursive:true});
+(async()=>{
+ const server=http.createServer((req,res)=>{try{const u=new URL(req.url,'http://localhost'),p=path.resolve(root,'.'+(u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname));if(!p.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',p.endsWith('.js')?'application/javascript':p.endsWith('.css')?'text/css':'text/html');res.end(fs.readFileSync(p));}catch{res.writeHead(404);res.end();}});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port+'/';
+ const browser=await chromium.launch({executablePath:process.env.BROWSER_EXECUTABLE_PATH,headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--in-process-gpu','--use-gl=angle','--use-angle=swiftshader','--disable-features=AudioServiceOutOfProcess,IsolateOrigins,site-per-process']});
+ const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const go=async id=>{await page.goto(origin+'#lesson/'+id);await page.waitForFunction(id=>document.querySelector('.question-prompt')?.textContent===SelfStudyData.questions.find(q=>q.id===id).prompt,id);};
+ await page.goto(origin+'#year/2023');await page.locator('.article-row').first().waitFor();assert.equal(await page.locator('.article-row').count(),2);assert.match(await page.locator('#main').innerText(),/我們去唱歌/);assert.match(await page.locator('#main').innerText(),/一竿冷/);
+ await go('dse2023-q13');assert.match(await page.locator('.question-text').innerText(),/沒有直接的抒情或說理，讀者須自行體會作者的情懷/);assert.equal(await page.locator('.question-options li').count(),3);
+ await go('dse2023-q10');assert.equal(await page.locator('.question-part-label').count(),2);
+ const button=page.locator('[data-type="atmosphere"]');await button.scrollIntoViewIfNeeded();await page.evaluate(()=>document.addEventListener('click',()=>{window.beforeType=scrollY},{capture:true,once:true}));await button.click();assert.ok(Math.abs(await page.evaluate(()=>scrollY-window.beforeType))<2);
+ await page.locator('button[data-step="1"]').last().click();await page.locator('[data-answer="i"]').fill('冷清');await page.locator('[data-answer="ii"]').fill('我留待公佈示例後才自評。');await page.locator('button[data-step="2"]').last().click();
+ assert.equal(await page.locator('.sample-group').count(),2);assert.match(await page.locator('[data-sample-part="i"] .sample-group-title').innerText(),/兩字詞/);assert.match(await page.locator('[data-sample-part="ii"] .sample-group-title').innerText(),/營造/);
+ assert.equal(await page.locator('.own-preview [data-grade]').count(),0);assert.equal(await page.locator('[data-self-grade]').count(),0);
+ for(const select of await page.locator('[data-grade]').all()){assert.doesNotMatch(await select.innerText(),/\//);await select.selectOption('0');}
+ await page.locator('#reveal-button').click();assert.match(await page.locator('[data-own-part="i"] .own-auto-score').innerText(),/2分/);assert.equal(await page.locator('[data-self-grade="i"]').count(),0);assert.equal(await page.locator('[data-self-grade="ii"]').count(),1);
+ await page.locator('[data-self-grade="ii"]').selectOption('3');await page.reload();await page.locator('[data-self-grade="ii"]').waitFor();assert.equal(await page.locator('[data-self-grade="ii"]').inputValue(),'3');
+ await page.screenshot({path:out+'/2023-q10-review-mobile.png',fullPage:true});
+ for(const size of [{width:320,height:740},{width:390,height:844},{width:844,height:390},{width:1024,height:768},{width:1024,height:1366},{width:1440,height:1000}]){
+  await page.setViewportSize(size);await go('dse2023-q15');assert.match(await page.locator('.question-text table').innerText(),/遂在中途/);assert.equal(await page.locator('.question-title').innerText(),'第15題\n4分');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+  if(size.width===390||size.width===1440)await page.screenshot({path:out+'/2023-q15-table-'+size.width+'.png',fullPage:true});
+  await go('dse2023-q16');assert.equal(await page.locator('.question-part-label').count(),3);assert.equal(await page.locator('.question-options li').count(),15);
+ }
+ await page.setViewportSize({width:390,height:844});await page.goto(origin+'#article/dse2023-cold');await page.locator('#analysis-toggle').waitFor();assert.equal(await page.locator('#analysis-toggle').isChecked(),false);assert.equal(await page.locator('#article-original .paragraph').count(),12);await page.locator('#analysis-toggle').check();await page.locator('[data-analysis-paragraph="3"] summary').click();assert.match(await page.locator('[data-analysis-paragraph="3"]').innerText(),/跨兩頁仍是一段/);await page.locator('[data-analysis-paragraph="3"]').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/2023-cold-analysis-mobile.png'});
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,checks:['2023 year and passages','complete judgement statement','classification scroll retained','mixed short/long groups','short auto-score after reveal','deferred long self-score and restore','original Q15 wording and marks','all three Q16 subquestions','12 original paragraphs and collapsed analyses','responsive tables'],screenshots:out}));await browser.close();await new Promise(r=>server.close(r));
+})().catch(e=>{console.error(e);process.exit(1)});
