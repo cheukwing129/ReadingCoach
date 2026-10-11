@@ -69,7 +69,7 @@ lumen-card{display:block;font-family:var(--sans)}
 .article-nav{display:flex;align-items:center;gap:8px;border:0;margin:0 0 32px;min-width:0;flex-wrap:wrap}
 .article-nav>a:not(.article-start){padding:12px 22px;border:1px solid hsl(var(--line));border-radius:24px;min-height:44px;background:hsl(var(--surface));font-size:12px;font-weight:500;color:hsl(var(--ink-soft))}
 .article-nav>a[aria-current]{background:hsl(var(--brand));color:hsl(var(--on-brand));border-color:hsl(var(--brand))}.article-nav span{font-size:10px;margin-left:6px}
-.article-nav .article-start{margin-left:auto;font-size:12px;border-radius:12px}
+.article-nav .article-start{margin-left:auto;font-size:12px;border-radius:12px;padding:12px 22px;min-height:46px}
 .article-study-layout{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:32px;align-items:start}
 .article-reading{max-width:none;width:100%;background:hsl(var(--surface));border:1px solid hsl(var(--line));border-radius:22px;padding:28px 34px 32px;box-shadow:0 12px 44px hsl(var(--ink) / .03);margin:0}
 .analysis-toolbar{padding:0 0 20px;gap:12px;align-items:center;border-color:hsl(var(--line));flex-wrap:wrap}
@@ -108,7 +108,7 @@ lumen-card{display:block;font-family:var(--sans)}
 .lesson-layout.is-split .reader-content{max-height:calc(100dvh - 204px)}
 .lesson-layout.is-split .reader-panel:has(.reading-selector) .reader-content{max-height:calc(100dvh - 267px)}
 .passage-text{padding:18px 20px 28px}.paragraph{grid-template-columns:26px minmax(0,1fr);gap:8px;padding:14px 4px;min-width:0}.paragraph p{font:400 calc(var(--reading-size) - 1px)/2 var(--serif);white-space:pre-wrap;letter-spacing:.2px}
-.paragraph.located{background:hsl(var(--brand-soft) / .65);border-left-color:hsl(var(--brand));border-radius:8px}
+.reader .paragraph.located{background:hsl(var(--brand-soft) / .65);border-left-color:hsl(var(--brand));border-radius:8px}
 .reading-selector{gap:8px;margin-bottom:10px}.reading-selector button{font-size:11px;border-radius:12px;background:hsl(var(--surface));border-color:hsl(var(--line));padding:12px 15px;min-height:46px}.reading-selector button[aria-pressed=true]{background:hsl(var(--brand-soft));border-color:hsl(var(--brand));color:hsl(var(--brand))}
 .coach-panel{min-width:0;background:hsl(var(--surface));border:1px solid hsl(var(--line));border-radius:20px;padding:24px 26px 32px;align-self:start;box-shadow:0 8px 32px hsl(var(--ink) / .025)}
 .stepper{margin-bottom:26px;gap:10px;border-bottom:1px solid hsl(var(--line));padding-bottom:16px}
