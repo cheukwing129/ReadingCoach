@@ -44,21 +44,33 @@ function specialPool(q,p){
  ];
  return tuples.map(([text,score,analysis],i)=>({id:q.id+'-'+p.key+'-s'+i,text,score,analysis,improvement:''}));
 }
-function pool(q,p,sourceSamples){return(sourceSamples[q.id]?.[p.key]||specialPool(q,p)||shortPool(q,p)).map(s=>({...s,outOf:p.marks,key:p.key}));}
+function pool(q,p,sourceSamples){if(p.referenceOnly)return[];return(sourceSamples[q.id]?.[p.key]||specialPool(q,p)||shortPool(q,p)).map(s=>({...s,outOf:p.marks,key:p.key}));}
+function answerCharacters(text){return Array.from(String(text??'').normalize('NFC').replace(/\s/g,''));}
+function assessmentText(p,text){return p.assessFirstChars?answerCharacters(text).slice(0,p.assessFirstChars).join(''):String(text??'');}
+function segmentScore(p,text){
+ if(!p.segment)return null;
+ const n=v=>/^\d+$/.test(v)?Number(v):v==='十'?10:v.includes('十')?(v[0]==='十'?1:'一二三四五六七八九'.indexOf(v[0])+1)*10+(v.endsWith('十')?0:'一二三四五六七八九'.indexOf(v.at(-1))+1):'一二三四五六七八九'.indexOf(v)+1;
+ const v=normalize(text),digits='([0-9一二三四五六七八九十]+)',range=v.match(new RegExp('^第?'+digits+'段?(?:至|到|[—–~～-])第?'+digits+'段?$')),single=v.match(new RegExp('^第?'+digits+'段?$'));
+ if(range)return p.segment.accepted.some(([a,b])=>a===n(range[1])&&b===n(range[2]))?p.marks:0;
+ if(single&&p.segment.entry!=='range')return p.segment.accepted.some(([a,b])=>n(single[1])===(p.segment.entry==='start'?a:b))?p.marks:0;
+ return null;
+}
 function shuffled(items,seed){return [...items].sort((a,b)=>fingerprint(seed,a.id,a.text).localeCompare(fingerprint(seed,b.id,b.text)));}
 function samples(q,p,d,sourceSamples){
  const all=pool(q,p,sourceSamples),chosen=[],scores=new Set();
  for(const s of all)if(!scores.has(s.score)){scores.add(s.score);chosen.push({...s});}
  const extras=p.marks===2?[...all].sort((a,b)=>(a.score===1?0:a.score===0?1:2)-(b.score===1?0:b.score===0?1:2)):all;
  for(const s of extras)if(chosen.length<4&&!chosen.some(c=>c.id===s.id))chosen.push({...s});
+ for(const s of all.filter(s=>s.essential))if(!chosen.some(c=>c.id===s.id))chosen.push({...s});
  const own=String(d.answers[p.key]||'').trim();
  if(own){
   const length=Array.from(normalize(own)).length;
   const formatError=p.exactChars&&length!==p.exactChars?'答案不符合原題的'+(p.exactChars===2?'兩字詞':p.exactChars===4?'四個字':p.exactChars+'字')+'格式要求。':p.maxChars&&length>p.maxChars?'答案超過原題「不多於'+(p.maxChars===4?'四個字':p.maxChars+'個字')+'」的限制，得0分。':'';
-  const match=all.find(s=>normalize(s.text)===normalize(own)),same=chosen.find(s=>normalize(s.text)===normalize(own));
+  const assessed=assessmentText(p,own),matches=s=>normalize(assessmentText(p,s.text))===normalize(assessed);
+  const match=all.find(matches),same=chosen.find(matches),segment=segmentScore(p,own);
   if(!formatError&&same){same.own=true;same.merged=true;same.text=own;}
   else if(!formatError&&match){chosen.push({...match,text:own,own:true,merged:true});}
-  else chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatError?0:null,outOf:p.marks,key:p.key,own:true,analysis:formatError||'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。'});
+  else chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatError?0:segment,outOf:p.marks,key:p.key,own:true,segmentChecked:segment!==null,analysis:formatError||(segment!==null?(segment+'分：已按原題可接受的段落範圍核對；標準答案是'+q.official.find(o=>o.key===p.key).answers.join('或')+'。'):'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。')});
  }
  return shuffled(chosen,q.id+'-'+p.key);
 }
@@ -85,5 +97,5 @@ function questionParagraphs(q,article){
  return(q.lesson?.locate||[]).filter(n=>valid.has(n)).slice(0,1);
 }
 function canComplete(d){return d.revealed===true;}
-return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,fingerprint,shortPool,pool,samples,gradingItems,gradingReady,gradingResult,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
+return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,fingerprint,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
 });
