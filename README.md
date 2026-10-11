@@ -68,3 +68,6 @@ PLAYWRIGHT_MODULE_PATH=/path/to/playwright-core BROWSER_EXECUTABLE_PATH=/path/to
 ```
 
 可用 `BROWSER_QA_OUTPUT_DIR` 設定驗證畫面位置。新流程測試見 `tests/self-study.test.cjs`；資料核對及歷史程式測試一併保留，舊教師流程的測試不代表該流程仍公開。詳細變更見 `docs/2026-10-11-self-study-rebuild.md` 及 `docs/2026-10-11-reading-analysis.md`。
+
+
+辨認題型時會展示原題的分題及選項；點選題型只更新教學區，保留頁面和原文的捲動位置。評分員模式按分題分組，分數選單只顯示分數。自己的答案不列入示例評分完成條件或準確率；公布示例分數後才自評，與已知短答相同的答案會自動評分。自評按分題保存，修改答案後清除舊自評。

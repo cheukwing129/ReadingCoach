@@ -12,12 +12,12 @@ const root=path.resolve(__dirname,'..'),out=process.env.BROWSER_QA_OUTPUT_DIR||'
  for(const size of sizes){
   await page.setViewportSize(size);
   for(const id of ids){
-   await page.goto(origin+'#lesson/'+id);await page.locator('.question-text').waitFor();
+   await page.goto(origin+'#lesson/'+id);await page.waitForFunction(id=>document.querySelector('.question-prompt')?.textContent===SelfStudyData.questions.find(q=>q.id===id).prompt,id);
    const prompt=await page.locator('.question-prompt').textContent();
    await page.evaluate(()=>{const a=document.querySelector('.question-sticky-anchor');window.scrollTo({top:a.getBoundingClientRect().top+scrollY+180,behavior:'instant'});});
    const canStick=await page.evaluate(()=>{const a=document.querySelector('.question-sticky-anchor'),q=document.querySelector('.question-text');return document.documentElement.scrollHeight-innerHeight>a.getBoundingClientRect().top+scrollY-parseFloat(q.style.getPropertyValue('--question-sticky-top'))+2;});
    if(!canStick){assert.ok(await page.locator('.question-text').isVisible());checks++;continue;}
-   await page.waitForFunction(()=>document.querySelector('.question-text').classList.contains('is-stuck'),null,{timeout:2000});
+   try{await page.waitForFunction(()=>document.querySelector('.question-text').classList.contains('is-stuck'),null,{timeout:2000});}catch(e){console.log({id,size,metrics:await page.evaluate(()=>({scrollY,anchor:document.querySelector('.question-sticky-anchor').getBoundingClientRect().top,question:document.querySelector('.question-text').className,margin:document.querySelector('.question-text').style.marginBottom,height:document.documentElement.scrollHeight,offset:document.querySelector('.question-text').style.getPropertyValue('--question-sticky-top'),rect:document.querySelector('.question-text').getBoundingClientRect().height}))});throw e;}
    const metrics=await page.evaluate(()=>{const q=document.querySelector('.question-text'),r=q.getBoundingClientRect(),h=document.querySelector('.site-header').getBoundingClientRect(),tabs=document.querySelector('.lesson-tabs'),b=q.querySelector('.question-body');return{top:r.top,height:r.height,clear:h.bottom+(tabs.hidden?0:tabs.getBoundingClientRect().height),overflow:b.scrollHeight>b.clientHeight+1,accessible:b.tabIndex===0,horizontal:document.documentElement.scrollWidth>innerWidth+1,text:b.textContent};});
    assert.ok(metrics.top>=metrics.clear-1,JSON.stringify({id,size,metrics}));assert.ok(metrics.height<size.height*.40,JSON.stringify({id,size,metrics}));assert.equal(metrics.horizontal,false);assert.ok(metrics.text.includes(prompt));if(metrics.overflow)assert.ok(metrics.accessible);
    await page.evaluate(()=>{const b=document.querySelector('.question-body');b.scrollTop=b.scrollHeight;});

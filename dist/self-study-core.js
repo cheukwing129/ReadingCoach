@@ -8,14 +8,14 @@ function validScore(v,max){return Number.isInteger(v)&&v>=0&&v<=max;}
 function migrate(saved,legacy,questions){
  const state=fresh(),ids=new Set(questions.map(q=>q.id));
  if(saved?.version===1&&saved.questions&&typeof saved.questions==='object'){
-  for(const q of questions){const raw=saved.questions[q.id];if(!raw||typeof raw!=='object')continue;const d=draft();d.type=typeof raw.type==='string'?raw.type:'';d.step=Math.min(3,Math.max(0,Number(raw.step)||0));d.answers=Object.fromEntries(q.answerParts.map(p=>[p.key,typeof raw.answers?.[p.key]==='string'?raw.answers[p.key].slice(0,30000):'']));d.grades={};for(const [id,v]of Object.entries(raw.grades||{}))if(validScore(v,q.marks))d.grades[id]=v;d.revealed=Boolean(raw.revealed);d.completed=Boolean(raw.completed);d.lastSeen=typeof raw.lastSeen==='string'?raw.lastSeen:'';d.opened=Array.isArray(raw.opened)?raw.opened.filter(x=>typeof x==='string').slice(0,100):[];d.answerHistory=Array.isArray(raw.answerHistory)?raw.answerHistory.slice(-10):[];d.note=typeof raw.note==='string'?raw.note.slice(0,3000):'';d.selfChecks=Array.isArray(raw.selfChecks)?raw.selfChecks.filter(Number.isInteger):[];d.reviewed=Array.isArray(raw.reviewed)?raw.reviewed.filter(x=>typeof x==='string'):[];state.questions[q.id]=d;}
+  for(const q of questions){const raw=saved.questions[q.id];if(!raw||typeof raw!=='object')continue;const d=draft();d.type=typeof raw.type==='string'?raw.type:'';d.step=Math.min(3,Math.max(0,Number(raw.step)||0));d.answers=Object.fromEntries(q.answerParts.map(p=>[p.key,typeof raw.answers?.[p.key]==='string'?raw.answers[p.key].slice(0,30000):'']));d.grades={};for(const [id,v]of Object.entries(raw.grades||{}))if(validScore(v,q.marks))d.grades[id]=v;d.selfGrades=Object.fromEntries(q.answerParts.filter(p=>validScore(raw.selfGrades?.[p.key],p.marks)).map(p=>[p.key,raw.selfGrades[p.key]]));d.revealed=Boolean(raw.revealed);d.completed=Boolean(raw.completed);d.lastSeen=typeof raw.lastSeen==='string'?raw.lastSeen:'';d.opened=Array.isArray(raw.opened)?raw.opened.filter(x=>typeof x==='string').slice(0,100):[];d.answerHistory=Array.isArray(raw.answerHistory)?raw.answerHistory.slice(-10):[];d.note=typeof raw.note==='string'?raw.note.slice(0,3000):'';d.selfChecks=Array.isArray(raw.selfChecks)?raw.selfChecks.filter(Number.isInteger):[];d.reviewed=Array.isArray(raw.reviewed)?raw.reviewed.filter(x=>typeof x==='string'):[];state.questions[q.id]=d;}
  }else if(legacy?.drafts&&typeof legacy.drafts==='object'){
   for(const [id,old]of Object.entries(legacy.drafts)){if(!ids.has(id)||!old||typeof old!=='object')continue;const q=questions.find(x=>x.id===id),d=draft();const fields=old.fields||{};d.answers=Object.fromEntries(q.answerParts.map(p=>[p.key,typeof fields[p.key]==='string'?fields[p.key]:'']));if(q.answerParts.length===1&&!d.answers[q.answerParts[0].key]&&typeof old.free==='string')d.answers[q.answerParts[0].key]=old.free;d.answerHistory=Array.isArray(old.revisions)?old.revisions.slice(-5):[];if(old.firstAttempt)d.answerHistory.unshift(old.firstAttempt);state.questions[id]=d;}
  }
  return state;
 }
-function draft(){return{type:'',step:0,answers:{},grades:{},revealed:false,completed:false,lastSeen:'',opened:[],answerHistory:[],note:'',selfChecks:[],reviewed:[]};}
-function updateAnswer(d,key,value){if(d.answers[key]===value)return;d.answers[key]=value;d.grades={};d.revealed=false;d.completed=false;d.selfChecks=[];d.reviewed=[];}
+function draft(){return{type:'',step:0,answers:{},grades:{},selfGrades:{},revealed:false,completed:false,lastSeen:'',opened:[],answerHistory:[],note:'',selfChecks:[],reviewed:[]};}
+function updateAnswer(d,key,value){if(d.answers[key]===value)return;d.answers[key]=value;d.grades={};d.selfGrades={};d.revealed=false;d.completed=false;d.selfChecks=[];d.reviewed=[];}
 function fingerprint(q,key,text){let h=2166136261;for(const c of q+'|'+key+'|'+normalize(text)){h^=c.codePointAt(0);h=Math.imul(h,16777619);}return(h>>>0).toString(16);}
 function shortPool(q,p){
  const o=q.official.find(x=>x.key===p.key),pool=[];let i=0;
@@ -56,8 +56,8 @@ function samples(q,p,d,sourceSamples){
  return shuffled(chosen,q.id+'-'+p.key);
 }
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}
-function gradingReady(items,d){return items.length>0&&items.every(s=>validScore(d.grades[s.id],s.outOf));}
-function gradingResult(items,d){return{correct:items.filter(s=>s.score!==null&&d.grades[s.id]===s.score).length,total:items.filter(s=>s.score!==null).length};}
+function gradingReady(items,d){const examples=items.filter(s=>!s.own);return examples.length>0&&examples.every(s=>validScore(d.grades[s.id],s.outOf));}
+function gradingResult(items,d){return{correct:items.filter(s=>!s.own&&s.score!==null&&d.grades[s.id]===s.score).length,total:items.filter(s=>!s.own&&s.score!==null).length};}
 function choiceResult(q,d){return q.answerParts.filter(p=>p.kind==='choice').map(p=>({key:p.key,chosen:d.answers[p.key]||'',correct:p.answer,score:d.answers[p.key]===p.answer?p.marks:0,outOf:p.marks}));}
 function nextQuestion(data,q){const items=data.questions.filter(x=>x.exerciseId===q.exerciseId).sort((a,b)=>a.number-b.number),i=items.findIndex(x=>x.id===q.id);return items[i+1]||null;}
 function questionParagraphs(q,article){

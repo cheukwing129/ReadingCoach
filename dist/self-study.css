@@ -94,3 +94,14 @@ body.studying{overflow-anchor:none}
  .question-text.is-stuck .question-prompt{font-size:14px;line-height:1.6}
  .question-text.is-stuck .question-quote{font-size:13px}
 }
+
+.question-subparts:empty{display:none}.question-part-label{font-weight:600;font-size:15px;line-height:1.8;margin-top:16px}
+.question-options{list-style:none;padding:0;margin:10px 0 0;font-size:15px;line-height:1.8}.question-options li{padding:0;margin:5px 0}.question-options b{display:inline-block;min-width:22px}
+.question-text.is-stuck .question-part-label,.question-text.is-stuck .question-options{font-size:13px;line-height:1.65;margin-top:8px}
+.sample-group{margin:28px 0 34px;border:1px solid var(--line);border-radius:10px;padding:0 18px 3px;background:#fffdf8}
+.sample-group-title{display:flex;align-items:baseline;gap:15px;justify-content:space-between;padding:16px 18px;margin:0 -18px 18px;background:var(--green-pale);border-bottom:2px solid #8a9d89;border-radius:9px 9px 0 0}
+.sample-group-title h3{font-size:16px;line-height:1.75;color:var(--green)}.sample-group-title>span{font-size:13px;white-space:nowrap;color:var(--green)}
+.sample-group .grading-card,.sample-group .review-card{margin:16px 0}.own-preview{border-style:dashed;background:var(--green-pale)}.own-deferred{font-size:13px;color:var(--muted);margin-top:15px;border-top:1px solid var(--line);padding-top:12px}
+.own-assessment{border-top:2px solid #8a9d89;padding-top:25px;margin:35px 0}.own-assessment>h3{font-family:var(--serif);font-size:22px;margin-bottom:9px}.own-review{border-color:#8a9d89}.own-auto-score{margin-top:18px;color:var(--green);font-size:15px}
+.own-review .grade-label{flex-wrap:wrap;gap:12px}.own-review>.small{margin-top:8px}
+@media(max-width:599px){.sample-group{padding:0 12px 1px}.sample-group-title{margin:0 -12px 14px;padding:13px 12px;gap:10px}.sample-group-title h3{font-size:14px}.question-options,.question-part-label{font-size:14px}.own-assessment>h3{font-size:20px}}

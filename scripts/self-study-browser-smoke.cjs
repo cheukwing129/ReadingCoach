@@ -34,7 +34,7 @@ for(const q of qs){
  await page.locator('button[data-step="2"]').last().click();
  if(!q.choice){const items=await page.evaluate(id=>{const q=SelfStudyData.questions.find(q=>q.id===id),d=JSON.parse(localStorage.getItem(SelfStudyCore.KEY)).questions[id];return SelfStudyCore.gradingItems(q,d,SELF_STUDY_SAMPLES)},q.id);assert.ok(items.length>=4);assert.equal(await page.locator('.review-card,.score-badge,.analysis').count(),0);assert.equal(await page.locator('#reveal-button').isDisabled(),true);
  if(q.id==='dse2024-q17'){assert.equal(await page.locator('.grading-card').filter({hasText:'堅毅'}).count(),1);assert.match(await page.locator('.own-label').innerText(),/已合併/);}
- for(const s of items)await page.locator('[data-grade="'+s.id+'"]').selectOption(String(s.score??2));assert.equal(await page.locator('#reveal-button').isDisabled(),false);
+ for(const s of items.filter(s=>!s.own))await page.locator('[data-grade="'+s.id+'"]').selectOption(String(s.score??2));assert.equal(await page.locator('#reveal-button').isDisabled(),false);
  }await page.locator('[data-action="reveal"]').click();
  const text=await page.locator('#main').innerText();assert.doesNotMatch(text,/來源|出處|教師批改|老師批改|匯出/);
  if(q.choice){const keys=await page.evaluate(id=>SelfStudyData.questions.find(q=>q.id===id).answerParts.reduce((n,p)=>n+p.choices.length,0),q.id);assert.equal(await page.locator('.option-analysis').count(),keys);}

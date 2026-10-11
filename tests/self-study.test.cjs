@@ -72,3 +72,13 @@ test('cross-passage question 17 has explicit same-year reading targets without m
  for(const id of Object.keys(x.readingReferences))assert.equal(D.articles.find(p=>p.id===id).year,x.year);
  assert.equal(C.nextQuestion(D,x),null);
 });
+
+test('own answers never block revealing exemplar marks or enter grading accuracy',()=>{
+ const x=q('dse2024-q17'),d=C.draft();d.answers.answer='堅毅';const items=C.gradingItems(x,d,S),own=items.find(s=>s.own);assert.ok(own);
+ for(const s of items.filter(s=>!s.own))d.grades[s.id]=s.score;
+ assert.equal(C.gradingReady(items,d),true);assert.equal(d.grades[own.id],undefined);assert.deepEqual(C.gradingResult(items,d),{correct:items.length-1,total:items.length-1});
+});
+test('self-assessment restores per-part valid marks and resets after revision',()=>{
+ const id='dse2024-q13',s=C.migrate({version:1,questions:{[id]:{answers:{i:'對比',ii:'效果'},selfGrades:{i:1,ii:5,foreign:2}}}},null,D.questions);
+ assert.deepEqual(s.questions[id].selfGrades,{i:1});C.updateAnswer(s.questions[id],'ii','修改效果');assert.deepEqual(s.questions[id].selfGrades,{});
+});
