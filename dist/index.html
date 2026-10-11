@@ -3,45 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#803a3d">
-  <meta name="description" content="閱讀理解答題教練：先拆題，再用文本證據組織答案，最後自檢和比較例答。">
-  <title>閱讀理解答題教練</title>
-  <link rel="stylesheet" href="styles.css?v=20261011">
-  <script defer src="core.js?v=20261011"></script>
-  <script defer src="data.js?v=20261011"></script>
-  <script defer src="dse2024-data.js?v=20261011"></script>
-  <script defer src="dse2024-coaching.js?v=20261011"></script>
-  <script defer src="exam.js?v=20261011"></script>
-  <script defer src="transfer-data.js?v=20261011"></script>
-  <script defer src="catalog.js?v=20261011"></script>
-  <script defer src="academy-core.js?v=20261011"></script>
-  <script defer src="academy-ui.js?v=20261011"></script>
-  <script defer src="app.js?v=20261011"></script>
+  <meta name="theme-color" content="#244e3c">
+  <meta name="description" content="按年份與文章逐題自學DSE白話文閱讀：辨認題型、找線索、作答、評分示例，再把方法帶到其他文章。">
+  <title>閱讀答題教練</title>
+  <link rel="stylesheet" href="self-study.css?v=20261011-self-study">
+  <script defer src="dse2024-data.js?v=20261011-self-study"></script>
+  <script defer src="dse2024-coaching.js?v=20261011-self-study"></script>
+  <script defer src="transfer-data.js?v=20261011-self-study"></script>
+  <script defer src="self-study-samples.js?v=20261011-self-study"></script>
+  <script defer src="self-study-data.js?v=20261011-self-study"></script>
+  <script defer src="self-study-core.js?v=20261011-self-study"></script>
+  <script defer src="self-study-app.js?v=20261011-self-study"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳至主要內容</a>
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="答題教練首頁">
-      <svg class="brand-mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="currentColor"/><path d="M8 9h6c2 0 3 1 3 3v14c0-2-1-3-3-3H8V9zm18 0h-6c-2 0-3 1-3 3v14c0-2 1-3 3-3h6V9z" fill="none" stroke="#fffaf3" stroke-width="1.6"/><path d="m22 12 2 2-4 4-2-2z" fill="#e9c793"/></svg>
-      <span>答題教練<small>閱讀理解</small></span>
+    <a class="brand" href="#home" aria-label="閱讀答題教練・年份目錄">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#244e3c"/><path d="M8 9h6c2 0 3 1 3 3v14c0-2-1-3-3-3H8V9zm18 0h-6c-2 0-3 1-3 3v14c0-2 1-3 3-3h6V9z" fill="none" stroke="#f7f5ef" stroke-width="1.5"/></svg>
+      <span>閱讀答題教練<small>READ · THINK · TRANSFER</small></span>
     </a>
-    <nav aria-label="主要導覽" id="navigation">
-      <a href="#home" data-nav="home">練習題庫</a>
-      <a href="#repairs" data-nav="repairs">修補站</a>
-      <a href="#abilities" data-nav="abilities">能力路線</a>
-      <a href="#classroom" data-nav="classroom">課堂</a>
-      <a href="#records" data-nav="records">學習記錄</a>
-      <a href="#teacher" data-nav="teacher">真題管理</a>
-    </nav>
-    <span class="version-label">真題版 04</span>
+    <nav aria-label="主要導覽"><a href="#home">年份目錄</a><span class="header-label">學生自主學習</span></nav>
   </header>
   <div id="storage-warning" class="storage-warning" hidden role="status"></div>
   <main id="main" tabindex="-1"></main>
-  <footer class="site-footer"><span>從文本出發，把理由說清楚。</span><span>草稿和記錄保存在這個瀏覽器；換裝置前可匯出備份。</span></footer>
-  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
-  <dialog id="confirm-dialog" aria-labelledby="dialog-title">
-    <form method="dialog"><h2 id="dialog-title">確認操作</h2><p id="dialog-text"></p><div class="button-row"><button class="button secondary" value="cancel">取消</button><button class="button primary" value="confirm">確認</button></div></form>
-  </dialog>
-  <noscript><p class="storage-warning">請啟用 JavaScript，以使用練習、草稿和自檢功能。</p></noscript>
+  <footer class="site-footer"><span>從文本出發，把理由說清楚。</span><span>答案及進度會保存在這個瀏覽器。</span></footer>
+  <div id="live-status" class="sr-only" role="status" aria-live="polite"></div>
+  <noscript><p class="storage-warning">請啟用 JavaScript，以使用逐題學習及評分練習。</p></noscript>
 </body>
 </html>

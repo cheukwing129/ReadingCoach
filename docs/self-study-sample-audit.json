@@ -1,0 +1,463 @@
+{
+  "checkedAt": "2026-10-11",
+  "samples": [
+    {
+      "id": "dse2024-q13-ii-s1",
+      "file": "ms2024ii",
+      "page": 5,
+      "index": 1,
+      "score": 4,
+      "textSha256": "3976b2469a8ef686df0271d4435c3a7609c3528588eabbfee5cf3435d65fec20"
+    },
+    {
+      "id": "dse2024-q13-ii-s4",
+      "file": "ms2024ii",
+      "page": 6,
+      "index": 4,
+      "score": 3,
+      "textSha256": "acbeccea7bdea7cc2a2622d7bc1b635a8fb14c5a86f3aeab88a90b7ff34b4c59"
+    },
+    {
+      "id": "dse2024-q13-ii-s6",
+      "file": "ms2024ii",
+      "page": 7,
+      "index": 6,
+      "score": 2,
+      "textSha256": "17d1f7b974a9e19df5a0131bbec1f35ab6ed879a60161731e48601f0d2509bf0"
+    },
+    {
+      "id": "dse2024-q13-ii-s9",
+      "file": "ms2024ii",
+      "page": 7,
+      "index": 9,
+      "score": 1,
+      "textSha256": "ad9398a30e87d3789d4c0fd4d2ce282b0bb5a54687e19b7326b372310d920c8f"
+    },
+    {
+      "id": "dse2024-q13-ii-s10",
+      "file": "ms2024ii",
+      "page": 7,
+      "index": 10,
+      "score": 0,
+      "textSha256": "31fa433bb7ccc6d24dcee1a7f26dc9c53b1c7daa12d750ed3d4134d15219d1b6"
+    },
+    {
+      "id": "dse2024-q15-answer-s1",
+      "file": "ms2024iii",
+      "page": 3,
+      "index": 1,
+      "score": 4,
+      "textSha256": "6f26e241184717f7f70f5209ceba42fa27d8980b3d73cf91a2b8d37180a228db"
+    },
+    {
+      "id": "dse2024-q15-answer-s3",
+      "file": "ms2024iii",
+      "page": 4,
+      "index": 3,
+      "score": 3,
+      "textSha256": "0e08ab6852809c3cf731388311681af38353f950a4bf3768ec559e4e2b3cfdd2"
+    },
+    {
+      "id": "dse2024-q15-answer-s4",
+      "file": "ms2024iii",
+      "page": 4,
+      "index": 4,
+      "score": 2,
+      "textSha256": "a161f4fb7bfd8030e9c967929c68b9541fb9889a3208273572880035cf12fac1"
+    },
+    {
+      "id": "dse2024-q15-answer-s7",
+      "file": "ms2024iii",
+      "page": 5,
+      "index": 7,
+      "score": 1,
+      "textSha256": "cea6f16dbb117e5f5449cf5614354e66fd22f3c5fae543de5c54814987d3b2ec"
+    },
+    {
+      "id": "dse2024-q15-answer-s8",
+      "file": "ms2024iii",
+      "page": 5,
+      "index": 8,
+      "score": 0,
+      "textSha256": "3cca7790926ce3691bbd1500fc229c45e4c849173f16b988cc19e71d601bec43"
+    },
+    {
+      "id": "dse2024-q20-answer-s1",
+      "file": "ms2024iii",
+      "page": 8,
+      "index": 1,
+      "score": 4,
+      "textSha256": "d44bc049e4eb58f74bffd2639d53dddf7d3199b9b0f7b8a63560e9e915e562e4"
+    },
+    {
+      "id": "dse2024-q20-answer-s4",
+      "file": "ms2024iii",
+      "page": 9,
+      "index": 4,
+      "score": 3,
+      "textSha256": "4cd34aea5d119f95277165ec0ead77785f74758083955c24df1030abeae11c92"
+    },
+    {
+      "id": "dse2024-q20-answer-s6",
+      "file": "ms2024iii",
+      "page": 10,
+      "index": 6,
+      "score": 2,
+      "textSha256": "ca8b184b58220e31140e647e684458c348827f29901de08a2618caed4437e00e"
+    },
+    {
+      "id": "dse2024-q20-answer-s7",
+      "file": "ms2024iii",
+      "page": 10,
+      "index": 7,
+      "score": 1,
+      "textSha256": "ba9821fac3eafb416c0b95bb6e6d917ac440e7c1d0da1d4ea83056ec09215bbf"
+    },
+    {
+      "id": "dse2024-q20-answer-s9",
+      "file": "ms2024iii",
+      "page": 10,
+      "index": 9,
+      "score": 0,
+      "textSha256": "4c28fb850d44cfc4a29595ccaeb94e73380c0f9c3143c71a080a975a233c8524"
+    },
+    {
+      "id": "dse2025-q12-answer-s1",
+      "file": "ms2025ii",
+      "page": 4,
+      "index": 1,
+      "score": 4,
+      "textSha256": "3b7f8086dbaa935bd978f749012ac82113dd4b4da0e70be7c138d7338d0d6c41"
+    },
+    {
+      "id": "dse2025-q12-answer-s3",
+      "file": "ms2025ii",
+      "page": 4,
+      "index": 3,
+      "score": 3,
+      "textSha256": "39b9d95ed532dd85151837c2e924718f986471d670b46facde93788c1f2262ad"
+    },
+    {
+      "id": "dse2025-q12-answer-s4",
+      "file": "ms2025ii",
+      "page": 5,
+      "index": 4,
+      "score": 2,
+      "textSha256": "d525789a3b9d2241c97928f792c073adfce6d76bbd05169ffa0405984ce20672"
+    },
+    {
+      "id": "dse2025-q12-answer-s6",
+      "file": "ms2025ii",
+      "page": 5,
+      "index": 6,
+      "score": 1,
+      "textSha256": "6e4dc61597ec18d6b3b1c9d6d446ca22f6276a62af8954a3ac1ec1c60b3cf196"
+    },
+    {
+      "id": "dse2025-q12-answer-s9",
+      "file": "ms2025ii",
+      "page": 5,
+      "index": 9,
+      "score": 0,
+      "textSha256": "704f3c404a453653fca7324918ac712b4b6d4f7ae45891592687b765a4b8929b"
+    },
+    {
+      "id": "dse2025-q13-answer-s1",
+      "file": "ms2025ii",
+      "page": 7,
+      "index": 1,
+      "score": 4,
+      "textSha256": "9f7e3f472ee71ee9f5113a3d38584e3474c5914774efbe3dd388b216d8c5284d"
+    },
+    {
+      "id": "dse2025-q13-answer-s3",
+      "file": "ms2025ii",
+      "page": 8,
+      "index": 3,
+      "score": 3,
+      "textSha256": "371ef87f5c440428bb50d5bf073b52d152a0c7333790bfb41c16a8f75a54b088"
+    },
+    {
+      "id": "dse2025-q13-answer-s5",
+      "file": "ms2025ii",
+      "page": 8,
+      "index": 5,
+      "score": 2,
+      "textSha256": "3bc1d7b263d05df4b22e33979db5a3021eff1e5e26789a30df64379793d4d9fe"
+    },
+    {
+      "id": "dse2025-q13-answer-s7",
+      "file": "ms2025ii",
+      "page": 9,
+      "index": 7,
+      "score": 1,
+      "textSha256": "8b34b0f8d0af7c91c9f5aaa9bdf42707b8deb27a28f7fd80981110ab40cb6b3e"
+    },
+    {
+      "id": "dse2025-q13-answer-s9",
+      "file": "ms2025ii",
+      "page": 9,
+      "index": 9,
+      "score": 0,
+      "textSha256": "18a02e50412613d78ef156730f8d1381457fe3389004ac2a5c2e9f2b66df224f"
+    },
+    {
+      "id": "dse2025-q20-iii-s1",
+      "file": "ms2025iii",
+      "page": 8,
+      "index": 1,
+      "score": 4,
+      "textSha256": "22b0ddd309fcfe895a9035767702a11e7073bd0f023beebc209802d835b40a05"
+    },
+    {
+      "id": "dse2025-q20-iii-s3",
+      "file": "ms2025iii",
+      "page": 9,
+      "index": 3,
+      "score": 3,
+      "textSha256": "e329bf7a19bfd55cb07e8849a14b1e25911e3a3ef4b96040b2841ec2b126fde1"
+    },
+    {
+      "id": "dse2025-q20-iii-s4",
+      "file": "ms2025iii",
+      "page": 9,
+      "index": 4,
+      "score": 2,
+      "textSha256": "48ab54f10a01d0f241150deac35e4114cf4f4f6997702953fdf4fcde586139ef"
+    },
+    {
+      "id": "dse2025-q20-iii-s7",
+      "file": "ms2025iii",
+      "page": 10,
+      "index": 7,
+      "score": 1,
+      "textSha256": "75631427427b3e3e650ef76e82bb00421029fef37e912fcaedc5060b334db938"
+    },
+    {
+      "id": "dse2025-q20-iii-s9",
+      "file": "ms2025iii",
+      "page": 10,
+      "index": 9,
+      "score": 0,
+      "textSha256": "67c56044b8016dbe3f9c5f6a9364e5f51a1b97a5db5c436d057426c32517fb8d"
+    },
+    {
+      "id": "dse2026-q17-answer-s4",
+      "file": "ms2026ii",
+      "score": 4,
+      "textVerified": true,
+      "textSha256": "73f8dc896680fe57bbd45db2c02dcbb9aba77c670a31647ce106d7e8026adc03"
+    },
+    {
+      "id": "dse2026-q17-answer-s3",
+      "file": "ms2026ii",
+      "score": 3,
+      "textVerified": true,
+      "textSha256": "3089112b7b89689fc13e3791749e6788b15a41cb6010471e2dc5dfc6197f69ad"
+    },
+    {
+      "id": "dse2026-q17-answer-s2",
+      "file": "ms2026ii",
+      "score": 2,
+      "textVerified": true,
+      "textSha256": "3ea439e243367948789174c77ccf2c142a7092e130d440e5f84971c3bea2ae2d"
+    },
+    {
+      "id": "dse2026-q17-answer-s1",
+      "file": "ms2026ii",
+      "score": 1,
+      "textVerified": true,
+      "textSha256": "143a2324b1e52019780f7a2167e7c4ee66e59dfbb3dab32d6695b0570fe53d7c"
+    },
+    {
+      "id": "dse2026-q17-answer-s0",
+      "file": "ms2026ii",
+      "score": 0,
+      "textVerified": true,
+      "textSha256": "783f8f2169739fecb2cd461432cd97c11929c29300a23b3385fed59e3f149fd1"
+    },
+    {
+      "id": "dse2026-q18-answer-s4",
+      "file": "ms2026iii",
+      "score": 4,
+      "textVerified": true,
+      "textSha256": "57b426d3dfd5d4141d540c0cc44dff771994661e1b17d3cfbb191733906dfa9c"
+    },
+    {
+      "id": "dse2026-q18-answer-s3",
+      "file": "ms2026iii",
+      "score": 3,
+      "textVerified": true,
+      "textSha256": "9507a5da2b11870eea92d8ae2d16e738be1ed01b0ac6d3b72671f9e84f595738"
+    },
+    {
+      "id": "dse2026-q18-answer-s2",
+      "file": "ms2026iii",
+      "score": 2,
+      "textVerified": true,
+      "textSha256": "79faf33beb7a49c4cf6ea52bedf2f959c8354f2b0cfdefecea83ad74aab9e7db"
+    },
+    {
+      "id": "dse2026-q18-answer-s1",
+      "file": "ms2026iii",
+      "score": 1,
+      "textVerified": true,
+      "textSha256": "d805a913834dd3ac9508fd66c0254850d2bda294784d800e0a2fc965b4b87904"
+    },
+    {
+      "id": "dse2026-q18-answer-s0",
+      "file": "ms2026iii",
+      "score": 0,
+      "textVerified": true,
+      "textSha256": "e1ac3bb18fc7f3a9918d8d524cffb6afcd5b7b511604d9b1141662fa2f435974"
+    },
+    {
+      "id": "dse2026-q19-answer-s4",
+      "file": "ms2026iii",
+      "score": 4,
+      "textVerified": true,
+      "textSha256": "c99ed30ba25af30c0aa3b4dae0271dc99251b0c5b07615e8631ea9ae026a4cf0"
+    },
+    {
+      "id": "dse2026-q19-answer-s3",
+      "file": "ms2026iii",
+      "score": 3,
+      "textVerified": true,
+      "textSha256": "42cc2f0e5d441b08cbe0819dca7c249958fb8f46c3e4d0fd54413ab6486c67c1"
+    },
+    {
+      "id": "dse2026-q19-answer-s2",
+      "file": "ms2026iii",
+      "score": 2,
+      "textVerified": true,
+      "textSha256": "e119733559c6abb5ae2349faa02a67f262b51e69387a759933d702f78489c623"
+    },
+    {
+      "id": "dse2026-q19-answer-s1",
+      "file": "ms2026iii",
+      "score": 1,
+      "textVerified": true,
+      "textSha256": "02de0965cb2838bce36f6709970758da586332e8da5f13ac5730d69120e03e15"
+    },
+    {
+      "id": "dse2026-q19-answer-s0",
+      "file": "ms2026iii",
+      "score": 0,
+      "textVerified": true,
+      "textSha256": "673fa01a8cf669f3868187b561b46116714952babe09d3570237927071d9e904"
+    }
+  ],
+  "resources": {
+    "ms2024ii": {
+      "fileId": "1gZll6bbC_LgSrdGIpjE0FYePqtVFrJWW",
+      "format": "pdf"
+    },
+    "ms2024iii": {
+      "fileId": "1-7fG6VrdBKpsCBbCJZspPyHCINPIwATL",
+      "format": "pdf"
+    },
+    "ms2025ii": {
+      "fileId": "1k8VQe2SDq8ca0u9MrqkHIhXic5P_V-EF",
+      "format": "pdf"
+    },
+    "ms2025iii": {
+      "fileId": "1s6BpY-w4rBAplxShhjPDMMA6wslFD0Ca",
+      "format": "pdf"
+    },
+    "ms2026ii": {
+      "fileId": "1zr40NPwUdFBRse9PU8xpZWCCoGmVegg1",
+      "format": "docx"
+    },
+    "ms2026iii": {
+      "fileId": "1AB8mIPRMjN4q74uzrOQFQeVZyirLXIU6",
+      "format": "docx"
+    }
+  },
+  "paragraphNumberVerification": [
+    {
+      "articleId": "dse2024-fansheng",
+      "fileId": "1r1QGJSpKrpuvDAEnkwnfeJHvZLZRyb-L",
+      "pages": [
+        2,
+        3
+      ],
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "articleId": "dse2025-fiction",
+      "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+      "pages": [
+        2
+      ],
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "articleId": "dse2025-alley",
+      "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+      "pages": [
+        3
+      ],
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "paragraph9Lines": 7
+    },
+    {
+      "articleId": "dse2026-voice",
+      "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+      "pages": [
+        2,
+        3,
+        4
+      ],
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  ]
+}
