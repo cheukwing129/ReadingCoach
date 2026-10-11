@@ -46,7 +46,7 @@ function setArticleAnalysis(p,enabled){
  main.querySelectorAll('[data-analysis-paragraph]').forEach(slot=>{slot.innerHTML=enabled?paragraphAnalysis(p,Number(slot.dataset.analysisParagraph)):'';});
  announce(enabled?'逐段分析按鈕已顯示；點擊某一段才會打開分析。':'逐段分析已隱藏。');
 }
-function questionText(q){return '<section class="question-text" aria-label="原題"><div class="question-title"><h1>第'+q.number+'題</h1><span>'+q.marks+'分</span></div><p class="question-prompt">'+E(q.prompt)+'</p>'+(q.quote?'<blockquote class="question-quote">'+E(q.quote)+'</blockquote>':'')+(q.table?'<div class="table-scroll"><table><thead><tr>'+q.table.headers.map(x=>'<th scope="col">'+E(x)+'</th>').join('')+'</tr></thead><tbody>'+q.table.rows.map(r=>'<tr>'+r.map((x,i)=>i===0?'<th scope="row">'+E(x)+'</th>':'<td>'+E(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'')+'</section>';}
+function questionText(q){return '<div class="question-sticky-anchor" aria-hidden="true"></div><section class="question-text" aria-label="原題"><div class="question-title"><h1>第'+q.number+'題</h1><span>'+q.marks+'分</span></div><div class="question-body" role="region" aria-label="題目全文" tabindex="-1"><p class="question-prompt">'+E(q.prompt)+'</p>'+(q.quote?'<blockquote class="question-quote">'+E(q.quote)+'</blockquote>':'')+(q.table?'<div class="table-scroll"><table><thead><tr>'+q.table.headers.map(x=>'<th scope="col">'+E(x)+'</th>').join('')+'</tr></thead><tbody>'+q.table.rows.map(r=>'<tr>'+r.map((x,i)=>i===0?'<th scope="row">'+E(x)+'</th>':'<td>'+E(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'')+'</div><p class="question-scroll-note">題目較長，可在此捲動查看全文</p></section>';}
 function stepper(q,d){const labels=['辨認題型','找線索・作答',q.answerParts.every(p=>p.kind==='choice')?'核對選項':'評分練習','讀解析'];return '<nav class="stepper" aria-label="學習步驟">'+labels.map((x,i)=>'<button type="button" data-action="step" data-step="'+i+'" '+(i>0&&d.type!==q.lesson.type||i===3&&!d.revealed?'disabled':'')+' '+(d.step===i?'aria-current="step"':'')+'><span>'+String(i+1).padStart(2,'0')+'</span><b>'+x+'</b></button>').join('')+'</nav>';}
 function classification(q,d){const l=q.lesson,has=d.type===l.type;return '<section class="learning-stage"><p class="stage-label">STEP 01 · 先拆題</p><h2>這一題主要考什麼？</h2><p class="muted">對照各題型的特徵，選出題幹要求的主要任務。</p><div class="type-grid">'+l.choices.map(t=>'<button type="button" class="type-choice '+(d.type===t?'selected':'')+'" data-action="type" data-type="'+t+'" aria-pressed="'+(d.type===t)+'"><span class="type-copy"><strong>'+E(D.types[t].label)+'</strong><small>'+E(D.types[t].feature)+'</small></span><span class="type-mark" aria-hidden="true">'+(d.type===t?'✓':'＋')+'</span></button>').join('')+'</div>'+(d.type?'<div class="type-feedback '+(has?'success':'')+'" role="status"><strong>'+(has?'辨認正確':'再對照題幹與選項特徵')+'</strong><p>'+E(has?l.reason:D.types[d.type].feature+' 再看本題的要求：'+l.reason)+'</p></div>':'')+(d.type?methodDetails(d.type):'')+'<button class="button primary" type="button" data-action="step" data-step="1" '+(!has?'disabled':'')+'>進入作答 <span aria-hidden="true">→</span></button></section>';}
 function methodDetails(type){const t=D.types[type];return '<details class="help-details method-details" data-help="method"><summary>答題步驟與注意事項 <span>點擊展開</span></summary><ol>'+t.steps.map(s=>'<li>'+E(s)+'</li>').join('')+'</ol><p class="tip">'+E(t.note)+'</p></details>';}
@@ -85,6 +85,25 @@ function restoreReaderPosition(){
  const content=main.querySelector('.reader-content');if(!content||main.querySelector('#lesson-text')?.hidden)return;
  if(readerAnchor)scrollReaderTo(readerAnchor.number,readerAnchor.offset);else if(readerScroll===null)scrollReaderTo(locateTarget);else content.scrollTop=readerScroll;
 }
+// Measure visible navigation so the question never overlaps the header or tabs.
+let stickyFrame=0;
+const stickyMeasurements=new WeakMap();
+function updateStickyQuestion(){
+ stickyFrame=0;if(current?.view!=='lesson')return;
+ const question=main.querySelector('.question-text'),anchor=main.querySelector('.question-sticky-anchor');if(!question||!anchor)return;
+ const tabs=main.querySelector('.lesson-tabs'),top=document.querySelector('.site-header').getBoundingClientRect().height+(tabs&&!tabs.hidden?tabs.getBoundingClientRect().height:0)+8;
+ question.style.setProperty('--question-sticky-top',top+'px');
+ const stuck=!main.querySelector('#lesson-coach').hidden&&anchor.getBoundingClientRect().top<top;
+ const width=question.getBoundingClientRect().width;let measurement=stickyMeasurements.get(question);
+ if(!measurement||measurement.width!==width||!stuck){question.classList.remove('is-stuck');measurement={width,height:question.getBoundingClientRect().height};stickyMeasurements.set(question,measurement);}
+ question.classList.toggle('is-stuck',stuck);
+ // Reserve the original height so compacting cannot shift answers or oscillate at the page end.
+ const body=question.querySelector('.question-body'),overflow=stuck&&body.scrollHeight>body.clientHeight+1;
+ question.classList.toggle('has-overflow',overflow);body.tabIndex=overflow?0:-1;
+ question.style.marginBottom=stuck?Math.max(0,measurement.height-question.getBoundingClientRect().height)+'px':'';
+ if(!stuck&&body.scrollTop)body.scrollTop=0;
+}
+function scheduleStickyQuestion(){if(!stickyFrame)stickyFrame=requestAnimationFrame(updateStickyQuestion);}
 function applyLessonLayout(){
  if(current?.view!=='lesson'||!current.q)return;
  const layout=main.querySelector('.lesson-layout'),tabs=main.querySelector('.lesson-tabs'),text=main.querySelector('#lesson-text'),coach=main.querySelector('#lesson-coach');if(!layout)return;
@@ -92,6 +111,7 @@ function applyLessonLayout(){
  for(const [name,panel] of [['text',text],['coach',coach]]){panel.hidden=!split&&activePane!==name;if(split){panel.removeAttribute('role');panel.removeAttribute('aria-labelledby');}else{panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby','tab-'+name);}const tab=document.getElementById('tab-'+name);tab.setAttribute('aria-selected',String(activePane===name));tab.tabIndex=activePane===name?0:-1;}
  main.querySelectorAll('.reader .paragraph').forEach(p=>p.classList.toggle('located',locatedParagraphs.includes(Number(p.dataset.paragraph))));
  const label=main.querySelector('[data-reader-location]');label.textContent=locatedParagraphs.length?'相關：第'+locatedParagraphs.join('、')+'段':'';
+ scheduleStickyQuestion();
  const content=main.querySelector('.reader-content');if(observedReader!==content){readerObserver?.disconnect();observedReader=content;readerObserver=new ResizeObserver(()=>{if(content===main.querySelector('.reader-content'))restoreReaderPosition();});readerObserver.observe(content);}
  requestAnimationFrame(()=>{if(current?.view==='lesson'&&text===document.getElementById('lesson-text'))restoreReaderPosition();});
 }
@@ -125,6 +145,8 @@ main.addEventListener('change',e=>{if(current.view==='article'&&e.target.id==='a
 main.addEventListener('toggle',e=>{const t=e.target;if(t.classList?.contains('help-details')){const label=t.querySelector(':scope > summary > span');if(label)label.textContent=t.open?'點擊收起':'點擊展開';}if(current.view==='lesson'&&t.dataset.help&&t.open){const d=draft(current.q);if(!d.opened.includes(t.dataset.help)){d.opened.push(t.dataset.help);persist();}}},true);
 main.addEventListener('keydown',e=>{const tab=e.target.closest('[data-action="pane"]');if(!tab||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();switchPane(e.key==='Home'?'text':e.key==='End'?'coach':activePane==='text'?'coach':'text',true);});
 main.addEventListener('scroll',e=>{if(e.target===main.querySelector('.reader-content'))captureReader();},true);
+window.addEventListener('scroll',scheduleStickyQuestion,{passive:true});window.addEventListener('resize',scheduleStickyQuestion,{passive:true});
+window.visualViewport?.addEventListener('resize',scheduleStickyQuestion,{passive:true});
 splitScreen.addEventListener('change',applyLessonLayout);
 window.addEventListener('hashchange',()=>{persist();render();});window.addEventListener('pagehide',persist);window.addEventListener('storage',e=>{if(e.key!==C.KEY)return;try{const next=JSON.parse(e.newValue);if(next?.version!==1)return;const id=current.q?.id;for(const [k,v]of Object.entries(next.questions||{}))if(k!==id)state.questions[k]=v;if(id)announce('另一個分頁的進度已更新；這題保留目前分頁的答案。');else render();}catch{}});
 render();

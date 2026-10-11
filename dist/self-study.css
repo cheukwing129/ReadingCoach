@@ -71,3 +71,26 @@
 .lesson-layout.is-split .reader-panel:has(.reading-selector) .reader-content{max-height:calc(100dvh - 280px)}
 .lesson-layout.is-tabs .reader-panel:has(.reading-selector) .reader-content{max-height:calc(100dvh - 320px)}
 body.studying{overflow-anchor:none}
+
+/* Keep the complete original question within the teaching column. */
+.question-sticky-anchor{height:1px;pointer-events:none}
+.question-text{position:sticky;top:var(--question-sticky-top,86px);z-index:8;background:var(--paper);overflow-anchor:none}
+.question-scroll-note{display:none}
+.question-text.is-stuck{padding:10px 12px 8px;border:1px solid var(--line);border-radius:8px;box-shadow:0 5px 16px #203c2412}
+.question-text.is-stuck .question-title{margin-bottom:6px;gap:10px}
+.question-text.is-stuck .question-title h1{font-family:var(--sans);font-size:17px;line-height:1.4}
+.question-text.is-stuck .question-title>span{font-size:12px;white-space:nowrap}
+.question-text.is-stuck .question-body{max-height:clamp(48px,calc(32dvh - 68px),200px);overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#bbc9ba transparent;scroll-behavior:auto}
+.question-text.is-stuck .question-prompt{font-size:15px;line-height:1.65;overflow-wrap:anywhere}
+.question-text.is-stuck .question-quote{font-size:14px;line-height:1.75;margin-top:10px;padding:8px 12px}
+.question-text.is-stuck .table-scroll{margin-top:10px}
+.question-text.is-stuck table{font-size:13px}
+.question-text.is-stuck th,.question-text.is-stuck td{padding:7px}
+.question-text.is-stuck .question-body:focus-visible{outline-offset:-3px}
+.question-text.is-stuck.has-overflow .question-scroll-note{display:block;font-size:11px;line-height:1.5;color:var(--muted);margin-top:5px}
+@media(max-width:599px),(max-height:539px){
+ .question-text.is-stuck{padding:8px 10px 6px}
+ .question-text.is-stuck .question-title h1{font-size:15px}
+ .question-text.is-stuck .question-prompt{font-size:14px;line-height:1.6}
+ .question-text.is-stuck .question-quote{font-size:13px}
+}
