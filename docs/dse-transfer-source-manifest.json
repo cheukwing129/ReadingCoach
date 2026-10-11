@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-11",
+  "basis": "使用者Google Drive閱讀理解；原卷PDF影像與評卷定稿交叉核對。SHA-256供異動檢查，不是來源認證。",
+  "passages": [
+    {
+      "id": "dse2025-fiction",
+      "title": "我們都曾以為自己會是小說的主人公",
+      "paragraphs": 10,
+      "paragraphHashes": [
+        "361956caacba91c0018fae46573e6f954bba3645fe64140162695a8b7dcde426",
+        "413e8be4cd9af3e29958a92a27b9cea967d26ef98ed459c6656a0d1cda30e9ea",
+        "5bc359b9fe52b149f597f866dc063315a5f717fc4cb3aec168cf4b6af1c68cc2",
+        "afc2a98c8f4420488755bd85c351cbcb8962c94944bad8c3983dd07e4d250c36",
+        "545038c8897af77c6ce8856ffc1811d02f21a4660ffe94875a628a5240e9d2e6",
+        "3168dceb888fa7b14c5a690e3b09a5966eec894e75c9c701575bbab79ce2a451",
+        "9356f9c3064adaaac581981d89dff41a276728b8c4af6e7a1ceeac3800cebbaa",
+        "06b6ffa14851d2f0bc38ad496260202353a5094a36042ff4c624ddfaf7e246a6",
+        "58eeae8cbad2bcf0f3aaf70af78e02e605c0ef4931765f1477a90fa8f68b73fc",
+        "49895b44e4813d11449ffc403148132b16640edfa4b2ec5fd79946a24290c46a"
+      ]
+    },
+    {
+      "id": "dse2025-alley",
+      "title": "比正路還長的巷子",
+      "paragraphs": 10,
+      "paragraphHashes": [
+        "68946499759eb519ca1e1f3d16830535e3821371fc9b6bb8e9e77520a12e249e",
+        "68de5969e7877b6a556d490f1bef0918c1f1f1746b41218a2e5729c2ad1320ce",
+        "00f6db86950f763948261ea15151b4839a6a4ab9fe2a7e402e92101c4d5e257a",
+        "d42d2e22d353c8958d36b7be9795d74755e85f61cd1709195c7cf9a922327d58",
+        "99f203ce60ce77d2869593c99ae9940e1a1a325bd767f640b6b4aa6019c71628",
+        "3804ea441dc0620a951c63a7e7f0ee28cc248e02d139b7697ac3345aad0b893e",
+        "e612167b382f46b8bd852fda99070eace46231023301465dc52b6259c2bfe263",
+        "1d70fd8a79117e31f8f22fcb6cd94442f28de5e3098e40cd35b9031fcfc1b3e3",
+        "fb2f30e777bfca4b5d760b1ef91d0c7ea715f08b1995333dffd0ac816b06223d",
+        "279a724507303440d512098a918345e2ec67a69d1653c48d61a887b7e6f0f0ca"
+      ]
+    },
+    {
+      "id": "dse2026-voice",
+      "title": "聲音",
+      "paragraphs": 10,
+      "paragraphHashes": [
+        "2365fd39a1511dd015f7ba9da188eb247ee245360164954bbeb6389661d3509f",
+        "c7f742243224d751e618b2d964570cdaa7d32d0708f511640b88585f8406a849",
+        "9d2b88092c32196d909f4a17758d5e2680b91b5e1720e021dc4d323963f8fdc1",
+        "ee6358f4519ebac5c5118b8dd6446afe161ac0d745bc54605c82493e0c6df00e",
+        "fb3b822d6f04801620992aac6d95598d5ade85721a453c1e234223fd4c3c6988",
+        "2589ba47e6e026e5f2a062bc2a819959e6e39e759d8928ca9b558144a586fc6a",
+        "523984be6a3e4e32f505ab9d52be5bc14461a0c57904165208f9cfb49b2ac782",
+        "bb6c567efe3365f63e52d826129d39f43e1fc789bab3e9250be1698d709453cc",
+        "ad54a5de90b36ea534d500b93875e237a8db8d7eb15a9abd78a1a7ec154ffea8",
+        "3b971822894bd687d9bd006dd532a2d12e96fc79452f849a51d361ef2fe0d787"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "dse2025-q12",
+      "year": 2025,
+      "number": 12,
+      "marks": 4,
+      "partMarks": [
+        {
+          "key": "answer",
+          "marks": 4
+        }
+      ],
+      "source": {
+        "passage": {
+          "name": "2025 DSE 閱讀材料.pdf",
+          "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+          "url": "https://drive.google.com/file/d/168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-/view",
+          "pages": "2"
+        },
+        "question": {
+          "name": "2025 DSE 試題答題簿.pdf",
+          "fileId": "1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs",
+          "url": "https://drive.google.com/file/d/1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs/view",
+          "pages": "6"
+        },
+        "answer": {
+          "name": "2025 中國語文試卷一評卷參考（第2組）定稿.pdf",
+          "fileId": "1k8VQe2SDq8ca0u9MrqkHIhXic5P_V-EF",
+          "url": "https://drive.google.com/file/d/1k8VQe2SDq8ca0u9MrqkHIhXic5P_V-EF/view",
+          "pages": "3–5"
+        }
+      },
+      "promptHash": "8e14eeaa6e81bf31d24577e96ada5b0d031c1595bca52e66d89eaf7f90c4cea1",
+      "officialHash": "d29b73978418720132023b1651d0f9ce9ace5fd288bdaf1632d9f8ec4e21bb85"
+    },
+    {
+      "id": "dse2025-q13",
+      "year": 2025,
+      "number": 13,
+      "marks": 4,
+      "partMarks": [
+        {
+          "key": "answer",
+          "marks": 4
+        }
+      ],
+      "source": {
+        "passage": {
+          "name": "2025 DSE 閱讀材料.pdf",
+          "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+          "url": "https://drive.google.com/file/d/168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-/view",
+          "pages": "2"
+        },
+        "question": {
+          "name": "2025 DSE 試題答題簿.pdf",
+          "fileId": "1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs",
+          "url": "https://drive.google.com/file/d/1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs/view",
+          "pages": "6"
+        },
+        "answer": {
+          "name": "2025 中國語文試卷一評卷參考（第2組）定稿.pdf",
+          "fileId": "1k8VQe2SDq8ca0u9MrqkHIhXic5P_V-EF",
+          "url": "https://drive.google.com/file/d/1k8VQe2SDq8ca0u9MrqkHIhXic5P_V-EF/view",
+          "pages": "6–7"
+        }
+      },
+      "promptHash": "82fea9a5a3db60d165ed545327b3ab437bff98a9e91535bc28cd2bcaae108770",
+      "officialHash": "427a50ff4237c4d5253f3d3ea030e7ffcf14ffeacb380a69b52986ce78004329"
+    },
+    {
+      "id": "dse2025-q20",
+      "year": 2025,
+      "number": 20,
+      "marks": 7,
+      "partMarks": [
+        {
+          "key": "i",
+          "marks": 2
+        },
+        {
+          "key": "ii",
+          "marks": 1
+        },
+        {
+          "key": "iii",
+          "marks": 4
+        }
+      ],
+      "source": {
+        "passage": {
+          "name": "2025 DSE 閱讀材料.pdf",
+          "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+          "url": "https://drive.google.com/file/d/168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-/view",
+          "pages": "3"
+        },
+        "question": {
+          "name": "2025 DSE 試題答題簿.pdf",
+          "fileId": "1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs",
+          "url": "https://drive.google.com/file/d/1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs/view",
+          "pages": "9"
+        },
+        "answer": {
+          "name": "2025 中國語文試卷一評卷參考（第3組）定稿.pdf",
+          "fileId": "1s6BpY-w4rBAplxShhjPDMMA6wslFD0Ca",
+          "url": "https://drive.google.com/file/d/1s6BpY-w4rBAplxShhjPDMMA6wslFD0Ca/view",
+          "pages": "5–8"
+        }
+      },
+      "promptHash": "2e4a8cd54ca3b78ac0b0b40e992d88c727e6711c12a8c715ef854a442816c766",
+      "officialHash": "691d5e025604081240af561a44fb4aec809289013567dcbd7b48f6ef132ffcfb"
+    },
+    {
+      "id": "dse2026-q17",
+      "year": 2026,
+      "number": 17,
+      "marks": 4,
+      "partMarks": [
+        {
+          "key": "answer",
+          "marks": 4
+        }
+      ],
+      "source": {
+        "passage": {
+          "name": "2026 DSE 閱讀材料.pdf",
+          "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+          "url": "https://drive.google.com/file/d/18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0/view",
+          "pages": "2–4"
+        },
+        "question": {
+          "name": "2026 DSE 試題答題簿.pdf",
+          "fileId": "1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0",
+          "url": "https://drive.google.com/file/d/1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0/view",
+          "pages": "8"
+        },
+        "answer": {
+          "name": "2026 中國語文試卷一評卷參考（第2組）定稿.pdf",
+          "fileId": "1kpmPG--yiKUFnzkST2D0dlLXiM0Ojfux",
+          "url": "https://drive.google.com/file/d/1kpmPG--yiKUFnzkST2D0dlLXiM0Ojfux/view",
+          "pages": "7–8"
+        }
+      },
+      "promptHash": "4cfcc93a2a793991420ec6bd2b15f54e31811d97af1d2c026836cf9afdeb6912",
+      "officialHash": "722e30b96a954707d4f192f393bf868116b9471f4fb490ed98a22378c2faa511"
+    },
+    {
+      "id": "dse2026-q18",
+      "year": 2026,
+      "number": 18,
+      "marks": 4,
+      "partMarks": [
+        {
+          "key": "answer",
+          "marks": 4
+        }
+      ],
+      "source": {
+        "passage": {
+          "name": "2026 DSE 閱讀材料.pdf",
+          "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+          "url": "https://drive.google.com/file/d/18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0/view",
+          "pages": "2–4"
+        },
+        "question": {
+          "name": "2026 DSE 試題答題簿.pdf",
+          "fileId": "1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0",
+          "url": "https://drive.google.com/file/d/1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0/view",
+          "pages": "8"
+        },
+        "answer": {
+          "name": "2026 中國語文試卷一評卷參考（第3組）定稿.pdf",
+          "fileId": "1z-p_TjgpEEJfu3b8DTyfbDv6_PceGBu3",
+          "url": "https://drive.google.com/file/d/1z-p_TjgpEEJfu3b8DTyfbDv6_PceGBu3/view",
+          "pages": "3–4"
+        }
+      },
+      "promptHash": "712a6b53d71bb64c5e710df52ca511230ac5dceb2a22cd2baba5f2de612b7d7a",
+      "officialHash": "318515c6886b54b7e6dd36053ccc1a569d3894b53e5acf98bd55178142ef0a1c"
+    },
+    {
+      "id": "dse2026-q19",
+      "year": 2026,
+      "number": 19,
+      "marks": 4,
+      "partMarks": [
+        {
+          "key": "answer",
+          "marks": 4
+        }
+      ],
+      "source": {
+        "passage": {
+          "name": "2026 DSE 閱讀材料.pdf",
+          "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+          "url": "https://drive.google.com/file/d/18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0/view",
+          "pages": "2–4"
+        },
+        "question": {
+          "name": "2026 DSE 試題答題簿.pdf",
+          "fileId": "1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0",
+          "url": "https://drive.google.com/file/d/1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0/view",
+          "pages": "9"
+        },
+        "answer": {
+          "name": "2026 中國語文試卷一評卷參考（第3組）定稿.pdf",
+          "fileId": "1z-p_TjgpEEJfu3b8DTyfbDv6_PceGBu3",
+          "url": "https://drive.google.com/file/d/1z-p_TjgpEEJfu3b8DTyfbDv6_PceGBu3/view",
+          "pages": "8–9"
+        }
+      },
+      "promptHash": "6bd619a1f71cbfa1235ba1c27fc17866f3508fc2a159389ba9d32ee781eb648f",
+      "officialHash": "264a201f54099314b872457665ecacc7c82e5467b3135e0f0b3c957a74995493"
+    }
+  ],
+  "files": {
+    "2025-rm.pdf": "456a47d6fd4fef8d499b0bfbea62a0fd9ed82133acc7e2b813bf129bd8a6ed0c",
+    "2025-qab.pdf": "b04454354735ef9741aabad9c15ee0eb93c70f5dc01f1629503245838b8a2d5b",
+    "2025-ms2.pdf": "8883a448fa8bb628495e03c9baf987102e80500deb54a2e972fd00578dad40de",
+    "2025-ms3.pdf": "b03725b8c6dc545ec282d7ea54b4e72dd067c949a40eb27cde72a1092c5550ce",
+    "2026-rm.pdf": "76a0abc76aea0ec03923a9d32f3d91bb66e5f9c1f0dfbb5ae510ea4f63b0075f",
+    "2026-qab.pdf": "dd7d3ad1682dbe5aa73fd2a8f7298ec411ee6436c1ec0b6fec5a42c2b37a18d2",
+    "2026-ms2.pdf": "7b04f5810b181a52a20720dfcb21616adbc9741a57146309e8d9de2270d82e3d",
+    "2026-ms3.pdf": "e6ad9c7029f83149bf206a9aef1fdbc9f32b10a4e9ef93d67d4e7b03c17d8548"
+  },
+  "notIncluded": [
+    {
+      "years": "2016–2023",
+      "status": "本輪未作完整轉錄及原文/原題/評分配套核對；不投入新練習。"
+    },
+    {
+      "years": "2025–2026",
+      "status": "其餘白話題目待後續按同一標準收錄；文言與指定篇章排除。"
+    }
+  ]
+}

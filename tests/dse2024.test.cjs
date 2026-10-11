@@ -116,11 +116,14 @@ test('downloads retain original questions and distinguish source answers from co
   assert.match(answers,/最高只給下品/);
 });
 
-test('Cloudflare root and dist entries load the same complete dependency set',()=>{
+test('Cloudflare root and dist entries load the same complete versioned dependency set',()=>{
   const repo=path.join(__dirname,'..');
+  const expected=['styles.css','core.js','data.js','dse2024-data.js','dse2024-coaching.js','exam.js','transfer-data.js','catalog.js','academy-core.js','academy-ui.js','app.js'];
   for(const [file,prefix] of [['index.html','dist/'],['dist/index.html','']]){
     const html=fs.readFileSync(path.join(repo,file),'utf8');
-    for(const asset of ['styles.css','core.js','data.js','dse2024-data.js','dse2024-coaching.js','exam.js','app.js'])assert.ok(html.includes('="'+prefix+asset+'"'),file+': '+asset);
-    for(const match of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))"/g))assert.ok(fs.existsSync(path.resolve(repo,path.dirname(file),match[1])));
+    const urls=[...html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css)(?:\?[^"#]+)?)"/g)].map(m=>m[1]);
+    assert.deepEqual(urls.map(url=>url.split('?')[0]),expected.map(a=>prefix+a));
+    assert.equal(new Set(urls.map(url=>url.split('?')[1])).size,1);
+    for(const url of urls)assert.ok(fs.existsSync(path.resolve(repo,path.dirname(file),url.split('?')[0])));
   }
 });

@@ -247,6 +247,7 @@
     const cleanTeacherReview=review=>{
       if(!review||typeof review!=='object'||typeof review.answer!=='string')return null;
       const clean={answer:review.answer.slice(0,100000),reviewer:str(review.reviewer).slice(0,120),items:q.rubric.map((_,i)=>({status:TEACHER_RESULTS.includes(review.items?.[i]?.status)?review.items[i].status:'',note:str(review.items?.[i]?.note).slice(0,1500)}))};
+      if(typeof review.questionVersion==='string')clean.questionVersion=review.questionVersion.slice(0,32);
       if(typeof review.at==='string'&&Number.isFinite(Date.parse(review.at))&&clean.items.every(item=>item.status&&(!['revise','discuss'].includes(item.status)||item.note.trim())))clean.at=review.at;
       return clean;
     };
