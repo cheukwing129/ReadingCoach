@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-11",
+  "checkedAt": "2026-10-12",
   "samples": [
     {
       "id": "dse2024-q13-ii-s1",
@@ -681,6 +681,158 @@
       "index": 8,
       "score": 0,
       "textSha256": "21337c6751f3907e2a59ccd895e9767707efb1c9cf5a17edf42e5d3caaa54dba"
+    },
+    {
+      "id": "dse2021-q10-ii-s1",
+      "file": "2021-ms3",
+      "page": 4,
+      "index": 1,
+      "score": 3,
+      "textSha256": "40fd707d4010e9ac4953d36a4266266cd3175be5dc01bae27a583b8cc1adc9b4"
+    },
+    {
+      "id": "dse2021-q10-ii-s3",
+      "file": "2021-ms3",
+      "page": 4,
+      "index": 3,
+      "score": 2,
+      "textSha256": "2a10a7d80823b1f79a99487c54cb2214d440ec27bf9eb415ce076eebcdabca22"
+    },
+    {
+      "id": "dse2021-q10-ii-s6",
+      "file": "2021-ms3",
+      "page": 4,
+      "index": 6,
+      "score": 1,
+      "textSha256": "47ca03068e738d310ac133df7ac13539a6b5356ac83bb4040e0344d8773e6528"
+    },
+    {
+      "id": "dse2021-q10-ii-s9",
+      "file": "2021-ms3",
+      "page": 5,
+      "index": 9,
+      "score": 0,
+      "textSha256": "4f6677d5413ed747602ef5c3cf4a92dc87a9b4db40135a92618f858329ea6d3d"
+    },
+    {
+      "id": "dse2021-q11-ii-s1",
+      "file": "2021-ms2",
+      "page": 7,
+      "index": 1,
+      "score": 4,
+      "textSha256": "51834b826edad065aee836ace12fb65d25f758fcf616e3280359cf3272f5e50c"
+    },
+    {
+      "id": "dse2021-q11-ii-s3",
+      "file": "2021-ms2",
+      "page": 7,
+      "index": 3,
+      "score": 3,
+      "textSha256": "d38f665b5bd2162adcba37c3bc6517659de4b1e8657a69a33c22a972933a2df5"
+    },
+    {
+      "id": "dse2021-q11-ii-s5",
+      "file": "2021-ms2",
+      "page": 8,
+      "index": 5,
+      "score": 2,
+      "textSha256": "050b53f09b507230b1cfe1e06b3125a2c14b71a600e20319110a966fc7a427f8"
+    },
+    {
+      "id": "dse2021-q11-ii-s9",
+      "file": "2021-ms2",
+      "page": 9,
+      "index": 9,
+      "score": 1,
+      "textSha256": "cff3b722048525f2617dffe89edcd237ed9ed76492dd864f68ba0f7529f30231"
+    },
+    {
+      "id": "dse2021-q11-ii-s11",
+      "file": "2021-ms2",
+      "page": 10,
+      "index": 11,
+      "score": 0,
+      "textSha256": "e86f546c8713cfa13e7be0ef8d9a0733ab47bfcf30e7a5fd6dbe3bec6dc01def"
+    },
+    {
+      "id": "dse2021-q14-answer-s1",
+      "file": "2021-ms3",
+      "page": 8,
+      "index": 1,
+      "score": 4,
+      "textSha256": "af8b49704f4ad5ff598c1f9b76c15b97f03ea149bda4ab6177bb7fe2c6f3622c"
+    },
+    {
+      "id": "dse2021-q14-answer-s2",
+      "file": "2021-ms3",
+      "page": 8,
+      "index": 2,
+      "score": 3,
+      "textSha256": "649a7961dfa9c31bed1bde68312be154b95ac98f10bba3eaed50a9408c54a176"
+    },
+    {
+      "id": "dse2021-q14-answer-s4",
+      "file": "2021-ms3",
+      "page": 9,
+      "index": 4,
+      "score": 2,
+      "textSha256": "d1885129fd6be83a662783ee5c727ee2a427d867e4816c86e8e633600cd346ec"
+    },
+    {
+      "id": "dse2021-q14-answer-s6",
+      "file": "2021-ms3",
+      "page": 9,
+      "index": 6,
+      "score": 1,
+      "textSha256": "6ff082ea7d4f1ff5da0540b070048a0be3785b37056a2d7ae07535e5a9b5a42b"
+    },
+    {
+      "id": "dse2021-q14-answer-s9",
+      "file": "2021-ms3",
+      "page": 10,
+      "index": 9,
+      "score": 0,
+      "textSha256": "9b9eb71d2255b9db43dd7c85c6a96a8d454fd65f4f6f0e7f05f3d522c6da2674"
+    },
+    {
+      "id": "dse2021-q16-answer-s3",
+      "file": "2021-ms3",
+      "page": 14,
+      "index": 3,
+      "score": 4,
+      "textSha256": "8f23be71ff2c4656d8f1ff92d9d014f491cb7caa3c9bbbc9468fb5aafbfeff16"
+    },
+    {
+      "id": "dse2021-q16-answer-s7",
+      "file": "2021-ms3",
+      "page": 15,
+      "index": 7,
+      "score": 3,
+      "textSha256": "4681efc192a77cd37569839ca711324377b6c2d08cb396fed70e6432a9588927"
+    },
+    {
+      "id": "dse2021-q16-answer-s8",
+      "file": "2021-ms3",
+      "page": 16,
+      "index": 8,
+      "score": 2,
+      "textSha256": "b5b80224f98c6e4ae36023157e1f777bd012a68ee65570cae01eaf0a1e846f80"
+    },
+    {
+      "id": "dse2021-q16-answer-s13",
+      "file": "2021-ms3",
+      "page": 17,
+      "index": 13,
+      "score": 1,
+      "textSha256": "e337e3bb0b8bb1539d70a9396ebec7a96811c7340275bb6d1fc2cb79f9e0885f"
+    },
+    {
+      "id": "dse2021-q16-answer-s19",
+      "file": "2021-ms3",
+      "page": 17,
+      "index": 19,
+      "score": 0,
+      "textSha256": "9d69241a07a9a0483700bbef94dc266c91c5570cca3187fca6cc1ee30ac7ebf0"
     }
   ],
   "resources": {

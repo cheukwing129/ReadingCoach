@@ -52,7 +52,14 @@ function samples(q,p,d,sourceSamples){
  const extras=p.marks===2?[...all].sort((a,b)=>(a.score===1?0:a.score===0?1:2)-(b.score===1?0:b.score===0?1:2)):all;
  for(const s of extras)if(chosen.length<4&&!chosen.some(c=>c.id===s.id))chosen.push({...s});
  const own=String(d.answers[p.key]||'').trim();
- if(own){const match=all.find(s=>normalize(s.text)===normalize(own));const same=chosen.find(s=>normalize(s.text)===normalize(own));if(same){same.own=true;same.merged=true;same.text=own;}else if(match){chosen.push({...match,text:own,own:true,merged:true});}else{const formatScore=p.exactChars&&Array.from(normalize(own)).length!==p.exactChars?0:null;chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatScore,outOf:p.marks,key:p.key,own:true,analysis:formatScore===0?'答案不符合原題的'+(p.exactChars===2?'兩字詞':p.exactChars===4?'四個字':p.exactChars+'字')+'格式要求。':'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。'});}}
+ if(own){
+  const length=Array.from(normalize(own)).length;
+  const formatError=p.exactChars&&length!==p.exactChars?'答案不符合原題的'+(p.exactChars===2?'兩字詞':p.exactChars===4?'四個字':p.exactChars+'字')+'格式要求。':p.maxChars&&length>p.maxChars?'答案超過原題「不多於'+(p.maxChars===4?'四個字':p.maxChars+'個字')+'」的限制，得0分。':'';
+  const match=all.find(s=>normalize(s.text)===normalize(own)),same=chosen.find(s=>normalize(s.text)===normalize(own));
+  if(!formatError&&same){same.own=true;same.merged=true;same.text=own;}
+  else if(!formatError&&match){chosen.push({...match,text:own,own:true,merged:true});}
+  else chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatError?0:null,outOf:p.marks,key:p.key,own:true,analysis:formatError||'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。'});
+ }
  return shuffled(chosen,q.id+'-'+p.key);
 }
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}

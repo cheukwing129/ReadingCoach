@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-11",
+  "date": "2026-10-12",
   "basis": "基於已核對原文、真題及評分資料整理教學分析，並非官方逐段分析原文。公開頁面不顯示本核對表。",
   "articles": [
     {
@@ -364,6 +364,89 @@
         {
           "number": 12,
           "textSha256": "bdcd6c827e7cb29d214872a860a1b3df1644b5004be491c304643c77352a9e67"
+        }
+      ]
+    },
+    {
+      "id": "dse2021-orange",
+      "fileId": "1c3ceTdvdC86ySJtfEAqEx3S0m31JIZa5",
+      "readingMaterialPages": [
+        2,
+        3
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "06288d9732ef13c3e8b8d68bce33998a57a602f3145bd8a8204f495d3958b703"
+        },
+        {
+          "number": 2,
+          "textSha256": "3ef1898ac0a67b2cc73447a8dcc75a4a03cd8097e4363b3626759e08cb198617"
+        },
+        {
+          "number": 3,
+          "textSha256": "2ebbefa40f20f82b83061f1517b6e9308c8cc2c7e0914c0c4dfff041dd792a04"
+        },
+        {
+          "number": 4,
+          "textSha256": "dffc47876ccbc60c9244a56f71333e6a2eb9c6cf3a415070550d7f4303b970ec"
+        },
+        {
+          "number": 5,
+          "textSha256": "8d87f17b0d88d1c9d5ae1eb9225c0b5c699485bab4c4b18e843952be05c9a05f"
+        },
+        {
+          "number": 6,
+          "textSha256": "3c82d6c8c973eb8ee6fbff847a85b946bbf30e284bb2c71b3754d49d08140a6d"
+        },
+        {
+          "number": 7,
+          "textSha256": "0e776307dcd5d3737b3239f22cb3d69169ea9d82fe71ad093e77b3b90d6414b1"
+        },
+        {
+          "number": 8,
+          "textSha256": "3bdf51c2c66cefdda791ffcf639dacec820328aa1ee046a2c08d54db303b2a78"
+        }
+      ]
+    },
+    {
+      "id": "dse2021-train",
+      "fileId": "1c3ceTdvdC86ySJtfEAqEx3S0m31JIZa5",
+      "readingMaterialPages": [
+        4
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "32d811ee5e57b965b2bdc8c6870ac8578b931c423accc28154a9cb1f4de8d7b1"
+        },
+        {
+          "number": 2,
+          "textSha256": "8416215996b83dda8edbbd33105a8493b5cb7117ce6e80ab6cbd9675c84f5e79"
+        },
+        {
+          "number": 3,
+          "textSha256": "608d8701c4c72fe3348d3d1d4e1b9182c2e09d4a5643af01e85c9d39cec5e570"
+        },
+        {
+          "number": 4,
+          "textSha256": "7eb05887bf1a7fe35f2376837e8e1e6830cdf4c7ef5c0761e36521ad23f2a74a"
+        },
+        {
+          "number": 5,
+          "textSha256": "2cc7ea939865de650df5ad4b9846dfeaf0e50be2272ba4d44b1dc3291920c29e"
+        },
+        {
+          "number": 6,
+          "textSha256": "6185b9ddfbabcbdd5b2280b58cc3d4fa7d2772b805e3cfed118323b3c3af6da9"
+        },
+        {
+          "number": 7,
+          "textSha256": "5ba02a78e17020b0d0e6659fc04e3ee0ca442dc2755777bf7445664241d6be33"
+        },
+        {
+          "number": 8,
+          "textSha256": "7b7e2230a51d8eaeaac5ddb09514cbac1dac19c073f3c2c749eacc2dfd8f213b"
         }
       ]
     }

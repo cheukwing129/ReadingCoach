@@ -1,0 +1,325 @@
+{
+  "year": 2021,
+  "scope": "乙部兩篇白話文，第8–16題；不含甲部及第三篇文言",
+  "paragraphs": 16,
+  "questions": 9,
+  "marks": 41,
+  "verifiedAt": "2026-10-12",
+  "rm": {
+    "fileId": "1c3ceTdvdC86ySJtfEAqEx3S0m31JIZa5",
+    "pages": [
+      2,
+      3,
+      4
+    ],
+    "transcriptionFileId": "1LewnbSweBMV6p7DMt6vhN59Em5aeXz9V",
+    "corrections": [
+      "第一篇第5段「劃破黑暗襲來」依原RM，不採文字版「刮來」",
+      "第一篇第2段「廊柱」依原RM，不採文字版「廓柱」",
+      "第二篇第1段「面容慘澹」依原RM，不採文字版「面容憔悴」"
+    ],
+    "layout": [
+      "兩篇各8段",
+      "第二篇第6段四行詩與正文保留同一段"
+    ]
+  },
+  "qab": {
+    "fileId": "1auR4L7w31Wz_LZoR2-zVy7jPOUb_3tsL",
+    "pages": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "transcriptionFileId": "1TIXmes0bjomQXJtbSOVwm9pWeyxDpIul",
+    "corrections": [
+      "第9及15題引文依原QAB為「劃破黑暗襲來」",
+      "第15題第三段引文為「摔壞」而非文字版「掉壞」",
+      "第15題保留原題「又還是三種描寫手法都沒有運用」"
+    ]
+  },
+  "marking": [
+    {
+      "fileId": "1BhDr5zFCBUMi3IWv4KhKIfyzJugJrgC1",
+      "file": "2021-ms2",
+      "questions": [
+        9,
+        11
+      ],
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "fileId": "1bvQVW59IBHw3WlsIYGpW-F2BQFYvgl4z",
+      "file": "2021-ms3",
+      "questions": [
+        10,
+        14,
+        16
+      ],
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "fileId": "19VZWsDkoIVM3UH5YPusPnc9SjNN1-TwD",
+      "role": "客觀題答案",
+      "questions": [
+        8,
+        10,
+        12,
+        13,
+        15
+      ]
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2021-q10-ii-s1",
+      "file": "2021-ms3",
+      "page": 4,
+      "index": 1,
+      "score": 3,
+      "textSha256": "40fd707d4010e9ac4953d36a4266266cd3175be5dc01bae27a583b8cc1adc9b4"
+    },
+    {
+      "id": "dse2021-q10-ii-s3",
+      "file": "2021-ms3",
+      "page": 4,
+      "index": 3,
+      "score": 2,
+      "textSha256": "2a10a7d80823b1f79a99487c54cb2214d440ec27bf9eb415ce076eebcdabca22"
+    },
+    {
+      "id": "dse2021-q10-ii-s6",
+      "file": "2021-ms3",
+      "page": 4,
+      "index": 6,
+      "score": 1,
+      "textSha256": "47ca03068e738d310ac133df7ac13539a6b5356ac83bb4040e0344d8773e6528"
+    },
+    {
+      "id": "dse2021-q10-ii-s9",
+      "file": "2021-ms3",
+      "page": 5,
+      "index": 9,
+      "score": 0,
+      "textSha256": "4f6677d5413ed747602ef5c3cf4a92dc87a9b4db40135a92618f858329ea6d3d"
+    },
+    {
+      "id": "dse2021-q11-ii-s1",
+      "file": "2021-ms2",
+      "page": 7,
+      "index": 1,
+      "score": 4,
+      "textSha256": "51834b826edad065aee836ace12fb65d25f758fcf616e3280359cf3272f5e50c"
+    },
+    {
+      "id": "dse2021-q11-ii-s3",
+      "file": "2021-ms2",
+      "page": 7,
+      "index": 3,
+      "score": 3,
+      "textSha256": "d38f665b5bd2162adcba37c3bc6517659de4b1e8657a69a33c22a972933a2df5"
+    },
+    {
+      "id": "dse2021-q11-ii-s5",
+      "file": "2021-ms2",
+      "page": 8,
+      "index": 5,
+      "score": 2,
+      "textSha256": "050b53f09b507230b1cfe1e06b3125a2c14b71a600e20319110a966fc7a427f8"
+    },
+    {
+      "id": "dse2021-q11-ii-s9",
+      "file": "2021-ms2",
+      "page": 9,
+      "index": 9,
+      "score": 1,
+      "textSha256": "cff3b722048525f2617dffe89edcd237ed9ed76492dd864f68ba0f7529f30231"
+    },
+    {
+      "id": "dse2021-q11-ii-s11",
+      "file": "2021-ms2",
+      "page": 10,
+      "index": 11,
+      "score": 0,
+      "textSha256": "e86f546c8713cfa13e7be0ef8d9a0733ab47bfcf30e7a5fd6dbe3bec6dc01def"
+    },
+    {
+      "id": "dse2021-q14-answer-s1",
+      "file": "2021-ms3",
+      "page": 8,
+      "index": 1,
+      "score": 4,
+      "textSha256": "af8b49704f4ad5ff598c1f9b76c15b97f03ea149bda4ab6177bb7fe2c6f3622c"
+    },
+    {
+      "id": "dse2021-q14-answer-s2",
+      "file": "2021-ms3",
+      "page": 8,
+      "index": 2,
+      "score": 3,
+      "textSha256": "649a7961dfa9c31bed1bde68312be154b95ac98f10bba3eaed50a9408c54a176"
+    },
+    {
+      "id": "dse2021-q14-answer-s4",
+      "file": "2021-ms3",
+      "page": 9,
+      "index": 4,
+      "score": 2,
+      "textSha256": "d1885129fd6be83a662783ee5c727ee2a427d867e4816c86e8e633600cd346ec"
+    },
+    {
+      "id": "dse2021-q14-answer-s6",
+      "file": "2021-ms3",
+      "page": 9,
+      "index": 6,
+      "score": 1,
+      "textSha256": "6ff082ea7d4f1ff5da0540b070048a0be3785b37056a2d7ae07535e5a9b5a42b"
+    },
+    {
+      "id": "dse2021-q14-answer-s9",
+      "file": "2021-ms3",
+      "page": 10,
+      "index": 9,
+      "score": 0,
+      "textSha256": "9b9eb71d2255b9db43dd7c85c6a96a8d454fd65f4f6f0e7f05f3d522c6da2674"
+    },
+    {
+      "id": "dse2021-q16-answer-s3",
+      "file": "2021-ms3",
+      "page": 14,
+      "index": 3,
+      "score": 4,
+      "textSha256": "8f23be71ff2c4656d8f1ff92d9d014f491cb7caa3c9bbbc9468fb5aafbfeff16"
+    },
+    {
+      "id": "dse2021-q16-answer-s7",
+      "file": "2021-ms3",
+      "page": 15,
+      "index": 7,
+      "score": 3,
+      "textSha256": "4681efc192a77cd37569839ca711324377b6c2d08cb396fed70e6432a9588927"
+    },
+    {
+      "id": "dse2021-q16-answer-s8",
+      "file": "2021-ms3",
+      "page": 16,
+      "index": 8,
+      "score": 2,
+      "textSha256": "b5b80224f98c6e4ae36023157e1f777bd012a68ee65570cae01eaf0a1e846f80"
+    },
+    {
+      "id": "dse2021-q16-answer-s13",
+      "file": "2021-ms3",
+      "page": 17,
+      "index": 13,
+      "score": 1,
+      "textSha256": "e337e3bb0b8bb1539d70a9396ebec7a96811c7340275bb6d1fc2cb79f9e0885f"
+    },
+    {
+      "id": "dse2021-q16-answer-s19",
+      "file": "2021-ms3",
+      "page": 17,
+      "index": 19,
+      "score": 0,
+      "textSha256": "9d69241a07a9a0483700bbef94dc266c91c5570cca3187fca6cc1ee30ac7ebf0"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2021-orange": [
+      {
+        "number": 1,
+        "textSha256": "06288d9732ef13c3e8b8d68bce33998a57a602f3145bd8a8204f495d3958b703"
+      },
+      {
+        "number": 2,
+        "textSha256": "3ef1898ac0a67b2cc73447a8dcc75a4a03cd8097e4363b3626759e08cb198617"
+      },
+      {
+        "number": 3,
+        "textSha256": "2ebbefa40f20f82b83061f1517b6e9308c8cc2c7e0914c0c4dfff041dd792a04"
+      },
+      {
+        "number": 4,
+        "textSha256": "dffc47876ccbc60c9244a56f71333e6a2eb9c6cf3a415070550d7f4303b970ec"
+      },
+      {
+        "number": 5,
+        "textSha256": "8d87f17b0d88d1c9d5ae1eb9225c0b5c699485bab4c4b18e843952be05c9a05f"
+      },
+      {
+        "number": 6,
+        "textSha256": "3c82d6c8c973eb8ee6fbff847a85b946bbf30e284bb2c71b3754d49d08140a6d"
+      },
+      {
+        "number": 7,
+        "textSha256": "0e776307dcd5d3737b3239f22cb3d69169ea9d82fe71ad093e77b3b90d6414b1"
+      },
+      {
+        "number": 8,
+        "textSha256": "3bdf51c2c66cefdda791ffcf639dacec820328aa1ee046a2c08d54db303b2a78"
+      }
+    ],
+    "dse2021-train": [
+      {
+        "number": 1,
+        "textSha256": "32d811ee5e57b965b2bdc8c6870ac8578b931c423accc28154a9cb1f4de8d7b1"
+      },
+      {
+        "number": 2,
+        "textSha256": "8416215996b83dda8edbbd33105a8493b5cb7117ce6e80ab6cbd9675c84f5e79"
+      },
+      {
+        "number": 3,
+        "textSha256": "608d8701c4c72fe3348d3d1d4e1b9182c2e09d4a5643af01e85c9d39cec5e570"
+      },
+      {
+        "number": 4,
+        "textSha256": "7eb05887bf1a7fe35f2376837e8e1e6830cdf4c7ef5c0761e36521ad23f2a74a"
+      },
+      {
+        "number": 5,
+        "textSha256": "2cc7ea939865de650df5ad4b9846dfeaf0e50be2272ba4d44b1dc3291920c29e"
+      },
+      {
+        "number": 6,
+        "textSha256": "6185b9ddfbabcbdd5b2280b58cc3d4fa7d2772b805e3cfed118323b3c3af6da9"
+      },
+      {
+        "number": 7,
+        "textSha256": "5ba02a78e17020b0d0e6659fc04e3ee0ca442dc2755777bf7445664241d6be33"
+      },
+      {
+        "number": 8,
+        "textSha256": "7b7e2230a51d8eaeaac5ddb09514cbac1dac19c073f3c2c749eacc2dfd8f213b"
+      }
+    ]
+  }
+}

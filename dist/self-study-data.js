@@ -33,8 +33,9 @@
     segmentation:'要求把原文段落歸成幾個部分；依內容、時間、對象或論點的轉折劃分。'
   };
   for(const [key,feature] of Object.entries(typeFeatures))types[key].feature=feature;
-  const extras=[root.COACH_DSE2022_DATA,root.COACH_DSE2023_DATA];
+  const extras=[root.COACH_DSE2021_DATA,root.COACH_DSE2022_DATA,root.COACH_DSE2023_DATA];
   for(const extra of extras)Object.assign(types,extra.types);
+  Object.assign(types.synthesis,{feature:'題目同時涉及兩篇文章，要求連接概念、情節或主旨；須分析兩篇如何互相解釋、回應或深化。',steps:['辨清題目要連接兩篇的甚麼：概念與對象、共同情節，還是主旨。','回到各篇的原段落找證據，分開相同段號，避免混用。','解釋共同材料如何建立關係，再扣回題目；不要只各自撮要。'],note:'先界定每篇在題目中的角色，再說清關係。不同題目的得分條件及只談一篇的上限須按本題準則核對。'});
   const lesson=(type,choices,reason,locate,prompts,review,transfer)=>({type,choices,reason,locate,prompts,review,transfer});
   const lessons={
     'dse2024-q9':lesson('cause',['cause','trait','summary','technique'],'「為什麼……痛哭」要求找出反應的成因。',[1],['將哭之前的處境、看見的景物、哭的動作分成三欄。哪一組前後關係能解釋這一次反應？','每個選項都含兩層意思。兩層都能在第1段找到支持嗎？'],['「再無路可走」「沒日沒夜」是長期困頓；綠色河谷帶來突然的轉折，於是積壓的感情釋放。','選D，不能單憑痛哭推成希望破滅，也不能自行保證美好未來。'],['遇到新的情緒原因題，先找反應之前的處境，再找觸發點。','逐個小分句核驗選項；相關的前半句不能替無據的後半句得分。']),
