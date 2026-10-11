@@ -1,6 +1,6 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const C=require('../dist/self-study-core.js');const root=path.resolve(__dirname,'..');
-function load(){const c={window:{}};vm.createContext(c);for(const f of ['dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-data.js'])vm.runInContext(fs.readFileSync(path.join(root,'dist',f),'utf8'),c);return JSON.parse(JSON.stringify(c.window));}
+function load(){const c={window:{}};vm.createContext(c);for(const f of ['dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','self-study-data.js'])vm.runInContext(fs.readFileSync(path.join(root,'dist',f),'utf8'),c);return JSON.parse(JSON.stringify(c.window));}
 const w=load(),D=w.SelfStudyData,S=w.SELF_STUDY_SAMPLES,q=id=>D.questions.find(q=>q.id===id);
 test('four verified articles retain the original paragraph numbers and exact source text',()=>{assert.equal(D.articles.length,4);assert.equal(D.questions.length,18);const sources=[...w.COACH_EXAM_DATA.passages,...w.COACH_TRANSFER_DATA.passages];for(const p of D.articles){assert.deepEqual(p.paragraphs.map(x=>x.number),p.id==='dse2024-fansheng'?[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]:[1,2,3,4,5,6,7,8,9,10]);assert.deepEqual(p.paragraphs.map(x=>x.text),sources.find(x=>x.id===p.id).paragraphs);}assert.equal(D.articles.find(x=>x.id==='dse2025-alley').paragraphs[8].text.split('\n').length,7);});
 test('every real question has classification, non-answer hints, relevant paragraph locations and transferable methods',()=>{for(const x of D.questions){const l=x.lesson;assert.ok(l.choices.includes(l.type),x.id);assert.equal(new Set(l.choices).size,l.choices.length);assert.ok(l.choices.every(t=>D.types[t]));assert.ok(l.prompts.length>=2);assert.ok(l.transfer.length>=2);assert.ok(l.review.length);assert.ok(l.locate.every(n=>D.articles.find(p=>p.id===x.exerciseId).paragraphs.some(a=>a.number===n)));}assert.doesNotMatch(q('dse2024-q15').lesson.prompts.join(''),/象徵希望|頑強|困頓|勇氣|決心/);assert.match(D.types.technique.note,/本體與喻體/);assert.match(D.types.quote.note,/所有關鍵元素/);});
@@ -18,3 +18,27 @@ test('next-question navigation stays within the same year and article, including
 test('choice results use actual correct options and remain separate from self-assessed marks',()=>{const x=q('dse2024-q12'),d=C.draft();d.answers={i:'D',ii:'A'};assert.deepEqual(C.choiceResult(x,d).map(r=>r.score),[1,1]);d.answers.ii='D';assert.deepEqual(C.choiceResult(x,d).map(r=>r.score),[1,0]);assert.deepEqual(C.gradingItems(x,d,S),[]);});
 test('retired teacher/export/source UI is not loaded by either public entry',()=>{for(const f of ['index.html','dist/index.html']){const html=fs.readFileSync(path.join(root,f),'utf8');assert.doesNotMatch(html,/academy-|dist\/app\.js|src="app\.js|dist\/data\.js|src="data\.js|真題管理|教師|匯出|來源|出處/);}assert.equal(C.escapeHTML('<script>"&'), '&lt;script&gt;&quot;&amp;');});
 test('all 45 long graded exemplars have an internal file-and-page audit and concrete score analyses',()=>{const audit=JSON.parse(fs.readFileSync(path.join(root,'docs/self-study-sample-audit.json')));const cases=Object.values(S).flatMap(parts=>Object.values(parts).flat());assert.equal(cases.length,45);for(const s of cases){const row=audit.samples.find(a=>a.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,require('node:crypto').createHash('sha256').update(s.text).digest('hex'));assert.ok(s.analysis.includes(s.score+'分'));}});
+test('all 45 original paragraphs have one distinct four-part reading analysis',()=>{
+ let total=0;for(const p of D.articles){const rows=w.SelfStudyAnalysis[p.id];assert.deepEqual(rows.map(a=>a.number),p.paragraphs.map(a=>a.number));assert.equal(new Set(rows.map(a=>a.number)).size,rows.length);for(const a of rows)for(const key of ['summary','technique','meaning','structure'])assert.ok(typeof a[key]==='string'&&a[key].length>=15,p.id+'/'+a.number+'/'+key);total+=rows.length;}assert.equal(total,45);
+ assert.match(w.SelfStudyAnalysis['dse2025-alley'][8].technique,/七行.*同一原文段落/);
+ assert.match(w.SelfStudyAnalysis['dse2024-fansheng'][10].meaning,/撐開.*小小/);
+ assert.match(w.SelfStudyAnalysis['dse2026-voice'][5].meaning,/預想/);
+});
+test('every classification option has its own concrete identifying feature',()=>{
+ const features=Object.values(D.types).map(t=>t.feature);assert.equal(features.length,14);assert.equal(new Set(features).size,14);for(const x of D.questions)for(const type of x.lesson.choices)assert.ok(D.types[type].feature.length>=20);assert.match(D.types.summary.feature,/中心内容|中心內容/);assert.match(D.types.segmentation.feature,/劃分/);assert.match(D.types.technique.feature,/手法/);
+});
+test('auto-location reads paragraph numbers in prompts, quotes, table cells and subquestions',()=>{
+ const p=D.articles.find(p=>p.id==='dse2024-fansheng');
+ assert.deepEqual(C.questionParagraphs(q('dse2024-q15'),p),[11]);assert.deepEqual(C.questionParagraphs(q('dse2024-q12'),p),[4,5]);assert.deepEqual(C.questionParagraphs(q('dse2024-q11'),p),[7,4]);assert.deepEqual(C.questionParagraphs(q('dse2024-q17'),p),[14]);assert.deepEqual(C.questionParagraphs(q('dse2024-q20'),p),[15]);
+ const alley=D.articles.find(p=>p.id==='dse2025-alley');assert.deepEqual(C.questionParagraphs(q('dse2025-q20'),alley),[9,10]);
+});
+test('paragraph references support ranges, Chinese numbers and valid fallback without renumbering',()=>{
+ const p=D.articles.find(p=>p.id==='dse2024-fansheng');
+ assert.deepEqual(C.questionParagraphs({prompt:'第3至6段及第十一段；第14、15段；第99段',answerParts:[]},p),[3,4,5,6,11,14,15]);
+ assert.deepEqual(C.questionParagraphs({prompt:'第十段及最後一段',answerParts:[]},p),[10,15]);
+ assert.deepEqual(C.questionParagraphs({prompt:'綜合全文',answerParts:[],lesson:{locate:[99,6,3]}},p),[6]);
+});
+test('revealed analyses can complete without any sample-read confirmations',()=>{
+ const d=C.draft();assert.equal(C.canComplete(d),false);d.revealed=true;assert.deepEqual(d.reviewed,[]);assert.equal(C.canComplete(d),true);C.updateAnswer(d,'answer','修改');assert.equal(C.canComplete(d),false);
+ const app=fs.readFileSync(path.join(root,'dist/self-study-app.js'),'utf8');assert.doesNotMatch(app,/data-reviewed|我明白這份答案的評閱重點|勾選你已明白/);
+});

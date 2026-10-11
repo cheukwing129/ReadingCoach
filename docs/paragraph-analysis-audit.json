@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-11",
+  "basis": "基於已核對原文、真題及評分資料整理教學分析，並非官方逐段分析原文。公開頁面不顯示本核對表。",
+  "articles": [
+    {
+      "id": "dse2024-fansheng",
+      "fileId": "1r1QGJSpKrpuvDAEnkwnfeJHvZLZRyb-L",
+      "readingMaterialPages": [
+        2,
+        3
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "7edd0a5d221923010f2d4e190b8473e1b14e0f7f18add61bc9d5b2f6ae8fe554"
+        },
+        {
+          "number": 2,
+          "textSha256": "485035507ffdbc55129186e5b9984037c036a16737c95814329bf6a3f6b62b63"
+        },
+        {
+          "number": 3,
+          "textSha256": "409cecc35f8c4544c471e50f5b079f75750ea71cf69595a82f882bac202eba5f"
+        },
+        {
+          "number": 4,
+          "textSha256": "fe01889c4f3654830a0ebda123d13c1f5064298d1651030e44d6edd51d4d54c3"
+        },
+        {
+          "number": 5,
+          "textSha256": "8892281b5d49277d6094bf105aeba11c5f250cdf6710ce2377e8d03b8464c6df"
+        },
+        {
+          "number": 6,
+          "textSha256": "25d31bfe77767f35ff4e885da09509484502c69b75caf0275471afa48cc294a8"
+        },
+        {
+          "number": 7,
+          "textSha256": "69d0fda9d608c4e35f54fa1eb9148c77751c2d98a558021f299997fce231d2bb"
+        },
+        {
+          "number": 8,
+          "textSha256": "bf33637f682f22e014d4903d88632a37d2b45a4c66ff6e5faa84b2081cf87755"
+        },
+        {
+          "number": 9,
+          "textSha256": "b43c7e91248106de5ade1b21e3ab34a82584a7ed1ca248f83cd1a75cacbef6ee"
+        },
+        {
+          "number": 10,
+          "textSha256": "9968994954d85b4adf11d8a0cfdd89677d055d176481cc6ec62d3b5b39881c23"
+        },
+        {
+          "number": 11,
+          "textSha256": "447b998096a202a99d75779f1e452d021da6c0f84d5f060c661c73b849d0d582"
+        },
+        {
+          "number": 12,
+          "textSha256": "2d518fbd76c14f52bb71be8206de59e55e3280713cee9bd0d10c7f95bf2ebbc1"
+        },
+        {
+          "number": 13,
+          "textSha256": "19231dc22a58819d74cc670bd74effeee535b921df6171b019f5f6507b63aa29"
+        },
+        {
+          "number": 14,
+          "textSha256": "02e92883e9df76d03ff2a365c139aaa52b1e81468609ee9f8263db952000c1ee"
+        },
+        {
+          "number": 15,
+          "textSha256": "7b3eaf4b059dafa6805cb69c86f79ea0366a2145efd13a1555f73882f4dd6b90"
+        }
+      ]
+    },
+    {
+      "id": "dse2025-fiction",
+      "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+      "readingMaterialPages": [
+        2
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "361956caacba91c0018fae46573e6f954bba3645fe64140162695a8b7dcde426"
+        },
+        {
+          "number": 2,
+          "textSha256": "413e8be4cd9af3e29958a92a27b9cea967d26ef98ed459c6656a0d1cda30e9ea"
+        },
+        {
+          "number": 3,
+          "textSha256": "5bc359b9fe52b149f597f866dc063315a5f717fc4cb3aec168cf4b6af1c68cc2"
+        },
+        {
+          "number": 4,
+          "textSha256": "afc2a98c8f4420488755bd85c351cbcb8962c94944bad8c3983dd07e4d250c36"
+        },
+        {
+          "number": 5,
+          "textSha256": "545038c8897af77c6ce8856ffc1811d02f21a4660ffe94875a628a5240e9d2e6"
+        },
+        {
+          "number": 6,
+          "textSha256": "3168dceb888fa7b14c5a690e3b09a5966eec894e75c9c701575bbab79ce2a451"
+        },
+        {
+          "number": 7,
+          "textSha256": "9356f9c3064adaaac581981d89dff41a276728b8c4af6e7a1ceeac3800cebbaa"
+        },
+        {
+          "number": 8,
+          "textSha256": "06b6ffa14851d2f0bc38ad496260202353a5094a36042ff4c624ddfaf7e246a6"
+        },
+        {
+          "number": 9,
+          "textSha256": "58eeae8cbad2bcf0f3aaf70af78e02e605c0ef4931765f1477a90fa8f68b73fc"
+        },
+        {
+          "number": 10,
+          "textSha256": "49895b44e4813d11449ffc403148132b16640edfa4b2ec5fd79946a24290c46a"
+        }
+      ]
+    },
+    {
+      "id": "dse2025-alley",
+      "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+      "readingMaterialPages": [
+        3
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "68946499759eb519ca1e1f3d16830535e3821371fc9b6bb8e9e77520a12e249e"
+        },
+        {
+          "number": 2,
+          "textSha256": "68de5969e7877b6a556d490f1bef0918c1f1f1746b41218a2e5729c2ad1320ce"
+        },
+        {
+          "number": 3,
+          "textSha256": "00f6db86950f763948261ea15151b4839a6a4ab9fe2a7e402e92101c4d5e257a"
+        },
+        {
+          "number": 4,
+          "textSha256": "d42d2e22d353c8958d36b7be9795d74755e85f61cd1709195c7cf9a922327d58"
+        },
+        {
+          "number": 5,
+          "textSha256": "99f203ce60ce77d2869593c99ae9940e1a1a325bd767f640b6b4aa6019c71628"
+        },
+        {
+          "number": 6,
+          "textSha256": "3804ea441dc0620a951c63a7e7f0ee28cc248e02d139b7697ac3345aad0b893e"
+        },
+        {
+          "number": 7,
+          "textSha256": "e612167b382f46b8bd852fda99070eace46231023301465dc52b6259c2bfe263"
+        },
+        {
+          "number": 8,
+          "textSha256": "1d70fd8a79117e31f8f22fcb6cd94442f28de5e3098e40cd35b9031fcfc1b3e3"
+        },
+        {
+          "number": 9,
+          "textSha256": "fb2f30e777bfca4b5d760b1ef91d0c7ea715f08b1995333dffd0ac816b06223d"
+        },
+        {
+          "number": 10,
+          "textSha256": "279a724507303440d512098a918345e2ec67a69d1653c48d61a887b7e6f0f0ca"
+        }
+      ]
+    },
+    {
+      "id": "dse2026-voice",
+      "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+      "readingMaterialPages": [
+        2,
+        3,
+        4
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "2365fd39a1511dd015f7ba9da188eb247ee245360164954bbeb6389661d3509f"
+        },
+        {
+          "number": 2,
+          "textSha256": "c7f742243224d751e618b2d964570cdaa7d32d0708f511640b88585f8406a849"
+        },
+        {
+          "number": 3,
+          "textSha256": "9d2b88092c32196d909f4a17758d5e2680b91b5e1720e021dc4d323963f8fdc1"
+        },
+        {
+          "number": 4,
+          "textSha256": "ee6358f4519ebac5c5118b8dd6446afe161ac0d745bc54605c82493e0c6df00e"
+        },
+        {
+          "number": 5,
+          "textSha256": "fb3b822d6f04801620992aac6d95598d5ade85721a453c1e234223fd4c3c6988"
+        },
+        {
+          "number": 6,
+          "textSha256": "2589ba47e6e026e5f2a062bc2a819959e6e39e759d8928ca9b558144a586fc6a"
+        },
+        {
+          "number": 7,
+          "textSha256": "523984be6a3e4e32f505ab9d52be5bc14461a0c57904165208f9cfb49b2ac782"
+        },
+        {
+          "number": 8,
+          "textSha256": "bb6c567efe3365f63e52d826129d39f43e1fc789bab3e9250be1698d709453cc"
+        },
+        {
+          "number": 9,
+          "textSha256": "ad54a5de90b36ea534d500b93875e237a8db8d7eb15a9abd78a1a7ec154ffea8"
+        },
+        {
+          "number": 10,
+          "textSha256": "3b971822894bd687d9bd006dd532a2d12e96fc79452f849a51d361ef2fe0d787"
+        }
+      ]
+    }
+  ]
+}
