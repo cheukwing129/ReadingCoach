@@ -15,18 +15,25 @@ function loadAccess(config=null,store=new Map(),blocked=false){
   return{access:sandbox.ReadingCoachYearAccess,config:sandbox.COACH_YEAR_ACCESS_CONFIG,store};
 }
 
-test('all current years use hashed year defaults and year unlock persists only in this browser',async()=>{
-  const first=loadAccess();
-  for(let year=2020;year<=2026;year++)assert.equal(first.config.years[year],digest(String(year)));
-  assert.match(first.config.teacher,/^[a-f0-9]{64}$/);
-  assert.ok(Object.values(first.config.years).every(hash=>/^[a-f0-9]{64}$/.test(hash)));
-  const result=await first.access.unlock(2024,'2024');
+test('year defaults cover 2012 through 2030 and year unlock persists only in this browser',async()=>{
+  const defaults=loadAccess();
+  const years=Object.keys(defaults.config.years).map(Number);
+  assert.deepEqual(years,Array.from({length:19},(_,i)=>2012+i));
+  const hashes=Object.values(defaults.config.years);
+  assert.ok(hashes.every(hash=>/^[a-f0-9]{64}$/.test(hash)));
+  assert.equal(new Set(hashes).size,hashes.length);
+  for(let year=2020;year<=2026;year++)assert.notEqual(defaults.config.years[year],digest(String(year)));
+  assert.match(defaults.config.teacher,/^[a-f0-9]{64}$/);
+
+  const config={years:{2023:digest('test-year-2023'),2024:digest('test-year-2024')},teacher:defaults.config.teacher};
+  const first=loadAccess(config);
+  const result=await first.access.unlock(2024,'test-year-2024');
   assert.deepEqual({...result},{ok:true,teacher:false,remembered:true});
   assert.equal(first.access.isUnlocked(2024),true);assert.equal(first.access.isUnlocked(2023),false);
-  const restored=loadAccess(null,first.store);
+  const restored=loadAccess(config,first.store);
   assert.equal(restored.access.isUnlocked(2024),true);assert.equal(restored.access.isUnlocked(2023),false);
-  assert.equal((await restored.access.unlock(2023,'2024')).ok,false);
-  const changedConfig={years:{...first.config.years,2024:digest('new-year-password')},teacher:first.config.teacher};
+  assert.equal((await restored.access.unlock(2023,'test-year-2024')).ok,false);
+  const changedConfig={years:{...config.years,2024:digest('new-year-password')},teacher:config.teacher};
   assert.equal(loadAccess(changedConfig,first.store).access.isUnlocked(2024),false);
 });
 
