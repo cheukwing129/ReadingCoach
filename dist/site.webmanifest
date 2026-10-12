@@ -10,13 +10,13 @@
   "background_color": "#faf7ef",
   "icons": [
     {
-      "src": "/dist/brand-mark.png",
+      "src": "brand-mark.png",
       "sizes": "320x320",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/dist/favicon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
