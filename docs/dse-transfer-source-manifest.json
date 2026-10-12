@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-11",
+  "verifiedAt": "2026-10-12",
   "basis": "使用者Google Drive閱讀理解；原卷PDF影像與評卷定稿交叉核對。SHA-256供異動檢查，不是來源認證。",
   "passages": [
     {
@@ -25,10 +25,10 @@
       "title": "比正路還長的巷子",
       "paragraphs": 10,
       "paragraphHashes": [
-        "68946499759eb519ca1e1f3d16830535e3821371fc9b6bb8e9e77520a12e249e",
+        "ca9a15680c66895cfb14a41fad8687d2ec040fb61845de585435c6a366558a69",
         "68de5969e7877b6a556d490f1bef0918c1f1f1746b41218a2e5729c2ad1320ce",
-        "00f6db86950f763948261ea15151b4839a6a4ab9fe2a7e402e92101c4d5e257a",
-        "d42d2e22d353c8958d36b7be9795d74755e85f61cd1709195c7cf9a922327d58",
+        "81c38471ab5aaf116f99b68c74d86132549d97f8c3ddd30b18bd393143a97a58",
+        "880d3e7677424e064e892c995dbb4dfd8622129627df33f9731833b930bdc922",
         "99f203ce60ce77d2869593c99ae9940e1a1a325bd767f640b6b4aa6019c71628",
         "3804ea441dc0620a951c63a7e7f0ee28cc248e02d139b7697ac3345aad0b893e",
         "e612167b382f46b8bd852fda99070eace46231023301465dc52b6259c2bfe263",

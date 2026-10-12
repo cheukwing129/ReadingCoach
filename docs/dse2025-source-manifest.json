@@ -1,0 +1,317 @@
+{
+  "year": 2025,
+  "scope": "乙部兩篇白話文，第9–20題；不含甲部及第三篇文言",
+  "questions": 12,
+  "marks": 41,
+  "paragraphs": 20,
+  "verifiedAt": "2026-10-12",
+  "rm": {
+    "fileId": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+    "pages": [
+      2,
+      3
+    ],
+    "transcriptionFileId": "1n0wxuGcHsWSVdsFDKxfizuZczO4wY4Ch",
+    "corrections": [
+      "原PDF第1段「歧路感」，恢復早前缺少的「歧」",
+      "第3段「怎麼都是顛沛流離」依原PDF刪去多出的「走」",
+      "第4段「驚擾無奈」依原PDF修正「驚慌無奈」",
+      "第17題引文用原PDF「窪坑」「悶壞」；不採文字版誤識「窄巷」「閃爍」",
+      "第9段保留「佝僂行過」及七行同一段"
+    ]
+  },
+  "qab": {
+    "fileId": "1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs",
+    "pages": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "transcriptionFileId": "1zYxyNyBwVj47IdYZD4bsXYqkPE91pVE-",
+    "format": [
+      "第9題保留四項三部分範圍表",
+      "第18題保留原三欄、三列及已填示例",
+      "第19題13欄兩列共26格，只評首26字，包括標點",
+      "第11題兩字詞；第16題一個詞語；第20題各分題2、1、4分"
+    ]
+  },
+  "marking": [
+    {
+      "fileId": "1k8VQe2SDq8ca0u9MrqkHIhXic5P_V-EF",
+      "file": "2025-ms2",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "questions": [
+        11,
+        12,
+        13,
+        19
+      ]
+    },
+    {
+      "fileId": "1s6BpY-w4rBAplxShhjPDMMA6wslFD0Ca",
+      "file": "2025-ms3",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "questions": [
+        18,
+        20
+      ]
+    },
+    {
+      "fileId": "1DjoEcfX1QfK3p3c_gBPqHRgNtH4Ew8bR",
+      "file": "2025-ms4",
+      "pages": [
+        3
+      ],
+      "questions": [
+        16
+      ]
+    },
+    {
+      "fileId": "1onC3i8sNU3nlgujiP1xF8wFP9VLUtWe5",
+      "role": "客觀題答案",
+      "questions": [
+        9,
+        10,
+        14,
+        15,
+        17
+      ]
+    }
+  ],
+  "objectiveAnswers": {
+    "dse2025-q9": [
+      {
+        "key": "answer",
+        "answer": "C",
+        "marks": 2
+      }
+    ],
+    "dse2025-q10": [
+      {
+        "key": "answer",
+        "answer": "D",
+        "marks": 2
+      }
+    ],
+    "dse2025-q14": [
+      {
+        "key": "i",
+        "answer": "C",
+        "marks": 2
+      },
+      {
+        "key": "ii",
+        "answer": "B",
+        "marks": 2
+      }
+    ],
+    "dse2025-q15": [
+      {
+        "key": "answer",
+        "answer": "B",
+        "marks": 2
+      }
+    ],
+    "dse2025-q17": [
+      {
+        "key": "i",
+        "answer": "A",
+        "marks": 2
+      },
+      {
+        "key": "ii",
+        "answer": "D",
+        "marks": 2
+      }
+    ]
+  },
+  "paragraphHashes": {
+    "dse2025-fiction": [
+      {
+        "number": 1,
+        "textSha256": "361956caacba91c0018fae46573e6f954bba3645fe64140162695a8b7dcde426"
+      },
+      {
+        "number": 2,
+        "textSha256": "413e8be4cd9af3e29958a92a27b9cea967d26ef98ed459c6656a0d1cda30e9ea"
+      },
+      {
+        "number": 3,
+        "textSha256": "5bc359b9fe52b149f597f866dc063315a5f717fc4cb3aec168cf4b6af1c68cc2"
+      },
+      {
+        "number": 4,
+        "textSha256": "afc2a98c8f4420488755bd85c351cbcb8962c94944bad8c3983dd07e4d250c36"
+      },
+      {
+        "number": 5,
+        "textSha256": "545038c8897af77c6ce8856ffc1811d02f21a4660ffe94875a628a5240e9d2e6"
+      },
+      {
+        "number": 6,
+        "textSha256": "3168dceb888fa7b14c5a690e3b09a5966eec894e75c9c701575bbab79ce2a451"
+      },
+      {
+        "number": 7,
+        "textSha256": "9356f9c3064adaaac581981d89dff41a276728b8c4af6e7a1ceeac3800cebbaa"
+      },
+      {
+        "number": 8,
+        "textSha256": "06b6ffa14851d2f0bc38ad496260202353a5094a36042ff4c624ddfaf7e246a6"
+      },
+      {
+        "number": 9,
+        "textSha256": "58eeae8cbad2bcf0f3aaf70af78e02e605c0ef4931765f1477a90fa8f68b73fc"
+      },
+      {
+        "number": 10,
+        "textSha256": "49895b44e4813d11449ffc403148132b16640edfa4b2ec5fd79946a24290c46a"
+      }
+    ],
+    "dse2025-alley": [
+      {
+        "number": 1,
+        "textSha256": "ca9a15680c66895cfb14a41fad8687d2ec040fb61845de585435c6a366558a69"
+      },
+      {
+        "number": 2,
+        "textSha256": "68de5969e7877b6a556d490f1bef0918c1f1f1746b41218a2e5729c2ad1320ce"
+      },
+      {
+        "number": 3,
+        "textSha256": "81c38471ab5aaf116f99b68c74d86132549d97f8c3ddd30b18bd393143a97a58"
+      },
+      {
+        "number": 4,
+        "textSha256": "880d3e7677424e064e892c995dbb4dfd8622129627df33f9731833b930bdc922"
+      },
+      {
+        "number": 5,
+        "textSha256": "99f203ce60ce77d2869593c99ae9940e1a1a325bd767f640b6b4aa6019c71628"
+      },
+      {
+        "number": 6,
+        "textSha256": "3804ea441dc0620a951c63a7e7f0ee28cc248e02d139b7697ac3345aad0b893e"
+      },
+      {
+        "number": 7,
+        "textSha256": "e612167b382f46b8bd852fda99070eace46231023301465dc52b6259c2bfe263"
+      },
+      {
+        "number": 8,
+        "textSha256": "1d70fd8a79117e31f8f22fcb6cd94442f28de5e3098e40cd35b9031fcfc1b3e3"
+      },
+      {
+        "number": 9,
+        "textSha256": "fb2f30e777bfca4b5d760b1ef91d0c7ea715f08b1995333dffd0ac816b06223d"
+      },
+      {
+        "number": 10,
+        "textSha256": "279a724507303440d512098a918345e2ec67a69d1653c48d61a887b7e6f0f0ca"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2025-q9",
+      "promptSha256": "c6c447fb88910a58dc6d984ccd4605acdfc911249b3db776c94c60b1da02f086",
+      "officialSha256": "5288be735703dceb8627c4021e34b11fe2a6db6aae962de1e6788f5cebe9781a"
+    },
+    {
+      "id": "dse2025-q10",
+      "promptSha256": "17003f4928fd0611e77e5d116e7567da1919090211ccd5ebddba683a72f35b7c",
+      "officialSha256": "049917db5f04495b45485a2afd99d10df7c3cc4247a5f16b7f358da079f7c770"
+    },
+    {
+      "id": "dse2025-q11",
+      "promptSha256": "66f691ef3dea714939a6cd092ed98a55e020780cd3525cb897da7a0aca5c4a05",
+      "officialSha256": "ce2f6e7cf7f851494170ea329d9078c5f91f9da2c985d094fbba73eb277b809e"
+    },
+    {
+      "id": "dse2025-q12",
+      "promptSha256": "e335a5e143530d5c2986fef909ba9eff60b22fd4509bc96f75ee56017d109544",
+      "officialSha256": "d29b73978418720132023b1651d0f9ce9ace5fd288bdaf1632d9f8ec4e21bb85"
+    },
+    {
+      "id": "dse2025-q13",
+      "promptSha256": "e24153b7b9d7a57d5791118534cb00ec55f01475609674172ffdc8b427443ceb",
+      "officialSha256": "427a50ff4237c4d5253f3d3ea030e7ffcf14ffeacb380a69b52986ce78004329"
+    },
+    {
+      "id": "dse2025-q14",
+      "promptSha256": "988b05f2821bba2ec523ed12000da93b582dcf50844a023dab188dcb729a4124",
+      "officialSha256": "d323b4471a4781a22962115815a2aa2de8194cb022a8fde07f9ecab542b7c77a"
+    },
+    {
+      "id": "dse2025-q15",
+      "promptSha256": "6361fac04e02d34b303916d730fe791c10c5d388f15109f87cc26fe0db97ee7a",
+      "officialSha256": "6af2ce29ba476a4f8af137a41d2c7d7e1f2a59c748c3887fa4a153761ea38e20"
+    },
+    {
+      "id": "dse2025-q16",
+      "promptSha256": "382ecec9c174a9f03df2b666e9a1e21944cbc7c68e0302020bdd9aecbd804ffa",
+      "officialSha256": "09226f43281a1768b9cf37e0d94620822c4d9e1241bc3eccc57c47d05ceef611"
+    },
+    {
+      "id": "dse2025-q17",
+      "promptSha256": "729226f36f379f5401de46b7d8ae51ff00a1f97970ea6fd397de63b8bbc8c0b5",
+      "officialSha256": "2abe4773595065acfaadffb6ba0f05d00b7c45c74340224abd0b29ce929d7240"
+    },
+    {
+      "id": "dse2025-q18",
+      "promptSha256": "773593f8e0b3fb64af7867bc8d8108335068782d417263300bda1fbce39031f7",
+      "officialSha256": "fe206c8636654449fae39249ca9f521c2a89922966a8c3ce8a9dca3a2761ab07"
+    },
+    {
+      "id": "dse2025-q19",
+      "promptSha256": "bb9b0c6c64c5407ec45c39fe4076e365c2df606998ad30d18318c87318d44dc9",
+      "officialSha256": "a0bd105e4b3976bf5a6ae7abef6f290d6f403ea7bd436508cee81a5be670adbc"
+    },
+    {
+      "id": "dse2025-q20",
+      "promptSha256": "6da71dedc8d1348b4eacc275313cac13ca5214f86e9fd27b10d440087d82d263",
+      "officialSha256": "691d5e025604081240af561a44fb4aec809289013567dcbd7b48f6ef132ffcfb"
+    }
+  ],
+  "shortExemplars": [
+    {
+      "id": "dse2025-q11",
+      "reference": "2025-ms2 p2"
+    },
+    {
+      "id": "dse2025-q16",
+      "reference": "2025-ms4 p3"
+    },
+    {
+      "id": "dse2025-q18",
+      "reference": "2025-ms3 pp2–4"
+    },
+    {
+      "id": "dse2025-q19",
+      "reference": "2025-ms2 p10"
+    }
+  ]
+}
