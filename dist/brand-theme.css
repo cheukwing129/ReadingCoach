@@ -81,6 +81,9 @@ body{
 .article-intro h1{color:#163e31;font-weight:700;letter-spacing:.05em}
 .article-intro-art{display:grid;place-items:center;opacity:.92;width:180px;flex:0 0 180px;aspect-ratio:1;background:rgb(255 255 255 / .43);border-radius:50%;border:1px solid #e5d5b6}
 .article-intro-art:before{width:96%}
+/* Separate the article cover from its navigation controls. */
+.article-intro + .article-nav{margin-top:28px}
+@media(max-width:599px){.article-intro + .article-nav{margin-top:20px}}
 .article-nav{border-bottom-color:#dfd2b8}
 .article-nav a[aria-current]{color:#fff9ef}
 .article-reading,.reader,.coach-panel,.question-directory{background:#fffdf8}
