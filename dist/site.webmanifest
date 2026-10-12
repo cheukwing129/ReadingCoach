@@ -10,9 +10,9 @@
   "background_color": "#faf7ef",
   "icons": [
     {
-      "src": "brand-mark.png",
-      "sizes": "320x320",
-      "type": "image/png",
+      "src": "brand-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {

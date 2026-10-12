@@ -49,7 +49,7 @@ body{
 .hero .button.primary{background:#d2aa66;color:#173c30;border-color:#dfbb80;box-shadow:none}
 .hero .button.primary:hover:not(:disabled){background:#edcb94;color:#113a2d}
 .hero-visual{position:relative;display:grid;place-items:center;width:238px;height:238px;border-radius:50%;background:radial-gradient(circle,#fffcf3 25%,#ede2c7 100%);border:1px solid #d5b779;box-shadow:0 0 0 10px rgb(215 184 122 / .12),0 0 0 11px rgb(219 183 106 / .27);opacity:1}
-.hero-visual:before,.article-intro-art:before{content:"";display:block;background:url("./brand-mark.png") center / contain no-repeat;aspect-ratio:1;position:relative}
+.hero-visual:before,.article-intro-art:before{content:"";display:block;background:url("./brand-mark.svg") center / contain no-repeat;aspect-ratio:1;position:relative}
 .hero-visual:before{width:94%}
 .hero-visual svg,.article-intro-art svg{display:none}
 .hero-stats{border-top:1px solid rgb(231 204 148 / .32);gap:42px}
