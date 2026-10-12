@@ -15,6 +15,7 @@ function go(hash){if(location.hash==='#'+hash){render();return;}location.hash=ha
 function crumb(items){return '<nav class="breadcrumbs" aria-label="所在位置"><a href="#home">年份目錄</a>'+items.map(x=>'<span aria-hidden="true">／</span>'+(x.href?'<a href="'+E(x.href)+'">'+E(x.text)+'</a>':'<span aria-current="page">'+E(x.text)+'</span>')).join('')+'</nav>';}
 function readingArt(){return '<svg viewBox="0 0 260 160" width="260" height="160" fill="none"><g stroke="currentColor" stroke-width="1.2"><path opacity=".45" d="M10 131c38-30 73-30 114-13s80 22 126-11M10 145c38-30 73-30 114-13s80 22 126-11M10 117c38-30 73-30 114-13s80 22 126-11"/><path d="M166 110V59m0 25c-25-3-33-17-33-17 25 0 32 17 32 17m2 16c23-3 33-18 33-18-25 0-33 18-33 18"/><circle cx="166" cy="39" r="13"/><circle cx="166" cy="39" r="28" stroke-dasharray="2 6"/><path d="M63 82V49m0 19C43 64 42 54 42 54c18-2 21 14 21 14m0 9c20-4 23-15 23-15-18-1-23 15-23 15"/><circle cx="63" cy="32" r="11"/><circle cx="63" cy="32" r="21" stroke-dasharray="2 5"/></g></svg>';}
 function readingTools(){return '<div class="reading-tools" role="group" aria-label="字體大小"><lumen-button variant="ghost" size="icon" data-ui-action="font-smaller" aria-label="縮小原文字體" title="縮小字體">A−</lumen-button><lumen-button variant="ghost" size="icon" data-ui-action="font-larger" aria-label="放大原文字體" title="放大字體">A＋</lumen-button></div>';}
+function yearGate(year){return '<div class="year-gate-wrap"><section class="year-gate" aria-labelledby="year-gate-title"><p class="eyebrow">DSE YEAR / ACCESS</p><h1 id="year-gate-title">進入'+year+'年篇章</h1><p class="year-gate-copy">請輸入密碼，查看這一年的文章與題目。</p><form class="year-gate-form" id="year-access-form" data-year="'+year+'"><label for="year-access-password">密碼</label><input id="year-access-password" name="password" type="password" autocomplete="current-password" required><button class="button primary" type="submit">解鎖年份 <span aria-hidden="true">→</span></button><p class="year-access-error" id="year-access-error" role="alert" hidden></p></form><p class="year-gate-note">教師通行碼可一次解鎖所有年份。</p><a class="back-link" href="#home">← 返回篇章目錄</a></section></div>';}
 function updateShell(){
  const nav=document.getElementById('context-nav'),years=document.getElementById('sidebar-years'),title=document.getElementById('current-location');
  const p=current.p||(current.q&&D.articles.find(p=>p.id===current.q.exerciseId)),year=p?.year||current.year;
@@ -24,7 +25,7 @@ function updateShell(){
  document.body.dataset.view=current.view;
  document.body.dataset.year=year||'';
 }
-let readingFont=18;try{const n=Number(localStorage.getItem('readingcoach-font-size'));if(n>=14&&n<=26)readingFont=n;}catch{}
+let readingFont=19;try{const n=Number(localStorage.getItem('readingcoach-font-size'));if(n>=14&&n<=26)readingFont=n;}catch{}
 document.documentElement.style.setProperty('--reading-size',readingFont+'px');
 function animateContent(target){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!target?.animate)return;target.animate([{opacity:.2},{opacity:1}],{duration:180,easing:'ease-out'});}
 function articleQuestions(p){return D.questions.filter(q=>q.exerciseId===p.id).sort((a,b)=>a.number-b.number);}
@@ -182,11 +183,11 @@ function locateParagraph(number){
  requestAnimationFrame(()=>scrollReaderTo(number));announce('已定位原文第'+number+'段。');
 }
 function render(){
- captureReader();clearTimeout(persistTimer);current=route();updateShell();document.body.classList.toggle('studying',current.view==='lesson');
+ captureReader();clearTimeout(persistTimer);current=route();const targetYear=current.view==='year'?current.year:current.p?.year||current.q?.year;if(targetYear&&D.articles.some(p=>p.year===targetYear)&&!window.ReadingCoachYearAccess.isUnlocked(targetYear))current={view:'gate',year:targetYear};updateShell();document.body.classList.toggle('studying',current.view==='lesson');
  if(current.view==='lesson'&&!current.q||current.view==='article'&&!current.p||current.view==='year'&&!D.articles.some(p=>p.year===current.year)){main.innerHTML='<div class="empty-page"><h1>找不到這道題目</h1><a class="button primary" href="#home">回到年份目錄</a></div>';return;}
  if(current.view==='lesson'&&shownLesson!==current.q.id){shownLesson=current.q.id;activePane='coach';readerScroll=null;readerAnchor=null;paneScroll={text:0,coach:0};activeReadingId=current.q.readingArticleId||current.q.exerciseId;const p=readingArticle(current.q);locatedParagraphs=C.questionParagraphs(current.q,p);locateTarget=locatedParagraphs[0]||p.paragraphs[0].number;}
  if(current.view!=='lesson'){shownLesson='';activeReadingId='';readerObserver?.disconnect();observedReader=null;}
- document.title=(current.q?'第'+current.q.number+'題 · ':current.p?current.p.title+' · ':'')+'閱讀答題教練';main.innerHTML=current.view==='lesson'?lessonPage(current.q):current.view==='article'?articlePage(current.p):home(current.year);styleNativeActions();applyLessonLayout();window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true});animateContent(main.querySelector('.learning-stage')||main);
+ document.title=(current.view==='gate'?current.year+' 年解鎖 · ':current.q?'第'+current.q.number+'題 · ':current.p?current.p.title+' · ':'')+'閱讀答題教練';main.innerHTML=current.view==='gate'?yearGate(current.year):current.view==='lesson'?lessonPage(current.q):current.view==='article'?articlePage(current.p):home(current.year);styleNativeActions();applyLessonLayout();window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true});animateContent(main.querySelector('.learning-stage')||main);
 }
 function styleNativeActions(){main.querySelectorAll('.button').forEach(el=>el.classList.add('ui-button',el.classList.contains('primary')?'ui-button--default':el.classList.contains('text')?'ui-button--ghost':'ui-button--outline'));}
 document.addEventListener('click',e=>{
@@ -212,6 +213,18 @@ main.addEventListener('scroll',e=>{if(e.target===main.querySelector('.reader-con
 window.addEventListener('scroll',scheduleStickyQuestion,{passive:true});window.addEventListener('resize',scheduleStickyQuestion,{passive:true});
 window.visualViewport?.addEventListener('resize',scheduleStickyQuestion,{passive:true});
 splitScreen.addEventListener('change',applyLessonLayout);
+main.addEventListener('submit',async event=>{
+ const form=event.target?.closest('#year-access-form');if(!form)return;event.preventDefault();
+ const input=form.querySelector('[name="password"]'),button=form.querySelector('button[type="submit"]'),error=main.querySelector('#year-access-error'),year=Number(form.dataset.year),password=input.value;
+ if(!password){error.textContent='請先輸入密碼。';error.hidden=false;input.focus();return;}
+ button.disabled=true;button.textContent='正在核對…';error.hidden=true;
+ try{
+  const result=await window.ReadingCoachYearAccess.unlock(year,password);
+  if(!result.ok){error.textContent='密碼不正確，請再試一次。';error.hidden=false;input.focus();button.disabled=false;button.innerHTML='解鎖年份 <span aria-hidden="true">→</span>';return;}
+  announce(result.teacher?'教師通行碼已解鎖所有年份。'+(result.remembered?'此瀏覽器已記住解鎖狀態。':'瀏覽器無法記住狀態，重新載入後需再次輸入。'):'已解鎖'+year+'年。'+(result.remembered?'此瀏覽器已記住解鎖狀態。':'瀏覽器無法記住狀態，重新載入後需再次輸入。'));
+  render();
+ }catch{error.textContent='目前無法核對密碼，請重新載入頁面再試。';error.hidden=false;button.disabled=false;button.innerHTML='解鎖年份 <span aria-hidden="true">→</span>';}
+});
 window.addEventListener('hashchange',()=>{persist();render();});window.addEventListener('pagehide',persist);window.addEventListener('storage',e=>{if(e.key!==C.KEY)return;try{const next=JSON.parse(e.newValue);if(next?.version!==1)return;const id=current.q?.id;for(const [k,v]of Object.entries(next.questions||{}))if(k!==id)state.questions[k]=v;if(id)announce('另一個分頁的進度已更新；這題保留目前分頁的答案。');else render();}catch{}});
 render();
 })();
