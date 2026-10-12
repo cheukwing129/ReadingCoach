@@ -119,4 +119,4 @@ Lumen官方樣式使用semantic tokens。原有native答題控制保留disabled�
 
 ## 品牌視覺（2026-10-12）
 
-網站以深綠與暖金的「書生教練」標誌為視覺核心：導覽標誌沿用書生與展開的書頁；favicon 則以書本和星光的簡化造型，照顧 16–32px 辨識度。主題樣式集中在 `dist/brand-theme.css`，建基於既有 `dist/lumen-theme.css` 的 semantic tokens，統一首頁、年份卡片、文章原文、步驟、評分卡片及手機版。新標誌位於 `dist/brand-mark.svg`，分頁圖示在 `dist/favicon.svg`，網站圖示由 `dist/site.webmanifest` 定義。原文、真題、評分與儲存資料均不因換品牌而改動。
+網站以深綠與暖金的「書生教練」標誌為視覺核心：導覽標誌沿用書生與展開的書頁；favicon 則以書本和星光的簡化造型，照顧 16–32px 辨識度。主題樣式集中在 `dist/brand-theme.css`，建基於既有 `dist/lumen-theme.css` 的 semantic tokens，統一首頁、年份卡片、文章原文、步驟、評分卡片及手機版。新標誌以原始圖片直接縮製為 PNG：`dist/brand-mark.png` (512px)、`dist/brand-mark-192.png` (192px)；簡化 favicon 為 `dist/favicon.png` (64px)，不再以描線 SVG 重畫，網站圖示由 `dist/site.webmanifest` 定義。原文、真題、評分與儲存資料均不因換品牌而改動。
