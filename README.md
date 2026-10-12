@@ -1,6 +1,6 @@
-# 閱讀答題教練 ReadingCoach
+# 閱讀教練 ReadingCoach
 
-正式網站：[閱讀答題教練](https://readingcoach.pages.dev/#home)
+正式網站：[閱讀教練](https://readingcoach.pages.dev/#home)
 
 以學生自主學習為定位，按**年份 → 文章原文與分析 → 原題**組織 DSE 白話文閱讀。學生逐題辨認主要題型，按需打開方法及本題提示，再作答、練習評分及閱讀解析，把解題方法帶到其他文章。
 
@@ -116,3 +116,7 @@ PLAYWRIGHT_MODULE_PATH=/path/to/playwright-core BROWSER_EXECUTABLE_PATH=/path/to
 Lumen官方樣式使用semantic tokens。原有native答題控制保留disabled、label、change與localStorage流程，新字體按鈕和年份卡片使用正式Lumen Web Components。開發依賴有固定版本，部署使用已提交vendor檔案。
 
 〈夢中的父親〉作者顯示為「利格拉樂．阿𡠄」；原卷字形圖像載入失敗或瀏覽器不支援遮罩時，只顯示「利格拉樂」。
+
+## 品牌視覺（2026-10-12）
+
+網站以深綠與暖金的「書生教練」標誌為視覺核心：導覽標誌沿用書生與展開的書頁；favicon 則以書本和星光的簡化造型，照顧 16–32px 辨識度。主題樣式集中在 `dist/brand-theme.css`，建基於既有 `dist/lumen-theme.css` 的 semantic tokens，統一首頁、年份卡片、文章原文、步驟、評分卡片及手機版。新標誌位於 `dist/brand-mark.png`，分頁圖示在 `dist/favicon.svg`，網站圖示由 `dist/site.webmanifest` 定義。原文、真題、評分與儲存資料均不因換品牌而改動。
