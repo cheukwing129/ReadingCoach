@@ -1,0 +1,311 @@
+{
+  "year": 2026,
+  "scope": "乙部兩篇白話文，第9–20題；不含甲部及第三篇文言",
+  "questions": 12,
+  "marks": 42,
+  "paragraphs": 13,
+  "verifiedAt": "2026-10-12",
+  "rm": {
+    "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+    "pages": [
+      2,
+      3,
+      4
+    ],
+    "layout": [
+      "第一篇3段及原註釋",
+      "第二篇10段；原有段號及ID保留"
+    ]
+  },
+  "qab": {
+    "fileId": "1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0",
+    "pages": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "format": [
+      "第9題混合選擇及長答2＋4分",
+      "第13題兩個分題各1分，不多於4字",
+      "第14題兩個分題各2分，必須兩字，近義只取最高分一項"
+    ]
+  },
+  "marking": [
+    {
+      "fileId": "1kpmPG--yiKUFnzkST2D0dlLXiM0Ojfux",
+      "file": "2026-ms2.pdf",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "questions": [
+        9,
+        13,
+        17
+      ]
+    },
+    {
+      "fileId": "1z-p_TjgpEEJfu3b8DTyfbDv6_PceGBu3",
+      "file": "2026-ms3.pdf",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "questions": [
+        14,
+        18,
+        19
+      ]
+    },
+    {
+      "fileId": "1GwVPEdHndvYTmk0bP9x0V5dsMRWc1CoN",
+      "role": "第14題近義答案只取較高分的補充例子"
+    }
+  ],
+  "objectiveVerification": {
+    "status": "pending-source-key",
+    "reason": "Drive年份資料夾及相關文件檢索未找到2026客觀題答案；既有解卷PPT也明示待核對。外部搜尋沒有取得可核實答案。不得把以下教學判讀當作已確認的官方答案。",
+    "unscored": true,
+    "referenceInterpretations": {
+      "dse2026-q9": [
+        {
+          "key": "i",
+          "referenceAnswer": "D",
+          "answerVerified": false
+        }
+      ],
+      "dse2026-q10": [
+        {
+          "key": "i",
+          "referenceAnswer": "否",
+          "answerVerified": false
+        },
+        {
+          "key": "ii",
+          "referenceAnswer": "是",
+          "answerVerified": false
+        }
+      ],
+      "dse2026-q11": [
+        {
+          "key": "i",
+          "referenceAnswer": "否",
+          "answerVerified": false
+        },
+        {
+          "key": "ii",
+          "referenceAnswer": "是",
+          "answerVerified": false
+        }
+      ],
+      "dse2026-q12": [
+        {
+          "key": "answer",
+          "referenceAnswer": "B",
+          "answerVerified": false
+        }
+      ],
+      "dse2026-q15": [
+        {
+          "key": "answer",
+          "referenceAnswer": "B",
+          "answerVerified": false
+        }
+      ],
+      "dse2026-q16": [
+        {
+          "key": "i",
+          "referenceAnswer": "否",
+          "answerVerified": false
+        },
+        {
+          "key": "ii",
+          "referenceAnswer": "是",
+          "answerVerified": false
+        }
+      ],
+      "dse2026-q20": [
+        {
+          "key": "answer",
+          "referenceAnswer": "C",
+          "answerVerified": false
+        }
+      ]
+    }
+  },
+  "paragraphHashes": {
+    "dse2026-robots": [
+      {
+        "number": 1,
+        "textSha256": "471eff35dae7d67fa0c66c1719b64dddd0a7a587d95dc21b7a9b53c3bcac89ee"
+      },
+      {
+        "number": 2,
+        "textSha256": "aaea2498ab9cad052971417b83e28ba74eecce2b68c48225853a79e90372ba4e"
+      },
+      {
+        "number": 3,
+        "textSha256": "1f39697415a7b605b1095b76d8ac2f8b59aef17b33fbc9148515eb9483de2e00"
+      }
+    ],
+    "dse2026-voice": [
+      {
+        "number": 1,
+        "textSha256": "2365fd39a1511dd015f7ba9da188eb247ee245360164954bbeb6389661d3509f"
+      },
+      {
+        "number": 2,
+        "textSha256": "c7f742243224d751e618b2d964570cdaa7d32d0708f511640b88585f8406a849"
+      },
+      {
+        "number": 3,
+        "textSha256": "9d2b88092c32196d909f4a17758d5e2680b91b5e1720e021dc4d323963f8fdc1"
+      },
+      {
+        "number": 4,
+        "textSha256": "ee6358f4519ebac5c5118b8dd6446afe161ac0d745bc54605c82493e0c6df00e"
+      },
+      {
+        "number": 5,
+        "textSha256": "fb3b822d6f04801620992aac6d95598d5ade85721a453c1e234223fd4c3c6988"
+      },
+      {
+        "number": 6,
+        "textSha256": "2589ba47e6e026e5f2a062bc2a819959e6e39e759d8928ca9b558144a586fc6a"
+      },
+      {
+        "number": 7,
+        "textSha256": "523984be6a3e4e32f505ab9d52be5bc14461a0c57904165208f9cfb49b2ac782"
+      },
+      {
+        "number": 8,
+        "textSha256": "bb6c567efe3365f63e52d826129d39f43e1fc789bab3e9250be1698d709453cc"
+      },
+      {
+        "number": 9,
+        "textSha256": "ad54a5de90b36ea534d500b93875e237a8db8d7eb15a9abd78a1a7ec154ffea8"
+      },
+      {
+        "number": 10,
+        "textSha256": "3b971822894bd687d9bd006dd532a2d12e96fc79452f849a51d361ef2fe0d787"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2026-q9",
+      "promptSha256": "b5fc27a02565ca5947d048560507bd977217adb862f8cf38ce4564a2342d0792",
+      "officialSha256": "b62e458485df7b3ee32efc2d4a416c1c2f0728727031b758c92bf4c4ba9b3419"
+    },
+    {
+      "id": "dse2026-q10",
+      "promptSha256": "5947a66d6f5052a05168fdf77eca3fc20c6527be2263f406cf5aa28ec6b6e75b",
+      "officialSha256": "db2ece74110bab2c0e624a133beb100a544836038296effaf76b14d4f2411e19"
+    },
+    {
+      "id": "dse2026-q11",
+      "promptSha256": "869fe4c8ba1b1ccaf92f02104d7e56cb99f144faab40be9c984ecfbb7b63eb40",
+      "officialSha256": "4901be1d6b077d00dd76f3be4f71cbc1bcb3c8937e42070b1eb477743036c89e"
+    },
+    {
+      "id": "dse2026-q12",
+      "promptSha256": "48bcdfa13a957cba9ec470361d7c620d60e2169b96fa4f63e8c66a95b096abf1",
+      "officialSha256": "8d9da974fb71171de8777bf95c6493fe8ce3a355393f8e2b2043357919434ac6"
+    },
+    {
+      "id": "dse2026-q13",
+      "promptSha256": "f0eb2b20d5f2287719d67a932cd1318cdcd54ff6632a0dedfc6ec88d7723f488",
+      "officialSha256": "8f826d73f79ccf576da7253d1e0c8fd1c4e1ed19650cd4849e0287609cba401b"
+    },
+    {
+      "id": "dse2026-q14",
+      "promptSha256": "83c3ca7f0133669cfca0843a656ca56da2c237288fa98580611ce7e4691cb1c3",
+      "officialSha256": "6291e72430afe20015d274076cd5fa3358fddb791f3e77486a497146e9d043b2"
+    },
+    {
+      "id": "dse2026-q15",
+      "promptSha256": "9b4557ccaff5e910ba6c7c057b87fae4c911f4188b0d2b4de3355bc30f737644",
+      "officialSha256": "d0401320f003e8f63145e8b69dc6f9e9874f9940949d37b0eaadce51d717b21d"
+    },
+    {
+      "id": "dse2026-q16",
+      "promptSha256": "caae272a802cdc8674222d5582f51da9d6e81df573074553f4d06362fea02084",
+      "officialSha256": "7bbf298abb6c4a283d008d27e4d974f3f95d7bd2d938d5e42c6aff094d80bb5c"
+    },
+    {
+      "id": "dse2026-q17",
+      "promptSha256": "ea3c271a4a1d9675c8b868c1b43448a4c85d1fab79a627b5509006668cb74785",
+      "officialSha256": "722e30b96a954707d4f192f393bf868116b9471f4fb490ed98a22378c2faa511"
+    },
+    {
+      "id": "dse2026-q18",
+      "promptSha256": "3439b7ad0aa1d1d4bcea297cf0ad4fc38bc605ec130108c397ed296f51143983",
+      "officialSha256": "318515c6886b54b7e6dd36053ccc1a569d3894b53e5acf98bd55178142ef0a1c"
+    },
+    {
+      "id": "dse2026-q19",
+      "promptSha256": "6aa51ce3f24f51adf0485b0186d615418ebfc3a5821a35777a05305026135003",
+      "officialSha256": "264a201f54099314b872457665ecacc7c82e5467b3135e0f0b3c957a74995493"
+    },
+    {
+      "id": "dse2026-q20",
+      "promptSha256": "823cf06b2e9571f1471d17f072be5a7a3772048fa6f05394e1a9e8e797c38d7e",
+      "officialSha256": "7a0ab044ff69b5aa0c617208e41c0b10786074207e078c7321d6ac146e79b3c8"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2026-q9-ii-s1",
+      "file": "2026-ms2.pdf",
+      "page": 4,
+      "index": 1,
+      "score": 4,
+      "textSha256": "5a3cd60dc83e669260dfcd5976abc1708315a6e4df92d23666f0364d73578e7f"
+    },
+    {
+      "id": "dse2026-q9-ii-s2",
+      "file": "2026-ms2.pdf",
+      "page": 4,
+      "index": 2,
+      "score": 3,
+      "textSha256": "fc346ad20d75b013fff3bb4a378f5bce21cf40808d5c4d21baad997c9da2ff09"
+    },
+    {
+      "id": "dse2026-q9-ii-s4",
+      "file": "2026-ms2.pdf",
+      "page": 4,
+      "index": 4,
+      "score": 2,
+      "textSha256": "0b2de495300f4cd66f67db572c020d6c0f6dd6be70901a61f57498ba2fb4579f"
+    },
+    {
+      "id": "dse2026-q9-ii-s6",
+      "file": "2026-ms2.pdf",
+      "page": 5,
+      "index": 6,
+      "score": 1,
+      "textSha256": "70c8aaaf33aab8f944aa0f6ab1901c0c674f22064e8b287de13d5fa976c9ed0f"
+    },
+    {
+      "id": "dse2026-q9-ii-s8",
+      "file": "2026-ms2.pdf",
+      "page": 5,
+      "index": 8,
+      "score": 0,
+      "textSha256": "b7fa2d99acdd714812811375ffe34e97ecba0c5701994a8be2d9a69e01afb537"
+    }
+  ]
+}

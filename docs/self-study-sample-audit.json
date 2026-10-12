@@ -1089,6 +1089,46 @@
       "index": "t",
       "score": 0,
       "textSha256": "f157497dcb2f1db630c3e53d43a464ddda4db6a1f70e02fff5603ddbe3e04a33"
+    },
+    {
+      "id": "dse2026-q9-ii-s1",
+      "file": "2026-ms2.pdf",
+      "page": 4,
+      "index": 1,
+      "score": 4,
+      "textSha256": "5a3cd60dc83e669260dfcd5976abc1708315a6e4df92d23666f0364d73578e7f"
+    },
+    {
+      "id": "dse2026-q9-ii-s2",
+      "file": "2026-ms2.pdf",
+      "page": 4,
+      "index": 2,
+      "score": 3,
+      "textSha256": "fc346ad20d75b013fff3bb4a378f5bce21cf40808d5c4d21baad997c9da2ff09"
+    },
+    {
+      "id": "dse2026-q9-ii-s4",
+      "file": "2026-ms2.pdf",
+      "page": 4,
+      "index": 4,
+      "score": 2,
+      "textSha256": "0b2de495300f4cd66f67db572c020d6c0f6dd6be70901a61f57498ba2fb4579f"
+    },
+    {
+      "id": "dse2026-q9-ii-s6",
+      "file": "2026-ms2.pdf",
+      "page": 5,
+      "index": 6,
+      "score": 1,
+      "textSha256": "70c8aaaf33aab8f944aa0f6ab1901c0c674f22064e8b287de13d5fa976c9ed0f"
+    },
+    {
+      "id": "dse2026-q9-ii-s8",
+      "file": "2026-ms2.pdf",
+      "page": 5,
+      "index": 8,
+      "score": 0,
+      "textSha256": "b7fa2d99acdd714812811375ffe34e97ecba0c5701994a8be2d9a69e01afb537"
     }
   ],
   "resources": {

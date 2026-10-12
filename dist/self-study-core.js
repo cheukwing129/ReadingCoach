@@ -72,12 +72,29 @@ function samples(q,p,d,sourceSamples){
   else if(!formatError&&match){chosen.push({...match,text:own,own:true,merged:true});}
   else chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatError?0:segment,outOf:p.marks,key:p.key,own:true,segmentChecked:segment!==null,analysis:formatError||(segment!==null?(segment+'分：已按原題可接受的段落範圍核對；標準答案是'+q.official.find(o=>o.key===p.key).answers.join('或')+'。'):'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。')});
  }
+ const distinct=q.distinctAnswerGroups;
+ if(own&&distinct?.keys.includes(p.key)){
+  const group=distinct.groups.find(g=>g.some(t=>normalize(t)===normalize(own)));
+  const current=chosen.find(s=>s.own);
+  if(group&&current?.score>0){
+   const candidates=distinct.keys.map(key=>{
+    const part=q.answerParts.find(a=>a.key===key),text=String(d.answers[key]||'');
+    if(!group.some(t=>normalize(t)===normalize(text)))return null;
+    const match=pool(q,part,sourceSamples).find(s=>normalize(s.text)===normalize(text));
+    return match?{key,score:match.score}:null;
+   }).filter(Boolean).sort((a,b)=>b.score-a.score||distinct.keys.indexOf(a.key)-distinct.keys.indexOf(b.key));
+   if(candidates.length>1&&candidates[0].key!==p.key){
+    current.score=0;current.distinctChecked=true;
+    current.analysis='0分：這項與另一欄的答案意涵相近；本題同類品格只取較高分的一項，同分時保留第一項，不重複計分。';
+   }
+  }
+ }
  return shuffled(chosen,q.id+'-'+p.key);
 }
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}
 function gradingReady(items,d){const examples=items.filter(s=>!s.own);return examples.length>0&&examples.every(s=>validScore(d.grades[s.id],s.outOf));}
 function gradingResult(items,d){return{correct:items.filter(s=>!s.own&&s.score!==null&&d.grades[s.id]===s.score).length,total:items.filter(s=>!s.own&&s.score!==null).length};}
-function choiceResult(q,d){return q.answerParts.filter(p=>p.kind==='choice').map(p=>({key:p.key,chosen:d.answers[p.key]||'',correct:p.answer,score:d.answers[p.key]===p.answer?p.marks:0,outOf:p.marks}));}
+function choiceResult(q,d){return q.answerParts.filter(p=>p.kind==='choice').map(p=>({key:p.key,chosen:d.answers[p.key]||'',correct:p.answer,score:p.answerVerified===false?null:d.answers[p.key]===p.answer?p.marks:0,outOf:p.marks}));}
 function nextQuestion(data,q){const items=data.questions.filter(x=>x.exerciseId===q.exerciseId).sort((a,b)=>a.number-b.number),i=items.findIndex(x=>x.id===q.id);return items[i+1]||null;}
 function questionParagraphs(q,article){
  if(q.readingReferences?.[article.id])return q.readingReferences[article.id].filter(n=>article.paragraphs.some(p=>p.number===n));

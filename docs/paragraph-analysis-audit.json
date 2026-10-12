@@ -511,6 +511,27 @@
           "textSha256": "87441f6fb223097f0413466415d59f7c9715ce48c674eb3160206ce932a46970"
         }
       ]
+    },
+    {
+      "id": "dse2026-robots",
+      "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+      "readingMaterialPages": [
+        2
+      ],
+      "paragraphs": [
+        {
+          "number": 1,
+          "textSha256": "471eff35dae7d67fa0c66c1719b64dddd0a7a587d95dc21b7a9b53c3bcac89ee"
+        },
+        {
+          "number": 2,
+          "textSha256": "aaea2498ab9cad052971417b83e28ba74eecce2b68c48225853a79e90372ba4e"
+        },
+        {
+          "number": 3,
+          "textSha256": "1f39697415a7b605b1095b76d8ac2f8b59aef17b33fbc9148515eb9483de2e00"
+        }
+      ]
     }
   ]
 }
