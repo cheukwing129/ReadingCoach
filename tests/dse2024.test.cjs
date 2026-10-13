@@ -118,7 +118,7 @@ test('downloads retain original questions and distinguish source answers from co
 
 test('Cloudflare root and dist entries load the same complete versioned dependency set',()=>{
   const repo=path.join(__dirname,'..');
-  const expected=['vendor/lumen.css','self-study.css','lumen-theme.css','brand-theme.css','vendor/lumen-elements.js','dse2017-data.js','dse2018-data.js','dse2019-data.js','dse2020-data.js','dse2021-data.js','dse2022-data.js','dse2023-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','dse2025-data.js','dse2026-data.js','self-study-data.js','self-study-core.js','year-access-config.js','year-access.js','self-study-app.js'];
+  const expected=['vendor/lumen.css','self-study.css','lumen-theme.css','brand-theme.css','vendor/lumen-elements.js','dse2016-data.js','dse2017-data.js','dse2018-data.js','dse2019-data.js','dse2020-data.js','dse2021-data.js','dse2022-data.js','dse2023-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','dse2025-data.js','dse2026-data.js','self-study-data.js','self-study-core.js','year-access-config.js','year-access.js','self-study-app.js'];
   for(const [file,prefix] of [['index.html','dist/'],['dist/index.html','']]){
     const html=fs.readFileSync(path.join(repo,file),'utf8');
     const urls=[...html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css)(?:\?[^"#]+)?)"/g)].map(m=>m[1]);

@@ -64,6 +64,8 @@ function assessmentDependency(q,p,d,sourceSamples){
  const failure=(action,reason)=>action==='zero'?{score:0,dependencyChecked:true,analysis:'0分：'+reason+'原題規定相關分題不給分；不能另加自評分。'}:{score:null,notAssessed:true,dependencyChecked:true,analysis:'不予評閱（IR）：'+reason+'原題規定先完成正確的前置答案，才評閱這一分題。'};
  if(!text)return failure(rule.missing,'尚未填寫'+label+'。');
  if(rule.exceptions?.some(t=>normalize(t)===normalize(text)))return null;
+ const length=Array.from(normalize(text)).length;
+ if(rule.validateFormat&&((prerequisite.exactChars&&length!==prerequisite.exactChars)||(prerequisite.maxChars&&length>prerequisite.maxChars)))return failure(rule.incorrect,label+'未符合原題字數要求。');
  const score=rule.kind==='segment'?segmentScore(prerequisite,text):pool(q,prerequisite,sourceSamples).find(s=>normalize(s.text)===normalize(text))?.score;
  if(score===0)return failure(rule.incorrect,label+'未符合原題要求。');
  if(score>0)return null;
@@ -111,7 +113,11 @@ function samples(q,p,d,sourceSamples){
    }
   }
  }
- if(own){const dependency=assessmentDependency(q,p,d,sourceSamples);if(dependency)Object.assign(chosen.find(s=>s.own),dependency);}
+ if(own){
+  const current=chosen.find(s=>s.own),dependency=assessmentDependency(q,p,d,sourceSamples);
+  if(dependency)Object.assign(current,dependency);
+  if(current.prerequisiteAnswers&&p.assessmentDependency&&!current.notAssessed&&!current.dependencyPending&&!current.prerequisiteAnswers.some(t=>normalize(t)===normalize(d.answers[p.assessmentDependency.key])))Object.assign(current,{score:0,dependencyChecked:true,analysis:'0分：這個例子與前一分題所選的描寫方面不相符。原題要求例子說明所選方面，須先配對手法與例子，再分析效果。'});
+ }
  return shuffled(chosen,q.id+'-'+p.key);
 }
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}
