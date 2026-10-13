@@ -1,0 +1,671 @@
+{
+  "year": 2019,
+  "verifiedAt": "2026-10-13",
+  "scope": "乙部兩篇白話文及第7–16題，保留第16題跨篇評析；不含指定篇章與第三篇文言《海鷗》。",
+  "articles": 2,
+  "paragraphs": 34,
+  "questions": 10,
+  "marks": 45,
+  "rm": {
+    "fileId": "1d0s2ePUrlvHXG1gQ28JAhT396Nr6mZS2",
+    "pages": [
+      2,
+      3,
+      4
+    ],
+    "transcriptionFileId": "1WCyPAHK6aDXTn_rUF_SKnC-coIT96aIi",
+    "corrections": [
+      "高粱粥改回高粱皮",
+      "夜磨麥改回夜磨麵",
+      "霉氣改回穢氣",
+      "補回「他流着眼淚說」",
+      "討飯的人改回慰問的人",
+      "末句可是麼改回可不是麼",
+      "有我即傲改回有我則傲",
+      "第一篇28個原分段独立保留；原卷沒有段號，新增段號只供定位"
+    ]
+  },
+  "qab": {
+    "fileId": "1XK1fEfw7g9CRBOgxflWdaYEAq3NR6UPE",
+    "pages": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "transcriptionFileId": "1Ecexs0uNKf38Vc8c6SBcJh5VI-VdmlNV",
+    "corrections": [
+      "第7題每個角色都是1分單選，保留原五個選項及表格",
+      "第11題「自我犧牲精神」保留粗體；手法名稱沒有自行加上兩字限制",
+      "第15題引文「有我則傲」依QAB與RM修正"
+    ]
+  },
+  "marking": [
+    {
+      "fileId": "16E0WqDO2wYpIiGdwr5PQYEmRj0PJd2PG",
+      "file": "2019-ms2.pdf",
+      "version": "第二組修訂版",
+      "questions": [
+        8,
+        9,
+        10
+      ],
+      "pdfPages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "printedPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "fileId": "1LtIer-i-xRKeuVoyMxc-VsxKOSUWV1_W",
+      "file": "2019-ms3.pdf",
+      "version": "第三組修訂版",
+      "questions": [
+        11,
+        13,
+        16
+      ],
+      "pdfPages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "printedPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "fileId": "1CrWj5gRCUxUzJJZu1V62Krs2lIg-hKej",
+      "role": "客觀題答案",
+      "questions": [
+        7,
+        12,
+        14,
+        15
+      ]
+    }
+  ],
+  "compilationCrossCheck": {
+    "fileId": "1inKKiv_pD1WKlwtnNd2pE5nSflKoiztr",
+    "method": "解碼每頁掃描影像並以SHA-256比對原組別PDF；22頁逐頁完全相同。",
+    "pages": [
+      {
+        "compilationPage": 1,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 3
+      },
+      {
+        "compilationPage": 2,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 4
+      },
+      {
+        "compilationPage": 3,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 5
+      },
+      {
+        "compilationPage": 4,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 6
+      },
+      {
+        "compilationPage": 5,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 7
+      },
+      {
+        "compilationPage": 6,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 8
+      },
+      {
+        "compilationPage": 7,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 9
+      },
+      {
+        "compilationPage": 8,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 10
+      },
+      {
+        "compilationPage": 9,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 11
+      },
+      {
+        "compilationPage": 10,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 12
+      },
+      {
+        "compilationPage": 11,
+        "file": "2019-ms2.pdf",
+        "pdfPage": 13
+      },
+      {
+        "compilationPage": 12,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 3
+      },
+      {
+        "compilationPage": 13,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 4
+      },
+      {
+        "compilationPage": 14,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 5
+      },
+      {
+        "compilationPage": 15,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 6
+      },
+      {
+        "compilationPage": 16,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 7
+      },
+      {
+        "compilationPage": 17,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 8
+      },
+      {
+        "compilationPage": 18,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 9
+      },
+      {
+        "compilationPage": 19,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 10
+      },
+      {
+        "compilationPage": 20,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 11
+      },
+      {
+        "compilationPage": 21,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 12
+      },
+      {
+        "compilationPage": 22,
+        "file": "2019-ms3.pdf",
+        "pdfPage": 13
+      }
+    ]
+  },
+  "sourceParagraphNumbering": {
+    "dse2019-fable": "原卷無段號；1–28為網站定位編號，保留原分段。",
+    "dse2019-admonition": "原卷段號1–6。"
+  },
+  "backgroundSha256": "55e4cb124f4bc01c176e5672c2deb2cc22d378681ccdd513c3b5d23c8794b1e5",
+  "paragraphHashes": {
+    "dse2019-fable": [
+      {
+        "number": 1,
+        "textSha256": "90759dc633517d0297714b728f97bd6262c8736dc4c3bc24f3de947766e4c300"
+      },
+      {
+        "number": 2,
+        "textSha256": "85a89ed92563507cde50feacad732c0dd423596fb401b032bac8531ff5df10d7"
+      },
+      {
+        "number": 3,
+        "textSha256": "aacc7a2db6887b999f42bdf329b220dcb54783f6ee7bf9a673e5b7fb406a35bb"
+      },
+      {
+        "number": 4,
+        "textSha256": "232e3ba163c51423c5cb9c9c3ad44f2adac3a87b5b26123011d5fb4ac1e75ec0"
+      },
+      {
+        "number": 5,
+        "textSha256": "4d61997c591c50c8c00dffcd9f2846d7bf83c2970ca3cfcb3316fa0bc40542fa"
+      },
+      {
+        "number": 6,
+        "textSha256": "f3a8580f26b0eb6fec2b3c8d602d800ded17571435d6d9c0def06fa4024f9b71"
+      },
+      {
+        "number": 7,
+        "textSha256": "771869dc02aed0e8327d3cc0c6534360ac721ed3c768c9393dda9099bb708392"
+      },
+      {
+        "number": 8,
+        "textSha256": "32eed1bd092cd9d2f07d00caf19a59c3c37cca8ca6f13460a686f07a3ca83101"
+      },
+      {
+        "number": 9,
+        "textSha256": "3ae968765bf6769a8dd4a1839eb81bcd09076ad20b0d3a9419c1c9636c4799a6"
+      },
+      {
+        "number": 10,
+        "textSha256": "00e70c5eddf90b3deb4223bddb33b5c29b70b19b7cb19fd166dd4c74dad02b52"
+      },
+      {
+        "number": 11,
+        "textSha256": "879e9c16dd703c54ca433091df68c34e04f16b0867c05209974249114f23639a"
+      },
+      {
+        "number": 12,
+        "textSha256": "b61d5bf8ac69ad5ad8bb95683151175178d4218d7a7731f7b1b83f41cc9672ae"
+      },
+      {
+        "number": 13,
+        "textSha256": "449355d2fd350167bebd3dd79c88b2cff5016b5819a53752913253ac5371c141"
+      },
+      {
+        "number": 14,
+        "textSha256": "3666b822a6d24048218da96bb1aa3196e11c81f6ec6f15ca8ed3aca954981a27"
+      },
+      {
+        "number": 15,
+        "textSha256": "3bbd5b2e76e93355b33f341c1a4f112c1c2b2a9850ea7a8c7a5d5a17e56cc8b1"
+      },
+      {
+        "number": 16,
+        "textSha256": "a36f79987bef98e1785b22b9a08e65a03351396fc6a7ae4d85c321b63dcee2df"
+      },
+      {
+        "number": 17,
+        "textSha256": "6e62f664d4f8b2ea0552a38ebc4130dc58f82bc673d5602ebdf6de1ed8fc4dc2"
+      },
+      {
+        "number": 18,
+        "textSha256": "1c063402cf4512f16262022b7f703e86722a4a4cf8604f6f10495ae7cd07e1a5"
+      },
+      {
+        "number": 19,
+        "textSha256": "227c0619ef0fb1023d6f31228ff189c547dedeadf865a33de927241dc851c93b"
+      },
+      {
+        "number": 20,
+        "textSha256": "89d4b9fd095b596e86d6daa261987155b82d3699d84d0f678d7a34edd31d1ddd"
+      },
+      {
+        "number": 21,
+        "textSha256": "aa4407667457063c73daf2413dd9cd9613df5517bfdf80b8c141d7ed2e822abb"
+      },
+      {
+        "number": 22,
+        "textSha256": "bcc318ea1b238785d7793d2f455e7ef3544bcf41b215327831cda3e1ba5533e3"
+      },
+      {
+        "number": 23,
+        "textSha256": "f6c6a0b814960b736da976663707bd9975fad6be72b6f1190e154e9d09639ae9"
+      },
+      {
+        "number": 24,
+        "textSha256": "43d99ee6a6c6cc20b62fc9a3af42c23e3ef62620a03f8cf31d29357483bb25b0"
+      },
+      {
+        "number": 25,
+        "textSha256": "3b72f8b5ef8f9f72aa2ae6cad6ce519d2d1ccf61d31ed78c43e4ceab52695b8a"
+      },
+      {
+        "number": 26,
+        "textSha256": "12fab68b43a9f676f9348fa99d302a7e4cce0253e5e96260b7dc7d3dd9cc4784"
+      },
+      {
+        "number": 27,
+        "textSha256": "e679f8e434fd413a5e6c38a9af60ee9ec5416d3eef0d5dd0180b1230bf0fe42a"
+      },
+      {
+        "number": 28,
+        "textSha256": "04605ee95be4fad350af1e6ddb0219600cb54b4d485f7c4f24380376fe1ffa1c"
+      }
+    ],
+    "dse2019-admonition": [
+      {
+        "number": 1,
+        "textSha256": "5cb49883484bd6fae4afc6e6e325a789da81adf04b19ec25cc0adc475d785a3d"
+      },
+      {
+        "number": 2,
+        "textSha256": "3fae6308b260c42b7b86207c129235ee67406291850a299ef12e5adbaa5e7f2f"
+      },
+      {
+        "number": 3,
+        "textSha256": "3c5fb7b6435e400721ced00df9d1ba15baea4116cb8f1a1456d6b737488dbbaa"
+      },
+      {
+        "number": 4,
+        "textSha256": "8f874f5a7045acf0e65af5f6792eb16e6b815bae8c67758112756f50878b5de4"
+      },
+      {
+        "number": 5,
+        "textSha256": "068667bf405f3a94c097cc59a1721993892e1823e52a81e17f06b42cf2478d3e"
+      },
+      {
+        "number": 6,
+        "textSha256": "434a82dc7214eb27404c177eb7fd3500c8581772a2af9b92aebb35dea658b459"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2019-q7",
+      "promptSha256": "d4335c59d621807223b8b823d8c517fb4a32839529ab2a913caf812a576e4591",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q8",
+      "promptSha256": "957a82290e2b0b892ee585f38c193bcf036a0d833f08f96a262eb14b670d7d26",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q9",
+      "promptSha256": "94f065425322f0e161d63456c75d6748fe8a296a11d188fca3eefacb95f0cdb7",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q10",
+      "promptSha256": "bd2ca3c009baf07be277c0005dc21763bb1fb687e16bf31925276005cfdd8fd2",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q11",
+      "promptSha256": "a769d6c0fa7e4b020b317dbba7577d5bdf9aa2e03fb5e5f68752126d0e79ceaa",
+      "quoteSha256": "3a08c282b71a2fb11d769dc51fbd35cf144ce5242cc1171f6c8a8873ee20de35"
+    },
+    {
+      "id": "dse2019-q12",
+      "promptSha256": "61713389d22540c29f894fa7112b426d3ce00dbead2744a96f4f4bbeb22fe8ef",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q13",
+      "promptSha256": "a04ce831d7fb10cc967429b3624658b375d9c5a8a925b2faa1a430a101318a4d",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q14",
+      "promptSha256": "e86a0a7a229ef9b061dad411bbd99304b8c693205712978da02103d5d838a209",
+      "quoteSha256": "7a537c93f243f3254edef5fa4ef51475c6e2a7a07297b7672121f22040868fae"
+    },
+    {
+      "id": "dse2019-q15",
+      "promptSha256": "df2078b07118928db25d9642fe742ce8cafcea39d2cf0e45fab19daf1d33ce02",
+      "quoteSha256": "257a0a7ca77617e8a4b9c57cfeacf1a21d694a8e76ccfb2f03cbefe4363064e2"
+    },
+    {
+      "id": "dse2019-q16",
+      "promptSha256": "43d1877adf8c2f1a6e089f94c574d48a2c60507099795e978c2f2a5a8376227a",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2019-q10-i-s1",
+      "file": "2019-ms2.pdf",
+      "page": 7,
+      "index": 1,
+      "score": 4,
+      "textSha256": "06e7468033bcc2a77a770801ba588e87e6039c4a737d81fc67dde087a7c51710"
+    },
+    {
+      "id": "dse2019-q10-i-s2",
+      "file": "2019-ms2.pdf",
+      "page": 8,
+      "index": 2,
+      "score": 3,
+      "textSha256": "0fba44cec4f3d3fddbdbe497445205f08061fdd2ffc2e531179efd1d79e7278a"
+    },
+    {
+      "id": "dse2019-q10-i-s4",
+      "file": "2019-ms2.pdf",
+      "page": 8,
+      "index": 4,
+      "score": 2,
+      "textSha256": "2cb8373944c1019a8d3ea0fa0905b616d8dd501dba21277c54b97f6f4db85d7b"
+    },
+    {
+      "id": "dse2019-q10-i-s6",
+      "file": "2019-ms2.pdf",
+      "page": 8,
+      "index": 6,
+      "score": 1,
+      "textSha256": "1c3846b7fc60486275533a908174314a29bfd2a437b3262c2d946e46c69350e7"
+    },
+    {
+      "id": "dse2019-q10-i-s10",
+      "file": "2019-ms2.pdf",
+      "page": 9,
+      "index": 10,
+      "score": 0,
+      "textSha256": "14a7a25f457b167d6d51a2458889806ef332b98f415da38995ffe3e93b559900"
+    },
+    {
+      "id": "dse2019-q10-ii-s1",
+      "file": "2019-ms2.pdf",
+      "page": 11,
+      "index": 1,
+      "score": 4,
+      "textSha256": "4a7fe749a60757ba7e5377fcebd4e63167771fc1a4cdfdd755646f6fb5e3c92c"
+    },
+    {
+      "id": "dse2019-q10-ii-s3",
+      "file": "2019-ms2.pdf",
+      "page": 12,
+      "index": 3,
+      "score": 3,
+      "textSha256": "55b12cbdb72ab01b3236088f0f6e1d86f7ac726c5ff0772fe07a4a8249b4f9aa"
+    },
+    {
+      "id": "dse2019-q10-ii-s5",
+      "file": "2019-ms2.pdf",
+      "page": 12,
+      "index": 5,
+      "score": 2,
+      "textSha256": "c6ccd8b4c16329b4177ac8ceb4dc7a63351b1c854f8cae0270ab776c494b115c"
+    },
+    {
+      "id": "dse2019-q10-ii-s8",
+      "file": "2019-ms2.pdf",
+      "page": 13,
+      "index": 8,
+      "score": 1,
+      "textSha256": "08a58629dae36b23668caf5e6a3e9c40b24259c665baf35f53e8bf008bda38ca"
+    },
+    {
+      "id": "dse2019-q10-ii-s10",
+      "file": "2019-ms2.pdf",
+      "page": 13,
+      "index": 10,
+      "score": 0,
+      "textSha256": "80c2652be68cf4a686f8d80fa6b0b1b98e77d8633418bea24eb961bf52636f4c"
+    },
+    {
+      "id": "dse2019-q11-ii-s1",
+      "file": "2019-ms3.pdf",
+      "page": 4,
+      "index": 1,
+      "score": 3,
+      "textSha256": "7542e6e3c28de5ccdf275c07d307c7a299af54bc4e12a2fa5ea8270b27e36dcd"
+    },
+    {
+      "id": "dse2019-q11-ii-s3",
+      "file": "2019-ms3.pdf",
+      "page": 4,
+      "index": 3,
+      "score": 2,
+      "textSha256": "0b0d299fd2f499ab012a95696903f01ec1cbaee3fed4702c3554d298bfd20ad6"
+    },
+    {
+      "id": "dse2019-q11-ii-s6",
+      "file": "2019-ms3.pdf",
+      "page": 5,
+      "index": 6,
+      "score": 1,
+      "textSha256": "5d2a7c63023e87c305c1629369cd9eba7081cffe7cac879afe25dfcd1da1de34"
+    },
+    {
+      "id": "dse2019-q11-ii-s7",
+      "file": "2019-ms3.pdf",
+      "page": 5,
+      "index": 7,
+      "score": 0,
+      "textSha256": "11d272e08c7eff9c9957d6607b5c2e09eb21516497e8cbe51653f8e1c0907f66"
+    },
+    {
+      "id": "dse2019-q13-answer-s1",
+      "file": "2019-ms3.pdf",
+      "page": 8,
+      "index": 1,
+      "score": 4,
+      "textSha256": "2bb71372871134d0f31385f0ec244a488c48bbfd47814397d67a3240144c0b8a"
+    },
+    {
+      "id": "dse2019-q13-answer-s3",
+      "file": "2019-ms3.pdf",
+      "page": 8,
+      "index": 3,
+      "score": 3,
+      "textSha256": "b27c817f6ea6ada454011a84dd84ddde3890f4191eef9a7de7f5b17ff9e2331c"
+    },
+    {
+      "id": "dse2019-q13-answer-s5",
+      "file": "2019-ms3.pdf",
+      "page": 8,
+      "index": 5,
+      "score": 2,
+      "textSha256": "574364f12521d4adc5647c87b8e4e47e49d7b425c26816df3cfa23c70fe3983c"
+    },
+    {
+      "id": "dse2019-q13-answer-s7",
+      "file": "2019-ms3.pdf",
+      "page": 9,
+      "index": 7,
+      "score": 1,
+      "textSha256": "0a3346a9d23d22f7c1a44877b0a8125fe774a961d87b553f86e6e16ed498734a"
+    },
+    {
+      "id": "dse2019-q13-answer-s9",
+      "file": "2019-ms3.pdf",
+      "page": 9,
+      "index": 9,
+      "score": 0,
+      "textSha256": "c68a5ff97ccd65cf84ffed474334f69d3b33b2bfbe3bddd465102816058d2fa3"
+    },
+    {
+      "id": "dse2019-q16-answer-s1",
+      "file": "2019-ms3.pdf",
+      "page": 12,
+      "index": 1,
+      "score": 6,
+      "textSha256": "7f8d098c9e8158ced3326b230e62e31dbd0f2c6903492d1213b91275c59bfbe4"
+    },
+    {
+      "id": "dse2019-q16-answer-s2",
+      "file": "2019-ms3.pdf",
+      "page": 12,
+      "index": 2,
+      "score": 6,
+      "textSha256": "bb67131b8ad4dd7b50b3d497e745e07a41139c24ebf16369cf233adec778ec48"
+    },
+    {
+      "id": "dse2019-q16-answer-s3",
+      "file": "2019-ms3.pdf",
+      "page": 12,
+      "index": 3,
+      "score": 5,
+      "textSha256": "e3587c351352e4d2adf75480ed7aea7ff9828d382979c75bfe949a95f624078d"
+    },
+    {
+      "id": "dse2019-q16-answer-s4",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 4,
+      "score": 4,
+      "textSha256": "e799c3beac93e7599cafff641549e04dc00a0e789bb44b79ec34f7cc78e0b980"
+    },
+    {
+      "id": "dse2019-q16-answer-s5",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 5,
+      "score": 3,
+      "textSha256": "1b2976574f9fc7dcde173adff4f4bd5ad3354cf3b679edce1549f6fa5dd66443"
+    },
+    {
+      "id": "dse2019-q16-answer-s6",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 6,
+      "score": 2,
+      "textSha256": "1302e446ae74c6aa9f57a38482b88cd0efccae1dd4b9a95a4b91365743421caf"
+    },
+    {
+      "id": "dse2019-q16-answer-s7",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 7,
+      "score": 1,
+      "textSha256": "bd1a7dfe763eb6bbde31e4370423388d745abcefa2eaaa08f3dc8b856e1f6008"
+    },
+    {
+      "id": "dse2019-q16-answer-s8",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 8,
+      "score": 0,
+      "textSha256": "7d5cf5201d218d23b7d9d197235a8cc58f038d65caa4b8f7152cef4524a90322"
+    }
+  ],
+  "sourceExampleWording": [
+    "第16題例2「正言反說」「大公無我」依原例答保留；解析另指出原文與正確概念，沒有重寫舉隅以改變得分。"
+  ],
+  "gradingRules": [
+    "第8題破小屋所指1分、破的狀態1分；所指錯誤則0分。",
+    "第9題須负面概括，纯行為或褒義詞不給分。",
+    "第10題(i)只說利益最高中品；(ii)助紂為虐類推論缺乏直接依據，最高中品。",
+    "第11題兩分題獨立；可接受四字手法名稱，不因兩個原答題格加上字數限制。",
+    "第13題禍害1分加分析0–3分；未指出禍害整題0分。",
+    "第16題兩篇皆可滿分，不要求兼論另一篇；保留兩份6分例答及0–6分層次。"
+  ]
+}

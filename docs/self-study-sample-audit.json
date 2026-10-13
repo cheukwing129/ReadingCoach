@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-12",
+  "checkedAt": "2026-10-13",
   "samples": [
     {
       "id": "dse2024-q13-ii-s1",
@@ -1129,6 +1129,222 @@
       "index": 8,
       "score": 0,
       "textSha256": "b7fa2d99acdd714812811375ffe34e97ecba0c5701994a8be2d9a69e01afb537"
+    },
+    {
+      "id": "dse2019-q10-i-s1",
+      "file": "2019-ms2.pdf",
+      "page": 7,
+      "index": 1,
+      "score": 4,
+      "textSha256": "06e7468033bcc2a77a770801ba588e87e6039c4a737d81fc67dde087a7c51710"
+    },
+    {
+      "id": "dse2019-q10-i-s2",
+      "file": "2019-ms2.pdf",
+      "page": 8,
+      "index": 2,
+      "score": 3,
+      "textSha256": "0fba44cec4f3d3fddbdbe497445205f08061fdd2ffc2e531179efd1d79e7278a"
+    },
+    {
+      "id": "dse2019-q10-i-s4",
+      "file": "2019-ms2.pdf",
+      "page": 8,
+      "index": 4,
+      "score": 2,
+      "textSha256": "2cb8373944c1019a8d3ea0fa0905b616d8dd501dba21277c54b97f6f4db85d7b"
+    },
+    {
+      "id": "dse2019-q10-i-s6",
+      "file": "2019-ms2.pdf",
+      "page": 8,
+      "index": 6,
+      "score": 1,
+      "textSha256": "1c3846b7fc60486275533a908174314a29bfd2a437b3262c2d946e46c69350e7"
+    },
+    {
+      "id": "dse2019-q10-i-s10",
+      "file": "2019-ms2.pdf",
+      "page": 9,
+      "index": 10,
+      "score": 0,
+      "textSha256": "14a7a25f457b167d6d51a2458889806ef332b98f415da38995ffe3e93b559900"
+    },
+    {
+      "id": "dse2019-q10-ii-s1",
+      "file": "2019-ms2.pdf",
+      "page": 11,
+      "index": 1,
+      "score": 4,
+      "textSha256": "4a7fe749a60757ba7e5377fcebd4e63167771fc1a4cdfdd755646f6fb5e3c92c"
+    },
+    {
+      "id": "dse2019-q10-ii-s3",
+      "file": "2019-ms2.pdf",
+      "page": 12,
+      "index": 3,
+      "score": 3,
+      "textSha256": "55b12cbdb72ab01b3236088f0f6e1d86f7ac726c5ff0772fe07a4a8249b4f9aa"
+    },
+    {
+      "id": "dse2019-q10-ii-s5",
+      "file": "2019-ms2.pdf",
+      "page": 12,
+      "index": 5,
+      "score": 2,
+      "textSha256": "c6ccd8b4c16329b4177ac8ceb4dc7a63351b1c854f8cae0270ab776c494b115c"
+    },
+    {
+      "id": "dse2019-q10-ii-s8",
+      "file": "2019-ms2.pdf",
+      "page": 13,
+      "index": 8,
+      "score": 1,
+      "textSha256": "08a58629dae36b23668caf5e6a3e9c40b24259c665baf35f53e8bf008bda38ca"
+    },
+    {
+      "id": "dse2019-q10-ii-s10",
+      "file": "2019-ms2.pdf",
+      "page": 13,
+      "index": 10,
+      "score": 0,
+      "textSha256": "80c2652be68cf4a686f8d80fa6b0b1b98e77d8633418bea24eb961bf52636f4c"
+    },
+    {
+      "id": "dse2019-q11-ii-s1",
+      "file": "2019-ms3.pdf",
+      "page": 4,
+      "index": 1,
+      "score": 3,
+      "textSha256": "7542e6e3c28de5ccdf275c07d307c7a299af54bc4e12a2fa5ea8270b27e36dcd"
+    },
+    {
+      "id": "dse2019-q11-ii-s3",
+      "file": "2019-ms3.pdf",
+      "page": 4,
+      "index": 3,
+      "score": 2,
+      "textSha256": "0b0d299fd2f499ab012a95696903f01ec1cbaee3fed4702c3554d298bfd20ad6"
+    },
+    {
+      "id": "dse2019-q11-ii-s6",
+      "file": "2019-ms3.pdf",
+      "page": 5,
+      "index": 6,
+      "score": 1,
+      "textSha256": "5d2a7c63023e87c305c1629369cd9eba7081cffe7cac879afe25dfcd1da1de34"
+    },
+    {
+      "id": "dse2019-q11-ii-s7",
+      "file": "2019-ms3.pdf",
+      "page": 5,
+      "index": 7,
+      "score": 0,
+      "textSha256": "11d272e08c7eff9c9957d6607b5c2e09eb21516497e8cbe51653f8e1c0907f66"
+    },
+    {
+      "id": "dse2019-q13-answer-s1",
+      "file": "2019-ms3.pdf",
+      "page": 8,
+      "index": 1,
+      "score": 4,
+      "textSha256": "2bb71372871134d0f31385f0ec244a488c48bbfd47814397d67a3240144c0b8a"
+    },
+    {
+      "id": "dse2019-q13-answer-s3",
+      "file": "2019-ms3.pdf",
+      "page": 8,
+      "index": 3,
+      "score": 3,
+      "textSha256": "b27c817f6ea6ada454011a84dd84ddde3890f4191eef9a7de7f5b17ff9e2331c"
+    },
+    {
+      "id": "dse2019-q13-answer-s5",
+      "file": "2019-ms3.pdf",
+      "page": 8,
+      "index": 5,
+      "score": 2,
+      "textSha256": "574364f12521d4adc5647c87b8e4e47e49d7b425c26816df3cfa23c70fe3983c"
+    },
+    {
+      "id": "dse2019-q13-answer-s7",
+      "file": "2019-ms3.pdf",
+      "page": 9,
+      "index": 7,
+      "score": 1,
+      "textSha256": "0a3346a9d23d22f7c1a44877b0a8125fe774a961d87b553f86e6e16ed498734a"
+    },
+    {
+      "id": "dse2019-q13-answer-s9",
+      "file": "2019-ms3.pdf",
+      "page": 9,
+      "index": 9,
+      "score": 0,
+      "textSha256": "c68a5ff97ccd65cf84ffed474334f69d3b33b2bfbe3bddd465102816058d2fa3"
+    },
+    {
+      "id": "dse2019-q16-answer-s1",
+      "file": "2019-ms3.pdf",
+      "page": 12,
+      "index": 1,
+      "score": 6,
+      "textSha256": "7f8d098c9e8158ced3326b230e62e31dbd0f2c6903492d1213b91275c59bfbe4"
+    },
+    {
+      "id": "dse2019-q16-answer-s2",
+      "file": "2019-ms3.pdf",
+      "page": 12,
+      "index": 2,
+      "score": 6,
+      "textSha256": "bb67131b8ad4dd7b50b3d497e745e07a41139c24ebf16369cf233adec778ec48"
+    },
+    {
+      "id": "dse2019-q16-answer-s3",
+      "file": "2019-ms3.pdf",
+      "page": 12,
+      "index": 3,
+      "score": 5,
+      "textSha256": "e3587c351352e4d2adf75480ed7aea7ff9828d382979c75bfe949a95f624078d"
+    },
+    {
+      "id": "dse2019-q16-answer-s4",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 4,
+      "score": 4,
+      "textSha256": "e799c3beac93e7599cafff641549e04dc00a0e789bb44b79ec34f7cc78e0b980"
+    },
+    {
+      "id": "dse2019-q16-answer-s5",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 5,
+      "score": 3,
+      "textSha256": "1b2976574f9fc7dcde173adff4f4bd5ad3354cf3b679edce1549f6fa5dd66443"
+    },
+    {
+      "id": "dse2019-q16-answer-s6",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 6,
+      "score": 2,
+      "textSha256": "1302e446ae74c6aa9f57a38482b88cd0efccae1dd4b9a95a4b91365743421caf"
+    },
+    {
+      "id": "dse2019-q16-answer-s7",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 7,
+      "score": 1,
+      "textSha256": "bd1a7dfe763eb6bbde31e4370423388d745abcefa2eaaa08f3dc8b856e1f6008"
+    },
+    {
+      "id": "dse2019-q16-answer-s8",
+      "file": "2019-ms3.pdf",
+      "page": 13,
+      "index": 8,
+      "score": 0,
+      "textSha256": "7d5cf5201d218d23b7d9d197235a8cc58f038d65caa4b8f7152cef4524a90322"
     }
   ],
   "resources": {
