@@ -1,0 +1,476 @@
+{
+  "checkedAt": "2026-10-13",
+  "year": 2018,
+  "scope": "第一篇白話文及第9–20題共50分；不收錄甲部指定閱讀或第二篇文言。",
+  "files": [
+    {
+      "id": "1p3l6guAL1OAeOvvSfAlosRXi5KrDGAOQ",
+      "file": "2018-rm.pdf",
+      "name": "2018 DSE 中文卷一 閱讀材料.pdf",
+      "sha256": "43514eb14b971ca0a1377d61a7d124ec52417d6cf556afb96952a1614131dcbc"
+    },
+    {
+      "id": "1zzfs9RsrLnlNDPfQToM3rBAcWUdzb5lD",
+      "file": "2018-qab.pdf",
+      "name": "2018 DSE 中文卷一 試題答題簿.pdf",
+      "sha256": "4d555127759e3e91326e25e5bf404c3a562bfff641b2b448fba70edc937427aa"
+    },
+    {
+      "id": "1RF1RFgOPPHon_PmePEHXq-UOhZyZBaeA",
+      "file": "2018-mark2.pdf",
+      "name": "2018 DSE 卷一 評卷參考 第二組-1.pdf",
+      "sha256": "7a0e56588bc6ee86f4062f401f3117b35999a1d0fd5fe08858c77dcbab94d57d"
+    },
+    {
+      "id": "1UvEV_0KtLwcNq8PwCbGCxuIrOZvx7TiD",
+      "file": "2018-mark3.pdf",
+      "name": "2018 DSE 卷一 第三組_評分參考_定稿.pdf",
+      "sha256": "adcf5f6a41e1557b3fc24c831459941ea4cb9c3f1406a6e3129053e354b70f34"
+    }
+  ],
+  "sourcePages": {
+    "rm": {
+      "pdfPages": [
+        1,
+        2
+      ],
+      "printedPages": [
+        2,
+        3
+      ]
+    },
+    "qab": {
+      "pdfPages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "printedPages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "mark2": {
+      "q9": 3,
+      "q12": [
+        3,
+        4
+      ],
+      "q15": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "q19": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "mark3": {
+      "q13": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "q14": [
+        8,
+        9
+      ],
+      "q16": 10
+    }
+  },
+  "publicObjectiveKey": {
+    "url": "https://paperpapa.com/wp-content/uploads/2022/06/2018-DSE-CH-LANG-1-MS.pdf",
+    "publisher": "香港考試及評核局；正式評卷參考掃描的公開鏡像",
+    "retrieval": "由網頁工具取得已索引PDF文字；即時下載及截圖端點404，未聲稱成功下載原檔。",
+    "pdfPages": {
+      "q10": 6,
+      "q11": 6,
+      "q17": 10,
+      "q18": 10,
+      "q20": 12
+    },
+    "answers": {
+      "q10": "D",
+      "q11": "C",
+      "q17": [
+        "行為描寫",
+        "行為描寫",
+        "肖像描寫",
+        "心理描寫"
+      ],
+      "q18": [
+        "錯誤",
+        "正確"
+      ],
+      "q20": "C"
+    }
+  },
+  "officialCrossCheck": {
+    "url": "https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Subject_Information/chi_lang/CHI-BS-2018-1.pdf",
+    "retrieval": "官方評卷員簡報的搜尋索引確認第17題(i)(ii)為行為描寫；即時下載403。"
+  },
+  "corrections": [
+    {
+      "paragraph": 8,
+      "before": "妻子離開他了",
+      "after": "妻子離開他"
+    },
+    {
+      "paragraph": 8,
+      "before": "車子晃蕩",
+      "after": "車子晃盪"
+    },
+    {
+      "paragraph": 8,
+      "before": "希望火車",
+      "after": "希冀火車"
+    },
+    {
+      "paragraph": 11,
+      "before": "備妥嫁妝讓她們出嫁",
+      "after": "備妥嫁妝歡鑼喜鼓出嫁"
+    },
+    {
+      "paragraph": 16,
+      "before": "悠閒地蹓步",
+      "after": "悠閒地踱步"
+    },
+    {
+      "question": 10,
+      "before": "家境頗為殷富",
+      "after": "家境頗為殷實富裕"
+    },
+    {
+      "question": 11,
+      "before": "趕車回家／正視／反視",
+      "after": "候車回家／正襯／反襯"
+    },
+    {
+      "question": 15,
+      "before": "神情驕傲",
+      "after": "神情靦腆"
+    },
+    {
+      "question": 20,
+      "before": "舒緩",
+      "after": "紓解"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2018-solitude": [
+      {
+        "number": 1,
+        "textSha256": "6267a6850fa49def88a1b7804d104ef2f5910794b69b6c910da4e6782a2116f4"
+      },
+      {
+        "number": 2,
+        "textSha256": "4efd560cf790c510a51572ef49e43fa3dd75b124d1121aeaabc88f40c09d8da0"
+      },
+      {
+        "number": 3,
+        "textSha256": "1550203b5e2afa8c045697805bf72abd626bfa9e9a80fc8d943fab6c5bee6e4d"
+      },
+      {
+        "number": 4,
+        "textSha256": "5e0a190b0299d2a63a2ac98e612a0946d0dfa7ffa7bca5b99f165510d46abb77"
+      },
+      {
+        "number": 5,
+        "textSha256": "5c55c5b30ae187b814ee5551fdbc44ad5d18a60916e38bf7ddf8258291016274"
+      },
+      {
+        "number": 6,
+        "textSha256": "ee4af11cd4b20cb2264e13601adc89ce963dbd055b885f5a9d7ff4e59ba62239"
+      },
+      {
+        "number": 7,
+        "textSha256": "3ae6277a56bcd141fe6790b766cbd86fa98695b1b28eb037ebdfe0eab5725e5c"
+      },
+      {
+        "number": 8,
+        "textSha256": "5735ce068686553ae65da8232b0efad514a5ec054c6a81f3c02d7963cfe9dde4"
+      },
+      {
+        "number": 9,
+        "textSha256": "366c8dd4639d92de1b38c97bef94336d937a1ce352e7358f62a5a1ffc33f3c65"
+      },
+      {
+        "number": 10,
+        "textSha256": "14bb3393f20d6e2852ea109856408e854a9bcbc1facac871abf83a0db071f81b"
+      },
+      {
+        "number": 11,
+        "textSha256": "7b5b23fb1430ae7d5d652d477ac9d5eb0525e01f31ddf5b1ab92ac1ff67a9362"
+      },
+      {
+        "number": 12,
+        "textSha256": "6e6d0d0052c4ce67199019f79687fb2d3c14945b8699fbbcc0a10c93b16c1d67"
+      },
+      {
+        "number": 13,
+        "textSha256": "5ca2e7bde9d2a09516598a987839834cc8f9dfe1e0935ea87ceb4a4996cb344b"
+      },
+      {
+        "number": 14,
+        "textSha256": "3db979e9cfcd9a33e8e36de245c61fa8594c25328635098478184a180a06b708"
+      },
+      {
+        "number": 15,
+        "textSha256": "157c9633367bbf68b5bb723cd7e82643fa7cf3c282d7bffb263674f875ebbed6"
+      },
+      {
+        "number": 16,
+        "textSha256": "a3f2310455f4f02e595afaa279fb6976e5e2c56320e64a5d3693e1af1b2f8039"
+      },
+      {
+        "number": 17,
+        "textSha256": "6f4a8904f1e911409a5ec81b849ce21248e19c50269bd5f875b2d517aa737c0e"
+      },
+      {
+        "number": 18,
+        "textSha256": "fdf47e0012e14761a79a2b90a6173ffbf635e3736298403fc95b4b3c88c87c78"
+      },
+      {
+        "number": 19,
+        "textSha256": "715c59ae87b46cbdd2892add846b89947c7f430a92dd768da1db45d33fb88c9e"
+      },
+      {
+        "number": 20,
+        "textSha256": "d91f56642cf264d1bd626a1438ba7cb617d30994599c9e244078e4c311011ae5"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2018-q9",
+      "promptSha256": "20edf8f2c99f43aef7025377584b0ee69fcebc094e5f6dbf527dcc68398f0706",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q10",
+      "promptSha256": "bdcbceec526f63e9b227af02a4cb54201972a8d28a0ec46ee6a00187759987e1",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q11",
+      "promptSha256": "f3a35a25ebf729865142eb11349ca3c144a6a292c5a8889d348290553708f75b",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q12",
+      "promptSha256": "3fb09241d84a8e3ff8b81d8dc7aab816c065d1f264be8a5bde6acf0729c98732",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q13",
+      "promptSha256": "a739a65509fc902778772989de9b95b66a62ca8ab858091d1cccb23bb3f01381",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q14",
+      "promptSha256": "599a21ff23681422958135450abd7237ced9fb0e75817535f3815a8cb612d58d",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q15",
+      "promptSha256": "4b8e57c4c23538fc8d45ebcf60e330be9aec7ae964a083050e6a7ecf54472669",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q16",
+      "promptSha256": "5ede98d4819f8ac993bc63b030c2dbdd9c11076684001d594c76d7ab53583e78",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q17",
+      "promptSha256": "2a3dac13cbb3fc3b581607d024dd632cd7ffa8c04499ad2508ce6281400ace66",
+      "quoteSha256": "221c88f44c5f71990d53a23137e81fca06ef8fdc3f6f64a663c9ecb87644770c"
+    },
+    {
+      "id": "dse2018-q18",
+      "promptSha256": "30f04d6a5a658afe66b7bbd05200959b10bad5567afd07de031bf5dffd78566b",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q19",
+      "promptSha256": "5d4ab13a1bfc8e02f4e49495386bfecf088f9924c9f4e07baeb5fcb95de1f270",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q20",
+      "promptSha256": "884c891c2481496a562029def4cd1ec801b3265c480952274b6dba2315de4e48",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2018-q13-answer-a",
+      "file": "2018-mark3.pdf",
+      "page": 6,
+      "index": "a",
+      "score": 4,
+      "textSha256": "88ba4e46063f8c8f81699d6dc337271325c547c57eba5e4310dc646ab723789c"
+    },
+    {
+      "id": "dse2018-q13-answer-b",
+      "file": "2018-mark3.pdf",
+      "page": 6,
+      "index": "b",
+      "score": 4,
+      "textSha256": "78704b2725d09abfeaa029c68325df1599fa6aa40af81c82b7da7e523060305e"
+    },
+    {
+      "id": "dse2018-q13-answer-c",
+      "file": "2018-mark3.pdf",
+      "page": 6,
+      "index": "c",
+      "score": 3,
+      "textSha256": "8612aad9076659f4971aa0da72d92ec01f6ba5c01ecdce5cb53d9183afdd2051"
+    },
+    {
+      "id": "dse2018-q13-answer-f",
+      "file": "2018-mark3.pdf",
+      "page": 7,
+      "index": "f",
+      "score": 2,
+      "textSha256": "47eaf301724624114efc74df48ebe99ce80432456a34bb1866ca115ccd442ba1"
+    },
+    {
+      "id": "dse2018-q13-answer-j",
+      "file": "2018-mark3.pdf",
+      "page": 7,
+      "index": "j",
+      "score": 1,
+      "textSha256": "d455438dc6b04d2938994e036306e0fbb8c80a3b57d1ce09002d468ca71a42a4"
+    },
+    {
+      "id": "dse2018-q13-answer-l",
+      "file": "2018-mark3.pdf",
+      "page": 7,
+      "index": "l",
+      "score": 0,
+      "textSha256": "5700d631f01cda20d6904df0c38e9eeff1fcaa7b97470e384cee2d2326ccfec2"
+    },
+    {
+      "id": "dse2018-q15-answer-a",
+      "file": "2018-mark2.pdf",
+      "page": 9,
+      "index": "a",
+      "score": 4,
+      "textSha256": "ad5179bd73eb8dafff3cd9904af46798277ccca5f4dc2da7093c98161f17ab21"
+    },
+    {
+      "id": "dse2018-q15-answer-b",
+      "file": "2018-mark2.pdf",
+      "page": 9,
+      "index": "b",
+      "score": 4,
+      "textSha256": "fe1f9b1aab0b6c11f4b53aa505c0f3fa46201bcddc082ac27b8180f1d954234b"
+    },
+    {
+      "id": "dse2018-q15-answer-e",
+      "file": "2018-mark2.pdf",
+      "page": 10,
+      "index": "e",
+      "score": 3,
+      "textSha256": "c980a77b8a96615af1bb5c536fc0432e356d98388263dfe680ce0c8bc7e9f622"
+    },
+    {
+      "id": "dse2018-q15-answer-h",
+      "file": "2018-mark2.pdf",
+      "page": 10,
+      "index": "h",
+      "score": 2,
+      "textSha256": "b10645b2bfbaaa83bb5faf9e62946de94e7303d668737ad6525d767660531c10"
+    },
+    {
+      "id": "dse2018-q15-answer-j",
+      "file": "2018-mark2.pdf",
+      "page": 10,
+      "index": "j",
+      "score": 1,
+      "textSha256": "893f029892543cf912039aa4b50558e652ea464e3f9c13d36d66c2f4cbaef0ba"
+    },
+    {
+      "id": "dse2018-q15-answer-n",
+      "file": "2018-mark2.pdf",
+      "page": 11,
+      "index": "n",
+      "score": 0,
+      "textSha256": "c0126cfc0e6d2a8a5e9e7b22a091ce97bc85f9ced8d7865aa2334f1efbcad482"
+    },
+    {
+      "id": "dse2018-q19-answer-a",
+      "file": "2018-mark2.pdf",
+      "page": 14,
+      "index": "a",
+      "score": 4,
+      "textSha256": "9a62afcf20e0dc235dafef5895ed7f3238d1f4f99289cb67b71e60283fc58af4"
+    },
+    {
+      "id": "dse2018-q19-answer-e",
+      "file": "2018-mark2.pdf",
+      "page": 14,
+      "index": "e",
+      "score": 4,
+      "textSha256": "7e8b48b1128fecc0a6b69f1b3f095e8e8a65736c0b1af120add7d012a703fe0d"
+    },
+    {
+      "id": "dse2018-q19-answer-f",
+      "file": "2018-mark2.pdf",
+      "page": 15,
+      "index": "f",
+      "score": 3,
+      "textSha256": "bf19630e306bdca6169d26db3878a39a5eba1b1f10ffcf4b9ce88396e5587ed2"
+    },
+    {
+      "id": "dse2018-q19-answer-k",
+      "file": "2018-mark2.pdf",
+      "page": 15,
+      "index": "k",
+      "score": 2,
+      "textSha256": "ac0bea0472c227316c31d4e1740afe295af264bbd4229d68d2f8ae12acf535d2"
+    },
+    {
+      "id": "dse2018-q19-answer-l",
+      "file": "2018-mark2.pdf",
+      "page": 16,
+      "index": "l",
+      "score": 1,
+      "textSha256": "4ed00fe7d54d7225b4f4c6ea7eb7d0fc0b44425f3748a3a20f11fb115bc68a27"
+    },
+    {
+      "id": "dse2018-q19-answer-s",
+      "file": "2018-mark2.pdf",
+      "page": 16,
+      "index": "s",
+      "score": 0,
+      "textSha256": "850f923c3147bc1210c812a20b17b9ccabc151df9c87bd6a1166d761ff90b521"
+    }
+  ],
+  "gradingRules": [
+    "另一可接受分法：第一部分第1–6段、第二部分由第7段開始至任何段落，(i)和(ii)合共只得1分。此規則須連看兩欄，不能把兩欄各算1分。",
+    "第13題同一個方向比較清楚即可4分；只說人生路最高1分，只說回家路0分。",
+    "第14題(i)只評首20字，標點亦計；題問犧牲對象為弟妹。",
+    "第15題問靦腆，不問驕傲；性格或角色轉變其中一個方向具體清晰即可滿分。",
+    "第16題感受主體是媳婦，不能把家翁的孤獨、驕傲移作答案。",
+    "第19題只從人生際遇或處境分析最高2分；本題不扣冗文分。"
+  ]
+}

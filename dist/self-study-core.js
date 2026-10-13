@@ -72,6 +72,15 @@ function samples(q,p,d,sourceSamples){
   else if(!formatError&&match){chosen.push({...match,text:own,own:true,merged:true});}
   else chosen.push({id:'own-'+q.id+'-'+p.key+'-'+fingerprint(q.id,p.key,own),text:own,score:formatError?0:segment,outOf:p.marks,key:p.key,own:true,segmentChecked:segment!==null,analysis:formatError||(segment!==null?(segment+'分：已按原題可接受的段落範圍核對；標準答案是'+q.official.find(o=>o.key===p.key).answers.join('或')+'。'):'對照下方準則，逐項檢查你的概念、文本依據及推論，再確認自評。')});
  }
+ const coupled=q.coupledSegments;
+ if(own&&coupled?.keys.includes(p.key)){
+  const [first,second]=coupled.keys;
+  if(segmentScore({marks:1,segment:coupled.first},d.answers[first])===1&&segmentScore({marks:1,segment:coupled.second},d.answers[second])===1){
+   const current=chosen.find(s=>s.own);
+   current.score=coupled.scoreByKey[p.key];current.segmentChecked=true;current.coupledChecked=true;
+   current.analysis=current.score+'分：'+coupled.analysis+'為避免重複，合共的1分顯示於第一欄，第二欄不另計分。';
+  }
+ }
  const distinct=q.distinctAnswerGroups;
  if(own&&distinct?.keys.includes(p.key)){
   const group=distinct.groups.find(g=>g.some(t=>normalize(t)===normalize(own)));

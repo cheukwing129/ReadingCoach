@@ -1345,6 +1345,150 @@
       "index": 8,
       "score": 0,
       "textSha256": "7d5cf5201d218d23b7d9d197235a8cc58f038d65caa4b8f7152cef4524a90322"
+    },
+    {
+      "id": "dse2018-q13-answer-a",
+      "file": "2018-mark3.pdf",
+      "page": 6,
+      "index": "a",
+      "score": 4,
+      "textSha256": "88ba4e46063f8c8f81699d6dc337271325c547c57eba5e4310dc646ab723789c"
+    },
+    {
+      "id": "dse2018-q13-answer-b",
+      "file": "2018-mark3.pdf",
+      "page": 6,
+      "index": "b",
+      "score": 4,
+      "textSha256": "78704b2725d09abfeaa029c68325df1599fa6aa40af81c82b7da7e523060305e"
+    },
+    {
+      "id": "dse2018-q13-answer-c",
+      "file": "2018-mark3.pdf",
+      "page": 6,
+      "index": "c",
+      "score": 3,
+      "textSha256": "8612aad9076659f4971aa0da72d92ec01f6ba5c01ecdce5cb53d9183afdd2051"
+    },
+    {
+      "id": "dse2018-q13-answer-f",
+      "file": "2018-mark3.pdf",
+      "page": 7,
+      "index": "f",
+      "score": 2,
+      "textSha256": "47eaf301724624114efc74df48ebe99ce80432456a34bb1866ca115ccd442ba1"
+    },
+    {
+      "id": "dse2018-q13-answer-j",
+      "file": "2018-mark3.pdf",
+      "page": 7,
+      "index": "j",
+      "score": 1,
+      "textSha256": "d455438dc6b04d2938994e036306e0fbb8c80a3b57d1ce09002d468ca71a42a4"
+    },
+    {
+      "id": "dse2018-q13-answer-l",
+      "file": "2018-mark3.pdf",
+      "page": 7,
+      "index": "l",
+      "score": 0,
+      "textSha256": "5700d631f01cda20d6904df0c38e9eeff1fcaa7b97470e384cee2d2326ccfec2"
+    },
+    {
+      "id": "dse2018-q15-answer-a",
+      "file": "2018-mark2.pdf",
+      "page": 9,
+      "index": "a",
+      "score": 4,
+      "textSha256": "ad5179bd73eb8dafff3cd9904af46798277ccca5f4dc2da7093c98161f17ab21"
+    },
+    {
+      "id": "dse2018-q15-answer-b",
+      "file": "2018-mark2.pdf",
+      "page": 9,
+      "index": "b",
+      "score": 4,
+      "textSha256": "fe1f9b1aab0b6c11f4b53aa505c0f3fa46201bcddc082ac27b8180f1d954234b"
+    },
+    {
+      "id": "dse2018-q15-answer-e",
+      "file": "2018-mark2.pdf",
+      "page": 10,
+      "index": "e",
+      "score": 3,
+      "textSha256": "c980a77b8a96615af1bb5c536fc0432e356d98388263dfe680ce0c8bc7e9f622"
+    },
+    {
+      "id": "dse2018-q15-answer-h",
+      "file": "2018-mark2.pdf",
+      "page": 10,
+      "index": "h",
+      "score": 2,
+      "textSha256": "b10645b2bfbaaa83bb5faf9e62946de94e7303d668737ad6525d767660531c10"
+    },
+    {
+      "id": "dse2018-q15-answer-j",
+      "file": "2018-mark2.pdf",
+      "page": 10,
+      "index": "j",
+      "score": 1,
+      "textSha256": "893f029892543cf912039aa4b50558e652ea464e3f9c13d36d66c2f4cbaef0ba"
+    },
+    {
+      "id": "dse2018-q15-answer-n",
+      "file": "2018-mark2.pdf",
+      "page": 11,
+      "index": "n",
+      "score": 0,
+      "textSha256": "c0126cfc0e6d2a8a5e9e7b22a091ce97bc85f9ced8d7865aa2334f1efbcad482"
+    },
+    {
+      "id": "dse2018-q19-answer-a",
+      "file": "2018-mark2.pdf",
+      "page": 14,
+      "index": "a",
+      "score": 4,
+      "textSha256": "9a62afcf20e0dc235dafef5895ed7f3238d1f4f99289cb67b71e60283fc58af4"
+    },
+    {
+      "id": "dse2018-q19-answer-e",
+      "file": "2018-mark2.pdf",
+      "page": 14,
+      "index": "e",
+      "score": 4,
+      "textSha256": "7e8b48b1128fecc0a6b69f1b3f095e8e8a65736c0b1af120add7d012a703fe0d"
+    },
+    {
+      "id": "dse2018-q19-answer-f",
+      "file": "2018-mark2.pdf",
+      "page": 15,
+      "index": "f",
+      "score": 3,
+      "textSha256": "bf19630e306bdca6169d26db3878a39a5eba1b1f10ffcf4b9ce88396e5587ed2"
+    },
+    {
+      "id": "dse2018-q19-answer-k",
+      "file": "2018-mark2.pdf",
+      "page": 15,
+      "index": "k",
+      "score": 2,
+      "textSha256": "ac0bea0472c227316c31d4e1740afe295af264bbd4229d68d2f8ae12acf535d2"
+    },
+    {
+      "id": "dse2018-q19-answer-l",
+      "file": "2018-mark2.pdf",
+      "page": 16,
+      "index": "l",
+      "score": 1,
+      "textSha256": "4ed00fe7d54d7225b4f4c6ea7eb7d0fc0b44425f3748a3a20f11fb115bc68a27"
+    },
+    {
+      "id": "dse2018-q19-answer-s",
+      "file": "2018-mark2.pdf",
+      "page": 16,
+      "index": "s",
+      "score": 0,
+      "textSha256": "850f923c3147bc1210c812a20b17b9ccabc151df9c87bd6a1166d761ff90b521"
     }
   ],
   "resources": {
