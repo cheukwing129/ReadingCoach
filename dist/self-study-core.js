@@ -62,7 +62,7 @@ function assessmentDependency(q,p,d,sourceSamples){
  if(!prerequisite)return null;
  const label=prerequisite.label;
  const failure=(action,reason)=>action==='zero'?{score:0,dependencyChecked:true,analysis:'0分：'+reason+'原題規定相關分題不給分；不能另加自評分。'}:{score:null,notAssessed:true,dependencyChecked:true,analysis:'不予評閱（IR）：'+reason+'原題規定先完成正確的前置答案，才評閱這一分題。'};
- if(!text)return failure(rule.missing,'尚未填寫'+label+'。');
+ if(!text)return rule.missing==='assess'?null:failure(rule.missing,'尚未填寫'+label+'。');
  if(rule.exceptions?.some(t=>normalize(t)===normalize(text)))return null;
  const length=Array.from(normalize(text)).length;
  if(rule.validateFormat&&((prerequisite.exactChars&&length!==prerequisite.exactChars)||(prerequisite.maxChars&&length>prerequisite.maxChars)))return failure(rule.incorrect,label+'未符合原題字數要求。');
@@ -113,6 +113,10 @@ function samples(q,p,d,sourceSamples){
    }
   }
  }
+ const paired=q.pairedAnswers;
+ if(own&&paired?.keys.includes(p.key)&&paired.accepted.some(values=>values.every((text,i)=>normalize(text)===normalize(d.answers[paired.keys[i]])))){
+  const current=chosen.find(s=>s.own);current.score=paired.scoreByKey[p.key];current.pairedChecked=true;current.analysis=current.score+'分：'+paired.analysis;
+ }
  if(own){
   const current=chosen.find(s=>s.own),dependency=assessmentDependency(q,p,d,sourceSamples);
   if(dependency)Object.assign(current,dependency);
@@ -123,7 +127,14 @@ function samples(q,p,d,sourceSamples){
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}
 function gradingReady(items,d){const examples=items.filter(s=>!s.own);return examples.length>0&&examples.every(s=>validScore(d.grades[s.id],s.outOf));}
 function gradingResult(items,d){return{correct:items.filter(s=>!s.own&&s.score!==null&&d.grades[s.id]===s.score).length,total:items.filter(s=>!s.own&&s.score!==null).length};}
-function choiceResult(q,d){return q.answerParts.filter(p=>p.kind==='choice').map(p=>({key:p.key,chosen:d.answers[p.key]||'',correct:p.answer,score:p.answerVerified===false?null:d.answers[p.key]===p.answer?p.marks:0,outOf:p.marks}));}
+function choiceValues(p,text){return p.multiple?[...new Set(String(text||'').split('、').filter(Boolean))]:[String(text||'')];}
+function choiceSets(p){return p.acceptedAnswers||[choiceValues(p,p.answer)];}
+function choiceStatus(p,value){const sets=choiceSets(p);return sets.every(set=>set.includes(value))?'required':sets.some(set=>set.includes(value))?'optional':'excluded';}
+function choiceResult(q,d){return q.answerParts.filter(p=>p.kind==='choice').map(p=>{
+ const chosen=d.answers[p.key]||'',values=choiceValues(p,chosen),sets=choiceSets(p),correct=p.multiple?sets.map(set=>set.join('、')).join(' ／ '):p.answer;
+ const matched=p.multiple?sets.some(set=>set.length===values.length&&set.every(value=>values.includes(value))):chosen===p.answer;
+ return{key:p.key,chosen,correct,score:p.answerVerified===false?null:matched?p.marks:0,outOf:p.marks};
+});}
 function nextQuestion(data,q){const items=data.questions.filter(x=>x.exerciseId===q.exerciseId).sort((a,b)=>a.number-b.number),i=items.findIndex(x=>x.id===q.id);return items[i+1]||null;}
 function questionParagraphs(q,article){
  if(q.readingReferences?.[article.id])return q.readingReferences[article.id].filter(n=>article.paragraphs.some(p=>p.number===n));
@@ -143,5 +154,5 @@ function questionParagraphs(q,article){
  return(q.lesson?.locate||[]).filter(n=>valid.has(n)).slice(0,1);
 }
 function canComplete(d){return d.revealed===true;}
-return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,fingerprint,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
+return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,fingerprint,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
 });
