@@ -1,0 +1,655 @@
+{
+  "checkedAt": "2026-10-13",
+  "year": 2017,
+  "scope": "第一篇劉裘蒂《跑道》16段及原第1–13題共57分；不收錄第二篇文言。",
+  "files": [
+    {
+      "id": "1Xd6AYdpmuqE8m3XaHk48ObDjM6jygeb_",
+      "file": "2017-rm.pdf",
+      "name": "閱讀篇章.pdf",
+      "sha256": "1a4ed48f3b1883b5f0d7855a5a767d6804b7db6a0cc1ff9c392627dbc322d417"
+    },
+    {
+      "id": "1DkDa1EXuEP1q515YE196Ar0tWM7HB9SS",
+      "file": "2017-qab.pdf",
+      "name": "2017_DSE_卷一 _試題答題簿.pdf",
+      "sha256": "2f9aab8a00af3401bfa463011aed017d8b276846be286bda2e3f0a8916db8f2d"
+    },
+    {
+      "id": "1713YKZW7iLqba0HsMWXF1n_o0bozhX2M",
+      "file": "2017-mark1.pdf",
+      "name": "第一組（題1,11,13）評卷參考，16/04/2017修訂",
+      "sha256": "6e6807dd5682b2988150ed4697e3fed722687b4a61fd780c3c9c4ef1a754a4f2"
+    },
+    {
+      "id": "1pbUyse5G2JD3E904nj5NdP9-TEOV8lNL",
+      "file": "2017-mark2.pdf",
+      "name": "第二組（題2,3,7,8,9）評卷參考，16/04/2017修訂",
+      "sha256": "398157c0686bd87f46c7b9636aed11f4a1c203e8a6077839fccbe5bfbebdc1f5"
+    },
+    {
+      "id": "1rP1h1pyNBbs3plg8mssKggxs0sz7MQQc",
+      "file": "2017-mark-other.pdf",
+      "name": "其它答案：官方客觀題答案",
+      "sha256": "0dfba9e83d50c08a41a83f7f068ab8497114a816445d7da622f261b42ec53d67"
+    }
+  ],
+  "sourcePages": {
+    "rm": {
+      "pdfPages": [
+        2,
+        3,
+        4
+      ],
+      "printedPages": [
+        5,
+        6,
+        7
+      ]
+    },
+    "qab": {
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "printedPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "mark1": {
+      "q1": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "q11": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "q13": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    "mark2": {
+      "q2": [
+        4,
+        5
+      ],
+      "q3": [
+        6,
+        7
+      ],
+      "q7": [
+        8,
+        9
+      ],
+      "q8": [
+        10,
+        11
+      ],
+      "q9": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "mark-other": {
+      "pdfPages": [
+        1
+      ]
+    }
+  },
+  "pageConvention": "頁碼均指下載原PDF的頁次；第二組PDF第1頁為封面，文件頁碼比PDF頁次少1。原檔橫向掃描已轉向核對，舉隅文字去除評分括號及說明注記，保留原答案。",
+  "objectiveAnswers": {
+    "q2.i": "B",
+    "q4": [
+      "正確",
+      "錯誤"
+    ],
+    "q5": "C",
+    "q6": [
+      "B",
+      "E",
+      "C"
+    ],
+    "q10": "D",
+    "q12": "A"
+  },
+  "corrections": [
+    {
+      "paragraph": 8,
+      "before": "如斑馬奔過",
+      "after": "如非洲斑馬奔過"
+    },
+    {
+      "paragraph": 10,
+      "before": "奔走的里程",
+      "after": "奔赴的里程"
+    },
+    {
+      "paragraph": 11,
+      "before": "當風吹梳理",
+      "after": "當風梳理"
+    },
+    {
+      "paragraph": 12,
+      "before": "跌了個跟跤",
+      "after": "跌了個跟蹌"
+    },
+    {
+      "paragraph": 14,
+      "before": "卻不能替你跑",
+      "after": "卻不能替代你跑"
+    },
+    {
+      "paragraph": 14,
+      "before": "每次起跑的路上",
+      "after": "每次赴跑的路上"
+    },
+    {
+      "paragraph": 14,
+      "before": "默默地鼓勵彼此",
+      "after": "默默地記掛彼此"
+    },
+    {
+      "question": 9,
+      "before": "你認為表達效果會更佳？",
+      "after": "你認為表達效果會否更佳？"
+    },
+    {
+      "question": 10,
+      "before": "從容沉著",
+      "after": "從容沉着"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2017-track": [
+      {
+        "number": 1,
+        "textSha256": "2ac9083b3d47270a401950a126aa33a0392901dd24b94db25584fc9eed12450a"
+      },
+      {
+        "number": 2,
+        "textSha256": "0ac10f9b732ce289f7fcf8e06468b8da0369e822c5df4c856045c441af1b2400"
+      },
+      {
+        "number": 3,
+        "textSha256": "f29b9c1bee5e0bcd67c399ccdbaf44a8d661e5eca125477d12bcea5f52812e7d"
+      },
+      {
+        "number": 4,
+        "textSha256": "c874ac7fb13df5021b0209c3930a101b877ad968d1c97fdbe5a2507b1a7da3b7"
+      },
+      {
+        "number": 5,
+        "textSha256": "2554295914c13c81198392a7ca971ee12c68fe535a8f45ff21633b7e8a164f28"
+      },
+      {
+        "number": 6,
+        "textSha256": "3a6f30f3aa04c5b9c7926f1f739ee010bf72f9b903e988af16acedaa431717c7"
+      },
+      {
+        "number": 7,
+        "textSha256": "dd451669a6b0495321f376327fea0cc91a5b62b81d2a17fe2b3331feabc905b1"
+      },
+      {
+        "number": 8,
+        "textSha256": "973bd1664383e12b5167365dbd8adc9e0368a35081b4536aa4b14ccd645d3594"
+      },
+      {
+        "number": 9,
+        "textSha256": "92387495a9975ff2e830aeb69310e68c5576cc5fe8884af6fdd1d947e859faec"
+      },
+      {
+        "number": 10,
+        "textSha256": "83419787a50fad426ea89f9ee634399427da6c043fb59d350ce1aa8116bd08f4"
+      },
+      {
+        "number": 11,
+        "textSha256": "8a3bbcaa47fe71009a46b3421459f51675749499097291e58388eb7b72df625b"
+      },
+      {
+        "number": 12,
+        "textSha256": "13c6a38483e247bea5391ed46edb1b4dbdc4c249f7dafd70ee1638ef40e9f05e"
+      },
+      {
+        "number": 13,
+        "textSha256": "47246db0abc924211916fef313501f070f0dcd1e60e6f1920e956daac24ba3d3"
+      },
+      {
+        "number": 14,
+        "textSha256": "a5098e72680d966e351f6a5071938b933d5234fef64c7f882ac5832ebb26f66c"
+      },
+      {
+        "number": 15,
+        "textSha256": "debb7c2a7d2440402d0aaf0500b19a16329da4d18b1f677bfc170a147f5213e2"
+      },
+      {
+        "number": 16,
+        "textSha256": "e47f8ffdf7d6523dff7d6ac5dc6b003f4c248241cd7b95082f57b5027ed02b84"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2017-q1",
+      "promptSha256": "04b8a79b3584a9a6eabead6e8346229af78cb2b289f99bffe4fd3a0583022394",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q2",
+      "promptSha256": "205c594e2547574ed120854a70e9d72f9570ef8f10601ac5d556e0b3b7b2c8d9",
+      "quoteSha256": "a3a2376037212a5516f6f61fd30c7270151c3dd7e6885c75dad5feb13353952c"
+    },
+    {
+      "id": "dse2017-q3",
+      "promptSha256": "3f6da0932a71909b78338837a7f573bfc7d490949f8e11814df20509fda0ecdc",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q4",
+      "promptSha256": "f1e23271f03d6f6d92e51f3aa5b37973e33f809656c9e6ae6b6a6a33720f899c",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q5",
+      "promptSha256": "07f48c0f17b5b79f922adbf0b20a91a3eec202ae13a5acc4cf51224d9c4061e6",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q6",
+      "promptSha256": "98c40c2cc6b3e971ada0a726e9d796ae940a1565aa0eec797ae3d44177ed6e9d",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q7",
+      "promptSha256": "cacd3ae769fa537f37421ee7a427cd32f627e72001855b0e54fb1c8942a51fca",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q8",
+      "promptSha256": "793aa50687399825023f44b28f5fc98253d731d293deb550676c60decf16a874",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q9",
+      "promptSha256": "6485111de75f1a1d59a692ee98b0417551d38ea7f3e19a6f0ab85b14184c1100",
+      "quoteSha256": "aed9a10d8f93d36ae665bec2f9c56c72e18950043e9018e5c068be8918ac377a"
+    },
+    {
+      "id": "dse2017-q10",
+      "promptSha256": "f90ce3a16d7df1e2f4bb135e375c174cd22c263f3d06926b77ce6d84b5b37868",
+      "quoteSha256": "372e11cdf047f1bdbc25a20241a90c5f11ae2f50f402b64a0b97bd0208dff5fe"
+    },
+    {
+      "id": "dse2017-q11",
+      "promptSha256": "d60a6ccab4f1cb0706fc9e672bc5ac733ccce0ac29ddd11f4be777b1b74e95f8",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2017-q12",
+      "promptSha256": "bd6a8adf04076bf92aebab3cd5a58ffa61138a3212ec6cc664e0085c0fdb1543",
+      "quoteSha256": "450f776566462a2ee4e3fe703b275298ef47457e10ce35e1bb41d4d57872d877"
+    },
+    {
+      "id": "dse2017-q13",
+      "promptSha256": "c250282df94cdc2cd03f99f1db0b38dc8052bbf207aa64c2fbe9bdc931af9aa2",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2017-q1-v-c",
+      "file": "2017-mark1.pdf",
+      "page": 4,
+      "index": "c",
+      "score": 3,
+      "textSha256": "172e468d8304273ce488bed58243664b9daa3fd9ebbb239ecbaa4ba895d52afe"
+    },
+    {
+      "id": "dse2017-q1-v-e",
+      "file": "2017-mark1.pdf",
+      "page": 4,
+      "index": "e",
+      "score": 2,
+      "textSha256": "96dca1d7ea0df77e0e6506121a369e7a05c9ba12e7a747f755f6df7ea1805283"
+    },
+    {
+      "id": "dse2017-q1-v-l",
+      "file": "2017-mark1.pdf",
+      "page": 4,
+      "index": "l",
+      "score": 1,
+      "textSha256": "f39a681c955b07c6e0bb4b2159ee370e95d0bd48cabbd2f8f2f78058c97e5242"
+    },
+    {
+      "id": "dse2017-q1-v-m",
+      "file": "2017-mark1.pdf",
+      "page": 4,
+      "index": "m",
+      "score": 0,
+      "textSha256": "ff08241e68d6ffe09fa7509d496eb718d09129dd8293c941d1cfcf45621a50ed"
+    },
+    {
+      "id": "dse2017-q1-vi-a",
+      "file": "2017-mark1.pdf",
+      "page": 6,
+      "index": "a",
+      "score": 3,
+      "textSha256": "5fc1a7da311b90de400637b36bfddcd4cc911fdfbdd27fd2e03032a043cd97d4"
+    },
+    {
+      "id": "dse2017-q1-vi-g",
+      "file": "2017-mark1.pdf",
+      "page": 6,
+      "index": "g",
+      "score": 2,
+      "textSha256": "661fdfb468d8c8273e82f2d2a7fb15e3230261e4475f1f08599dbcadf8b8e25a"
+    },
+    {
+      "id": "dse2017-q1-vi-j",
+      "file": "2017-mark1.pdf",
+      "page": 6,
+      "index": "j",
+      "score": 1,
+      "textSha256": "2dcfdac0a3ed88a460e15d6cb3aba9ec891ef4f129fc1cce3f1c8fdde449295b"
+    },
+    {
+      "id": "dse2017-q1-vi-o",
+      "file": "2017-mark1.pdf",
+      "page": 6,
+      "index": "o",
+      "score": 0,
+      "textSha256": "7bd84f2faf245bb4bd6c114b5f702c7d856c657d32dea6f89505d183935c5b27"
+    },
+    {
+      "id": "dse2017-q2-ii-a",
+      "file": "2017-mark2.pdf",
+      "page": 5,
+      "index": "a",
+      "score": 3,
+      "textSha256": "25f48d94b9aac90538764192e66e9497c06dea090803968e063d70913436b771"
+    },
+    {
+      "id": "dse2017-q2-ii-g",
+      "file": "2017-mark2.pdf",
+      "page": 5,
+      "index": "g",
+      "score": 2,
+      "textSha256": "44f6c922e4b28f2d3a0c240ea4166f2d34a10cc13cdae6481c0654dc820a3ed3"
+    },
+    {
+      "id": "dse2017-q2-ii-m",
+      "file": "2017-mark2.pdf",
+      "page": 5,
+      "index": "m",
+      "score": 1,
+      "textSha256": "10f416ffdeb7d2c427ad17d5970d5c0231af4b285ed38e9c33c30f3d2120a900"
+    },
+    {
+      "id": "dse2017-q2-ii-n",
+      "file": "2017-mark2.pdf",
+      "page": 5,
+      "index": "n",
+      "score": 0,
+      "textSha256": "fc8cd8047eea36692f0e5100a344b34a3ebbd233551b58ca1e14b2ede63ead48"
+    },
+    {
+      "id": "dse2017-q3-ii-a",
+      "file": "2017-mark2.pdf",
+      "page": 7,
+      "index": "a",
+      "score": 3,
+      "textSha256": "72e9de2bdada8c9fc367600a475abac3c925ca359e93fbccd7b611cde9ebf309"
+    },
+    {
+      "id": "dse2017-q3-ii-d",
+      "file": "2017-mark2.pdf",
+      "page": 7,
+      "index": "d",
+      "score": 2,
+      "textSha256": "f934f6ddc0a14e7c8e03db3b810418adb9e27bef760c7ad31ff582cfdbe95f4a"
+    },
+    {
+      "id": "dse2017-q3-ii-f",
+      "file": "2017-mark2.pdf",
+      "page": 7,
+      "index": "f",
+      "score": 1,
+      "textSha256": "5a82d8a1c8238b63bc513591b8cfb6d009f82ea1ae099212c48381b9b303718c"
+    },
+    {
+      "id": "dse2017-q3-ii-i",
+      "file": "2017-mark2.pdf",
+      "page": 7,
+      "index": "i",
+      "score": 0,
+      "textSha256": "7924eba706827bcb7d8f34c1a97da79d476c7b4d91c8bf166c28a3738fbe7654"
+    },
+    {
+      "id": "dse2017-q8-answer-b",
+      "file": "2017-mark2.pdf",
+      "page": 11,
+      "index": "b",
+      "score": 4,
+      "textSha256": "b0adbd94b04b790d484ca8e614d1810c495c603b4b3f2adae8e998c29242fbeb"
+    },
+    {
+      "id": "dse2017-q8-answer-e",
+      "file": "2017-mark2.pdf",
+      "page": 11,
+      "index": "e",
+      "score": 2,
+      "textSha256": "0ba79d9a7bdf09bc2e328f5bfdf682d48d7bd9dc91d8db624704b7b6bbcb4e07"
+    },
+    {
+      "id": "dse2017-q8-answer-g",
+      "file": "2017-mark2.pdf",
+      "page": 11,
+      "index": "g",
+      "score": 1,
+      "textSha256": "d7f1247c75d323c0d8708942f23f9ed720f7da0942ec549686aec26844cd6a3a"
+    },
+    {
+      "id": "dse2017-q8-answer-i",
+      "file": "2017-mark2.pdf",
+      "page": 11,
+      "index": "i",
+      "score": 0,
+      "textSha256": "08f1bbf09093ab82b7464781fffcaa8244b3e397058104d6d2e25191567cbd78"
+    },
+    {
+      "id": "dse2017-q9-answer-a",
+      "file": "2017-mark2.pdf",
+      "page": 15,
+      "index": "a",
+      "score": 4,
+      "textSha256": "bed57cda8b5a7e85358149bdfaa555e26045eb7ca10c8db2b8300e47fc50c589"
+    },
+    {
+      "id": "dse2017-q9-answer-b",
+      "file": "2017-mark2.pdf",
+      "page": 15,
+      "index": "b",
+      "score": 4,
+      "textSha256": "1248bac440ded6f9db5ab570121c832e0b429541cd3808d2780264f2c915dd73"
+    },
+    {
+      "id": "dse2017-q9-answer-c",
+      "file": "2017-mark2.pdf",
+      "page": 15,
+      "index": "c",
+      "score": 3,
+      "textSha256": "43e3dc8595f23af87f9b27b794c37337dde4b1c083236986ca8c3c3939c67d2e"
+    },
+    {
+      "id": "dse2017-q9-answer-f",
+      "file": "2017-mark2.pdf",
+      "page": 16,
+      "index": "f",
+      "score": 2,
+      "textSha256": "1e891a4a0b298c05ddcb19cac876efe17d5d6a9008a32f30b819dcbbf716bd4b"
+    },
+    {
+      "id": "dse2017-q9-answer-l",
+      "file": "2017-mark2.pdf",
+      "page": 17,
+      "index": "l",
+      "score": 1,
+      "textSha256": "e970f19e80722fcdeaff75c18e27e2397428eb023243355bed0fdc6a8ee855d7"
+    },
+    {
+      "id": "dse2017-q9-answer-n",
+      "file": "2017-mark2.pdf",
+      "page": 17,
+      "index": "n",
+      "score": 0,
+      "textSha256": "11d199f19fcfc9af2196bd91acec1df62da836ce75ec0411c14af81b8f36e229"
+    },
+    {
+      "id": "dse2017-q11-i-a",
+      "file": "2017-mark1.pdf",
+      "page": 9,
+      "index": "a",
+      "score": 3,
+      "textSha256": "c9246c0b87138d0c398a009eab627a0fee29455f691e170de839c536d8d3b7ef"
+    },
+    {
+      "id": "dse2017-q11-i-g",
+      "file": "2017-mark1.pdf",
+      "page": 9,
+      "index": "g",
+      "score": 2,
+      "textSha256": "6bcbef7681dca8de456b0ee7371fc9c88c8f786691eb7e12e077796402c198ea"
+    },
+    {
+      "id": "dse2017-q11-i-k",
+      "file": "2017-mark1.pdf",
+      "page": 9,
+      "index": "k",
+      "score": 1,
+      "textSha256": "3de4d63e8dee68eb9b317038dc9758791e91d7907b6b1d994a04f7455462d18d"
+    },
+    {
+      "id": "dse2017-q11-i-q",
+      "file": "2017-mark1.pdf",
+      "page": 9,
+      "index": "q",
+      "score": 0,
+      "textSha256": "ef2d35e7424545b6f534a0e14029be681e10d7e576e3c7ac17b2a106369de7e3"
+    },
+    {
+      "id": "dse2017-q11-ii-a",
+      "file": "2017-mark1.pdf",
+      "page": 10,
+      "index": "a",
+      "score": 3,
+      "textSha256": "cae591cbf31d0f9550c951e7056e554b9d4d3223fa2c0275c733e8f5ababc62d"
+    },
+    {
+      "id": "dse2017-q11-ii-c",
+      "file": "2017-mark1.pdf",
+      "page": 10,
+      "index": "c",
+      "score": 2,
+      "textSha256": "c390757fd22d684c8d0ceab699d693217156b249275284eb6f6f852405bbd8a7"
+    },
+    {
+      "id": "dse2017-q11-ii-f",
+      "file": "2017-mark1.pdf",
+      "page": 10,
+      "index": "f",
+      "score": 1,
+      "textSha256": "37578fc3dd9f1da6d596eec3ce6b48474f4850842905d91f255a474b73d15289"
+    },
+    {
+      "id": "dse2017-q11-ii-l",
+      "file": "2017-mark1.pdf",
+      "page": 10,
+      "index": "l",
+      "score": 0,
+      "textSha256": "be481cf5af6d3f24394b0e595c9f34304c5bad978c38a750bfa81c634f762fac"
+    },
+    {
+      "id": "dse2017-q13-answer-b",
+      "file": "2017-mark1.pdf",
+      "page": 15,
+      "index": "b",
+      "score": 4,
+      "textSha256": "35cf41506419792555e96fa7e24c3a356ccccbb385c4a8d6bac2cec62cf57f70"
+    },
+    {
+      "id": "dse2017-q13-answer-a",
+      "file": "2017-mark1.pdf",
+      "page": 15,
+      "index": "a",
+      "score": 4,
+      "textSha256": "3334c73a5b08bc1f963d1af16a3096a40fd770ff6aab87eda05c2819bb6c672e"
+    },
+    {
+      "id": "dse2017-q13-answer-e",
+      "file": "2017-mark1.pdf",
+      "page": 16,
+      "index": "e",
+      "score": 3,
+      "textSha256": "22145430b2bbf8a50f9882389bbd216047c2d93b6be781c1534f3dbbe9cd46d8"
+    },
+    {
+      "id": "dse2017-q13-answer-i",
+      "file": "2017-mark1.pdf",
+      "page": 16,
+      "index": "i",
+      "score": 2,
+      "textSha256": "80afc0a86e56cb95f8a871e46c87a61bc15a5ecc2d197a3c413b486814a1152e"
+    },
+    {
+      "id": "dse2017-q13-answer-q",
+      "file": "2017-mark1.pdf",
+      "page": 17,
+      "index": "q",
+      "score": 1,
+      "textSha256": "11dbb3fff15ec0d4f5fdc1dcb9bc87016bd77f1c7e59c4b5c2768970b551cb16"
+    },
+    {
+      "id": "dse2017-q13-answer-u",
+      "file": "2017-mark1.pdf",
+      "page": 18,
+      "index": "u",
+      "score": 0,
+      "textSha256": "9936e1251afcd4ca45f7d9ffc264a8bb8def529289f613b0d5e03641b1050811"
+    }
+  ],
+  "gradingRules": [
+    "先核對分段：(ii)或(iv)分段錯誤，其對應的(v)或(vi)不給分；漏答分段，相關大意不予評閱，標示IR。例答分數以相關分段正確為前提。",
+    "第3題(i)漏答或選錯事物，(ii)IR；只是用詞不準確（例西樂器），(ii)仍須評改。",
+    "第7題每欄只評首20字，包括標點；不因超長便整欄自動0分。",
+    "第8題兩項體悟各2分；例答資料沒有獨立3分樣本，不編造該分數答案。",
+    "第9題認為領略更佳最高2分，只析繞出但具體清晰最高3分。",
+    "第11題繁榮和孤獨每欄含意1分、說明2分；不得直接把人生比喻當文意。",
+    "第13題兩項以上跑道特點具體對應可4分；一項最高3分；本題不扣冗文分。"
+  ]
+}

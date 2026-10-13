@@ -56,6 +56,19 @@ function segmentScore(p,text){
  return null;
 }
 function shuffled(items,seed){return [...items].sort((a,b)=>fingerprint(seed,a.id,a.text).localeCompare(fingerprint(seed,b.id,b.text)));}
+function assessmentDependency(q,p,d,sourceSamples){
+ const rule=p.assessmentDependency;if(!rule)return null;
+ const prerequisite=q.answerParts.find(x=>x.key===rule.key),text=String(d.answers[rule.key]||'').trim();
+ if(!prerequisite)return null;
+ const label=prerequisite.label;
+ const failure=(action,reason)=>action==='zero'?{score:0,dependencyChecked:true,analysis:'0分：'+reason+'原題規定相關分題不給分；不能另加自評分。'}:{score:null,notAssessed:true,dependencyChecked:true,analysis:'不予評閱（IR）：'+reason+'原題規定先完成正確的前置答案，才評閱這一分題。'};
+ if(!text)return failure(rule.missing,'尚未填寫'+label+'。');
+ if(rule.exceptions?.some(t=>normalize(t)===normalize(text)))return null;
+ const score=rule.kind==='segment'?segmentScore(prerequisite,text):pool(q,prerequisite,sourceSamples).find(s=>normalize(s.text)===normalize(text))?.score;
+ if(score===0)return failure(rule.incorrect,label+'未符合原題要求。');
+ if(score>0)return null;
+ return{score:null,dependencyPending:true,analysis:'先核對'+label+'是否符合前置條件。這個寫法尚未獲自動核驗；依下方準則確認後，再自評本分題。'};
+}
 function samples(q,p,d,sourceSamples){
  const all=pool(q,p,sourceSamples),chosen=[],scores=new Set();
  for(const s of all)if(!scores.has(s.score)){scores.add(s.score);chosen.push({...s});}
@@ -98,6 +111,7 @@ function samples(q,p,d,sourceSamples){
    }
   }
  }
+ if(own){const dependency=assessmentDependency(q,p,d,sourceSamples);if(dependency)Object.assign(chosen.find(s=>s.own),dependency);}
  return shuffled(chosen,q.id+'-'+p.key);
 }
 function gradingItems(q,d,sourceSamples){return q.answerParts.filter(p=>p.kind!=='choice').flatMap(p=>samples(q,p,d,sourceSamples));}
