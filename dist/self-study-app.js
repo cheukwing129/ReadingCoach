@@ -87,9 +87,10 @@ function setReadingAnalysis(p,enabled){
  announce(enabled?'分析按鈕已顯示；點擊個別部分才會打開分析。':'分析已隱藏。');
 }
 function questionParts(q){
- // The source table already contains its subpart labels and options.
- if(q.table||q.tables?.length)return '';
- return '<div class="question-subparts">'+q.answerParts.map(p=>{
+ // Tables contain their own parts; explicit keys retain any original following parts.
+ const parts=q.table||q.tables?.length?q.answerParts.filter(p=>q.tableAnswerKeys&&!q.tableAnswerKeys.includes(p.key)):q.answerParts;
+ if(!parts.length)return '';
+ return '<div class="question-subparts">'+parts.map(p=>{
  const label=q.answerParts.length>1?'<p class="question-part-label">'+E(p.label)+'</p>':'';
  const choices=p.kind==='choice'?'<ul class="question-options">'+p.choices.map(c=>'<li>'+(c.value!==c.text?'<b>'+E(c.value)+'</b> ':'')+quoteHTML({quote:c.text,quoteHighlights:c.highlights,quoteHighlightRanges:c.highlightRanges})+'</li>').join('')+'</ul>':'';
  return label+choices;
