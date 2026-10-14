@@ -1,0 +1,383 @@
+{
+  "checkedAt": "2026-10-14",
+  "year": 2024,
+  "scope": "只加入乙部第二篇文言二則，原第21–27題14分；不加入甲部第1–8題指定篇章問答。",
+  "files": [
+    {
+      "file": "rm.pdf",
+      "id": "1r1QGJSpKrpuvDAEnkwnfeJHvZLZRyb-L",
+      "name": "2024-DSE-CHIN LANG-P1-RM.pdf",
+      "bytes": 169454,
+      "sha256": "e31a0a283d8b27b4f1cc6c1d0feb1aa782fabea97433c57643ed384500dd732b",
+      "pages": 4,
+      "textChars": 0
+    },
+    {
+      "file": "qab.pdf",
+      "id": "1FKlOqcZM_8ZdwHbkdqfiRK3Hmj9hpikH",
+      "name": "2024-DSE-CHIN LANG-P1-QAB.pdf",
+      "bytes": 273402,
+      "sha256": "471858323a7bb8fa1e6aef1aaea979807a3dcc33f6d6d726b7a000e196bce895",
+      "pages": 12,
+      "textChars": 0
+    },
+    {
+      "file": "mark4.pdf",
+      "id": "1-C1LLeX2v2vqDUAdNK2xP4FkGGFDVX1H",
+      "name": "2024 中國語文試卷一評卷參考 (第四組) 定稿 (1).pdf",
+      "bytes": 718467,
+      "sha256": "35348779d5fc9c0519419c2eb286278525025d4481fffb8929e6c1c74c194b8e",
+      "pages": 8,
+      "textChars": 8799
+    },
+    {
+      "file": "brief4.pdf",
+      "id": "1BlLx1X_UxvS7T3ioq8u_8ADolaKaFJ-3",
+      "name": "2024中國語文試卷一 閱卷員會議簡報-(第四組) 定稿.pdf",
+      "bytes": 1755747,
+      "sha256": "9003fbd5eba3a9d47a8a48996a890b548a60f8b31b2d711140515ce650f31691",
+      "pages": 56,
+      "textChars": 5867
+    },
+    {
+      "file": "objective.pdf",
+      "id": "1dIXqiJ0ehEi4bprasZwB9LlurVFukw5e",
+      "name": "2024 中國語文試卷一(客觀題答案).pdf",
+      "bytes": 198098,
+      "sha256": "06cf963182889f641030c40415d294110f16fc63207f5c7bb8edf211ef702736",
+      "pages": 1,
+      "textChars": 270
+    },
+    {
+      "file": "rm.txt",
+      "id": "1B0YrLzq6CpKw4eGlGuSp7E4bFN_XT5ZP",
+      "name": "2024閱讀篇章_RM_文字稿.txt",
+      "bytes": 8844,
+      "sha256": "92e571bc6b72cfe78ef92fa274efe4204b8b668f7d59f8983441d4af8147c20f",
+      "pages": 0,
+      "textChars": 0
+    },
+    {
+      "file": "qab.txt",
+      "id": "1IX2LsXSj4yXWyYcntWpL4-j0naZ-Gyqq",
+      "name": "2024試題答題簿_QAB_文字稿.txt",
+      "bytes": 8227,
+      "sha256": "a24ebcfcadfa8f23a81b23fb9203b214587f90e2ac9989c59bd12075c780aa6c",
+      "pages": 0,
+      "textChars": 0
+    },
+    {
+      "file": "sample-af.pdf",
+      "id": "12Yn_BjEI-eORdDTM2OoTLk7O5gVc-PTM",
+      "name": "2024 P1 試卷樣本 (第四組).pdf",
+      "bytes": 1656006,
+      "sha256": "024c859732f662f9dbd6e05e305e0cdacae56eb07c189ca44c02e8e9a009c770",
+      "pages": 6
+    }
+  ],
+  "sourcePages": {
+    "rm": [
+      4
+    ],
+    "qab": {
+      "q21-q24": [
+        10
+      ],
+      "q25-q27": [
+        11
+      ]
+    },
+    "mark4": {
+      "q23": [
+        3
+      ],
+      "q24": [
+        4,
+        5,
+        6
+      ],
+      "q27": [
+        6,
+        7,
+        8
+      ]
+    },
+    "brief4": {
+      "q23": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "q24": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "q27": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        54
+      ]
+    },
+    "sample-af": {
+      "q23": [
+        2
+      ]
+    },
+    "objective": [
+      1
+    ]
+  },
+  "objectiveAnswers": {
+    "q21": "C",
+    "q22": "D",
+    "q25": "B",
+    "q26": [
+      "A",
+      "B"
+    ]
+  },
+  "numberingConvention": "原文以第一則、第二則標示，不新增原段號；內部定位使用1、2，畫面及提示使用原則名。文言二則是網站導覽名，書名及作者保留在各則文末。",
+  "pageConvention": "PDF實際頁次；例答只移除排版空白與外置評分注記，保留原答案字詞。手寫樣本不把閱卷批註當原答。",
+  "longExemplars": [
+    {
+      "id": "dse2024-q23-answer-full2",
+      "file": "2024-brief4.pdf",
+      "page": 14,
+      "index": "full2",
+      "score": 2,
+      "textSha256": "3b7bd9183cc1eb6e6562e4be60eeb5f67d4d993d9afe9eaaa3e4b46c068bc72a"
+    },
+    {
+      "id": "dse2024-q23-answer-partial1",
+      "file": "2024-brief4.pdf",
+      "page": 14,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "d5ce198831836e09fa5ae2982f8085d7573384ee3fdf6a1144dc78f06b52a9fe"
+    },
+    {
+      "id": "dse2024-q23-answer-sampleE2",
+      "file": "2024-sample-af.pdf",
+      "page": 2,
+      "index": "sampleE2",
+      "score": 2,
+      "textSha256": "573fbe2a7f56a57c6fbcd74ced578d8dfc0f8562ea74b5da4c15871371b068d4",
+      "scoreEvidence": {
+        "file": "2024-brief4.pdf",
+        "page": 15
+      }
+    },
+    {
+      "id": "dse2024-q23-answer-sampleB0",
+      "file": "2024-sample-af.pdf",
+      "page": 2,
+      "index": "sampleB0",
+      "score": 0,
+      "textSha256": "707205ba6394fb4b4553a09f6108add098f9f5e0941bac936a20b75ed8dcad59",
+      "scoreEvidence": {
+        "file": "2024-brief4.pdf",
+        "page": 15
+      }
+    },
+    {
+      "id": "dse2024-q23-answer-sampleC0",
+      "file": "2024-sample-af.pdf",
+      "page": 2,
+      "index": "sampleC0",
+      "score": 0,
+      "textSha256": "faa69a83ca43a685aa82aaf5bdbd50ee348d95615474aa712cde5ad6ff9a85c8",
+      "scoreEvidence": {
+        "file": "2024-brief4.pdf",
+        "page": 15
+      }
+    },
+    {
+      "id": "dse2024-q24-answer-full3",
+      "file": "2024-mark4.pdf",
+      "page": 5,
+      "index": "full3",
+      "score": 3,
+      "textSha256": "c51cc6c4a20c969e755808ba8de49265fbb88ba0c866dea1fda71c757351376b"
+    },
+    {
+      "id": "dse2024-q24-answer-middle2",
+      "file": "2024-mark4.pdf",
+      "page": 5,
+      "index": "middle2",
+      "score": 2,
+      "textSha256": "732e9972a9d0f01686e8999cbd6dfa2d4c1345e82ca823378f92c5d6e0b43d0a"
+    },
+    {
+      "id": "dse2024-q24-answer-lower1",
+      "file": "2024-mark4.pdf",
+      "page": 5,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "719589fdaae05f38ba1fbb808452322651369879135f3502b972fa977da29c49"
+    },
+    {
+      "id": "dse2024-q24-answer-zero",
+      "file": "2024-mark4.pdf",
+      "page": 5,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "ba7f193bb49c7370341770ad022dd49f5d1091ba253ed45ee8da0c72a7746e18"
+    },
+    {
+      "id": "dse2024-q24-answer-full3-alternative",
+      "file": "2024-brief4.pdf",
+      "page": 22,
+      "index": "full3-alternative",
+      "score": 3,
+      "textSha256": "2de54426d91588097382b320be0b84899143ff627ab0202eda002dc79e99c1bc"
+    },
+    {
+      "id": "dse2024-q27-answer-full3",
+      "file": "2024-mark4.pdf",
+      "page": 7,
+      "index": "full3",
+      "score": 3,
+      "textSha256": "c5932826252a87c3da2249eb27cd80691ac26a9360d3852041ae8394c94e68ef"
+    },
+    {
+      "id": "dse2024-q27-answer-middle2",
+      "file": "2024-mark4.pdf",
+      "page": 7,
+      "index": "middle2",
+      "score": 2,
+      "textSha256": "e5cfb7a465a63acde4a524fac5d6bfb5eb874f6f0cb9a71071ebf9d9922e906c"
+    },
+    {
+      "id": "dse2024-q27-answer-lower1",
+      "file": "2024-mark4.pdf",
+      "page": 8,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "7ea05d7160bfefa5bf840b0ccbaf8610348218b5cd80ca29bb81e8ecf9434f67"
+    },
+    {
+      "id": "dse2024-q27-answer-lower1-brief",
+      "file": "2024-mark4.pdf",
+      "page": 8,
+      "index": "lower1-brief",
+      "score": 1,
+      "textSha256": "7a9b2759dc00192db3eb5f30bf247a420a48a5ed4989185c5c6f505a5a1fee98"
+    },
+    {
+      "id": "dse2024-q27-answer-zero",
+      "file": "2024-mark4.pdf",
+      "page": 8,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "474b4c71381037858fcb2e375afa7eeff61e5df45b31d0e9fcf9ddf8a422aa79"
+    },
+    {
+      "id": "dse2024-q27-answer-sampleE3",
+      "file": "2024-brief4.pdf",
+      "page": 54,
+      "index": "sampleE3",
+      "score": 3,
+      "textSha256": "05c572099409a0c93da9fa62fdf2592a61c6b6d9a75880d52d3339b8e4bb05d4"
+    }
+  ],
+  "translationRule": "第23題兩分句各自句意正確1分；錯字不扣，影響準確度的冗文扣1分。語譯不作關鍵字語意自動評分。",
+  "q27Rules": {
+    "fullScoreDirection": "棺槨衣衾，不害為達，最高3分。",
+    "twoMarkDirection": "死則已矣，何必更埋，最高2分，依會議簡報第40頁。",
+    "zero": "人物行事或蘇軾理據任一完全錯誤，全題0分，依簡報第41頁。"
+  },
+  "teachingSupport": "白話語譯及字詞是按原考材、原註和評卷資料整理的教學解說，預設收起；原文、原題及評分例答與解說分開。",
+  "dictionaryChecks": [
+    {
+      "word": "屬",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=9105&la=1&powerMode=0",
+      "use": "補充通囑的古義，按所在搜檢脈絡解作吩咐。"
+    },
+    {
+      "word": "名器",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=32112&la=0&powerMode=0",
+      "use": "選取爵位義，與原評卷資料不求官位顯達的解說一致。"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2024-classical": [
+      {
+        "number": 1,
+        "textSha256": "5c3618c01143a7d2810987a4336e8472eb7c546bb70b110ca8d6067d6ce64daa"
+      },
+      {
+        "number": 2,
+        "textSha256": "c4f4043545b2d137ad8bf50c8c54727bfd650d66b16d103ab2e35014f5b36095"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2024-q21",
+      "promptSha256": "085b250b2f3cdd61baa8ac5a5e78a1e720b5e76cabdae463d1b82a8c0afbc533",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 2
+    },
+    {
+      "id": "dse2024-q22",
+      "promptSha256": "7f5c7b2214e0a1e04198b7c652a03d9009f4d2f5d9c507270b83aed30d42dc86",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 1
+    },
+    {
+      "id": "dse2024-q23",
+      "promptSha256": "4f026d2bb593f94a4da9652c0e9b77fd74c26257b4c8104b74fe1b4a343baf53",
+      "quoteSha256": "05a3ff3938004a3a48470b11cb3be96b7ea5e02db58e2050f8b07e0832ca35af",
+      "marks": 2
+    },
+    {
+      "id": "dse2024-q24",
+      "promptSha256": "f10ed0bb5e75e3eadf69266adf98f1d1b885ba73f20773013fef51d8480d3513",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 3
+    },
+    {
+      "id": "dse2024-q25",
+      "promptSha256": "18bf47bd5f2b3cf73ed9f8e9c51125725883580f9aa7143dcefac95fb54e721d",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 1
+    },
+    {
+      "id": "dse2024-q26",
+      "promptSha256": "a38c9b266dce0a590fcff9bb02cf2946775898f432508b189acf91dc1d933db3",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 2
+    },
+    {
+      "id": "dse2024-q27",
+      "promptSha256": "4b31c20934a2f09359008c0938e9061fc452c250ef74a7a81e78656f7d924dc6",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 3
+    }
+  ]
+}
