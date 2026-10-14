@@ -2833,6 +2833,414 @@
       "index": "zero-motive",
       "score": 0,
       "textSha256": "3207f7607993c026b0137f4e26b2eb1d06440c5c7f699042310533dbef57b279"
+    },
+    {
+      "id": "dse2013-q1-iv-full",
+      "file": "2013-mark1.pdf",
+      "page": 3,
+      "index": "full",
+      "score": 3,
+      "textSha256": "6447fa946e8ca162ce524097cc47c014da5e8379ffecc22f662e53154a857d66"
+    },
+    {
+      "id": "dse2013-q1-iv-partial2",
+      "file": "2013-mark1.pdf",
+      "page": 3,
+      "index": "partial2",
+      "score": 2,
+      "textSha256": "674356808a86b90d250ecf1ce2222e6799121c69e4caa640f153776f87551836"
+    },
+    {
+      "id": "dse2013-q1-iv-partial1",
+      "file": "2013-mark1.pdf",
+      "page": 3,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "f2a7bcbba5fab2a1d4fef372b068e8ac949559a2d840960cfbffeb1b1a07f83e"
+    },
+    {
+      "id": "dse2013-q1-iv-zero",
+      "file": "2013-mark1.pdf",
+      "page": 3,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "818063e2e20b0f640330b13833ebc51e07493df442572a4a4e592b3ed593b9f1"
+    },
+    {
+      "id": "dse2013-q1-v-full",
+      "file": "2013-mark1.pdf",
+      "page": 4,
+      "index": "full",
+      "score": 3,
+      "textSha256": "3ba31fca6b5eea2ac8decab892aa57eddfb43053a69255cdf65a0be043741252"
+    },
+    {
+      "id": "dse2013-q1-v-partial2",
+      "file": "2013-mark1.pdf",
+      "page": 4,
+      "index": "partial2",
+      "score": 2,
+      "textSha256": "6f9cf886ef1692a75b08f9d6a74e12dfab281ef3e50f355122f0239d16808d79"
+    },
+    {
+      "id": "dse2013-q1-v-partial1",
+      "file": "2013-mark1.pdf",
+      "page": 4,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "15d2cb7d351298837d4db99766644e2f11a740bc8f59a9a3f7bd50a0ded3e04b"
+    },
+    {
+      "id": "dse2013-q1-v-zero",
+      "file": "2013-mark1.pdf",
+      "page": 4,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "6170e098f28f0c632dea872baccee75860cc14abdc63735aa842ceffa51399f0"
+    },
+    {
+      "id": "dse2013-q1-vi-full",
+      "file": "2013-mark1.pdf",
+      "page": 5,
+      "index": "full",
+      "score": 3,
+      "textSha256": "4cbe994d8e921bf361fe325a1c34bc59eaa3ebab30b32cde11395910d446162b"
+    },
+    {
+      "id": "dse2013-q1-vi-partial2",
+      "file": "2013-mark1.pdf",
+      "page": 5,
+      "index": "partial2",
+      "score": 2,
+      "textSha256": "adc772a55dcbf4c84760589a2e56032be27a392695b3797d3cda64bf6cd615fa"
+    },
+    {
+      "id": "dse2013-q1-vi-partial1",
+      "file": "2013-mark1.pdf",
+      "page": 5,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "8b18fff07fcf3daeae5028113c595d7489ccafb7a0a4b6da3c148f482d88f996"
+    },
+    {
+      "id": "dse2013-q1-vi-zero",
+      "file": "2013-mark1.pdf",
+      "page": 5,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "ac856ed281191e11e2ad7c099d52841b4af82a9a531955aa8ba94b8665adff05"
+    },
+    {
+      "id": "dse2013-q4-answer-full6",
+      "file": "2013-mark1.pdf",
+      "page": 7,
+      "index": "full6",
+      "score": 6,
+      "textSha256": "f2b3adbb1f0382bbead023f2f5d33973dfe1a774f351e709a9e9f065a9624699"
+    },
+    {
+      "id": "dse2013-q4-answer-full6-tone",
+      "file": "2013-mark1.pdf",
+      "page": 7,
+      "index": "full6-tone",
+      "score": 6,
+      "textSha256": "92aceadaf2fc7db6dd5efc5a9d3e0d2ff3b5a3a68d2bb49b5bd256299ed640ea"
+    },
+    {
+      "id": "dse2013-q4-answer-upper5",
+      "file": "2013-mark1.pdf",
+      "page": 7,
+      "index": "upper5",
+      "score": 5,
+      "textSha256": "603d86a27a73461c482207879893e712c80544cf209e662cec2adcdd0c65079d"
+    },
+    {
+      "id": "dse2013-q4-answer-middle4",
+      "file": "2013-mark1.pdf",
+      "page": 7,
+      "index": "middle4",
+      "score": 4,
+      "textSha256": "b2553d90d6dabc43166760023bab64aded2b151b69a2fb2ff360fadf3ee6e210"
+    },
+    {
+      "id": "dse2013-q4-answer-middle3",
+      "file": "2013-mark1.pdf",
+      "page": 7,
+      "index": "middle3",
+      "score": 3,
+      "textSha256": "30a3a565e29a5e1fb71f4b448cfb3bc59a8f855075e0953c56c888761a08a7d6"
+    },
+    {
+      "id": "dse2013-q4-answer-lower1",
+      "file": "2013-mark1.pdf",
+      "page": 8,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "7d9843d6b3bf842f506f17b4b06bcd53c5be68cf074f0216d6bd072c28b42e8a"
+    },
+    {
+      "id": "dse2013-q4-answer-zero",
+      "file": "2013-mark1.pdf",
+      "page": 8,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "8af464ee36ff386b1d7cb360c3771b3b233f74c58c9d7f0e6871ff495cca2f06"
+    },
+    {
+      "id": "dse2013-q4-answer-sampleJ2",
+      "file": "2013-sample-gj.pdf",
+      "page": 6,
+      "index": "sampleJ2",
+      "score": 2,
+      "textSha256": "eeadb8c04942c41427fc6675ae489615f549a4ddd9550ca445062e9ef3b4948c"
+    },
+    {
+      "id": "dse2013-q7-answer-full6",
+      "file": "2013-mark1.pdf",
+      "page": 10,
+      "index": "full6",
+      "score": 6,
+      "textSha256": "ed639cad8f2c940471c5e48c13a6e6bdbee6800d6e9f4946d1c2aab54c6a6d1d"
+    },
+    {
+      "id": "dse2013-q7-answer-upper5",
+      "file": "2013-mark1.pdf",
+      "page": 10,
+      "index": "upper5",
+      "score": 5,
+      "textSha256": "1a166c9cf779df4a83ba5ae27fa5b0bea32d987d8d6a7d29ebab9e25000ff97d"
+    },
+    {
+      "id": "dse2013-q7-answer-middle4",
+      "file": "2013-mark1.pdf",
+      "page": 10,
+      "index": "middle4",
+      "score": 4,
+      "textSha256": "c88bc02835b75e6cedbfb3ba2af575e686be330e78a5e5726f0e55fe9e667b4f"
+    },
+    {
+      "id": "dse2013-q7-answer-middle3",
+      "file": "2013-mark1.pdf",
+      "page": 10,
+      "index": "middle3",
+      "score": 3,
+      "textSha256": "7223af7b651a93dcad83116a74f0173fc2d38f305902bea30171d01571dfdc18"
+    },
+    {
+      "id": "dse2013-q7-answer-lower2",
+      "file": "2013-mark1.pdf",
+      "page": 11,
+      "index": "lower2",
+      "score": 2,
+      "textSha256": "f942c687f33669e4c7e9bf3ba068e93abeb983f3c465383155ca935138945998"
+    },
+    {
+      "id": "dse2013-q7-answer-lower1",
+      "file": "2013-mark1.pdf",
+      "page": 11,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "4e7863d6448833c999bc8f8dfd03e208019a7141579c08a55ddcc7619aaa83a1"
+    },
+    {
+      "id": "dse2013-q7-answer-zero",
+      "file": "2013-mark1.pdf",
+      "page": 11,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "38b62a9c6aee30f9e36c6c6723a2cfb3b66311dd4ead8d7d58b916801aae5bdd"
+    },
+    {
+      "id": "dse2013-q10-answer-full4-association",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "full4-association",
+      "score": 4,
+      "textSha256": "2fbea499f19b66fa8eca6a4ff0c0d8c55a2a71f82776682239b832dde4ecadeb"
+    },
+    {
+      "id": "dse2013-q10-answer-full4-echo",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "full4-echo",
+      "score": 4,
+      "textSha256": "7ff72c85b9849094e402c399caa5df50e3aa240acc4b0b2f66fb7ea41b429e24"
+    },
+    {
+      "id": "dse2013-q10-answer-partial3",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "partial3",
+      "score": 3,
+      "textSha256": "679e0bc33207c8986484c14a39f3718d01b7e1c23c5498b48fa5859336c5a056"
+    },
+    {
+      "id": "dse2013-q10-answer-partial2",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "partial2",
+      "score": 2,
+      "textSha256": "178cfca41163c2f875186ff950c072fbbefd2f07af46b3f16dacaa99c91ae30a"
+    },
+    {
+      "id": "dse2013-q10-answer-partial1",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "653f497e18e85cc5acfa91c10a3cb041c642787c978dd66af285872b9212c85e"
+    },
+    {
+      "id": "dse2013-q10-answer-zero-layer",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "zero-layer",
+      "score": 0,
+      "textSha256": "9428e5db2d74eab2a35d414d356efebc028837e55260588df8c88e750de7b608"
+    },
+    {
+      "id": "dse2013-q10-answer-zero-contrast",
+      "file": "2013-mark2.pdf",
+      "page": 5,
+      "index": "zero-contrast",
+      "score": 0,
+      "textSha256": "1708456a5ff0185aa5ddccbc353e3faddf84c4b2f6f856725e956ea5da316bb3"
+    },
+    {
+      "id": "dse2013-q11-i-full",
+      "file": "2013-mark2.pdf",
+      "page": 6,
+      "index": "full",
+      "score": 2,
+      "textSha256": "fffacf91d103a0a27695e2ed94ee3d6b3fdbdce84513de0fa7b9fc412c6c71d0"
+    },
+    {
+      "id": "dse2013-q11-i-partial-oath",
+      "file": "2013-mark2.pdf",
+      "page": 6,
+      "index": "partial-oath",
+      "score": 1,
+      "textSha256": "8f5861cac11fe5cdc5cbf24d0df8d15a6d7d0c7644e48599b7a48d3d6ec82dd9"
+    },
+    {
+      "id": "dse2013-q11-i-partial-general",
+      "file": "2013-mark2.pdf",
+      "page": 6,
+      "index": "partial-general",
+      "score": 1,
+      "textSha256": "f562a200f671a2d87b7d900a88eda5b5ec3d2d3aa8926941246154de3baf62ac"
+    },
+    {
+      "id": "dse2013-q11-i-zero",
+      "file": "2013-mark2.pdf",
+      "page": 6,
+      "index": "zero",
+      "score": 0,
+      "textSha256": "af14c9fd2b8ff18cf3d19521a3be093f4de517263ea371ac91121473eabbb641"
+    },
+    {
+      "id": "dse2013-q11-iii-full",
+      "file": "2013-mark2.pdf",
+      "page": 7,
+      "index": "full",
+      "score": 2,
+      "textSha256": "9e0b897f3663e8b8d9c40157b1939ab81d3265cd220f02b80e18713bb9294866"
+    },
+    {
+      "id": "dse2013-q11-iii-partial-brief",
+      "file": "2013-mark2.pdf",
+      "page": 7,
+      "index": "partial-brief",
+      "score": 1,
+      "textSha256": "65817c4707fff85dee4d3ce86bcdb1d088ca3553f94b078ee349226d8b707d2b"
+    },
+    {
+      "id": "dse2013-q11-iii-partial-general",
+      "file": "2013-mark2.pdf",
+      "page": 7,
+      "index": "partial-general",
+      "score": 1,
+      "textSha256": "30f3b9d120d3646f11363b7616d9c60adcc4805fc9098db4a1c887aa6ff95b9f"
+    },
+    {
+      "id": "dse2013-q11-iii-zero-extra",
+      "file": "2013-mark2.pdf",
+      "page": 7,
+      "index": "zero-extra",
+      "score": 0,
+      "textSha256": "d4e38750fe17dbf96e5cfe2e6d4a9ec3a8e322a9f4447c2e24c7db75307fc47c"
+    },
+    {
+      "id": "dse2013-q12-answer-satire-full",
+      "file": "2013-mark2.pdf",
+      "page": 8,
+      "index": "satire-full",
+      "score": 2,
+      "textSha256": "558ee0552ca5162f1cd89b47527ad9f2017584a9f5e368adf4042795da1afe0b"
+    },
+    {
+      "id": "dse2013-q12-answer-satire-partial",
+      "file": "2013-mark2.pdf",
+      "page": 8,
+      "index": "satire-partial",
+      "score": 1,
+      "textSha256": "1f2ea1d4545c63674b254c4a76c057fed78d8dacb985550adc2f9ed81b442ea1"
+    },
+    {
+      "id": "dse2013-q12-answer-satire-zero",
+      "file": "2013-mark2.pdf",
+      "page": 8,
+      "index": "satire-zero",
+      "score": 0,
+      "textSha256": "9160588a15524e98228c4766d0a2fd01a2c7fe8b537a5d9ae1f6dcc0113b1640"
+    },
+    {
+      "id": "dse2013-q12-answer-others-full",
+      "file": "2013-mark2.pdf",
+      "page": 9,
+      "index": "others-full",
+      "score": 1,
+      "textSha256": "fc145df5522ccb3602f56b77ac61318e2e78f157824a0e13dc126c753cbb2194"
+    },
+    {
+      "id": "dse2013-q12-answer-others-zero",
+      "file": "2013-mark2.pdf",
+      "page": 9,
+      "index": "others-zero",
+      "score": 0,
+      "textSha256": "bcb155f5553f80e19c0ce77e83add4a8be356beb5b68b4d281e74f2cdb6b22c4"
+    },
+    {
+      "id": "dse2013-q12-answer-self-full",
+      "file": "2013-mark2.pdf",
+      "page": 9,
+      "index": "self-full",
+      "score": 2,
+      "textSha256": "bce85533de4280b13863ffca14b7a00b0db1e40d560ccad08a506ae0098d4ad0"
+    },
+    {
+      "id": "dse2013-q12-answer-self-partial",
+      "file": "2013-mark2.pdf",
+      "page": 9,
+      "index": "self-partial",
+      "score": 1,
+      "textSha256": "29ca22b860cdc50f8f753ee4ef474075607398044f4454cab13084d77361ad55"
+    },
+    {
+      "id": "dse2013-q12-answer-self-extra",
+      "file": "2013-mark2.pdf",
+      "page": 9,
+      "index": "self-extra",
+      "score": 1,
+      "textSha256": "8031c62a34dc7875c972fd7ec3a5c18d8c23aadd58d8df183eb3d85db0aec2ef"
+    },
+    {
+      "id": "dse2013-q12-answer-self-zero",
+      "file": "2013-mark2.pdf",
+      "page": 9,
+      "index": "self-zero",
+      "score": 0,
+      "textSha256": "549b3056d12f6b690ecf55ba83682a91ecefac90815af362c31e7ee98d4de76d"
     }
   ],
   "resources": {
