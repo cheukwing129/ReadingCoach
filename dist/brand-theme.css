@@ -207,6 +207,8 @@ textarea:focus,select:focus,.year-gate-form input:focus{border-color:#1e6549;box
 .classical-help>summary{padding:12px 14px;font-size:15px;line-height:1.7;color:#1d533c;font-weight:600}
 .classical-help-body{padding:0 16px 16px}
 .passage-text .paragraph .classical-translation{font-family:var(--sans);font-size:16px;line-height:1.95;letter-spacing:0}
+.classical-help-slot{grid-column:2;min-width:0}
+.named-paragraph .classical-help-slot{grid-column:1}
 .classical-help-slot:empty,.named-paragraph .analysis-slot:empty{display:none}
 .reader-header .reader-analysis-switch{flex-basis:100%;margin:0;justify-content:flex-end;min-height:44px}
 .source-text .reading-word{display:inline;padding:0;margin:0;border:0;border-radius:4px;background:hsl(var(--brand-soft));color:hsl(var(--brand));font:inherit;line-height:inherit;letter-spacing:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:5px;vertical-align:baseline}

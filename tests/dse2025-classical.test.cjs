@@ -1,6 +1,6 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2020-data','dse2021-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2025-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-data','dse2026-data','self-study-data','reading-support'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2020-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2025-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-data','dse2026-data','self-study-data','reading-support'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core'),q=n=>D.questions.find(x=>x.id==='dse2025-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const article=D.articles.find(a=>a.id==='dse2025-classical'),manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2025-classical-source-manifest.json')));
 const own=(n,text)=>{const d=C.draft();d.answers.answer=text;return C.samples(q(n),q(n).answerParts[0],d,S).find(s=>s.own);};
@@ -8,7 +8,7 @@ const own=(n,text)=>{const d=C.draft();d.answers.answer=text;return C.samples(q(
 test('2025 adds only six Part B classical questions, fifteen marks, in original third-passage order',()=>{
  const qs=D.questions.filter(x=>x.exerciseId===article.id);assert.deepEqual(qs.map(x=>x.number),[21,22,23,24,25,26]);assert.deepEqual(qs.map(x=>x.marks),[2,2,2,2,3,4]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),15);
  assert.deepEqual(D.questions.filter(x=>x.year===2025).map(x=>x.number),Array.from({length:18},(_,i)=>i+9));assert.equal(D.questions.filter(x=>x.year===2025).reduce((n,x)=>n+x.marks,0),56);assert.deepEqual(D.articles.filter(a=>a.year===2025).map(a=>a.id),['dse2025-fiction','dse2025-alley','dse2025-classical']);assert.equal(D.questions.filter(x=>x.year===2025&&x.number<9).length,0);
- assert.equal(D.articles.length,26);assert.equal(D.questions.length,184);assert.equal(D.articles.find(a=>a.id==='dse2026-classical'),undefined);
+ assert.equal(D.articles.length,27);assert.equal(D.questions.length,190);assert.equal(D.articles.find(a=>a.id==='dse2026-classical'),undefined);
  for(const x of qs){const h=manifest.questionHashes.find(h=>h.id===x.id);assert.equal(hash(x.prompt),h.promptSha256);assert.equal(hash(x.quote),h.quoteSha256);}
 });
 test('original texts retain named sections, source introduction and the visually corrected classical characters',()=>{
@@ -23,7 +23,7 @@ test('four objective questions retain verified C D C B keys, two marks each and 
 });
 test('question types and hints teach distinct tasks using the right named section',()=>{
  for(const [n,type,section]of [[21,'cause',1],[22,'judgement',1],[23,'classicalWord',2],[24,'technique',2],[25,'meaning',2],[26,'criticism',2]]){assert.equal(q(n).lesson.type,type);assert.ok(q(n).lesson.choices.includes(type));assert.ok(q(n).lesson.prompts.length>=3);assert.deepEqual(C.questionParagraphs(q(n),article),[section]);assert.ok(q(n).lesson.transfer.length>=2);}
- assert.equal(Object.keys(D.types).length,28);assert.equal(q(12).lesson.type,'technique');assert.equal(q(20).marks,7);
+ assert.equal(Object.keys(D.types).length,30);assert.equal(q(12).lesson.type,'technique');assert.equal(q(20).marks,7);
 });
 test('Q25 preserves the two-mark cap for a size-only rebuttal and the common moral standard required for three marks',()=>{
  const criteria=q(25).official[0].criteria.join('');assert.match(criteria,/公.*私/);assert.match(criteria,/事情本身/);assert.match(criteria,/動機.*結果/);assert.match(criteria,/守城小.*食人大.*最高中品2分/);assert.match(criteria,/不是只有一個人/);assert.deepEqual([...new Set(S[q(25).id].answer.map(s=>s.score))].sort(),[0,1,2,3]);
