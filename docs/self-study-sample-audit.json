@@ -3525,6 +3525,150 @@
       "index": "sampleE4",
       "score": 4,
       "textSha256": "b3a713510fcd4ee431f4c6bf35d2d8635e4bc15fe775c4c667692c3dc375cab3"
+    },
+    {
+      "id": "dse2023-q24-answer-final1",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 2,
+      "index": 1,
+      "score": 4,
+      "textSha256": "d8524df2916ac4b7fd2b6979a1721457c45a11f9990144594628a7a3eda63410"
+    },
+    {
+      "id": "dse2023-q24-answer-final2",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 3,
+      "index": 2,
+      "score": 3,
+      "textSha256": "6a64da2d3ac629be4fe33044cd7ad99349ff58608a2c1329986b7875f4b6368c"
+    },
+    {
+      "id": "dse2023-q24-answer-final3",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 4,
+      "index": 3,
+      "score": 3,
+      "textSha256": "8f734edfbdaa25ed53f19a4707be51db309400f7b765e9b8aaedc116bba1aef8"
+    },
+    {
+      "id": "dse2023-q24-answer-final4",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 5,
+      "index": 4,
+      "score": 2,
+      "textSha256": "96ffeef027587de357bdaac82ec23b7a6b57f0194ca723329577c02a55a8c0dc"
+    },
+    {
+      "id": "dse2023-q24-answer-final5",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 6,
+      "index": 5,
+      "score": 2,
+      "textSha256": "1ac7f9c52aa190dd7adaa01f9c9385d7ddedeaf15b2f14af9b0a285f4bbe4c02"
+    },
+    {
+      "id": "dse2023-q24-answer-final6",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 7,
+      "index": 6,
+      "score": 2,
+      "textSha256": "e0decb985f40984c51b932a1b199a1f4487e511eee653973fa954a888a146ea3"
+    },
+    {
+      "id": "dse2023-q24-answer-final7",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 8,
+      "index": 7,
+      "score": 1,
+      "textSha256": "1941f10031c72ea769d2de574c00b14d4b9d5c0200d84b64c3410de9b9bd59f9"
+    },
+    {
+      "id": "dse2023-q24-answer-final8",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 9,
+      "index": 8,
+      "score": 1,
+      "textSha256": "173d2ed3d9d02060c9c60ae99c4c207fb33f752dcbe1d62f0b986251f0c75783"
+    },
+    {
+      "id": "dse2023-q24-answer-final9",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 10,
+      "index": 9,
+      "score": 0,
+      "textSha256": "ad179cd98f81f8631c143bb23a7efb5fcec111d79a2dfc46921d1e0a73855e26"
+    },
+    {
+      "id": "dse2023-q25-answer-final1",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 2,
+      "index": 1,
+      "score": 4,
+      "textSha256": "a350c7b89a505d1a43596b440ea663666854418950e0fb6271c8f0c8bbc9aa67"
+    },
+    {
+      "id": "dse2023-q25-answer-final2",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 3,
+      "index": 2,
+      "score": 3,
+      "textSha256": "9373855cc02829a9e6bbd8614efb38a60f0c66605e14adeb7e7f4f75cb638c4d"
+    },
+    {
+      "id": "dse2023-q25-answer-final3",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 4,
+      "index": 3,
+      "score": 2,
+      "textSha256": "fb6d2b245663043d0d3fdaff1bba0efba543f0503482dcd15cf4badff93bbdaf"
+    },
+    {
+      "id": "dse2023-q25-answer-final4",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 5,
+      "index": 4,
+      "score": 2,
+      "textSha256": "ab918e5b47c258f5b12d8d6661ec2ecbf05501c0c4ce811c6c4dfc0bd2453337"
+    },
+    {
+      "id": "dse2023-q25-answer-final5",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 6,
+      "index": 5,
+      "score": 1,
+      "textSha256": "e876b534dadc2f4aef56460b2514059cde53a3b351a0000f821c04c88ac545ac"
+    },
+    {
+      "id": "dse2023-q25-answer-final6",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 7,
+      "index": 6,
+      "score": 1,
+      "textSha256": "762ab890e93a2a0fc5a4f0503c5cb315fe7cc3c3aaee8a25e87be23d34e75165"
+    },
+    {
+      "id": "dse2023-q25-answer-final7",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 8,
+      "index": 7,
+      "score": 0,
+      "textSha256": "e729c2036ab0390cd8d881a75566414f81e9af0a9b82e39485a0cdb7d5b1840f"
     }
   ],
   "resources": {

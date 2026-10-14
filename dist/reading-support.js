@@ -5,25 +5,41 @@ const regexp=text=>text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 function sourceNotes(notes=[]){
  return notes.flatMap((text,index)=>{const match=text.match(/^\s*([①-⑳])\s*([^：:]+)[：:]\s*([\s\S]+)$/);return match?[{index,marker:match[1],term:match[2].trim(),meaning:match[3].trim()}]:[];});
 }
-function sourceHTML(text,highlights=[],words=[],number,notes=[]){
+function sourceHTML(text,highlights=[],words=[],number,notes=[],highlightRanges=[]){
  const entries=words.map((word,index)=>({...word,index})).filter(word=>word.term),original=sourceNotes(notes);
  const patterns=[...entries.map(word=>({term:word.term,pattern:Array.from(word.term).map(regexp).join('[①-⑳]*')+'[①-⑳]*'})),...original.map(note=>({term:note.term,pattern:regexp(note.term)+regexp(note.marker)}))].sort((a,b)=>b.term.length-a.term.length).map(word=>word.pattern);
  patterns.push(...original.map(note=>regexp(note.marker)));
  const pattern=patterns.length?new RegExp(patterns.join('|'),'g'):null;
- function annotate(part){
-  if(!pattern)return escape(part);
-  let html='',end=0;pattern.lastIndex=0;
-  for(const match of part.matchAll(pattern)){
-   const word=entries.find(word=>word.term===match[0].replace(/[①-⑳]/g,'')),note=original.find(note=>match[0].includes(note.marker)),label=word?.term||note.term;
-   html+=escape(part.slice(end,match.index))+'<button type="button" class="reading-word'+(note?' source-note-word':'')+'"'+(word?' data-reading-word="'+word.index+'"':'')+(note?' data-source-note="'+note.index+'"':'')+' data-reading-paragraph="'+number+'" aria-label="'+escape(label)+(note&&!word?'：原卷註釋':'：顯示詞解')+'" aria-haspopup="dialog" aria-expanded="false">'+escape(match[0])+'</button>';end=match.index+match[0].length;
+ const ranges=[];
+ if(highlightRanges.length){
+  for(const range of highlightRanges.filter(r=>Number.isInteger(r.start)&&Number.isInteger(r.end)&&r.start>=0&&r.end>r.start&&r.end<=text.length).sort((a,b)=>a.start-b.start)){
+   if(!ranges.length||range.start>=ranges[ranges.length-1].end)ranges.push(range);
+  }
+ }
+ function marked(part,offset){
+  let html='',end=0;
+  for(const range of ranges){
+   const start=Math.max(0,range.start-offset),stop=Math.min(part.length,range.end-offset);
+   if(stop<=start)continue;
+   html+=escape(part.slice(end,start))+'<strong>'+escape(part.slice(start,stop))+'</strong>';end=stop;
   }
   return html+escape(part.slice(end));
  }
- let html='',remaining=text;
+ function annotate(part,offset){
+  if(!pattern)return marked(part,offset);
+  let html='',end=0;
+  for(const match of part.matchAll(pattern)){
+   const word=entries.find(word=>word.term===match[0].replace(/[①-⑳]/g,'')),note=original.find(note=>match[0].includes(note.marker)),label=word?.term||note.term;
+   html+=marked(part.slice(end,match.index),offset+end)+'<button type="button" class="reading-word'+(note?' source-note-word':'')+'"'+(word?' data-reading-word="'+word.index+'"':'')+(note?' data-source-note="'+note.index+'"':'')+' data-reading-paragraph="'+number+'" aria-label="'+escape(label)+(note&&!word?'：原卷註釋':'：顯示詞解')+'" aria-haspopup="dialog" aria-expanded="false">'+marked(match[0],offset+match.index)+'</button>';end=match.index+match[0].length;
+  }
+  return html+marked(part.slice(end),offset+end);
+ }
+ if(highlightRanges.length)return annotate(text,0);
+ let html='',remaining=text,offset=0;
  while(remaining){
   const next=highlights.filter(word=>word).map(word=>({word,index:remaining.indexOf(word)})).filter(match=>match.index>=0).sort((a,b)=>a.index-b.index||b.word.length-a.word.length)[0];
-  if(!next){html+=annotate(remaining);break;}
-  html+=annotate(remaining.slice(0,next.index))+'<strong>'+annotate(next.word)+'</strong>';remaining=remaining.slice(next.index+next.word.length);
+  if(!next){html+=annotate(remaining,offset);break;}
+  html+=annotate(remaining.slice(0,next.index),offset)+'<strong>'+annotate(next.word,offset+next.index)+'</strong>';offset+=next.index+next.word.length;remaining=remaining.slice(next.index+next.word.length);
  }
  return html;
 }

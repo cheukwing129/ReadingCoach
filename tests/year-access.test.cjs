@@ -50,7 +50,7 @@ test('teacher hash unlocks every year; unavailable storage still grants the curr
 });
 
 test('both public entries load the hash config before the access guard and protect direct article routes',()=>{
-  const expected=['vendor/lumen.css','self-study.css','lumen-theme.css','brand-theme.css','vendor/lumen-elements.js','dse2013-data.js','dse2014-data.js','dse2015-data.js','dse2016-data.js','dse2017-data.js','dse2018-data.js','dse2019-data.js','dse2020-data.js','dse2021-data.js','dse2022-data.js','dse2023-data.js','dse2024-classical-data.js','dse2025-classical-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','dse2025-data.js','dse2026-data.js','self-study-data.js','self-study-core.js','year-access-config.js','year-access.js','reading-support.js','self-study-app.js'];
+  const expected=['vendor/lumen.css','self-study.css','lumen-theme.css','brand-theme.css','vendor/lumen-elements.js','dse2013-data.js','dse2014-data.js','dse2015-data.js','dse2016-data.js','dse2017-data.js','dse2018-data.js','dse2019-data.js','dse2020-data.js','dse2021-data.js','dse2022-data.js','dse2023-data.js','dse2023-classical-data.js','dse2024-classical-data.js','dse2025-classical-data.js','dse2024-data.js','dse2024-coaching.js','transfer-data.js','self-study-samples.js','self-study-analysis.js','dse2025-data.js','dse2026-data.js','self-study-data.js','self-study-core.js','year-access-config.js','year-access.js','reading-support.js','self-study-app.js'];
   for(const [file,prefix]of [['index.html','dist/'],['dist/index.html','']]){
     const html=fs.readFileSync(path.join(root,file),'utf8');
     const urls=[...html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css)(?:\?[^"#]+)?)"/g)].map(match=>match[1]);

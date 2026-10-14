@@ -1,0 +1,358 @@
+{
+  "year": 2023,
+  "checkedAt": "2026-10-14",
+  "scope": "乙部第三篇文言，原第20–25題16分；不含甲部指定閱讀問答。",
+  "files": [
+    {
+      "file": "rm_pdf.pdf",
+      "id": "1nhU7UFFgl_xdf-2DjYMKy0I68BjCaYtx",
+      "name": "2023 DSE Chi Lang 1 RM.pdf",
+      "bytes": 541427,
+      "sha256": "13165796a5177611f44115fff26a14f282b548db4f3e0f501b815eca586e08a6"
+    },
+    {
+      "file": "qab_pdf.pdf",
+      "id": "1DUqyOsHX3YX6xb77mBbFxYFIuN41Z2Ml",
+      "name": "2023 DSE Chi Lang 1 QAB.pdf",
+      "bytes": 580644,
+      "sha256": "079b11f301ada9e662e6936ab7ed0e3e886e5965314050daa30157b2605405d1"
+    },
+    {
+      "file": "mc_pdf.pdf",
+      "id": "1NRcnkP74dpXmm2enYqCWNfxO2GyOMJzD",
+      "name": "2023 DSE Chi Lang 1 MC-Key.pdf",
+      "bytes": 69343,
+      "sha256": "a2481d5d42c2fee5adfd82925164b1e31c98594c16e53b2255b0fa0e833ae37f"
+    },
+    {
+      "file": "mark4.docx",
+      "id": "1E5bIS-uGibhyNCP8ipaKt1iRcIok5wpg",
+      "name": "2023 中國語文試卷一評卷參考(第四組)定稿.docx",
+      "bytes": 61292,
+      "sha256": "1a1cbddcd608a56dda28708893e42e66a6dfe8aa49ca82a26d476f459dd796d5"
+    },
+    {
+      "file": "brief4.pptx",
+      "id": "1Pncz9HRmVTMgLAMfTp2D7_WgsIbWPFMD",
+      "name": "2023 中國語文試卷一 閱卷員會議簡報 (第四組).pptx",
+      "bytes": 2735911,
+      "sha256": "879de67e1022951a713ef02e84c4646e1298912bd1a980a1d463901088118561"
+    }
+  ],
+  "sourcePages": {
+    "rm": [
+      4
+    ],
+    "qab": {
+      "q20-q23": [
+        10
+      ],
+      "q24-q25": [
+        11
+      ]
+    },
+    "objective": [
+      1
+    ],
+    "mark4": {
+      "q24": {
+        "table": 3,
+        "rows": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "q25": {
+        "table": 5,
+        "rows": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "brief4": {
+      "q24": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "q25": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ]
+    }
+  },
+  "paragraphHashes": {
+    "dse2023-classical": [
+      {
+        "number": 1,
+        "textSha256": "2230630b9c495f65e8eb555fa01745b28d73c5d5755f113682ed1d5da693426a"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2023-q20",
+      "promptSha256": "b9b48f1ac70175c7e26568ce9755f436d532664e764e12cd6209a0fdd7501957",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2023-q21",
+      "promptSha256": "47885c6b4a35cd1210ef3d74392af4e1dc811e7e3cb29e720fb57e865417a087",
+      "quoteSha256": "1530dcfd040eab9968a44d0b2c6c65c7b2218366d48716354cddb82be2bd8ac1"
+    },
+    {
+      "id": "dse2023-q22",
+      "promptSha256": "f5a851086bd95ba566d103eed79addf5992511047010f9a05f67ec68827da852",
+      "quoteSha256": "8be2326759bf7644b2a7b9c873443619ba4b660e9c3846804678242adfc5f7c6"
+    },
+    {
+      "id": "dse2023-q23",
+      "promptSha256": "3541427bbbc168619dc33cfebc3127db3fd9c4a6834df6e6cb5bafa5d577f824",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2023-q24",
+      "promptSha256": "c5c37d58d65f090ace1d853f0084d00059910e529385f915e1d98b076eadc026",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2023-q25",
+      "promptSha256": "dc78a781d1669b055c6752172ef26de39a551debf536a416c721c278b5650459",
+      "quoteSha256": "27672f56aa55831afb6513c21c566fe33de74d00bcca573f7ac576331fad92c7"
+    }
+  ],
+  "objectiveKeys": {
+    "20": "D",
+    "21": "B",
+    "22": "D",
+    "23": {
+      "i": "B",
+      "ii": "B"
+    }
+  },
+  "longExemplars": [
+    {
+      "id": "dse2023-q24-answer-final1",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 2,
+      "index": 1,
+      "score": 4,
+      "textSha256": "d8524df2916ac4b7fd2b6979a1721457c45a11f9990144594628a7a3eda63410"
+    },
+    {
+      "id": "dse2023-q24-answer-final2",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 3,
+      "index": 2,
+      "score": 3,
+      "textSha256": "6a64da2d3ac629be4fe33044cd7ad99349ff58608a2c1329986b7875f4b6368c"
+    },
+    {
+      "id": "dse2023-q24-answer-final3",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 4,
+      "index": 3,
+      "score": 3,
+      "textSha256": "8f734edfbdaa25ed53f19a4707be51db309400f7b765e9b8aaedc116bba1aef8"
+    },
+    {
+      "id": "dse2023-q24-answer-final4",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 5,
+      "index": 4,
+      "score": 2,
+      "textSha256": "96ffeef027587de357bdaac82ec23b7a6b57f0194ca723329577c02a55a8c0dc"
+    },
+    {
+      "id": "dse2023-q24-answer-final5",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 6,
+      "index": 5,
+      "score": 2,
+      "textSha256": "1ac7f9c52aa190dd7adaa01f9c9385d7ddedeaf15b2f14af9b0a285f4bbe4c02"
+    },
+    {
+      "id": "dse2023-q24-answer-final6",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 7,
+      "index": 6,
+      "score": 2,
+      "textSha256": "e0decb985f40984c51b932a1b199a1f4487e511eee653973fa954a888a146ea3"
+    },
+    {
+      "id": "dse2023-q24-answer-final7",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 8,
+      "index": 7,
+      "score": 1,
+      "textSha256": "1941f10031c72ea769d2de574c00b14d4b9d5c0200d84b64c3410de9b9bd59f9"
+    },
+    {
+      "id": "dse2023-q24-answer-final8",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 9,
+      "index": 8,
+      "score": 1,
+      "textSha256": "173d2ed3d9d02060c9c60ae99c4c207fb33f752dcbe1d62f0b986251f0c75783"
+    },
+    {
+      "id": "dse2023-q24-answer-final9",
+      "file": "2023-mark4.docx",
+      "table": 3,
+      "row": 10,
+      "index": 9,
+      "score": 0,
+      "textSha256": "ad179cd98f81f8631c143bb23a7efb5fcec111d79a2dfc46921d1e0a73855e26"
+    },
+    {
+      "id": "dse2023-q25-answer-final1",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 2,
+      "index": 1,
+      "score": 4,
+      "textSha256": "a350c7b89a505d1a43596b440ea663666854418950e0fb6271c8f0c8bbc9aa67"
+    },
+    {
+      "id": "dse2023-q25-answer-final2",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 3,
+      "index": 2,
+      "score": 3,
+      "textSha256": "9373855cc02829a9e6bbd8614efb38a60f0c66605e14adeb7e7f4f75cb638c4d"
+    },
+    {
+      "id": "dse2023-q25-answer-final3",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 4,
+      "index": 3,
+      "score": 2,
+      "textSha256": "fb6d2b245663043d0d3fdaff1bba0efba543f0503482dcd15cf4badff93bbdaf"
+    },
+    {
+      "id": "dse2023-q25-answer-final4",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 5,
+      "index": 4,
+      "score": 2,
+      "textSha256": "ab918e5b47c258f5b12d8d6661ec2ecbf05501c0c4ce811c6c4dfc0bd2453337"
+    },
+    {
+      "id": "dse2023-q25-answer-final5",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 6,
+      "index": 5,
+      "score": 1,
+      "textSha256": "e876b534dadc2f4aef56460b2514059cde53a3b351a0000f821c04c88ac545ac"
+    },
+    {
+      "id": "dse2023-q25-answer-final6",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 7,
+      "index": 6,
+      "score": 1,
+      "textSha256": "762ab890e93a2a0fc5a4f0503c5cb315fe7cc3c3aaee8a25e87be23d34e75165"
+    },
+    {
+      "id": "dse2023-q25-answer-final7",
+      "file": "2023-mark4.docx",
+      "table": 5,
+      "row": 8,
+      "index": 7,
+      "score": 0,
+      "textSha256": "e729c2036ab0390cd8d881a75566414f81e9af0a9b82e39485a0cdb7d5b1840f"
+    }
+  ],
+  "versionResolutions": [
+    {
+      "question": "dse2023-q24",
+      "example": 8,
+      "finalFile": "mark4.docx",
+      "finalTable": 3,
+      "finalRow": 9,
+      "score": 1,
+      "conflictingFile": "brief4.pptx",
+      "conflictingSlide": 28,
+      "displayedScore": 0,
+      "resolution": "按定稿保留完整例答與1分；與簡報的0分版本分開，教學明示事件錯誤。"
+    },
+    {
+      "question": "dse2023-q24",
+      "rule": "未就問官遭遇說明的寓意分數",
+      "finalFile": "mark4.docx",
+      "finalTable": 2,
+      "resolution": "依定稿最高2分，按寓意層次判斷；簡報第18頁將深刻與準確分2及1，不冒稱所有準確寓意只能1分。"
+    },
+    {
+      "question": "dse2023-q25",
+      "rule": "理據準確但欠相通之處",
+      "finalFile": "mark4.docx",
+      "resolution": "定稿可中下品2分；簡報較早品第表未完整列出此分支，依定稿補齊。"
+    }
+  ],
+  "layoutChecks": [
+    "原文不增段號，保留第三篇與作者書名；RM沒有原卷詞解，不編造原註釋。",
+    "RM原粗體句及指定字按位置保留，其他同字不被錯誤加粗。",
+    "第22題精確保留耳、此、之、是；第(3)句如是中的是不是題目粗體。",
+    "第23題依原QAB保留托夢用字及兩個1分分題；第25題完整保留引文及攘羊原註。"
+  ]
+}
