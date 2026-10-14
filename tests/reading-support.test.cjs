@@ -20,3 +20,16 @@ test('word matching prefers a full term, preserves repeated terms, and treats re
 test('original text and translation escape markup while word meanings are not embedded in source HTML',()=>{
  const html=R.sourceHTML('<img>詞&義',[],[{term:'詞&義',meaning:'不能提早呈現的詞解'}],1);assert.equal(original(html),'<img>詞&義');assert.doesNotMatch(html,/<img>|不能提早呈現/);assert.ok(html.includes('&lt;img&gt;'));assert.ok(R.translationHTML({label:'第一則',support:{translation:'<script> &'}}).includes('&lt;script&gt; &amp;'));
 });
+test('original paper notes provide six independent controls even when teaching analysis is disabled',()=>{
+ const notes=R.sourceNotes(passage.notes);assert.equal(notes.length,6);assert.deepEqual(Array.from(notes,n=>[n.marker,n.term]),[['①','蘇峻亂'],['②','庾冰時為吳郡'],['③','蘧篨'],['④','劉伯倫'],['⑤','鍤'],['⑥','衣衾']]);
+ const html=passage.paragraphs.map((text,i)=>{const html=R.sourceHTML(text,passage.paragraphHighlights[i],[],i+1,passage.notes);assert.equal(original(html),text);assert.doesNotMatch(html,/data-reading-word=/);return html;}).join('');
+ assert.equal((html.match(/class="reading-word source-note-word"/g)||[]).length,6);for(const n of notes)assert.ok(html.includes('data-source-note="'+n.index+'"'));assert.match(html,/>鍤⑤<\/button>/);assert.match(html,/>衣衾⑥<\/button>/);
+});
+test('teaching phrase controls preserve original-note access without nested buttons or losing note markers',()=>{
+ const html=passage.paragraphs.map((text,i)=>R.sourceHTML(text,passage.paragraphHighlights[i],passage.readingSupport[i].words,i+1,passage.notes)).join('');assert.equal((html.match(/data-reading-word=/g)||[]).length,14);assert.equal((html.match(/data-source-note=/g)||[]).length,6);assert.equal((html.match(/<button /g)||[]).length,17);assert.doesNotMatch(html,/<button[^>]*>[^<]*<button/);
+ assert.match(html,/<button[^>]*data-reading-word="0"[^>]*data-source-note="4"[^>]*>以鍤⑤自隨<\/button>/);assert.match(html,/<button[^>]*data-reading-word="1"[^>]*data-source-note="5"[^>]*>棺槨衣衾⑥<\/button>/);
+});
+test('a paper note with a different heading still works through its original note number without guessing text',()=>{
+ const text='一夜風雨①。',notes=['① 風雨欲來：原卷提供的解說。'],html=R.sourceHTML(text,[],[],1,notes);assert.equal(original(html),text);assert.match(html,/>①<\/button>/);assert.match(html,/data-source-note="0"/);assert.doesNotMatch(html,/data-reading-word=/);
+ assert.deepEqual(Array.from(R.sourceNotes(['不含編號的其他原註釋'])),[]);
+});

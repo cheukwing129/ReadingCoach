@@ -2,15 +2,20 @@
 'use strict';
 const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const regexp=text=>text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-function sourceHTML(text,highlights=[],words=[],number){
- const entries=words.map((word,index)=>({...word,index})).filter(word=>word.term).sort((a,b)=>b.term.length-a.term.length);
- const pattern=entries.length?new RegExp(entries.map(word=>Array.from(word.term).map(regexp).join('[①-⑳]*')).join('|'),'g'):null;
+function sourceNotes(notes=[]){
+ return notes.flatMap((text,index)=>{const match=text.match(/^\s*([①-⑳])\s*([^：:]+)[：:]\s*([\s\S]+)$/);return match?[{index,marker:match[1],term:match[2].trim(),meaning:match[3].trim()}]:[];});
+}
+function sourceHTML(text,highlights=[],words=[],number,notes=[]){
+ const entries=words.map((word,index)=>({...word,index})).filter(word=>word.term),original=sourceNotes(notes);
+ const patterns=[...entries.map(word=>({term:word.term,pattern:Array.from(word.term).map(regexp).join('[①-⑳]*')+'[①-⑳]*'})),...original.map(note=>({term:note.term,pattern:regexp(note.term)+regexp(note.marker)}))].sort((a,b)=>b.term.length-a.term.length).map(word=>word.pattern);
+ patterns.push(...original.map(note=>regexp(note.marker)));
+ const pattern=patterns.length?new RegExp(patterns.join('|'),'g'):null;
  function annotate(part){
   if(!pattern)return escape(part);
   let html='',end=0;pattern.lastIndex=0;
   for(const match of part.matchAll(pattern)){
-   const word=entries.find(word=>word.term===match[0].replace(/[①-⑳]/g,''));
-   html+=escape(part.slice(end,match.index))+'<button type="button" class="reading-word" data-reading-word="'+word.index+'" data-reading-paragraph="'+number+'" aria-label="'+escape(word.term)+'：顯示詞解" aria-haspopup="dialog" aria-expanded="false">'+escape(match[0])+'</button>';end=match.index+match[0].length;
+   const word=entries.find(word=>word.term===match[0].replace(/[①-⑳]/g,'')),note=original.find(note=>match[0].includes(note.marker)),label=word?.term||note.term;
+   html+=escape(part.slice(end,match.index))+'<button type="button" class="reading-word'+(note?' source-note-word':'')+'"'+(word?' data-reading-word="'+word.index+'"':'')+(note?' data-source-note="'+note.index+'"':'')+' data-reading-paragraph="'+number+'" aria-label="'+escape(label)+(note&&!word?'：原卷註釋':'：顯示詞解')+'" aria-haspopup="dialog" aria-expanded="false">'+escape(match[0])+'</button>';end=match.index+match[0].length;
   }
   return html+escape(part.slice(end));
  }
@@ -42,14 +47,14 @@ function bind(main,getArticle){
  }
  function show(button){
   if(trigger===button){close(true);return;}
-  const paragraph=getArticle()?.paragraphs.find(p=>p.number===Number(button.dataset.readingParagraph)),word=paragraph?.support?.words[Number(button.dataset.readingWord)];
-  if(!word)return;close();
+  const article=getArticle(),paragraph=article?.paragraphs.find(p=>p.number===Number(button.dataset.readingParagraph)),word=button.dataset.readingWord===undefined?null:paragraph?.support?.words[Number(button.dataset.readingWord)],note=button.dataset.sourceNote===undefined?null:sourceNotes(article?.notes).find(note=>note.index===Number(button.dataset.sourceNote)),entry=word||note;
+  if(!entry)return;close();
   if(!popup){
    popup=document.createElement('div');popup.id='reading-word-popup';popup.className='reading-word-popup';popup.hidden=true;popup.setAttribute('role','dialog');popup.setAttribute('aria-modal','false');popup.setAttribute('aria-labelledby','reading-word-title');popup.setAttribute('aria-describedby','reading-word-meaning');
    popup.innerHTML='<div class="reading-word-heading"><h3 id="reading-word-title"></h3><button type="button" class="reading-word-close" aria-label="關閉詞解">×</button></div><p id="reading-word-meaning"></p>';document.body.append(popup);
    popup.querySelector('button').addEventListener('click',()=>close(true));
   }
-  popup.querySelector('h3').textContent=word.term;popup.querySelector('p').textContent=word.meaning;
+  popup.querySelector('h3').textContent=entry.term;popup.querySelector('p').textContent=word&&note?'原卷註釋（'+note.term+'）：'+note.meaning+'\n\n字詞解說：'+word.meaning:entry.meaning;
   popup.hidden=false;trigger=button;position();trigger.setAttribute('aria-controls','reading-word-popup');trigger.setAttribute('aria-expanded','true');popup.querySelector('button').focus({preventScroll:true});
  }
  document.addEventListener('click',event=>{
@@ -64,5 +69,5 @@ function bind(main,getArticle){
  window.visualViewport?.addEventListener('resize',()=>close());
  return {close};
 }
-root.ReadingCoachReadingSupport={sourceHTML,translationHTML,bind};
+root.ReadingCoachReadingSupport={sourceHTML,sourceNotes,translationHTML,bind};
 })(window);
