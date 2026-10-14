@@ -1,11 +1,11 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2019-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2019-source-manifest.json')));
 
 test('2019 retains both complete vernacular passages and original questions 7–16 totaling 45 marks',()=>{
- const qs=D.questions.filter(x=>x.year===2019),as=D.articles.filter(x=>x.year===2019);
+ const qs=D.questions.filter(x=>x.year===2019&&x.number<=16),as=D.articles.filter(x=>x.year===2019&&x.genre!=='classical');
  assert.deepEqual(qs.map(x=>x.number),Array.from({length:10},(_,i)=>i+7));assert.deepEqual(qs.map(x=>x.marks),[4,4,4,8,5,6,4,2,2,6]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),45);
  assert.deepEqual(as.map(a=>[a.title,a.author,a.paragraphs.length]),[['聰明人和傻子和奴才','魯迅',28],['談教訓','錢鍾書',6]]);
  assert.match(as[0].background,/1925年.*外有列強壓迫.*內則軍閥割據/);assert.match(as[0].numberingNote,/原卷沒有段號/);assert.equal(as[1].numberingNote,'');
@@ -40,7 +40,7 @@ test('Q11 accepts source-listed four-character technique names and never makes i
 });
 
 test('all long source exemplars preserve audited wording, actual bands and both full-score Q16 choices',()=>{
- assert.equal(manifest.longExemplars.length,27);const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2019-')).flatMap(([id,parts])=>Object.values(parts).flat());assert.equal(cases.length,27);
+ assert.equal(manifest.longExemplars.length,27);const cases=Object.entries(S).filter(([id])=>/^dse2019-q(?:10|11|13|16)$/.test(id)).flatMap(([id,parts])=>Object.values(parts).flat());assert.equal(cases.length,27);
  for(const s of cases){const row=manifest.longExemplars.find(x=>x.id===s.id);assert.equal(row.score,s.score);assert.equal(row.textSha256,hash(s.text));assert.ok([4,5,7,8,9,11,12,13].includes(row.page));assert.ok(s.analysis.startsWith(s.score+'分'));}
  for(const [n,key,scores]of [[10,'i',[0,1,2,3,4]],[10,'ii',[0,1,2,3,4]],[11,'ii',[0,1,2,3]],[13,'answer',[0,1,2,3,4]],[16,'answer',[0,1,2,3,4,5,6]]])assert.deepEqual([...new Set(S[q(n).id][key].map(s=>s.score))].sort(),scores);
  const x=q(16),items=C.samples(x,x.answerParts[0],C.draft(),S);assert.equal(items.length,8);assert.equal(items.filter(s=>s.score===6).length,2);assert.ok(items.filter(s=>s.score===6).some(s=>s.text.includes('《談教訓》')));assert.ok(items.filter(s=>s.score===6).some(s=>s.text.includes('《聰明人和傻子和奴才》')));

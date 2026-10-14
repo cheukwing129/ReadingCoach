@@ -1,0 +1,388 @@
+{
+  "year": 2019,
+  "scope": "乙部第三篇劉熙載《海鷗》，原第17–22題；不含甲部指定課文問答",
+  "verifiedAt": "2026-10-14",
+  "paragraphs": 1,
+  "questions": 6,
+  "marks": 18,
+  "glosses": 32,
+  "sourceFiles": [
+    {
+      "file": "rm.pdf",
+      "fileId": "1d0s2ePUrlvHXG1gQ28JAhT396Nr6mZS2",
+      "sha256": "43f43b1e4c4ed512318817271b94b639400c988e841686acc98a3315114ec2db"
+    },
+    {
+      "file": "qab.pdf",
+      "fileId": "1XK1fEfw7g9CRBOgxflWdaYEAq3NR6UPE",
+      "sha256": "5bbe191246477b9cdb72a7e34c82efc7684595dcfc1c5de8014e6986e903b059"
+    },
+    {
+      "file": "mark4.pdf",
+      "fileId": "1rOWKyyEisE90dZSMuPV71Plo47bUJbsv",
+      "sha256": "8b89e00fdaf7841718917309837b16ecd415e361ce9cee731820217518d9fc17"
+    },
+    {
+      "file": "sample4.pdf",
+      "fileId": "1OREtlid3Jc3i9JAQgigLHFY3bE-ZPDYF",
+      "sha256": "86e4aea25d8a50ec9361f4e1a1337c9d9317331d056d4e068dbd21aad1657fb0"
+    },
+    {
+      "file": "objective.pdf",
+      "fileId": "1CrWj5gRCUxUzJJZu1V62Krs2lIg-hKej",
+      "sha256": "088bded075039a947121bd18eeda72143a6d2bc4642394eca2e382cda4bfa7f4"
+    },
+    {
+      "file": "rmtxt.txt",
+      "fileId": "1WCyPAHK6aDXTn_rUF_SKnC-coIT96aIi",
+      "sha256": "022ec99f8ca30d2bbfa2704ddf374112f231e96797ecc6a7a6eca719ed9e33ea"
+    },
+    {
+      "file": "qabtxt.txt",
+      "fileId": "1Ecexs0uNKf38Vc8c6SBcJh5VI-VdmlNV",
+      "sha256": "e6819835e369bbe078edf8f4bf5b24e089376d8c9977e98dd5f868eb58799202"
+    }
+  ],
+  "rm": {
+    "fileId": "1d0s2ePUrlvHXG1gQ28JAhT396Nr6mZS2",
+    "pages": [
+      4
+    ],
+    "layout": "原文一段沒有段號，保留第三篇、署名、是與喻兩個粗體及兩條原註釋。",
+    "corrections": [
+      "轉錄稿不樂依人為故也改依原卷不樂依人焉故也。",
+      "颺風、凍雨得所敝及味病依原影像保留；語譯按文意解釋，不改原字。"
+    ]
+  },
+  "qab": {
+    "fileId": "1XK1fEfw7g9CRBOgxflWdaYEAq3NR6UPE",
+    "pages": [
+      9,
+      10
+    ],
+    "corrections": [
+      "轉錄稿第18–20題老燕改為原卷巷燕。"
+    ],
+    "layout": "第17題是、喻粗體按位置；第22題任擇其一粗體。無原表格。"
+  },
+  "marking": [
+    {
+      "fileId": "1rOWKyyEisE90dZSMuPV71Plo47bUJbsv",
+      "file": "2019-classical-mark4-revised",
+      "pdfPages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "printedPageOffset": -1,
+      "questions": [
+        17,
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "fileId": "1CrWj5gRCUxUzJJZu1V62Krs2lIg-hKej",
+      "role": "原客觀答案",
+      "keys": {
+        "18": "B",
+        "19": "A"
+      }
+    }
+  ],
+  "versionResolutions": [
+    "第四組評卷參考第17題標6分是印刷誤植；原QAB第9頁與樣本第2頁均4分，兩分題各2分，採4分。",
+    "第21題原第7例方向1分但矛盾冗文扣1，最終0分。",
+    "第22題任選一思想，可論相通或不相通；原第1例無用之大用照錄，不自行改寫樣本。"
+  ],
+  "shortAnswers": {
+    "q17": {
+      "file": "mark4.pdf",
+      "page": 4,
+      "rule": "每分題最多扣一錯字；多答案含錯誤全分題0分，沒有錯誤取較高分；不加字數限制。"
+    }
+  },
+  "longExemplars": [
+    {
+      "id": "dse2019-q20-answer-final1",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 1,
+      "score": 3,
+      "textSha256": "46f64f6d3bbc7aa611b89db5a6f4ff9658f1de98e84310161d77f69a6789f158"
+    },
+    {
+      "id": "dse2019-q20-answer-final2",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 2,
+      "score": 2,
+      "textSha256": "042c0fbe1cd57f5006ae8098bf9d3e702c8d7fd893ca12a08785bb9d16704017"
+    },
+    {
+      "id": "dse2019-q20-answer-final3",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 3,
+      "score": 2,
+      "textSha256": "746154f7672c3fb38e5dcceae7370fc2cfb4a8bf0d677f52f7301c82c7f9d6ef"
+    },
+    {
+      "id": "dse2019-q20-answer-final4",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 4,
+      "score": 1,
+      "textSha256": "513b32b9b238356e3b66aa36dd61b407ba6f642490fc6588fc841087ac3b21b3"
+    },
+    {
+      "id": "dse2019-q20-answer-final5",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 5,
+      "score": 1,
+      "textSha256": "029ce1964f23656e764da0e0ccae02a33d278c08c0dc96704a958656d44da0c9"
+    },
+    {
+      "id": "dse2019-q20-answer-final6",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 6,
+      "score": 0,
+      "textSha256": "d56e99a3baaca05fc05dda706293f600c666ca6a1c223ee9e15e331194447468"
+    },
+    {
+      "id": "dse2019-q20-answer-final7",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 7,
+      "score": 0,
+      "textSha256": "b58bd9b858cc300d0977dbb16d7b7d3580907b3e3d5e1130817c79e817bc1178"
+    },
+    {
+      "id": "dse2019-q20-answer-final8",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 8,
+      "score": 0,
+      "textSha256": "457f3b88feaf493c17c1d9fdb07f0864e4cc88fd489affd9f21ba72d142c4877"
+    },
+    {
+      "id": "dse2019-q21-answer-final1",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 1,
+      "score": 3,
+      "textSha256": "4f03cf6a9e5fc6debd8038dadc938df462a0c754c51996bfeb32cbe14d6e4196"
+    },
+    {
+      "id": "dse2019-q21-answer-final2",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 2,
+      "score": 3,
+      "textSha256": "0d24056f66b38ab6c0fca04cad71937083f970bc4daa5c01a6870c0bcfac51ea"
+    },
+    {
+      "id": "dse2019-q21-answer-final3",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 3,
+      "score": 2,
+      "textSha256": "8830c1be272dddf3311c5a5dc24b605abbdc0bc0f03ef1f46d49c24b9dc684de"
+    },
+    {
+      "id": "dse2019-q21-answer-final4",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 4,
+      "score": 1,
+      "textSha256": "4703e8df2e0237adbc6312e5a525a1119540129b39ca6b4b28ea96dd160219e4"
+    },
+    {
+      "id": "dse2019-q21-answer-final5",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 5,
+      "score": 1,
+      "textSha256": "f4ee7bde3526a8b9c99183b5d76cb0be41d432a59c72f2c811f95383b8b7ec3b"
+    },
+    {
+      "id": "dse2019-q21-answer-final6",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 6,
+      "score": 0,
+      "textSha256": "4edfc6060987d14d7262b379d46bc577c45a99120f783d24198531fbd99c5216"
+    },
+    {
+      "id": "dse2019-q21-answer-final7",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 7,
+      "score": 0,
+      "textSha256": "90b8bf6a23dbcb1ff6c2054e741e7baf1b0a2ecdf018dce1c541cad0fde6a8fa"
+    },
+    {
+      "id": "dse2019-q22-answer-final1",
+      "file": "2019-classical-mark4-revised",
+      "page": 10,
+      "index": 1,
+      "score": 4,
+      "textSha256": "d097f2c7155d3547bd802a294734d9d7bb8eedff94e238cb2c9316e9e224a5f4"
+    },
+    {
+      "id": "dse2019-q22-answer-final2",
+      "file": "2019-classical-mark4-revised",
+      "page": 10,
+      "index": 2,
+      "score": 4,
+      "textSha256": "b7900229c95f28e1f0f64feb7ada72250a90c6fbdb4ec4cca22f060f8cd0f070"
+    },
+    {
+      "id": "dse2019-q22-answer-final3",
+      "file": "2019-classical-mark4-revised",
+      "page": 11,
+      "index": 3,
+      "score": 4,
+      "textSha256": "fd251d756278a586c8d086726571b56e46334ec2b3ee13eebc7a5db025bcce7a"
+    },
+    {
+      "id": "dse2019-q22-answer-final4",
+      "file": "2019-classical-mark4-revised",
+      "page": 11,
+      "index": 4,
+      "score": 4,
+      "textSha256": "26f69aff20565490163c8253e9ad024229f708a52b17073b64a6b112babe6b23"
+    },
+    {
+      "id": "dse2019-q22-answer-final5",
+      "file": "2019-classical-mark4-revised",
+      "page": 11,
+      "index": 5,
+      "score": 4,
+      "textSha256": "fde956eb65f2a3461b3a1a331d4d119861f9613470b791930c735cd8ae6c503e"
+    },
+    {
+      "id": "dse2019-q22-answer-final6",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 6,
+      "score": 3,
+      "textSha256": "c7ed559bb49a56acc564adfcbf1c337d35379eb549bfbdc8ee99f7ace45affbe"
+    },
+    {
+      "id": "dse2019-q22-answer-final7",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 7,
+      "score": 3,
+      "textSha256": "77df4a5146574871853129a3addef8adcd73505e85a99370777828ce3a2fd112"
+    },
+    {
+      "id": "dse2019-q22-answer-final8",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 8,
+      "score": 2,
+      "textSha256": "f245944929f1eb6f76cc2d1201cb0bfe0aaf5962034ec3d9a60df3865bf1b105"
+    },
+    {
+      "id": "dse2019-q22-answer-final9",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 9,
+      "score": 2,
+      "textSha256": "fdab1d898e8508d20b6e1ea0e1adf113dd7051187180f8114576ba25afcc16af"
+    },
+    {
+      "id": "dse2019-q22-answer-final10",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 10,
+      "score": 1,
+      "textSha256": "adfa80f645b786cfb870e763f392edbf7350f84585ac13c707726425939875cc"
+    },
+    {
+      "id": "dse2019-q22-answer-final11",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 11,
+      "score": 1,
+      "textSha256": "89fc2a94b7b58f7773313e72baa86a872f40782ba39c61399a31c30c1507baee"
+    },
+    {
+      "id": "dse2019-q22-answer-final12",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 12,
+      "score": 0,
+      "textSha256": "0f68bf52a93c3f6b8292de8466e6bb0a0811b2a0c9fbc4fef31220882845a593"
+    },
+    {
+      "id": "dse2019-q22-answer-final13",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 13,
+      "score": 0,
+      "textSha256": "d7ce1ea85e66bc767f9e67cb68c20133f69f8c4986af07123924a115f2aa322e"
+    },
+    {
+      "id": "dse2019-q22-answer-final14",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 14,
+      "score": 0,
+      "textSha256": "3f4797df9b4be5f68bdfdc9942cf27433db996ed3dab60bd6ea97f8bca4b5f0d"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2019-classical": [
+      {
+        "number": 1,
+        "textSha256": "da445a4e8304a0081d57404ce12e6bbde03b5e9a3a816fff609316799e3c46f0"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2019-q17",
+      "promptSha256": "b3084fd33ab146659a18fb615891647e0ba76b75bb41cc66d641b32b0ee9bd28",
+      "quoteSha256": "2ae1f90f0e83b74948192132796a790b9ef0ecf41c754ef01c0a483d47a647cc"
+    },
+    {
+      "id": "dse2019-q18",
+      "promptSha256": "0d6a94fab9477e6d69544711aecc74c92a75283cb24cb7a1c947d7538277595c",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q19",
+      "promptSha256": "324821108f31cb025eb86f5357f665d55b450b06a5c4e0df69870d7ec8569c15",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q20",
+      "promptSha256": "75832363d5b39ef7d41145b075164e5c7e3846da52547a71a0cc1a914a3043dc",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q21",
+      "promptSha256": "b3594181d6d2c42fc1a68b7cb911f179efd39540ce18d75b5443db67e7246a07",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2019-q22",
+      "promptSha256": "37d2cde1c31aadea2db0a20e0a1c5db862d65f329b048cf7f4d662e43e559e85",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

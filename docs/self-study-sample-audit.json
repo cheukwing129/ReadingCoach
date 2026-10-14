@@ -4349,6 +4349,238 @@
       "index": "l",
       "score": 0,
       "textSha256": "23c102401fe5c059c9dd3441e53983fdaee65206a34c4133964a94fad7572b59"
+    },
+    {
+      "id": "dse2019-q20-answer-final1",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 1,
+      "score": 3,
+      "textSha256": "46f64f6d3bbc7aa611b89db5a6f4ff9658f1de98e84310161d77f69a6789f158"
+    },
+    {
+      "id": "dse2019-q20-answer-final2",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 2,
+      "score": 2,
+      "textSha256": "042c0fbe1cd57f5006ae8098bf9d3e702c8d7fd893ca12a08785bb9d16704017"
+    },
+    {
+      "id": "dse2019-q20-answer-final3",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 3,
+      "score": 2,
+      "textSha256": "746154f7672c3fb38e5dcceae7370fc2cfb4a8bf0d677f52f7301c82c7f9d6ef"
+    },
+    {
+      "id": "dse2019-q20-answer-final4",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 4,
+      "score": 1,
+      "textSha256": "513b32b9b238356e3b66aa36dd61b407ba6f642490fc6588fc841087ac3b21b3"
+    },
+    {
+      "id": "dse2019-q20-answer-final5",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 5,
+      "score": 1,
+      "textSha256": "029ce1964f23656e764da0e0ccae02a33d278c08c0dc96704a958656d44da0c9"
+    },
+    {
+      "id": "dse2019-q20-answer-final6",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 6,
+      "score": 0,
+      "textSha256": "d56e99a3baaca05fc05dda706293f600c666ca6a1c223ee9e15e331194447468"
+    },
+    {
+      "id": "dse2019-q20-answer-final7",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 7,
+      "score": 0,
+      "textSha256": "b58bd9b858cc300d0977dbb16d7b7d3580907b3e3d5e1130817c79e817bc1178"
+    },
+    {
+      "id": "dse2019-q20-answer-final8",
+      "file": "2019-classical-mark4-revised",
+      "page": 5,
+      "index": 8,
+      "score": 0,
+      "textSha256": "457f3b88feaf493c17c1d9fdb07f0864e4cc88fd489affd9f21ba72d142c4877"
+    },
+    {
+      "id": "dse2019-q21-answer-final1",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 1,
+      "score": 3,
+      "textSha256": "4f03cf6a9e5fc6debd8038dadc938df462a0c754c51996bfeb32cbe14d6e4196"
+    },
+    {
+      "id": "dse2019-q21-answer-final2",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 2,
+      "score": 3,
+      "textSha256": "0d24056f66b38ab6c0fca04cad71937083f970bc4daa5c01a6870c0bcfac51ea"
+    },
+    {
+      "id": "dse2019-q21-answer-final3",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 3,
+      "score": 2,
+      "textSha256": "8830c1be272dddf3311c5a5dc24b605abbdc0bc0f03ef1f46d49c24b9dc684de"
+    },
+    {
+      "id": "dse2019-q21-answer-final4",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 4,
+      "score": 1,
+      "textSha256": "4703e8df2e0237adbc6312e5a525a1119540129b39ca6b4b28ea96dd160219e4"
+    },
+    {
+      "id": "dse2019-q21-answer-final5",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 5,
+      "score": 1,
+      "textSha256": "f4ee7bde3526a8b9c99183b5d76cb0be41d432a59c72f2c811f95383b8b7ec3b"
+    },
+    {
+      "id": "dse2019-q21-answer-final6",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 6,
+      "score": 0,
+      "textSha256": "4edfc6060987d14d7262b379d46bc577c45a99120f783d24198531fbd99c5216"
+    },
+    {
+      "id": "dse2019-q21-answer-final7",
+      "file": "2019-classical-mark4-revised",
+      "page": 7,
+      "index": 7,
+      "score": 0,
+      "textSha256": "90b8bf6a23dbcb1ff6c2054e741e7baf1b0a2ecdf018dce1c541cad0fde6a8fa"
+    },
+    {
+      "id": "dse2019-q22-answer-final1",
+      "file": "2019-classical-mark4-revised",
+      "page": 10,
+      "index": 1,
+      "score": 4,
+      "textSha256": "d097f2c7155d3547bd802a294734d9d7bb8eedff94e238cb2c9316e9e224a5f4"
+    },
+    {
+      "id": "dse2019-q22-answer-final2",
+      "file": "2019-classical-mark4-revised",
+      "page": 10,
+      "index": 2,
+      "score": 4,
+      "textSha256": "b7900229c95f28e1f0f64feb7ada72250a90c6fbdb4ec4cca22f060f8cd0f070"
+    },
+    {
+      "id": "dse2019-q22-answer-final3",
+      "file": "2019-classical-mark4-revised",
+      "page": 11,
+      "index": 3,
+      "score": 4,
+      "textSha256": "fd251d756278a586c8d086726571b56e46334ec2b3ee13eebc7a5db025bcce7a"
+    },
+    {
+      "id": "dse2019-q22-answer-final4",
+      "file": "2019-classical-mark4-revised",
+      "page": 11,
+      "index": 4,
+      "score": 4,
+      "textSha256": "26f69aff20565490163c8253e9ad024229f708a52b17073b64a6b112babe6b23"
+    },
+    {
+      "id": "dse2019-q22-answer-final5",
+      "file": "2019-classical-mark4-revised",
+      "page": 11,
+      "index": 5,
+      "score": 4,
+      "textSha256": "fde956eb65f2a3461b3a1a331d4d119861f9613470b791930c735cd8ae6c503e"
+    },
+    {
+      "id": "dse2019-q22-answer-final6",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 6,
+      "score": 3,
+      "textSha256": "c7ed559bb49a56acc564adfcbf1c337d35379eb549bfbdc8ee99f7ace45affbe"
+    },
+    {
+      "id": "dse2019-q22-answer-final7",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 7,
+      "score": 3,
+      "textSha256": "77df4a5146574871853129a3addef8adcd73505e85a99370777828ce3a2fd112"
+    },
+    {
+      "id": "dse2019-q22-answer-final8",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 8,
+      "score": 2,
+      "textSha256": "f245944929f1eb6f76cc2d1201cb0bfe0aaf5962034ec3d9a60df3865bf1b105"
+    },
+    {
+      "id": "dse2019-q22-answer-final9",
+      "file": "2019-classical-mark4-revised",
+      "page": 12,
+      "index": 9,
+      "score": 2,
+      "textSha256": "fdab1d898e8508d20b6e1ea0e1adf113dd7051187180f8114576ba25afcc16af"
+    },
+    {
+      "id": "dse2019-q22-answer-final10",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 10,
+      "score": 1,
+      "textSha256": "adfa80f645b786cfb870e763f392edbf7350f84585ac13c707726425939875cc"
+    },
+    {
+      "id": "dse2019-q22-answer-final11",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 11,
+      "score": 1,
+      "textSha256": "89fc2a94b7b58f7773313e72baa86a872f40782ba39c61399a31c30c1507baee"
+    },
+    {
+      "id": "dse2019-q22-answer-final12",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 12,
+      "score": 0,
+      "textSha256": "0f68bf52a93c3f6b8292de8466e6bb0a0811b2a0c9fbc4fef31220882845a593"
+    },
+    {
+      "id": "dse2019-q22-answer-final13",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 13,
+      "score": 0,
+      "textSha256": "d7ce1ea85e66bc767f9e67cb68c20133f69f8c4986af07123924a115f2aa322e"
+    },
+    {
+      "id": "dse2019-q22-answer-final14",
+      "file": "2019-classical-mark4-revised",
+      "page": 13,
+      "index": 14,
+      "score": 0,
+      "textSha256": "3f4797df9b4be5f68bdfdc9942cf27433db996ed3dab60bd6ea97f8bca4b5f0d"
     }
   ],
   "resources": {
