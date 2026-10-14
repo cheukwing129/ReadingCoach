@@ -203,6 +203,7 @@ textarea:focus,select:focus,.year-gate-form input:focus{border-color:#1e6549;box
 .named-paragraph .analysis-slot{grid-column:1}
 .passage-section-label{font-size:17px;line-height:1.6;color:#1d533c}
 .passage-text .paragraph .passage-section-source{font-family:var(--sans);font-size:14px;line-height:1.8;color:#6e7d70;text-align:right;margin:3px 0 7px}
+.paragraph:not(.named-paragraph)>.passage-section-source{grid-column:2;min-width:0}
 .classical-help{min-width:0;border:1px solid #e4dac8;border-radius:10px;background:#fbf8f1;font-family:var(--sans)}
 .classical-help>summary{padding:12px 14px;font-size:15px;line-height:1.7;color:#1d533c;font-weight:600}
 .classical-help-body{padding:0 16px 16px}
