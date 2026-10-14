@@ -4581,6 +4581,22 @@
       "index": 14,
       "score": 0,
       "textSha256": "3f4797df9b4be5f68bdfdc9942cf27433db996ed3dab60bd6ea97f8bca4b5f0d"
+    },
+    {
+      "id": "dse2018-q26-ii-brief1",
+      "file": "2018-classical-mark4-brief.docx",
+      "page": 3,
+      "paragraphIndex": 69,
+      "score": 4,
+      "textSha256": "983dfb95ec132cafc33c5343be3d8a579220e7deed75a412566bc76b5fcb8530"
+    },
+    {
+      "id": "dse2018-q26-ii-brief2",
+      "file": "2018-classical-mark4-brief.docx",
+      "page": 3,
+      "paragraphIndex": 70,
+      "score": 4,
+      "textSha256": "f4937716b7c0f4338a05a5e02b85a3335b445b397b9a7eecf553e6d33f01921b"
     }
   ],
   "resources": {

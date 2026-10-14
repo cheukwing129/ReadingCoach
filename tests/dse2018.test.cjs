@@ -1,13 +1,13 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2018-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2018-source-manifest.json'))),article=D.articles.find(a=>a.year===2018);
 const own=(n,key,text,answers={})=>{const x=q(n),d=C.draft();d.answers={...answers,[key]:text};return C.samples(x,x.answerParts.find(p=>p.key===key),d,S).find(s=>s.own);};
 
 test('2018 retains the complete authentic vernacular passage and original questions 9–20 totaling 50 marks',()=>{
- const qs=D.questions.filter(x=>x.year===2018);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+9));assert.deepEqual(qs.map(x=>x.marks),[4,2,2,4,4,6,4,6,8,4,4,2]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),50);
- assert.equal(D.articles.filter(a=>a.year===2018).length,1);assert.equal(article.title,'孤獨的理由');assert.equal(article.author,'林黛嫚');assert.deepEqual(article.paragraphs.map(p=>p.number),Array.from({length:20},(_,i)=>i+1));
+ const qs=D.questions.filter(x=>x.year===2018&&x.number<=20);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+9));assert.deepEqual(qs.map(x=>x.marks),[4,2,2,4,4,6,4,6,8,4,4,2]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),50);
+ assert.equal(D.articles.filter(a=>a.year===2018&&a.genre!=='classical').length,1);assert.equal(article.title,'孤獨的理由');assert.equal(article.author,'林黛嫚');assert.deepEqual(article.paragraphs.map(p=>p.number),Array.from({length:20},(_,i)=>i+1));
  assert.match(article.paragraphs[7].text,/妻子離開他，/);assert.match(article.paragraphs[7].text,/車子晃盪四十分鐘/);assert.match(article.paragraphs[7].text,/希冀火車不要誤點/);assert.match(article.paragraphs[10].text,/備妥嫁妝歡鑼喜鼓出嫁/);assert.match(article.paragraphs[15].text,/悠閒地踱步/);
  assert.equal(article.paragraphs[10].text.split('\n').length,1,'source paragraph 11 spans two PDF pages without being split');
  for(const p of article.paragraphs)assert.equal(hash(p.text),manifest.paragraphHashes[article.id].find(a=>a.number===p.number).textSha256);
@@ -51,7 +51,7 @@ test('Q14 evaluates the first twenty characters including punctuation without ma
 });
 
 test('2018 true long-answer exemplars cover every 0–4 band and retain alternative full-score approaches',()=>{
- const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2018-')).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,18);assert.equal(manifest.longExemplars.length,18);
+ const cases=Object.entries(S).filter(([id])=>/^dse2018-q(?:13|15|19)$/.test(id)).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,18);assert.equal(manifest.longExemplars.length,18);
  for(const s of cases){const row=manifest.longExemplars.find(x=>x.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,hash(s.text));assert.ok(s.analysis.startsWith(s.score+'分'));}
  for(const n of [13,15,19]){const rows=C.samples(q(n),q(n).answerParts[0],C.draft(),S);assert.equal(rows.length,6);assert.deepEqual([...new Set(rows.map(s=>s.score))].sort(),[0,1,2,3,4]);assert.equal(rows.filter(s=>s.score===4).length,2);}
  assert.match(q(13).official[0].criteria.join(''),/只說人生路.*1分.*只說回家路.*不給分/);assert.match(q(15).official[0].criteria.join(''),/其中一個方向.*滿分/);assert.match(q(19).official[0].criteria.join(''),/最高2分/);assert.match(q(19).official[0].criteria.join(''),/不扣冗文分/);

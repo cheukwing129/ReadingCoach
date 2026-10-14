@@ -1,0 +1,156 @@
+{
+  "year": 2018,
+  "scope": "乙部第二篇李翱《命解》第21–26題；附第25題孫叔敖引文，不含甲部課文問答",
+  "verifiedAt": "2026-10-15",
+  "paragraphs": 2,
+  "questions": 6,
+  "marks": 20,
+  "glosses": 46,
+  "sourceFiles": [
+    {
+      "file": "rm.pdf",
+      "fileId": "1p3l6guAL1OAeOvvSfAlosRXi5KrDGAOQ",
+      "sha256": "43514eb14b971ca0a1377d61a7d124ec52417d6cf556afb96952a1614131dcbc"
+    },
+    {
+      "file": "qab.pdf",
+      "fileId": "1zzfs9RsrLnlNDPfQToM3rBAcWUdzb5lD",
+      "sha256": "4d555127759e3e91326e25e5bf404c3a562bfff641b2b448fba70edc937427aa"
+    },
+    {
+      "file": "mark4.docx",
+      "fileId": "1nmeaF9AGx7KiovIPQmzJ5pMzPEUNnTgk",
+      "sha256": "415e92200765e1a9514df713b947a2d44c16dc87cfc240c53f47b9fdb931d9d9"
+    },
+    {
+      "file": "rmtxt.txt",
+      "fileId": "1LpsI2c7op9OIUvnmeNWl4nwmlrpfOIRY",
+      "sha256": "e7c26edaa2ad2ab93e21e00701e12820c3d616f800cddab7dab126b0ac0dec37"
+    },
+    {
+      "file": "qabtxt.txt",
+      "fileId": "1YPIELRsc0u_Angplvh4IDxIFQ-sO8qc6",
+      "sha256": "1b6fad264375037438efbcb0bd9bcf18a433eb0c9894a99ee22f6e9b0f1a4575"
+    }
+  ],
+  "rm": {
+    "fileId": "1p3l6guAL1OAeOvvSfAlosRXi5KrDGAOQ",
+    "pdfPages": [
+      3
+    ],
+    "printedPages": [
+      4
+    ],
+    "layout": "原全文單段、沒有段號；利於人者鮮原粗體；沒有原註釋。",
+    "corrections": [
+      "戚於道者多依原卷影像改為賊於道者多。"
+    ]
+  },
+  "qab": {
+    "fileId": "1zzfs9RsrLnlNDPfQToM3rBAcWUdzb5lD",
+    "pdfPages": [
+      11,
+      12,
+      13
+    ],
+    "layout": "第23題評價欄跨相信與不相信兩欄；保留原表及已填資料，不重複列分題。第26題兩個判斷與一個長答共6分。",
+    "corrections": [
+      "第25題原字孫叔敖之為、今蛇安在、吾已埋之也、皆諭其能仁；第26(i)原文處世當，不採轉錄稿處事須。"
+    ]
+  },
+  "marking": [
+    {
+      "fileId": "1nmeaF9AGx7KiovIPQmzJ5pMzPEUNnTgk",
+      "file": "2018-classical-mark4-brief.docx",
+      "role": "使用者提供的第四組簡本；短答接受及扣分、兩份4分例答"
+    }
+  ],
+  "objectiveKey": {
+    "publisher": "香港考試及評核局2018教師會議卷一簡報",
+    "officialURL": "https://www.hkeaa.edu.hk/DocLibrary/HKDSE/Subject_Information/chi_lang/CHI-BS-2018-1.pdf",
+    "mirrorURL": "https://www.scribd.com/document/553350842/CHI-BS-2018-1",
+    "pages": {
+      "24": 144,
+      "25": 145,
+      "26i": 146
+    },
+    "answers": {
+      "24": "C",
+      "25": [
+        "錯誤",
+        "正確"
+      ],
+      "26i": [
+        "否",
+        "是"
+      ]
+    },
+    "retrieval": "官方PDF即時下載403；官方搜尋索引確認第25、26(i)答案，教師會議公開鏡像文字第144–146頁補核第24題。未聲稱已下載官方PDF。"
+  },
+  "coverageLimitations": [
+    "第四組簡本第26(ii)只列兩份4分例，未核實0–3分原例，不自行造低分示例。",
+    "第21題扣分按簡本：利與鮮都錯／漏0；一項關鍵字詞錯扣1；未以詞語命中作未知答案自動評分。"
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2018-q26-ii-brief1",
+      "file": "2018-classical-mark4-brief.docx",
+      "page": 3,
+      "paragraphIndex": 69,
+      "score": 4,
+      "textSha256": "983dfb95ec132cafc33c5343be3d8a579220e7deed75a412566bc76b5fcb8530"
+    },
+    {
+      "id": "dse2018-q26-ii-brief2",
+      "file": "2018-classical-mark4-brief.docx",
+      "page": 3,
+      "paragraphIndex": 70,
+      "score": 4,
+      "textSha256": "f4937716b7c0f4338a05a5e02b85a3335b445b397b9a7eecf553e6d33f01921b"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2018-classical": [
+      {
+        "number": 1,
+        "textSha256": "7b49f5e2005fb8d2827af5aa2d831852e9ac0cc50e67b362951de2c3222f3abb"
+      },
+      {
+        "number": 2,
+        "textSha256": "ff83b5668183f0fd9705d7c25c43e5161665648beb55834d9d1675588f2c9577"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2018-q21",
+      "promptSha256": "29a5dc0956ad59290ec798f1fd4a419cd65bf24c687dca41627e874665ce9aa8",
+      "quoteSha256": "ae7d316b276ff5782301e94e3ac00cb7d4c11ba378c095f70e279c63000f3682"
+    },
+    {
+      "id": "dse2018-q22",
+      "promptSha256": "0510708c7f66ac716a6de7df40881f1b702830e8c708efd713543585050ef3f5",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q23",
+      "promptSha256": "b5e6be87f16fffcecebf8be5fa1fe94e36a8320ab0e0233b1352ead8533a7091",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q24",
+      "promptSha256": "15ff1b51c56d2729a13182716aa66787c0986d87007941c24d5b8c01a7a007bc",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2018-q25",
+      "promptSha256": "6cda1792e08e5b120d3722330b89e545cc1f3c8807f6eecba4d04de6eba3a524",
+      "quoteSha256": "8614f9c7009c025df4327645cd4458976f5965ec450c4945b8cf095a32cf6c33"
+    },
+    {
+      "id": "dse2018-q26",
+      "promptSha256": "7da0634a9f99acb08e314146afa489371ce008bf0b2bf8c936e6925cc85e42a4",
+      "quoteSha256": "1ad8656bfaeef812aadedfab655917b53481e66e0a41de4be5bb3d9f43d172f5"
+    }
+  ]
+}

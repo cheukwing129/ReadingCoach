@@ -101,7 +101,12 @@ function quoteHTML(q){
  while(text){const matches=words.map(word=>({word,index:text.indexOf(word)})).filter(x=>x.index>=0).sort((a,b)=>a.index-b.index||b.word.length-a.word.length);const next=matches[0];if(!next){html+=E(text);break;}html+=E(text.slice(0,next.index))+'<strong>'+E(next.word)+'</strong>';text=text.slice(next.index+next.word.length);}
  return html;
 }
-function questionTable(t){return '<div class="table-scroll"><table><thead><tr>'+t.headers.map(x=>'<th scope="col">'+E(x)+'</th>').join('')+'</tr></thead><tbody>'+t.rows.map(r=>'<tr>'+r.map((x,i)=>i===0?'<th scope="row">'+E(x)+'</th>':'<td>'+E(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';}
+function questionTable(t){
+ return '<div class="table-scroll"><table><thead><tr>'+t.headers.map(x=>'<th scope="col">'+E(x)+'</th>').join('')+'</tr></thead><tbody>'+t.rows.map(r=>'<tr>'+r.map((x,i)=>{
+  const cell=x&&typeof x==='object'?x:{text:x},span=Number.isInteger(cell.colSpan)&&cell.colSpan>1&&cell.colSpan<=t.headers.length-i?' colspan="'+cell.colSpan+'"':'',tag=i===0?'th':'td';
+  return '<'+tag+(i===0?' scope="row"':'')+span+'>'+E(cell.text)+'</'+tag+'>';
+ }).join('')+'</tr>').join('')+'</tbody></table></div>';
+}
 function questionText(q){return '<div class="question-sticky-anchor" aria-hidden="true"></div><section class="question-text" aria-label="原題"><div class="question-title"><h1>第'+q.number+'題</h1><span>'+q.marks+'分</span></div><div class="question-body" role="region" aria-label="題目全文" tabindex="-1"><p class="question-prompt">'+quoteHTML({quote:q.prompt,quoteHighlights:q.promptHighlights,quoteHighlightRanges:q.promptHighlightRanges})+'</p>'+(q.quote?'<blockquote class="question-quote">'+quoteHTML(q)+'</blockquote>':'')+(q.tables||(q.table?[q.table]:[])).map(questionTable).join('')+questionParts(q)+'</div><p class="question-scroll-note">題目較長，可在此捲動查看全文</p></section>';}
 function questionReference(q){
  const ref=q.answerParts.find(p=>p.assessmentReference)?.assessmentReference;if(!ref)return '';
