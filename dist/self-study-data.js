@@ -33,7 +33,7 @@
     segmentation:'要求把原文段落歸成幾個部分；依內容、時間、對象或論點的轉折劃分。'
   };
   for(const [key,feature] of Object.entries(typeFeatures))types[key].feature=feature;
-  const extras=[root.COACH_DSE2013_DATA,root.COACH_DSE2014_DATA,root.COACH_DSE2015_DATA,root.COACH_DSE2016_DATA,root.COACH_DSE2017_DATA,root.COACH_DSE2018_DATA,root.COACH_DSE2019_DATA,root.COACH_DSE2020_DATA,root.COACH_DSE2021_DATA,root.COACH_DSE2022_DATA,root.COACH_DSE2023_DATA,root.COACH_DSE2023_CLASSICAL_DATA,root.COACH_DSE2024_CLASSICAL_DATA,root.COACH_DSE2025_DATA,root.COACH_DSE2025_CLASSICAL_DATA,root.COACH_DSE2026_DATA];
+  const extras=[root.COACH_DSE2013_DATA,root.COACH_DSE2014_DATA,root.COACH_DSE2015_DATA,root.COACH_DSE2016_DATA,root.COACH_DSE2017_DATA,root.COACH_DSE2018_DATA,root.COACH_DSE2019_DATA,root.COACH_DSE2020_DATA,root.COACH_DSE2021_DATA,root.COACH_DSE2022_DATA,root.COACH_DSE2022_CLASSICAL_DATA,root.COACH_DSE2023_DATA,root.COACH_DSE2023_CLASSICAL_DATA,root.COACH_DSE2024_CLASSICAL_DATA,root.COACH_DSE2025_DATA,root.COACH_DSE2025_CLASSICAL_DATA,root.COACH_DSE2026_DATA];
   for(const extra of extras)Object.assign(types,extra.types);
   Object.assign(types.synthesis,{feature:'題目同時涉及兩篇文章，要求連接概念、情節或主旨；須分析兩篇如何互相解釋、回應或深化。',steps:['辨清題目要連接兩篇的甚麼：概念與對象、共同情節，還是主旨。','回到各篇的原段落找證據，分開相同段號，避免混用。','解釋共同材料如何建立關係，再扣回題目；不要只各自撮要。'],note:'先界定每篇在題目中的角色，再說清關係。不同題目的得分條件及只談一篇的上限須按本題準則核對。'});
   Object.assign(types.comparison,{feature:'要求在共同角度比較兩方的異同或觀點是否矛盾；須兼論雙方，以文本依據解釋同一角度下的關係。',steps:['先界定兩個比較對象及題目要求的共同角度。','分開兩方的依據，再在同一角度說明相同或不同，避免互換處境。','解釋比較結果如何成立；有指定例子須落實例子，有判斷立場須兼論兩方。'],note:'同一對象可在一個層次相同、另一個層次不同。先講清比較角度，不把單方描述或相反標籤當作比較。'});

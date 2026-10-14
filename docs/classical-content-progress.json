@@ -2,13 +2,13 @@
   "updatedAt": "2026-10-14",
   "scope": "DSE乙部文言閱讀理解，不包含甲部指定課文問答；每次只處理一年。",
   "completedYears": [
+    2022,
     2023,
     2024,
     2025
   ],
-  "nextYear": 2022,
+  "nextYear": 2021,
   "remainingOrder": [
-    2022,
     2021,
     2020,
     2019,
