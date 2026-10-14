@@ -1,0 +1,788 @@
+{
+  "checkedAt": "2026-10-14",
+  "year": 2014,
+  "scope": "徐國能《第九味》全部14段、原第1–12題共54分；不收錄第二篇文言。",
+  "files": [
+    {
+      "id": "1sQIX4cY36YSgic99W4W8eqDpI7NyJpbL",
+      "file": "2014-rm.pdf",
+      "name": "2014-DSE_中國語文(試卷一)_閱讀能力考材.pdf",
+      "sha256": "bcb9989de3e8d613447e89a107fa2d2edb902cc2274905bacc74742bd6aaaec2"
+    },
+    {
+      "id": "1UXd8WpV564QWRlry3ZvOyyBfuwluY14A",
+      "file": "2014-qab.pdf",
+      "name": "2014-DSE_中國語文(試卷一)_答題簿.pdf",
+      "sha256": "3ac4a38e08f919dc5111612e068677e02e3a9d9d766c318917ebd04c8a610c01"
+    },
+    {
+      "id": "1pMWx6EQdWcthawxQuXfEsnuYZ5bOlfQt",
+      "file": "2014-mark1.pdf",
+      "name": "2014 中國語文 試卷一 評卷參考 _第一組_ 修訂版.pdf",
+      "sha256": "46d2a4fcd8c1e0678ff4b8fbe5ce89ef2e8459343b597a21d1558eb092df0fa4"
+    },
+    {
+      "id": "1KQ1j9IWGmgAyCWcOKqIGEgvUySHk1-Ak",
+      "file": "2014-mark2.pdf",
+      "name": "2014 中國語文 試卷一 評卷參考 _第二組_ 修訂版.pdf",
+      "sha256": "ed9a7b5c08d0325bca98559c199383a28d6244241ae6c1246673080c4c2119cf"
+    },
+    {
+      "id": "1EJUwCrs05i5d5LpqkpYtwClT0MbYzdkU",
+      "file": "2014-mark2-supplement.pdf",
+      "name": "2014 中國語文 試卷一 第二組 參考答案增補.pdf",
+      "sha256": "c6a2bb97a097a051001eec9bead7d0e7ed4ab52323cbbd3a0a151586b8236766"
+    },
+    {
+      "id": "1waCPwRH29pqRypXFZczQ5g4aUppEAfNJ",
+      "file": "2014-official-full.pdf",
+      "name": "2014-DSE-CH-LANG-1-MS-已解鎖.pdf",
+      "sha256": "e45170c35ac1eb5bf30d30ae05396a36a72682a814693001abf59a07405fc03d"
+    },
+    {
+      "id": "1z7ijnVflZ-xRrr67fBXCvFdWbMmJ6mkx",
+      "file": "2014-answers.docx",
+      "name": "2014 dse p1 ans.docx",
+      "sha256": "22ff06cc33ff779677ae10b46edaff9fdb56c4534e0bac8e200e4fc5ae7e8408"
+    },
+    {
+      "id": "1unv9QQqQ7nACuvH7I9XwxFJBsXzRdCY5",
+      "file": "2014-rm.txt",
+      "name": "2014_RM_閱讀能力考材_文字版.txt",
+      "sha256": "c19f96977e483b6f50cbe5b71fbe616dc21a99a83e27fdf433f39d0078641150"
+    },
+    {
+      "id": "1eg_Rg7tCkLKgBOgxDbMQQnr3KadkT31a",
+      "file": "2014-qab.txt",
+      "name": "2014_QAB_試題答題簿_文字版.txt",
+      "sha256": "40403a550795c09c1c2521aadeb28dd0e70aa5fffa06e57991feae9c716cd910"
+    }
+  ],
+  "sourcePages": {
+    "rm": [
+      2,
+      3
+    ],
+    "qab": {
+      "q1": [
+        2
+      ],
+      "q2-q3": [
+        3
+      ],
+      "q4-q5": [
+        4
+      ],
+      "q6-q7": [
+        5
+      ],
+      "q8-q10": [
+        6
+      ],
+      "q11-q12": [
+        7
+      ]
+    },
+    "mark1": {
+      "q2": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "q3": [
+        6
+      ],
+      "q5": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "q8": [
+        11
+      ],
+      "q11": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "mark2": {
+      "q4": [
+        2,
+        3,
+        4
+      ],
+      "q6": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "q12": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "mark2-supplement": {
+      "q4": [
+        1
+      ],
+      "q6-q12": [
+        2
+      ]
+    },
+    "official-full": {
+      "q1": [
+        1
+      ],
+      "q7-q8": [
+        5
+      ],
+      "q9-q10": [
+        6
+      ],
+      "printedPages": [
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ]
+    }
+  },
+  "pageConvention": "頁次均指下載原PDF實際頁次；兩組修訂版內印頁碼與PDF頁次相同。例答去除逐項評分括號及前置手法分類注記，保留原答案字詞；複合舉隅以欄位與行序標記。",
+  "objectiveAnswers": {
+    "q1": [
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        11,
+        14
+      ]
+    ],
+    "q7": "B",
+    "q9": "C",
+    "q10": "D"
+  },
+  "corrections": [
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 6,
+      "before": "舊時王謝",
+      "after": "當時王謝"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 9,
+      "before": "一臉肥相",
+      "after": "一臉肥像"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 9,
+      "before": "八臂金剛",
+      "after": "八臂金鋼"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 9,
+      "before": "銧鐺一聲",
+      "after": "銳鏘一聲"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 2,
+      "before": "著",
+      "after": "着"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 9,
+      "before": "著",
+      "after": "着"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 10,
+      "before": "著",
+      "after": "着"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 11,
+      "before": "著",
+      "after": "着"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 12,
+      "before": "著",
+      "after": "着"
+    },
+    {
+      "article": "dse2014-ninth-taste",
+      "paragraph": 14,
+      "before": "著",
+      "after": "着"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2014-ninth-taste": [
+      {
+        "number": 1,
+        "textSha256": "65003bf06bd56be62c6cfb97636b0d45698b68e15cd62513e997490d98cc551f"
+      },
+      {
+        "number": 2,
+        "textSha256": "6be20a5bbfb471e8888e86930eef499bcedd184e8a435cffbc7c02ed45e72a65"
+      },
+      {
+        "number": 3,
+        "textSha256": "05d7711a310dad6cf96d9a4fede584b88009de131a4db5b4baef4c8fcb70f0a8"
+      },
+      {
+        "number": 4,
+        "textSha256": "86729d5a09b1c022b00eca1de380df8eb44deddf89d227621e378ed283be9835"
+      },
+      {
+        "number": 5,
+        "textSha256": "75cce56229dfbeef69e6c585bae01321b0b61d0f3c9991a598d2c83326fb0387"
+      },
+      {
+        "number": 6,
+        "textSha256": "4909e97d07f1d938962ce35c79434928098b569d7d74efa5b3141acf09f25a8a"
+      },
+      {
+        "number": 7,
+        "textSha256": "b2a9eb30ab1bf622d8df3321f2baf4638f4f41278fc84295347ae49bc01c4371"
+      },
+      {
+        "number": 8,
+        "textSha256": "616589046b7634c350113406b982a21fe3d3bf36bf150c28473bf0aba99947fb"
+      },
+      {
+        "number": 9,
+        "textSha256": "400299e9cd4ef1234433638e5687c4ba382e48af225dcd1e87ca66184a54a7a7"
+      },
+      {
+        "number": 10,
+        "textSha256": "c52284cfe34585ae5b220957f11eafa6f5881e048d37312e6dfcc0ba1542987e"
+      },
+      {
+        "number": 11,
+        "textSha256": "8d340b4565878e44649253849f43bb907751456fd310829639beb5597c3e7389"
+      },
+      {
+        "number": 12,
+        "textSha256": "66989976c9ed8ac2f7f9aef5ee5886164da2ca81a9228cc2a42f6e94e9157c4a"
+      },
+      {
+        "number": 13,
+        "textSha256": "014bbee10f84d26d08b2784cf40bdf1af669d6cf2d96dbf654dec3c26698e786"
+      },
+      {
+        "number": 14,
+        "textSha256": "0b3cc6f31873dcea40410c06882f1104fdba8a985055a688f11b0cae4698208a"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2014-q1",
+      "promptSha256": "4031b074b6141c4d6f7a36613a27aa15e42849f326946fa277dc9c6060770c3f",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q2",
+      "promptSha256": "009e767c5e6b85637b832a17d287d5b9eeef38e4f020e9191e74cef48615efe1",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q3",
+      "promptSha256": "e8d8549187d9fa2225a9a96d67ddab96d28124a92e95b3ae6eddace4bad23a4f",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q4",
+      "promptSha256": "5cbc437760053cc32b0a647755836f5c091b3cb7f0ee30ba0c3b196eacbd4393",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q5",
+      "promptSha256": "38b25258909c63695973748a2d327f9da439df1581e7a87951cd52049eb6aacb",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q6",
+      "promptSha256": "18b866ce9000a141296bf63f393dca7b504b67a52c74c9a1502d3caf7d79c44e",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q7",
+      "promptSha256": "819c94cec0a7811e4e26df4d4c3575e295a1b6f19f47be31eb129eb4227ff505",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q8",
+      "promptSha256": "d0d9873a4eae372663d87374b11c978217714b1cfa36902c03b10f1da9ef483c",
+      "quoteSha256": "36f29bfddb46658e80fbe795fe93064e4393ec48d8a7a905b3e713a81a20bd2d"
+    },
+    {
+      "id": "dse2014-q9",
+      "promptSha256": "e3295ee0f55fed2d87eb288d86bdab435cf67a54dcdd1e2eed67f7fe666a36eb",
+      "quoteSha256": "4d179a5353795b04aaa346f52a7f3a379a3eb9b9dde5ec27da6d1db2a61855f6"
+    },
+    {
+      "id": "dse2014-q10",
+      "promptSha256": "d75fed13b18da572a3c5e02faca6efc5ea2e6e1d215b03f43dd295f84e5177d1",
+      "quoteSha256": "a480b0868d60f921f1fb5f5cb035c2a0fcd979bb846b20e72f62260aabba798b"
+    },
+    {
+      "id": "dse2014-q11",
+      "promptSha256": "58d0cc27216ac079c27c47d3c0454c8d4d11bfd46bea56311d867f7e93e51590",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2014-q12",
+      "promptSha256": "b84fa52c53488ba56950c627e3a193d40cc1bb9ff5443df82abbe616502fd12f",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2014-q2-i-full1",
+      "file": "2014-mark1.pdf",
+      "page": 3,
+      "index": "full1",
+      "score": 2,
+      "textSha256": "81d1fa44b3ea6ac1fe98aa68e4ca50776d970257840dea0d39728723afb7ff1f"
+    },
+    {
+      "id": "dse2014-q2-i-partial1",
+      "file": "2014-mark1.pdf",
+      "page": 3,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "21788ad7f3d3e63042196f091fd699aab926144a502c96edf37d079f82ecb343"
+    },
+    {
+      "id": "dse2014-q2-i-example1",
+      "file": "2014-mark1.pdf",
+      "page": 3,
+      "index": "example1",
+      "score": 1,
+      "textSha256": "3a79f19863752bed13cb0f1a96c7851dcc09dd575609ef23189212f81dc87278"
+    },
+    {
+      "id": "dse2014-q2-i-zero1",
+      "file": "2014-mark1.pdf",
+      "page": 3,
+      "index": "zero1",
+      "score": 0,
+      "textSha256": "82606d7aa24bdf67cf412a0bce3f4561ef82a61bb1f19b9e848fa4714eecc315"
+    },
+    {
+      "id": "dse2014-q2-ii-full1",
+      "file": "2014-mark1.pdf",
+      "page": 5,
+      "index": "full1",
+      "score": 2,
+      "textSha256": "2de032ae1047a7636038099b683687e4331b90bdd77bd4b1a4840b926c4a2905"
+    },
+    {
+      "id": "dse2014-q2-ii-partial1",
+      "file": "2014-mark1.pdf",
+      "page": 5,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "627a33832c088e7a41e8803a9b35cd30beb0109d747c0bfaa2c499c177ffc36e"
+    },
+    {
+      "id": "dse2014-q2-ii-example1",
+      "file": "2014-mark1.pdf",
+      "page": 5,
+      "index": "example1",
+      "score": 1,
+      "textSha256": "4f45cb484c1badb3c02429be64dbc4f211ec4202a4ff9dca5f5accc6ace05a34"
+    },
+    {
+      "id": "dse2014-q2-ii-zero1",
+      "file": "2014-mark1.pdf",
+      "page": 5,
+      "index": "zero1",
+      "score": 0,
+      "textSha256": "7020c82b6edc212504406c6037c7b570c4e4462cce8b231d1822059a9a28076b"
+    },
+    {
+      "id": "dse2014-q4-ii-full-drink",
+      "file": "2014-mark2.pdf",
+      "page": 3,
+      "index": "full-drink",
+      "score": 3,
+      "textSha256": "a2dbbbf381a27e42541251a624e2496f7b7c9a5ab2c10b8f4530658f1fe90ad0"
+    },
+    {
+      "id": "dse2014-q4-ii-full-status",
+      "file": "2014-mark2.pdf",
+      "page": 3,
+      "index": "full-status",
+      "score": 3,
+      "textSha256": "7e6d4d05db861e31f5dc82c3b3dd3d6373d9048ed1d9d30ba49d3c2ac26947a5"
+    },
+    {
+      "id": "dse2014-q4-ii-partial-drink",
+      "file": "2014-mark2.pdf",
+      "page": 3,
+      "index": "partial-drink",
+      "score": 2,
+      "textSha256": "3ea8ecf7f0717178462319113dc7779eb702ac62cc1dc8f245e1ae1adda93547"
+    },
+    {
+      "id": "dse2014-q4-ii-partial-extra",
+      "file": "2014-mark2.pdf",
+      "page": 4,
+      "index": "partial-extra",
+      "score": 1,
+      "textSha256": "0efe104e3a5a2928e6570d60f073520b6aaef5e10687177f2d1def151fa52525"
+    },
+    {
+      "id": "dse2014-q4-ii-zero-made-up",
+      "file": "2014-mark2.pdf",
+      "page": 4,
+      "index": "zero-made-up",
+      "score": 0,
+      "textSha256": "b1d16c222586495860016959785a7a36fa2b7a31f62ec375f5f8bd04f5fa8766"
+    },
+    {
+      "id": "dse2014-q4-ii-action-full",
+      "file": "2014-mark2-supplement.pdf",
+      "page": 1,
+      "index": "action-full",
+      "score": 3,
+      "textSha256": "c331ae741b23dba78b22b83253a8106b9af626afce6b01a2499a276604096245"
+    },
+    {
+      "id": "dse2014-q4-ii-action-partial2",
+      "file": "2014-mark2-supplement.pdf",
+      "page": 1,
+      "index": "action-partial2",
+      "score": 2,
+      "textSha256": "e09c10be94e35ebb73f787b80980838485803a2a02e019b194bdd7bcd4541c5d"
+    },
+    {
+      "id": "dse2014-q4-ii-portrait-partial1",
+      "file": "2014-mark2-supplement.pdf",
+      "page": 1,
+      "index": "portrait-partial1",
+      "score": 1,
+      "textSha256": "31fa6099e27475d891d5808542565dedf43ac694016aca49b04d1f970286c9d7"
+    },
+    {
+      "id": "dse2014-q4-ii-person-zero",
+      "file": "2014-mark2-supplement.pdf",
+      "page": 1,
+      "index": "person-zero",
+      "score": 0,
+      "textSha256": "e941fd5d7567a32082b5d6b683b980f75ba27590dbf9d73903dde74b0055f617"
+    },
+    {
+      "id": "dse2014-q5-ii-full-self",
+      "file": "2014-mark1.pdf",
+      "page": 8,
+      "index": "full-self",
+      "score": 3,
+      "textSha256": "f8d38d69ef165ac86676c911941c7a49c15582ccb54af093f5f7ff1dc2f5546d"
+    },
+    {
+      "id": "dse2014-q5-ii-full-aloof",
+      "file": "2014-mark1.pdf",
+      "page": 9,
+      "index": "full-aloof",
+      "score": 3,
+      "textSha256": "d181f82f9bc38cdc79da797532c4fec5d395c42705a85c69196111a688a01c05"
+    },
+    {
+      "id": "dse2014-q5-ii-partial-self",
+      "file": "2014-mark1.pdf",
+      "page": 8,
+      "index": "partial-self",
+      "score": 2,
+      "textSha256": "2a6bc0d789b72fbf3aaf851e63c071dc465f650e82d9fae7adc77059372c930a"
+    },
+    {
+      "id": "dse2014-q5-ii-partial1-self",
+      "file": "2014-mark1.pdf",
+      "page": 8,
+      "index": "partial1-self",
+      "score": 1,
+      "textSha256": "7f92e8fcf28fa507ea999d81b7d8287d94bbe461cb52140b1b47785be11a09fb"
+    },
+    {
+      "id": "dse2014-q5-ii-zero-motive",
+      "file": "2014-mark1.pdf",
+      "page": 9,
+      "index": "zero-motive",
+      "score": 0,
+      "textSha256": "bd8d9d3cc5a716d8ed02a3b2515481102c92ab45d3f7163eeda9cf089f228dd6"
+    },
+    {
+      "id": "dse2014-q6-ii-full1",
+      "file": "2014-mark2.pdf",
+      "page": 9,
+      "index": "full1",
+      "score": 3,
+      "textSha256": "a0a75b2363342fc62fb5c4b31466a784a842282a0f9276316a357f5bef4d296a"
+    },
+    {
+      "id": "dse2014-q6-ii-partial2",
+      "file": "2014-mark2.pdf",
+      "page": 9,
+      "index": "partial2",
+      "score": 2,
+      "textSha256": "b75204487b735ff13d49c8fa18aa81b58cdd4550857c72ddc36d3f73d793f866"
+    },
+    {
+      "id": "dse2014-q6-ii-partial1",
+      "file": "2014-mark2.pdf",
+      "page": 9,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "e1f4676ddd310f99ed26b8e96bcf346067395added175d1ef875ee7e8a2f0420"
+    },
+    {
+      "id": "dse2014-q6-ii-zero-pair",
+      "file": "2014-mark2.pdf",
+      "page": 9,
+      "index": "zero-pair",
+      "score": 0,
+      "textSha256": "32c6c72288f9b746fd7996835f1e839c845fac5f27defc3b2055fc5c51880a54"
+    },
+    {
+      "id": "dse2014-q6-iv-full1",
+      "file": "2014-mark2.pdf",
+      "page": 10,
+      "index": "full1",
+      "score": 3,
+      "textSha256": "69ab33ad941271bef761be677e91b35f182fb258591290bf8f1d15ca8c4c544f"
+    },
+    {
+      "id": "dse2014-q6-iv-partial2",
+      "file": "2014-mark2.pdf",
+      "page": 10,
+      "index": "partial2",
+      "score": 2,
+      "textSha256": "7832123d3461a448b6ccbc200b1aa949b7cee5db85187c7db06be07a2f271846"
+    },
+    {
+      "id": "dse2014-q6-iv-partial1",
+      "file": "2014-mark2.pdf",
+      "page": 10,
+      "index": "partial1",
+      "score": 1,
+      "textSha256": "f932e24f98ba8e977015ca3053dd7febbdc2b66d212c9de6a8b5206ebdb916ec"
+    },
+    {
+      "id": "dse2014-q6-iv-zero-quote",
+      "file": "2014-mark2.pdf",
+      "page": 10,
+      "index": "zero-quote",
+      "score": 0,
+      "textSha256": "fc5a104fcfacdc9f400e60542c4235ae507aa4b1f7f75f45286914e36bb3418f"
+    },
+    {
+      "id": "dse2014-q6-iv-zero-literal",
+      "file": "2014-mark2-supplement.pdf",
+      "page": 2,
+      "index": "zero-literal",
+      "score": 0,
+      "textSha256": "0824be89962be29c0b30074ebc88136408276161df9d5738eb9f30d8a4a32759"
+    },
+    {
+      "id": "dse2014-q11-answer-full1",
+      "file": "2014-mark1.pdf",
+      "page": 15,
+      "index": "full1",
+      "score": 6,
+      "textSha256": "18b22446a24bbcc69f9975c8b7285dff8e33261fbf98c93feca1eb29b1351431"
+    },
+    {
+      "id": "dse2014-q11-answer-upper5",
+      "file": "2014-mark1.pdf",
+      "page": 15,
+      "index": "upper5",
+      "score": 5,
+      "textSha256": "162660c96b2d20105724fb1d1fc035b75fae2a72e957308b282d77fd2e130a0d"
+    },
+    {
+      "id": "dse2014-q11-answer-middle4",
+      "file": "2014-mark1.pdf",
+      "page": 15,
+      "index": "middle4",
+      "score": 4,
+      "textSha256": "31a51cf93c2f2c026537b4616483c0a9209e14c2c111fa7494a4136f6b1ed091"
+    },
+    {
+      "id": "dse2014-q11-answer-middle3",
+      "file": "2014-mark1.pdf",
+      "page": 16,
+      "index": "middle3",
+      "score": 3,
+      "textSha256": "8e31f5c367ea11eeacc0dbf934097480c97b848f186055bc4a839f4c0f827d71"
+    },
+    {
+      "id": "dse2014-q11-answer-lower2",
+      "file": "2014-mark1.pdf",
+      "page": 16,
+      "index": "lower2",
+      "score": 2,
+      "textSha256": "2b57e7383d5f8f1b545928f26f58bdfadfe695c9372d0fd8405d0bdd4d3d9fdb"
+    },
+    {
+      "id": "dse2014-q11-answer-lower1",
+      "file": "2014-mark1.pdf",
+      "page": 16,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "4a8d3d6b54a8c942659a62d658e96be4ca95150d0055f19eda21a4e4d04f9b9b"
+    },
+    {
+      "id": "dse2014-q11-answer-zero-extra",
+      "file": "2014-mark1.pdf",
+      "page": 17,
+      "index": "zero-extra",
+      "score": 0,
+      "textSha256": "c24e43f76147ce876b7f582e92fefa566fd3c5affd1bd28cab27cfedd6a38dd1"
+    },
+    {
+      "id": "dse2014-q11-answer-zero-cold",
+      "file": "2014-mark1.pdf",
+      "page": 17,
+      "index": "zero-cold",
+      "score": 0,
+      "textSha256": "3bbdea8b55b5ad36ef731b22e22fac3cd4d17157aee0857d1c4762e90a67230b"
+    },
+    {
+      "id": "dse2014-q12-answer-full-life",
+      "file": "2014-mark2.pdf",
+      "page": 14,
+      "index": "full-life",
+      "score": 6,
+      "textSha256": "66ef02d116eff6804ab7002695640d155cac23a84360c6dcbd92fa1a902cf0c6"
+    },
+    {
+      "id": "dse2014-q12-answer-full-bland",
+      "file": "2014-mark2.pdf",
+      "page": 14,
+      "index": "full-bland",
+      "score": 6,
+      "textSha256": "b41eb4702977de8ce116cb69cc9ce3475622d378e93bb9a1ffecb09c1db75949"
+    },
+    {
+      "id": "dse2014-q12-answer-upper5",
+      "file": "2014-mark2.pdf",
+      "page": 14,
+      "index": "upper5",
+      "score": 5,
+      "textSha256": "3884802c98ede9cccaf69f7c8cc3fa5fc66964322adb0f09a9badafe1a18d0b3"
+    },
+    {
+      "id": "dse2014-q12-answer-middle4-life",
+      "file": "2014-mark2.pdf",
+      "page": 15,
+      "index": "middle4-life",
+      "score": 4,
+      "textSha256": "4f06aef7100813b251cd7ce3aab84294c37f5cbccac4d7c36f01a0c33e6f7beb"
+    },
+    {
+      "id": "dse2014-q12-answer-middle4-bland",
+      "file": "2014-mark2.pdf",
+      "page": 15,
+      "index": "middle4-bland",
+      "score": 4,
+      "textSha256": "909b1f9931c3def11bf10dd9760b5f5a59c752ca0f00bd530e1982e9d06a79cd"
+    },
+    {
+      "id": "dse2014-q12-answer-middle3",
+      "file": "2014-mark2.pdf",
+      "page": 15,
+      "index": "middle3",
+      "score": 3,
+      "textSha256": "7298a17d3a72eb181d100d6df1af8ea883f561cbaf3dac9b00ca51b63c3a3e9f"
+    },
+    {
+      "id": "dse2014-q12-answer-lower2",
+      "file": "2014-mark2.pdf",
+      "page": 16,
+      "index": "lower2",
+      "score": 2,
+      "textSha256": "b2bf383aca31ad1d0e9cd7323004ef985c20f645a2904454809ad4612c2251d3"
+    },
+    {
+      "id": "dse2014-q12-answer-lower1",
+      "file": "2014-mark2.pdf",
+      "page": 16,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "fa0544207ef188d77cc87b0935e7da207330d0c6e08a521dabbd47237f1f010a"
+    },
+    {
+      "id": "dse2014-q12-answer-zero-motive",
+      "file": "2014-mark2.pdf",
+      "page": 17,
+      "index": "zero-motive",
+      "score": 0,
+      "textSha256": "3207f7607993c026b0137f4e26b2eb1d06440c5c7f699042310533dbef57b279"
+    }
+  ],
+  "gradingRules": [
+    "第2題只評首20字，標點及自加標題亦計；兩概括或概括加相應例子可2分，純例子最高1分。",
+    "第3題行動及語言次序不限，各1分；同類近義詞不重複計分。",
+    "第4題漏答／明顯錯誤例子0分；用詞不準仍評例子，第二組增補明列行動描寫配飲酒兩例可3分，肖像描寫配飲酒0分。正反襯錯配，手法2分而例子扣1分。",
+    "第5、6題用詞不準而0分，仍可能評後項；未能分清用詞不準與明顯錯誤的0分名稱保留待核對，不武斷強制後項0分。漏答後項0分。",
+    "第6題兩味道與人物須逐點對應；苦味只引原文欠人物說明依修訂給分表及0分舉隅判0分，優先於前頁不一致的1分文字。增補兩個字面隱士說法均0分。",
+    "第11題淡然須論看透得失可上品；只論早知嗜賭、不感訝異最高中品，平淡標籤不改變內容層次。",
+    "第12題兩項依據及平淡真趣可上品；滄桑理解最高中品，一項平淡依據亦中品；增補要求按整體論述而非關鍵詞評品。"
+  ],
+  "contextualExemplarScores": [
+    {
+      "id": "dse2014-q4-ii-full-status",
+      "prerequisite": "反襯",
+      "score": 2,
+      "file": "2014-mark2.pdf",
+      "page": 4
+    },
+    {
+      "id": "dse2014-q4-ii-action-full",
+      "prerequisite": "肖像描寫",
+      "score": 0,
+      "file": "2014-mark2-supplement.pdf",
+      "page": 1
+    }
+  ]
+}

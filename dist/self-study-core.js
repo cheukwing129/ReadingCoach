@@ -67,6 +67,7 @@ function assessmentDependency(q,p,d,sourceSamples){
  const length=Array.from(normalize(text)).length;
  if(rule.validateFormat&&((prerequisite.exactChars&&length!==prerequisite.exactChars)||(prerequisite.maxChars&&length>prerequisite.maxChars)))return failure(rule.incorrect,label+'未符合原題字數要求。');
  const score=rule.kind==='segment'?segmentScore(prerequisite,text):pool(q,prerequisite,sourceSamples).find(s=>normalize(s.text)===normalize(text))?.score;
+ if(score===0&&rule.reviewZero)return{score:null,dependencyPending:true,analysis:'前一分題「'+label+'」得0分，仍須分清用詞不準確與明顯錯誤。原題規定：只是用詞不準確，仍可評閱本分題；明顯錯誤則本分題0分。先按準則核對，再自評，不能只憑前項0分決定。'};
  if(score===0)return failure(rule.incorrect,label+'未符合原題要求。');
  if(score>0)return null;
  return{score:null,dependencyPending:true,analysis:'先核對'+label+'是否符合前置條件。這個寫法尚未獲自動核驗；依下方準則確認後，再自評本分題。'};
@@ -109,7 +110,7 @@ function samples(q,p,d,sourceSamples){
    }).filter(Boolean).sort((a,b)=>b.score-a.score||distinct.keys.indexOf(a.key)-distinct.keys.indexOf(b.key));
    if(candidates.length>1&&candidates[0].key!==p.key){
     current.score=0;current.distinctChecked=true;
-    current.analysis='0分：這項與另一欄的答案意涵相近；本題同類品格只取較高分的一項，同分時保留第一項，不重複計分。';
+    current.analysis='0分：'+(distinct.analysis||'這項與另一欄的答案意涵相近；本題同類品格只取較高分的一項，同分時保留第一項，不重複計分。');
    }
   }
  }
@@ -120,7 +121,11 @@ function samples(q,p,d,sourceSamples){
  if(own){
   const current=chosen.find(s=>s.own),dependency=assessmentDependency(q,p,d,sourceSamples);
   if(dependency)Object.assign(current,dependency);
-  if(current.prerequisiteAnswers&&p.assessmentDependency&&!current.notAssessed&&!current.dependencyPending&&!current.prerequisiteAnswers.some(t=>normalize(t)===normalize(d.answers[p.assessmentDependency.key])))Object.assign(current,{score:0,dependencyChecked:true,analysis:'0分：這個例子與前一分題所選的描寫方面不相符。原題要求例子說明所選方面，須先配對手法與例子，再分析效果。'});
+  if(p.assessmentDependency&&!current.notAssessed&&!current.dependencyPending){
+   const prerequisite=d.answers[p.assessmentDependency.key],context=current.prerequisiteScores?.find(rule=>rule.answers.some(t=>normalize(t)===normalize(prerequisite)));
+   if(context)Object.assign(current,{score:context.score,dependencyChecked:true,analysis:context.score+'分：'+context.analysis});
+   else if(current.prerequisiteAnswers&&!current.prerequisiteAnswers.some(t=>normalize(t)===normalize(prerequisite)))Object.assign(current,{score:0,dependencyChecked:true,analysis:'0分：這個例子或說明與前一分題所選的內容不相符。原題要求兩項互相對應，須先配對前置答案與例子，再分析。'});
+  }
  }
  return shuffled(chosen,q.id+'-'+p.key);
 }
