@@ -1,11 +1,11 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2020-data','dse2021-data','dse2022-data','dse2023-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2017-data','dse2018-data','dse2019-data','dse2020-data','dse2021-data','dse2022-data','dse2023-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2025-q'+n);
 test('2025 contains both vernacular passages and all original questions 9–20, totaling 41 marks',()=>{
- const qs=D.questions.filter(x=>x.year===2025);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+9));assert.equal(qs.reduce((n,x)=>n+x.marks,0),41);
+ const qs=D.questions.filter(x=>x.year===2025&&x.exerciseId!=='dse2025-classical');assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+9));assert.equal(qs.reduce((n,x)=>n+x.marks,0),41);
  assert.deepEqual(qs.map(x=>x.marks),[2,2,2,4,4,4,2,2,4,6,2,7]);assert.equal(new Set(D.questions.map(x=>x.id)).size,D.questions.length);
- const as=D.articles.filter(x=>x.year===2025);assert.deepEqual(as.map(x=>[x.title,x.paragraphs.length]),[['我們都曾以為自己會是小說的主人公',10],['比正路還長的巷子',10]]);
+ const as=D.articles.filter(x=>x.year===2025&&x.genre!=='classical');assert.deepEqual(as.map(x=>[x.title,x.paragraphs.length]),[['我們都曾以為自己會是小說的主人公',10],['比正路還長的巷子',10]]);
  assert.equal(C.nextQuestion(D,q(13)).number,14);assert.equal(C.nextQuestion(D,q(15)),null);assert.equal(C.nextQuestion(D,q(19)).number,20);assert.equal(C.nextQuestion(D,q(20)),null);
  const m=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2025-source-manifest.json')));assert.equal(m.marks,41);for(const a of as)for(const p of a.paragraphs)assert.equal(crypto.createHash('sha256').update(p.text).digest('hex'),m.paragraphHashes[a.id].find(x=>x.number===p.number).textSha256);
 });

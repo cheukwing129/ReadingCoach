@@ -3381,6 +3381,150 @@
       "index": "sampleE3",
       "score": 3,
       "textSha256": "05c572099409a0c93da9fa62fdf2592a61c6b6d9a75880d52d3339b8e4bb05d4"
+    },
+    {
+      "id": "dse2025-q25-answer-full3-a",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "full3-a",
+      "score": 3,
+      "textSha256": "dbf8491dc0f805c4d42e7ad811e89d80f19cec07ebf53e0a1f796e010208e9fe"
+    },
+    {
+      "id": "dse2025-q25-answer-full3-b",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "full3-b",
+      "score": 3,
+      "textSha256": "a196995f3dffc4a420ff6c6d3b771e0a4f369b799f95460e4b06e0b8b76bff49"
+    },
+    {
+      "id": "dse2025-q25-answer-middle2-a",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "middle2-a",
+      "score": 2,
+      "textSha256": "03b388589c2e4c7077aadb55b09dc040d1c534189a2b546d27cea77ad27d898d"
+    },
+    {
+      "id": "dse2025-q25-answer-middle2-size",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "middle2-size",
+      "score": 2,
+      "textSha256": "03622f2f1331f49b394b459b339fb513e63ac5a8d028460455fe7a8ee43db9ed"
+    },
+    {
+      "id": "dse2025-q25-answer-lower1-a",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "lower1-a",
+      "score": 1,
+      "textSha256": "138d94c9f0f2cbbe54c013455c510bec64fd25eb8f1b7d5b4a5f2eee878ff95e"
+    },
+    {
+      "id": "dse2025-q25-answer-lower1-b",
+      "file": "2025-mark4.pdf",
+      "page": 6,
+      "index": "lower1-b",
+      "score": 1,
+      "textSha256": "a9c0a57ed5cd810dea6b739920c46298421a5968ea34fa4a67ebdcf1d757fffb"
+    },
+    {
+      "id": "dse2025-q25-answer-zero7",
+      "file": "2025-mark4.pdf",
+      "page": 6,
+      "index": "zero7",
+      "score": 0,
+      "textSha256": "e5602dfcf1373176409f8ca9805d9918dec4a943c629fa0ba5d861b18e69126b"
+    },
+    {
+      "id": "dse2025-q25-answer-zero8",
+      "file": "2025-mark4.pdf",
+      "page": 6,
+      "index": "zero8",
+      "score": 0,
+      "textSha256": "02f3c3c2eb2a782bed8a0922102293a73fd763989757e15b87907b5fad81db5c"
+    },
+    {
+      "id": "dse2025-q26-answer-full4",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "full4",
+      "score": 4,
+      "textSha256": "4a19548a42f16b9ccfd008e8fa7a7577f90b809b0afb26c4f12ec8d4acabc2a5"
+    },
+    {
+      "id": "dse2025-q26-answer-middle3",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "middle3",
+      "score": 3,
+      "textSha256": "26762edc10fe871df56c2aedbffcc3e4f4e65088586d791e258bf1722dc71e60"
+    },
+    {
+      "id": "dse2025-q26-answer-middle2",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "middle2",
+      "score": 2,
+      "textSha256": "9dc1053b7b6d2747dc128742fb9c960e1c5742fd807acd7d17aeb5adbc662837"
+    },
+    {
+      "id": "dse2025-q26-answer-only-unren2",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "only-unren2",
+      "score": 2,
+      "textSha256": "ee867fc4c23353709d478bdd9d05966886120691fe146850a2938c28f0378db0"
+    },
+    {
+      "id": "dse2025-q26-answer-lower1",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "926747e3de93a4a0e8e19e22cbab08e5b4e8d8ce50dad9fd2d3f0e70eb5055bb"
+    },
+    {
+      "id": "dse2025-q26-answer-lower1-light",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "lower1-light",
+      "score": 1,
+      "textSha256": "9d5af46841a0a01c3429fc7a1ded771cc31d0c1df7eb9c4e1ff616fbdacd2f0b"
+    },
+    {
+      "id": "dse2025-q26-answer-labels1",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "labels1",
+      "score": 1,
+      "textSha256": "8dca622030678292956a69e732f2bf7f1cb62990cda446a47efebb246818fbfd"
+    },
+    {
+      "id": "dse2025-q26-answer-zero8",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "zero8",
+      "score": 0,
+      "textSha256": "1014dfa867385db09db41123534a2899ee56f270656d59d558af1851b933890c"
+    },
+    {
+      "id": "dse2025-q26-answer-supplement0",
+      "file": "2025-brief4.pdf",
+      "page": 55,
+      "index": "supplement0",
+      "score": 0,
+      "textSha256": "c74140a9bdcd475770cccdf34b2bff71f27d9e7501c5ff93170ac522c9f1b28f"
+    },
+    {
+      "id": "dse2025-q26-answer-sampleE4",
+      "file": "2025-brief4.pdf",
+      "page": 62,
+      "index": "sampleE4",
+      "score": 4,
+      "textSha256": "b3a713510fcd4ee431f4c6bf35d2d8635e4bc15fe775c4c667692c3dc375cab3"
     }
   ],
   "resources": {

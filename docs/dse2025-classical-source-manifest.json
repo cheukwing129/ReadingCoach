@@ -1,0 +1,384 @@
+{
+  "checkedAt": "2026-10-14",
+  "year": 2025,
+  "scope": "只新增乙部第三篇文言二則，原第21–26題15分；不加入甲部第1–8題指定閱讀篇章問答。",
+  "files": [
+    {
+      "file": "rm.pdf",
+      "id": "168yQcM2kxAqvFxOpUoqp4UOGVGuKSzu-",
+      "name": "2025DSE_中國語文_卷一閱讀_閱讀材料.pdf",
+      "bytes": 354724,
+      "sha256": "456a47d6fd4fef8d499b0bfbea62a0fd9ed82133acc7e2b813bf129bd8a6ed0c",
+      "pages": 4,
+      "textChars": 0
+    },
+    {
+      "file": "qab.pdf",
+      "id": "1N_GQ5LhgI5U5YPLIoUvJ09uSUCWFHoCs",
+      "name": "2025DSE_中國語文_卷一閱讀_試題答題簿.pdf",
+      "bytes": 519842,
+      "sha256": "b04454354735ef9741aabad9c15ee0eb93c70f5dc01f1629503245838b8a2d5b",
+      "pages": 11,
+      "textChars": 0
+    },
+    {
+      "file": "mark4.pdf",
+      "id": "1DjoEcfX1QfK3p3c_gBPqHRgNtH4Ew8bR",
+      "name": "2025 中國語文試卷一評卷參考 (第四組) (定稿).pdf",
+      "bytes": 636645,
+      "sha256": "831e194ca2a7e73828b0f77e6b9226f7dd20ffe8cfd7a9b5e2277fe665be5e11",
+      "pages": 9,
+      "textChars": 9251
+    },
+    {
+      "file": "brief4.pdf",
+      "id": "1acoB6GHziKdTvfnRezlIdHu0GoyPHyfE",
+      "name": "2025 中國語文試卷一  閱卷員會議 (第四組).pdf",
+      "bytes": 2435199,
+      "sha256": "2ee8cb7ae3509318ff04aced49dc7f585a7471d86bff87c89d7534717fc9c6b7",
+      "pages": 66,
+      "textChars": 6942
+    },
+    {
+      "file": "objective.pdf",
+      "id": "1onC3i8sNU3nlgujiP1xF8wFP9VLUtWe5",
+      "name": "2025 中國語文試卷一  MC 答案.pdf",
+      "bytes": 197821,
+      "sha256": "47ad879261287da5365753332d91eeb16f4496b6bf407e854e232c0abfa1f2f6",
+      "pages": 1,
+      "textChars": 216
+    },
+    {
+      "file": "rm.docx",
+      "id": "1n0wxuGcHsWSVdsFDKxfizuZczO4wY4Ch",
+      "name": "2025中國語文卷一閱讀能力考材_文字版.docx",
+      "bytes": 42397,
+      "sha256": "8cf63bf681dca353b509b5c93642d6339d0c23c419e0607fb638eba3b59e6be9",
+      "textChars": 3058
+    },
+    {
+      "file": "qab.docx",
+      "id": "1zYxyNyBwVj47IdYZD4bsXYqkPE91pVE-",
+      "name": "2025中國語文卷一試題答題簿_文字版.docx",
+      "bytes": 42018,
+      "sha256": "af71632bc8f8c4050f544263600e0398c0b977646cf549d2071451d8b577bd1c",
+      "textChars": 4149
+    },
+    {
+      "file": "analysis.pdf",
+      "id": "1PtYyuPzT1EIy4KogNhz_v8dRxrVTDSsL",
+      "name": "2025 中國語文試卷一 (評分須知及考材分析).pdf",
+      "bytes": 222977,
+      "sha256": "5a091f1b7e98a9f8f3696ffbc9d8672572f47d94e21bc1cb8dc0afca8fbae53f",
+      "pages": 15,
+      "textChars": 2020
+    }
+  ],
+  "sourcePages": {
+    "rm": [
+      4
+    ],
+    "qab": {
+      "q21-q24": [
+        10
+      ],
+      "q25-q26": [
+        11
+      ]
+    },
+    "mark4": {
+      "q25": [
+        4,
+        5,
+        6
+      ],
+      "q26": [
+        7,
+        8,
+        9
+      ]
+    },
+    "brief4": {
+      "q25": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "q26": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        55,
+        62
+      ]
+    },
+    "objective": [
+      1
+    ],
+    "analysis": [
+      13,
+      14,
+      15
+    ]
+  },
+  "objectiveAnswers": {
+    "q21": "C",
+    "q22": "D",
+    "q23": "C",
+    "q24": "B"
+  },
+  "numberingConvention": "原文以第一則、第二則標示，不新增原段號；內部定位用1、2，畫面與提示使用原則名。保留原卷導言、書名作者及兩項原註釋。",
+  "transcriptionCorrections": {
+    "rm": [
+      "張巡、許遠謂→張巡、許遠謀",
+      "且我眾既羸→且我眾飢羸",
+      "密邇藩帥→密邇羣帥",
+      "故君當謂→故予嘗謂",
+      "是以塞→足以塞",
+      "公論亦多如此→公論亦多尤之",
+      "李翰雖曲為辯說→李翰輩曲為辯說",
+      "託能服人之心→詎能服人之心",
+      "原註第二項殉國後為句號，保留原導言與兩則標示。"
+    ],
+    "qab": [
+      "第21題依原圖恢復第一則記賊人圍城，不採文字稿改寫的記述安史之亂時。",
+      "第22題恢復以下第一則的引文；第23題原句足以塞並依原題省略文字稿增添的逗號。"
+    ]
+  },
+  "gradingRules": {
+    "q25": "只就事情大小說明，未明確回應天下只有一個是／公私採同一判準，最高2分，依簡報第18–19頁。",
+    "q26": "只論不仁或理解功過相當最高2分；只肯定忠而欠不仁評價0分；忠而不仁標籤準確但欠分析原例1分。"
+  },
+  "versionResolutions": [
+    {
+      "question": 26,
+      "example": "第8例",
+      "finalFile": "mark4.pdf",
+      "finalPage": 9,
+      "score": 0,
+      "conflictingFile": "brief4.pdf",
+      "conflictingPage": 52,
+      "displayedScore": 1,
+      "resolution": "按第四組定稿不入品0分及核心理解錯誤說明，保留該例0分，不將簡報標題1分當作定稿答案。"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2025-q25-answer-full3-a",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "full3-a",
+      "score": 3,
+      "textSha256": "dbf8491dc0f805c4d42e7ad811e89d80f19cec07ebf53e0a1f796e010208e9fe"
+    },
+    {
+      "id": "dse2025-q25-answer-full3-b",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "full3-b",
+      "score": 3,
+      "textSha256": "a196995f3dffc4a420ff6c6d3b771e0a4f369b799f95460e4b06e0b8b76bff49"
+    },
+    {
+      "id": "dse2025-q25-answer-middle2-a",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "middle2-a",
+      "score": 2,
+      "textSha256": "03b388589c2e4c7077aadb55b09dc040d1c534189a2b546d27cea77ad27d898d"
+    },
+    {
+      "id": "dse2025-q25-answer-middle2-size",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "middle2-size",
+      "score": 2,
+      "textSha256": "03622f2f1331f49b394b459b339fb513e63ac5a8d028460455fe7a8ee43db9ed"
+    },
+    {
+      "id": "dse2025-q25-answer-lower1-a",
+      "file": "2025-mark4.pdf",
+      "page": 5,
+      "index": "lower1-a",
+      "score": 1,
+      "textSha256": "138d94c9f0f2cbbe54c013455c510bec64fd25eb8f1b7d5b4a5f2eee878ff95e"
+    },
+    {
+      "id": "dse2025-q25-answer-lower1-b",
+      "file": "2025-mark4.pdf",
+      "page": 6,
+      "index": "lower1-b",
+      "score": 1,
+      "textSha256": "a9c0a57ed5cd810dea6b739920c46298421a5968ea34fa4a67ebdcf1d757fffb"
+    },
+    {
+      "id": "dse2025-q25-answer-zero7",
+      "file": "2025-mark4.pdf",
+      "page": 6,
+      "index": "zero7",
+      "score": 0,
+      "textSha256": "e5602dfcf1373176409f8ca9805d9918dec4a943c629fa0ba5d861b18e69126b"
+    },
+    {
+      "id": "dse2025-q25-answer-zero8",
+      "file": "2025-mark4.pdf",
+      "page": 6,
+      "index": "zero8",
+      "score": 0,
+      "textSha256": "02f3c3c2eb2a782bed8a0922102293a73fd763989757e15b87907b5fad81db5c"
+    },
+    {
+      "id": "dse2025-q26-answer-full4",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "full4",
+      "score": 4,
+      "textSha256": "4a19548a42f16b9ccfd008e8fa7a7577f90b809b0afb26c4f12ec8d4acabc2a5"
+    },
+    {
+      "id": "dse2025-q26-answer-middle3",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "middle3",
+      "score": 3,
+      "textSha256": "26762edc10fe871df56c2aedbffcc3e4f4e65088586d791e258bf1722dc71e60"
+    },
+    {
+      "id": "dse2025-q26-answer-middle2",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "middle2",
+      "score": 2,
+      "textSha256": "9dc1053b7b6d2747dc128742fb9c960e1c5742fd807acd7d17aeb5adbc662837"
+    },
+    {
+      "id": "dse2025-q26-answer-only-unren2",
+      "file": "2025-mark4.pdf",
+      "page": 8,
+      "index": "only-unren2",
+      "score": 2,
+      "textSha256": "ee867fc4c23353709d478bdd9d05966886120691fe146850a2938c28f0378db0"
+    },
+    {
+      "id": "dse2025-q26-answer-lower1",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "lower1",
+      "score": 1,
+      "textSha256": "926747e3de93a4a0e8e19e22cbab08e5b4e8d8ce50dad9fd2d3f0e70eb5055bb"
+    },
+    {
+      "id": "dse2025-q26-answer-lower1-light",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "lower1-light",
+      "score": 1,
+      "textSha256": "9d5af46841a0a01c3429fc7a1ded771cc31d0c1df7eb9c4e1ff616fbdacd2f0b"
+    },
+    {
+      "id": "dse2025-q26-answer-labels1",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "labels1",
+      "score": 1,
+      "textSha256": "8dca622030678292956a69e732f2bf7f1cb62990cda446a47efebb246818fbfd"
+    },
+    {
+      "id": "dse2025-q26-answer-zero8",
+      "file": "2025-mark4.pdf",
+      "page": 9,
+      "index": "zero8",
+      "score": 0,
+      "textSha256": "1014dfa867385db09db41123534a2899ee56f270656d59d558af1851b933890c"
+    },
+    {
+      "id": "dse2025-q26-answer-supplement0",
+      "file": "2025-brief4.pdf",
+      "page": 55,
+      "index": "supplement0",
+      "score": 0,
+      "textSha256": "c74140a9bdcd475770cccdf34b2bff71f27d9e7501c5ff93170ac522c9f1b28f"
+    },
+    {
+      "id": "dse2025-q26-answer-sampleE4",
+      "file": "2025-brief4.pdf",
+      "page": 62,
+      "index": "sampleE4",
+      "score": 4,
+      "textSha256": "b3a713510fcd4ee431f4c6bf35d2d8635e4bc15fe775c4c667692c3dc375cab3"
+    }
+  ],
+  "teachingSupport": "原註釋及詞解入口一直提供；新增白話語譯和字詞只在逐則分析開啟後提供。語譯只展開語譯，新增詞解由原文高亮字詞彈出；不為自由長答製造自動語意分數。",
+  "paragraphHashes": {
+    "dse2025-classical": [
+      {
+        "number": 1,
+        "textSha256": "ee5a7cc6a2ae3eb6d5bae255d268aab04cf9b58898ec32ae60e6ee427f5aa20e"
+      },
+      {
+        "number": 2,
+        "textSha256": "3ef78a26f7772d7d7b44d4e4b94008b7a72a3ed2b90771ab16e0634a494ed128"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2025-q21",
+      "promptSha256": "b90ef50786326f744830d03d25651944d45173fbdfeccc1fcc7230b886e7856f",
+      "quoteSha256": "8e943728a2728c5092986143f7f0dcbd575e0285812038dc265dda60ad8de5f0",
+      "marks": 2
+    },
+    {
+      "id": "dse2025-q22",
+      "promptSha256": "36640ff5edf847465d87243685d2bfa17941c3f8cfff86606fe4d65d173460c5",
+      "quoteSha256": "2871fc359a9b8f86cda362f83f1ae5acb8c035f0b2ea0353a5c590bbe49037e1",
+      "marks": 2
+    },
+    {
+      "id": "dse2025-q23",
+      "promptSha256": "c45f722889c70c2934134b5bbd4b799d7f4c095ede64ae27efecbf1dcf5083c8",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 2
+    },
+    {
+      "id": "dse2025-q24",
+      "promptSha256": "822f8cb844bcdba4b89bc1eb4c799cc8e6cd67ccbd9f26bcabbfecd68f0a9ad0",
+      "quoteSha256": "00f933f90031f5dbc69000aad503a544c75d5cb9fddea0afd69931ad5b56b24b",
+      "marks": 2
+    },
+    {
+      "id": "dse2025-q25",
+      "promptSha256": "074607324b74d54159ef8b9344e14c2d7ffc3f5837c84340eb77ad7832e1c4d0",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 3
+    },
+    {
+      "id": "dse2025-q26",
+      "promptSha256": "6fea99982a8663c9972c73a54d42adb728f73ec74b42bebda211acac57ff6bd0",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "marks": 4
+    }
+  ]
+}
