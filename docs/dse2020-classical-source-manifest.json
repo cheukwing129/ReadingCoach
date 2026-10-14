@@ -1,0 +1,364 @@
+{
+  "year": 2020,
+  "scope": "乙部第二篇方孝孺《試筆說》，原第18–23題，不含甲部指定課文問答",
+  "verifiedAt": "2026-10-14",
+  "paragraphs": 1,
+  "questions": 6,
+  "marks": 18,
+  "sourceFiles": [
+    {
+      "file": "rm.pdf",
+      "fileId": "1_K2buttnlIxzFNZWDB4QXI1Z4RDRoiAQ",
+      "sha256": "431e5a4c2d54df928b9fec58cd2eb1c4499c6c474c8e75c859d85ec56e2a7999"
+    },
+    {
+      "file": "qab.pdf",
+      "fileId": "1qjWUBt-WVLtWooWy_MrGeJDfjPrZ8Poo",
+      "sha256": "7688fdc377475aa7d0d6dd51debd1faca4d35d4013367d42ba8c1700785fffa0"
+    },
+    {
+      "file": "mark3.pdf",
+      "fileId": "1M2LBiIe_N21E_m4JNj1Zx8wfuSpOSSGS",
+      "sha256": "fc2da5e4200a05bcfe545f9cb47dbe9a18048dc405e9e754818466a89902a71f"
+    },
+    {
+      "file": "objective.pdf",
+      "fileId": "1rV5JAsiclKADHy9CoRF02mvSAEn29OIZ",
+      "sha256": "a2155faacc47da56bb56acc1a34df9e0db053faa1a27818c3c587d4a32d53569"
+    },
+    {
+      "file": "rmtxt.txt",
+      "fileId": "1C4nqCNxlYftza-XWePHh_n2A-CviA7E2",
+      "sha256": "fd6f55d5bb1ccb9a926228f0de8282ad0aec67e2fe9cae92c12189f896d39009"
+    },
+    {
+      "file": "qabtxt.txt",
+      "fileId": "136vFxUKfPtqlZDUURlQ0WcBuEX7NFMNU",
+      "sha256": "94092aa81276bc14b6df74c546a02448811e35998ab3ed3ef831c94d2f1da360"
+    },
+    {
+      "file": "brief.pdf",
+      "fileId": "1-59_siZXbgl23qo88EEdtALEYg_Nu9Hi",
+      "sha256": "76530d1fdd43cb3f53adf3a93b031376e64dcaefbd88040ffb634016d7776ae3"
+    }
+  ],
+  "rm": {
+    "fileId": "1_K2buttnlIxzFNZWDB4QXI1Z4RDRoiAQ",
+    "pages": [
+      4
+    ],
+    "transcriptionFileId": "1C4nqCNxlYftza-XWePHh_n2A-CviA7E2",
+    "layout": "原文一段、沒有段號；保留第二篇、署名、遺與滌而藏之的之兩處粗體；沒有原卷注釋。",
+    "corrections": [
+      "末句吾之疑邪！依原RM放大影像保留感嘆號，不採轉錄稿問號。"
+    ]
+  },
+  "qab": {
+    "fileId": "1qjWUBt-WVLtWooWy_MrGeJDfjPrZ8Poo",
+    "pages": [
+      10,
+      11
+    ],
+    "transcriptionFileId": "136vFxUKfPtqlZDUURlQ0WcBuEX7NFMNU",
+    "layout": "第19題保留原三欄兩行及已填資料；題目區不重複列分題。"
+  },
+  "marking": [
+    {
+      "fileId": "1M2LBiIe_N21E_m4JNj1Zx8wfuSpOSSGS",
+      "file": "2020-classical-mark3-final",
+      "pages": [
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "questions": [
+        18,
+        19,
+        21,
+        22
+      ]
+    },
+    {
+      "fileId": "1rV5JAsiclKADHy9CoRF02mvSAEn29OIZ",
+      "role": "原客觀題答案",
+      "keys": {
+        "20": "A",
+        "23": "C"
+      }
+    },
+    {
+      "fileId": "1-59_siZXbgl23qo88EEdtALEYg_Nu9Hi",
+      "file": "2020-teacher-briefing",
+      "pages": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ],
+      "role": "第18–23題教師會議補核，特別第93頁確認若指你、自修待用而非待人如己。"
+    }
+  ],
+  "shortAnswers": {
+    "q18": {
+      "file": "mark3.pdf",
+      "page": 6,
+      "rule": "每分題最多扣一個錯字；客人留下的筆不重複扣(i)已處理的留下；斜線列舉按完整詞句展開。"
+    },
+    "q19": {
+      "file": "mark3.pdf",
+      "page": 7,
+      "rule": "如新的一樣1，用很久0，新穎／完整相應1或0；只紀錄瑣事亦可2；不誤加字數限制。"
+    }
+  },
+  "longExemplars": [
+    {
+      "id": "dse2020-q21-answer-finala",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "a",
+      "score": 2,
+      "textSha256": "8d9b0f351546a723b7856cb86bb4ddc27d9ee4a74e394eef7f93700a765003d7"
+    },
+    {
+      "id": "dse2020-q21-answer-finalb",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "b",
+      "score": 2,
+      "textSha256": "fce42673061cfd3cf68319bfacd1a35309b4d2593a7617e4f093f870aa6284d6"
+    },
+    {
+      "id": "dse2020-q21-answer-finalc",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "c",
+      "score": 2,
+      "textSha256": "78d9f6a0f76452ecfa2d2afd03573a92f255ec89a980b9daa7dc02a32830c72b"
+    },
+    {
+      "id": "dse2020-q21-answer-finald",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "d",
+      "score": 1,
+      "textSha256": "3f1818351b717b6ebec961925ea93893a55d6b742d098f93816bd1a809d06b25"
+    },
+    {
+      "id": "dse2020-q21-answer-finale",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "e",
+      "score": 1,
+      "textSha256": "3f8fade19e768518b572fd1a05a6cb9bb18d2459a00f2b1a4e7fddf7b6fb6e68"
+    },
+    {
+      "id": "dse2020-q21-answer-finalf",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "f",
+      "score": 0,
+      "textSha256": "a3f0fac6978c0e368afdad8c0ae6b101d8bb325043a5387ae2c5f51f11869584"
+    },
+    {
+      "id": "dse2020-q21-answer-finalg",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "g",
+      "score": 0,
+      "textSha256": "71fa65d80dea339feb35f9f9df74b8835d44182539f3f4ae7daf3adda1b61fff"
+    },
+    {
+      "id": "dse2020-q21-answer-finalh",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "h",
+      "score": 0,
+      "textSha256": "57182e145e5e75c017467d14a48240821659b8994f94efd1c3ff1d02555c96d0"
+    },
+    {
+      "id": "dse2020-q21-answer-finali",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "i",
+      "score": 0,
+      "textSha256": "2ef04dac31af59b6c4198cff23d6cc066ad252a7ef0eea900493da6de1957067"
+    },
+    {
+      "id": "dse2020-q21-answer-finalj",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "j",
+      "score": 0,
+      "textSha256": "b5f9253c5502e066957712502924ae5257e9596396e67081e645d49cf0bf890f"
+    },
+    {
+      "id": "dse2020-q22-answer-finala",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "a",
+      "score": 4,
+      "textSha256": "b287301ec48d7f0c285262e51cc88ef7a6c82e41c5466930364df0d80b9a6ff8"
+    },
+    {
+      "id": "dse2020-q22-answer-finalb",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "b",
+      "score": 4,
+      "textSha256": "72d1adfdeba3d82ab839bfbdc3026f77440d52762521f20afba6799b4e3695e8"
+    },
+    {
+      "id": "dse2020-q22-answer-finalc",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "c",
+      "score": 3,
+      "textSha256": "c491db35d31a800062c6ac62e7d237c4fb91a9f2cb5c2ddfc5108df02a7e454d"
+    },
+    {
+      "id": "dse2020-q22-answer-finald",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "d",
+      "score": 3,
+      "textSha256": "eabc1dcf50ea7147e849c7e565da22e598abb3745990038c9fc5d3c665ad47d6"
+    },
+    {
+      "id": "dse2020-q22-answer-finale",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "e",
+      "score": 2,
+      "textSha256": "52c5433714d21599b25102384a760d9e2f77ffc6313231339d03b74e811ffcd6"
+    },
+    {
+      "id": "dse2020-q22-answer-finalf",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "f",
+      "score": 2,
+      "textSha256": "2679c77228e8e6bf4356909ded5888e014f5d0656c13251911d2d8f9358b52c7"
+    },
+    {
+      "id": "dse2020-q22-answer-finalg",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "g",
+      "score": 1,
+      "textSha256": "eb14ae91ab36fd88f88f459236fe68bfd111387d5c3f6a9847ef49d15f9ccda5"
+    },
+    {
+      "id": "dse2020-q22-answer-finalh",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "h",
+      "score": 1,
+      "textSha256": "c95531f57c3bdc3790e9d5c278b38e557d3f42a03d6d3e81f1e8f33ce9fb0a38"
+    },
+    {
+      "id": "dse2020-q22-answer-finali",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "i",
+      "score": 1,
+      "textSha256": "db3cbbd3cb2ad0929e24f831d514c1a5bf6c39b15e37f6e3ff0343b2697c060a"
+    },
+    {
+      "id": "dse2020-q22-answer-finalj",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "j",
+      "score": 0,
+      "textSha256": "ff3003c28e51afb5d867550069d202b3e2fa9b600067cdcd51aaf3bf25e62db0"
+    },
+    {
+      "id": "dse2020-q22-answer-finalk",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "k",
+      "score": 0,
+      "textSha256": "7b85d75fc1614496f6d678fe9a9277a57c8e04b161847c1eaf80e9189425771f"
+    },
+    {
+      "id": "dse2020-q22-answer-finall",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "l",
+      "score": 0,
+      "textSha256": "23c102401fe5c059c9dd3441e53983fdaee65206a34c4133964a94fad7572b59"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2020-classical": [
+      {
+        "number": 1,
+        "textSha256": "e99b7cec6824f54cd8beae27fd4cf83876c11b5a96e195be42be415d810b12fc"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2020-q18",
+      "promptSha256": "b3084fd33ab146659a18fb615891647e0ba76b75bb41cc66d641b32b0ee9bd28",
+      "quoteSha256": "e1baca6221c97dd09586102a66ce7e4509fce373d1e78002e85fc1df0e7254ff"
+    },
+    {
+      "id": "dse2020-q19",
+      "promptSha256": "0052dde8bf16ada2a8fce5a6fd143c38ddb34b77dfc491e6abde5fe48f973134",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2020-q20",
+      "promptSha256": "6591224d303026ce9a3734446d42029962873f69f2e7a2aa3df40405c597e377",
+      "quoteSha256": "cd2104f130d4a31b093cf1a5fca42accd46a7e9a43469a4a48f0515bf356e899"
+    },
+    {
+      "id": "dse2020-q21",
+      "promptSha256": "b6eb7332222abf9b98112f20c4d1f91d3d50c30319cca73f463718a61840ea4b",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2020-q22",
+      "promptSha256": "22fbe85ca8a83231ae8315cad415b3a1f2d378069506bf2ac35fdf98143816f6",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2020-q23",
+      "promptSha256": "507c02e6f39cdb578eea905a238c215f3ed5e1541ef9d39047da72200b039381",
+      "quoteSha256": "a8bd5621f5bc43b5b3c33ea5fb2de458b7e1cd76d823cd346e8d923797b31b90"
+    }
+  ],
+  "readingSupportChecks": [
+    {
+      "term": "若姑修其可任者",
+      "file": "brief.pdf",
+      "page": 93,
+      "meaning": "你姑且努力做好自己能勝任的工作，等待別人任用自己。"
+    },
+    {
+      "term": "洎文辭",
+      "file": "qab.pdf",
+      "page": 10,
+      "meaning": "原第19題已填欄明列替文章潤色，詞解與語譯按該使用情境。"
+    }
+  ]
+}

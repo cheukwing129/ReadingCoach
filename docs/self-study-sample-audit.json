@@ -4173,6 +4173,182 @@
       "index": 20,
       "score": 0,
       "textSha256": "9a53d37790fad35b59d1696f974d19ca231e90789d611870a41e500b15d29cd3"
+    },
+    {
+      "id": "dse2020-q21-answer-finala",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "a",
+      "score": 2,
+      "textSha256": "8d9b0f351546a723b7856cb86bb4ddc27d9ee4a74e394eef7f93700a765003d7"
+    },
+    {
+      "id": "dse2020-q21-answer-finalb",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "b",
+      "score": 2,
+      "textSha256": "fce42673061cfd3cf68319bfacd1a35309b4d2593a7617e4f093f870aa6284d6"
+    },
+    {
+      "id": "dse2020-q21-answer-finalc",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "c",
+      "score": 2,
+      "textSha256": "78d9f6a0f76452ecfa2d2afd03573a92f255ec89a980b9daa7dc02a32830c72b"
+    },
+    {
+      "id": "dse2020-q21-answer-finald",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "d",
+      "score": 1,
+      "textSha256": "3f1818351b717b6ebec961925ea93893a55d6b742d098f93816bd1a809d06b25"
+    },
+    {
+      "id": "dse2020-q21-answer-finale",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "e",
+      "score": 1,
+      "textSha256": "3f8fade19e768518b572fd1a05a6cb9bb18d2459a00f2b1a4e7fddf7b6fb6e68"
+    },
+    {
+      "id": "dse2020-q21-answer-finalf",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "f",
+      "score": 0,
+      "textSha256": "a3f0fac6978c0e368afdad8c0ae6b101d8bb325043a5387ae2c5f51f11869584"
+    },
+    {
+      "id": "dse2020-q21-answer-finalg",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "g",
+      "score": 0,
+      "textSha256": "71fa65d80dea339feb35f9f9df74b8835d44182539f3f4ae7daf3adda1b61fff"
+    },
+    {
+      "id": "dse2020-q21-answer-finalh",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "h",
+      "score": 0,
+      "textSha256": "57182e145e5e75c017467d14a48240821659b8994f94efd1c3ff1d02555c96d0"
+    },
+    {
+      "id": "dse2020-q21-answer-finali",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "i",
+      "score": 0,
+      "textSha256": "2ef04dac31af59b6c4198cff23d6cc066ad252a7ef0eea900493da6de1957067"
+    },
+    {
+      "id": "dse2020-q21-answer-finalj",
+      "file": "2020-classical-mark3-final",
+      "page": 8,
+      "index": "j",
+      "score": 0,
+      "textSha256": "b5f9253c5502e066957712502924ae5257e9596396e67081e645d49cf0bf890f"
+    },
+    {
+      "id": "dse2020-q22-answer-finala",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "a",
+      "score": 4,
+      "textSha256": "b287301ec48d7f0c285262e51cc88ef7a6c82e41c5466930364df0d80b9a6ff8"
+    },
+    {
+      "id": "dse2020-q22-answer-finalb",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "b",
+      "score": 4,
+      "textSha256": "72d1adfdeba3d82ab839bfbdc3026f77440d52762521f20afba6799b4e3695e8"
+    },
+    {
+      "id": "dse2020-q22-answer-finalc",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "c",
+      "score": 3,
+      "textSha256": "c491db35d31a800062c6ac62e7d237c4fb91a9f2cb5c2ddfc5108df02a7e454d"
+    },
+    {
+      "id": "dse2020-q22-answer-finald",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "d",
+      "score": 3,
+      "textSha256": "eabc1dcf50ea7147e849c7e565da22e598abb3745990038c9fc5d3c665ad47d6"
+    },
+    {
+      "id": "dse2020-q22-answer-finale",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "e",
+      "score": 2,
+      "textSha256": "52c5433714d21599b25102384a760d9e2f77ffc6313231339d03b74e811ffcd6"
+    },
+    {
+      "id": "dse2020-q22-answer-finalf",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "f",
+      "score": 2,
+      "textSha256": "2679c77228e8e6bf4356909ded5888e014f5d0656c13251911d2d8f9358b52c7"
+    },
+    {
+      "id": "dse2020-q22-answer-finalg",
+      "file": "2020-classical-mark3-final",
+      "page": 10,
+      "index": "g",
+      "score": 1,
+      "textSha256": "eb14ae91ab36fd88f88f459236fe68bfd111387d5c3f6a9847ef49d15f9ccda5"
+    },
+    {
+      "id": "dse2020-q22-answer-finalh",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "h",
+      "score": 1,
+      "textSha256": "c95531f57c3bdc3790e9d5c278b38e557d3f42a03d6d3e81f1e8f33ce9fb0a38"
+    },
+    {
+      "id": "dse2020-q22-answer-finali",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "i",
+      "score": 1,
+      "textSha256": "db3cbbd3cb2ad0929e24f831d514c1a5bf6c39b15e37f6e3ff0343b2697c060a"
+    },
+    {
+      "id": "dse2020-q22-answer-finalj",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "j",
+      "score": 0,
+      "textSha256": "ff3003c28e51afb5d867550069d202b3e2fa9b600067cdcd51aaf3bf25e62db0"
+    },
+    {
+      "id": "dse2020-q22-answer-finalk",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "k",
+      "score": 0,
+      "textSha256": "7b85d75fc1614496f6d678fe9a9277a57c8e04b161847c1eaf80e9189425771f"
+    },
+    {
+      "id": "dse2020-q22-answer-finall",
+      "file": "2020-classical-mark3-final",
+      "page": 11,
+      "index": "l",
+      "score": 0,
+      "textSha256": "23c102401fe5c059c9dd3441e53983fdaee65206a34c4133964a94fad7572b59"
     }
   ],
   "resources": {
