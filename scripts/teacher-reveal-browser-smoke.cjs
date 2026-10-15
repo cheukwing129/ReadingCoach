@@ -23,7 +23,11 @@ const root=path.resolve(__dirname,'..');
   };
   const grade=async(page,id='dse2024-q11')=>{
    await page.goto(origin+'#lesson/'+id);await page.locator('.question-prompt').waitFor();await page.locator('.stepper [data-step="0"]').click();
-   const type=await page.evaluate(id=>SelfStudyData.questions.find(q=>q.id===id).lesson.type,id);await page.locator('[data-type="'+type+'"]').click();await page.locator('.learning-stage [data-step="1"]').click();await page.locator('.learning-stage [data-step="2"]').first().click();await page.locator('#reveal-button').waitFor();
+   const type=await page.evaluate(id=>SelfStudyData.questions.find(q=>q.id===id).lesson.type,id);
+   const order=await page.locator('[data-type]').evaluateAll(bs=>bs.map(b=>b.dataset.type));
+   assert.deepEqual(order,await page.evaluate(id=>SelfStudyCore.typeChoices(SelfStudyData.questions.find(q=>q.id===id)),id));
+   await page.locator('[data-type="'+order.find(t=>t!==type)+'"]').click();assert.deepEqual(await page.locator('[data-type]').evaluateAll(bs=>bs.map(b=>b.dataset.type)),order);
+   await page.locator('[data-type="'+type+'"]').click();await page.reload();await page.locator('[data-type]').first().waitFor();assert.deepEqual(await page.locator('[data-type]').evaluateAll(bs=>bs.map(b=>b.dataset.type)),order);assert.equal(await page.locator('[data-type="'+type+'"]').getAttribute('aria-pressed'),'true');await page.locator('.learning-stage [data-step="1"]').click();await page.locator('.learning-stage [data-step="2"]').first().click();await page.locator('#reveal-button').waitFor();
   };
   // Ordinary year access still requires every example, including the click-handler guard.
   const student=await login('student-test-year');assert.equal(await student.evaluate(()=>ReadingCoachYearAccess.isTeacher()),false);await grade(student);

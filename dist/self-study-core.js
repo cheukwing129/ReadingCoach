@@ -27,6 +27,17 @@ function updateQuestionAnswer(state,q,key,value,questions){
  }
 }
 function fingerprint(q,key,text){let h=2166136261;for(const c of q+'|'+key+'|'+normalize(text)){h^=c.codePointAt(0);h=Math.imul(h,16777619);}return(h>>>0).toString(16);}
+function typeChoices(q){
+ const choices=[...q.lesson.choices];
+ // Seed each question independently so rerenders and reloads keep its order.
+ let seed=parseInt(fingerprint(q.id,'type-choices','v1'),16);
+ for(let i=choices.length-1;i>0;i--){
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;
+  const j=Math.floor(seed/4294967296*(i+1));
+  [choices[i],choices[j]]=[choices[j],choices[i]];
+ }
+ return choices;
+}
 function shortPool(q,p){
  const o=q.official.find(x=>x.key===p.key),pool=[];let i=0;
  const add=(text,score,analysis)=>{if(!normalize(text)||pool.some(x=>normalize(x.text)===normalize(text)))return;pool.push({id:q.id+'-'+p.key+'-short'+(++i),text,score,analysis,improvement:''});};
@@ -187,5 +198,5 @@ function questionParagraphs(q,article){
  return(q.lesson?.locate||[]).filter(n=>valid.has(n)).slice(0,1);
 }
 function canComplete(d){return d.revealed===true;}
-return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,updateQuestionAnswer,fingerprint,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
+return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,updateQuestionAnswer,fingerprint,typeChoices,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
 });

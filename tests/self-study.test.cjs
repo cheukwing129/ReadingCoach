@@ -170,3 +170,17 @@ test('2020 comparative exemplars show both valid four-mark stances and preserve 
  assert.match(q('dse2020-q16').official[0].criteria.join(''),/最高2分/);assert.match(q('dse2020-q16').official[0].criteria.join(''),/不按「是／否」單獨給分/);
  const twelve=q('dse2020-q12');for(const [key,text,score]of [['i','原來現世關於父親的紀念日只剩兩個。',0],['i','為不再拜祭父親而愧疚。',0],['ii','自責。',1],['ii','為父親骨灰無法送回鄉而感疑惑。',0]])assert.equal(C.pool(twelve,twelve.answerParts.find(p=>p.key===key),S).find(s=>s.text===text).score,score);
 });
+
+test('classification options vary the correct position while staying stable and preserving source choices',()=>{
+ const positions={};
+ for(const question of D.questions){
+  const original=[...question.lesson.choices],order=C.typeChoices(question);
+  assert.deepEqual([...order].sort(),[...original].sort(),question.id);
+  assert.deepEqual(C.typeChoices(question),order,question.id+' stable order');
+  assert.deepEqual(question.lesson.choices,original,question.id+' source unchanged');
+  const position=order.indexOf(question.lesson.type);positions[position]=(positions[position]||0)+1;
+ }
+ assert.ok(Object.keys(positions).length>=4);
+ assert.ok(positions[0]<D.questions.length/2,'the first choice must not reveal the answer');
+ for(const count of Object.values(positions))assert.ok(count<D.questions.length/2,'no dominant answer position');
+});
