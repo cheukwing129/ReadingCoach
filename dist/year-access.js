@@ -15,9 +15,10 @@
     }catch{return emptyState();}
   }
   let state=restore();
+  function isTeacher(){return Boolean(config.teacher&&state.teacherHash===config.teacher);}
   function isUnlocked(year){
     const key=String(Number(year));
-    return Boolean((config.teacher&&state.teacherHash===config.teacher)||(config.years[key]&&state.years[key]===config.years[key]));
+    return Boolean(isTeacher()||(config.years[key]&&state.years[key]===config.years[key]));
   }
   async function hashPassword(password){
     if(!window.crypto?.subtle||typeof TextEncoder==='undefined')throw new Error('Secure password hashing is unavailable.');
@@ -33,5 +34,5 @@
     state={...state,version:1,years:{...state.years,[key]:config.years[key]}};
     return{ok:true,teacher:false,remembered:remember()};
   }
-  window.ReadingCoachYearAccess=Object.freeze({isUnlocked,unlock,storageKey});
+  window.ReadingCoachYearAccess=Object.freeze({isTeacher,isUnlocked,unlock,storageKey});
 })();

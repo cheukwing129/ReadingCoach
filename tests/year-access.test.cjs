@@ -27,8 +27,10 @@ test('year defaults cover 2012 through 2030 and year unlock persists only in thi
 
   const config={years:{2023:digest('test-year-2023'),2024:digest('test-year-2024')},teacher:defaults.config.teacher};
   const first=loadAccess(config);
+  assert.equal(first.access.isTeacher(),false);
   const result=await first.access.unlock(2024,'test-year-2024');
   assert.deepEqual({...result},{ok:true,teacher:false,remembered:true});
+  assert.equal(first.access.isTeacher(),false);
   assert.equal(first.access.isUnlocked(2024),true);assert.equal(first.access.isUnlocked(2023),false);
   const restored=loadAccess(config,first.store);
   assert.equal(restored.access.isUnlocked(2024),true);assert.equal(restored.access.isUnlocked(2023),false);
@@ -40,13 +42,20 @@ test('year defaults cover 2012 through 2030 and year unlock persists only in thi
 test('teacher hash unlocks every year; unavailable storage still grants the current session',async()=>{
   const config={years:{2024:digest('year-test')},teacher:digest('staff-test')};
   const staff=loadAccess(config);
+  assert.equal(staff.access.isTeacher(),false);
   const result=await staff.access.unlock(2024,'staff-test');
   assert.deepEqual({...result},{ok:true,teacher:true,remembered:true});
+  assert.equal(staff.access.isTeacher(),true);
+  assert.equal(loadAccess(config,staff.store).access.isTeacher(),true);
+  assert.equal(loadAccess({years:config.years,teacher:digest('new-staff-pass')},staff.store).access.isTeacher(),false);
   assert.equal(staff.access.isUnlocked(2020),true);assert.equal(staff.access.isUnlocked(2026),true);
   assert.equal(loadAccess({years:config.years,teacher:digest('new-staff-pass')},staff.store).access.isUnlocked(2024),false);
   const temporary=loadAccess(config,new Map(),true);
   const sessionResult=await temporary.access.unlock(2024,'year-test');
   assert.equal(sessionResult.remembered,false);assert.equal(temporary.access.isUnlocked(2024),true);
+  assert.equal(temporary.access.isTeacher(),false);
+  await temporary.access.unlock(2024,'staff-test');assert.equal(temporary.access.isTeacher(),true);
+  assert.equal(loadAccess(config,temporary.store).access.isTeacher(),false);
 });
 
 test('both public entries load the hash config before the access guard and protect direct article routes',()=>{

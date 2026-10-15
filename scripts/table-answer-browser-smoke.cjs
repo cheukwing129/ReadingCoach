@@ -59,7 +59,7 @@ fs.mkdirSync(out,{recursive:true});
   for(const select of await page.locator('[data-grade]').all())await select.selectOption('0');
   await page.locator('[data-action="reveal"]').click();assert.equal(await page.locator('[data-own-part]').count(),2);
   await page.locator('.stepper [data-step="1"]').click();await page.locator('[data-answer="ii"]').fill('修改後的答案');
-  await page.locator('.learning-stage [data-step="2"]').first().click();assert.equal(await page.locator('#reveal-button').isDisabled(),true);assert.equal(await page.locator('.score-badge').count(),0);
+  await page.locator('.learning-stage [data-step="2"]').first().click();assert.equal(await page.locator('#reveal-button').isDisabled(),await page.evaluate(()=>!ReadingCoachYearAccess.isTeacher()));assert.equal(await page.locator('.score-badge').count(),0);
   for(const width of [390,1440]){
    await page.setViewportSize({width,height:1000});await start(questions.find(q=>q.id==='dse2024-q11'));
    await page.locator('.answer-table').scrollIntoViewIfNeeded();await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));await page.screenshot({path:out+'/table-answer-'+width+'.png'});
