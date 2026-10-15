@@ -1,14 +1,14 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2014-classical-data','dse2015-data','dse2015-classical-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2013-classical-data','dse2014-data','dse2014-classical-data','dse2015-data','dse2015-classical-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2013-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
-const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2013-source-manifest.json'))),articles=D.articles.filter(a=>a.year===2013);
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2013-source-manifest.json'))),articles=D.articles.filter(a=>a.year===2013&&a.genre!=='classical');
 const own=(n,key,text,answers={},prior={})=>{const x=q(n),d=C.draft();d.answers={...answers,[key]:text};return C.samples(x,x.answerParts.find(p=>p.key===key),d,S,prior).find(s=>s.own);};
 const context=value=>({'dse2013-q9':{...C.draft(),answers:{answer:value}}});
 
 test('2013 contains both complete original texts, nineteen paragraphs and questions 1–12 totaling 59 marks',()=>{
  assert.deepEqual(articles.map(a=>[a.title,a.author,a.paragraphs.length]),[['我交給你們一個孩子','張曉風',12],['說誓','黃國彬',7]]);
- const qs=D.questions.filter(x=>x.year===2013);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+1));assert.deepEqual(qs.map(x=>x.marks),[12,4,4,6,4,4,6,2,2,4,6,5]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),59);assert.equal(qs.filter(x=>x.exerciseId===articles[0].id).reduce((n,x)=>n+x.marks,0),40);
+ const qs=D.questions.filter(x=>x.year===2013&&x.number<=12);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+1));assert.deepEqual(qs.map(x=>x.marks),[12,4,4,6,4,4,6,2,2,4,6,5]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),59);assert.equal(qs.filter(x=>x.exerciseId===articles[0].id).reduce((n,x)=>n+x.marks,0),40);
  for(const a of articles){assert.deepEqual(a.paragraphs.map(p=>p.number),Array.from({length:a.paragraphs.length},(_,i)=>i+1));for(const p of a.paragraphs)assert.equal(hash(p.text),manifest.paragraphHashes[a.id].find(h=>h.number===p.number).textSha256);}
  for(const x of qs){const h=manifest.questionHashes.find(h=>h.id===x.id);assert.equal(hash(x.prompt),h.promptSha256);assert.equal(hash(x.quote),h.quoteSha256);}
  assert.equal(articles[0].paragraphs[9].text.split('〈尋人啟事〉\n\n')[1].split('\n').length,17);assert.match(articles[0].paragraphs[5].text,/撰述者/);assert.match(articles[0].paragraphs[7].text,/也請帶他/);assert.match(articles[0].paragraphs[10].text,/小手有如飛鳥/);assert.match(articles[1].paragraphs[2].text,/以賓虛的氣勢/);assert.match(articles[1].paragraphs[4].text,/率爾鼓匹夫之勇/);assert.match(articles[1].paragraphs[5].text,/有一本小說/);
@@ -71,12 +71,12 @@ test('Q12 preserves the complete 2+1+2 rubric and actual source component exempl
 });
 
 test('fifty-one authentic written exemplars preserve source pages, text hashes and original scores',()=>{
- const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2013-')).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,51);assert.equal(manifest.longExemplars.length,51);
+ const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2013-')&&+id.split('-q')[1]<=12).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,51);assert.equal(manifest.longExemplars.length,51);
  for(const s of cases){const row=manifest.longExemplars.find(r=>r.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,hash(s.text));assert.ok(s.analysis.startsWith(s.score+'分'));}
- for(const x of D.questions.filter(x=>x.year===2013))for(const p of x.answerParts.filter(p=>p.kind!=='choice'&&!p.referenceOnly))assert.ok(C.samples(x,p,C.draft(),S).length>=4);
+ for(const x of D.questions.filter(x=>x.year===2013&&x.number<=12))for(const p of x.answerParts.filter(p=>p.kind!=='choice'&&!p.referenceOnly))assert.ok(C.samples(x,p,C.draft(),S).length>=4);
 });
 
 test('nineteen distinct four-part analyses preserve paragraph numbers and independent article navigation',()=>{
  for(const a of articles){const rows=w.window.SelfStudyAnalysis[a.id];assert.deepEqual(Array.from(rows,r=>r.number),a.paragraphs.map(p=>p.number));for(const r of rows)for(const key of ['summary','technique','meaning','structure'])assert.ok(r[key].length>=15);}
- assert.equal(C.nextQuestion(D,q(6)).id,q(7).id);assert.equal(C.nextQuestion(D,q(7)),null);assert.equal(C.nextQuestion(D,q(11)).id,q(12).id);assert.equal(C.nextQuestion(D,q(12)),null);assert.equal(D.articles.length,34);assert.equal(D.questions.length,240);
+ assert.equal(C.nextQuestion(D,q(6)).id,q(7).id);assert.equal(C.nextQuestion(D,q(7)),null);assert.equal(C.nextQuestion(D,q(11)).id,q(12).id);assert.equal(C.nextQuestion(D,q(12)),null);assert.equal(D.articles.length,35);assert.equal(D.questions.length,247);
 });
