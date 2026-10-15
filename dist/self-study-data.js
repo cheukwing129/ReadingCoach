@@ -74,5 +74,42 @@
   articles.sort((a,b)=>a.year-b.year||a.paperOrder-b.paperOrder);
   const questions=[...extras.flatMap(extra=>extra.questions),...root.COACH_EXAM_DATA.questions,...root.COACH_TRANSFER_DATA.questions].map(q=>({...q,year:q.year||2024,lesson:lessons[q.id],caseNotes:Object.fromEntries((root.COACH_EXAM_COACHING.lessons[q.id]?.mistakes||[]).map(m=>[m.text,m.diagnosis]))}));
   questions.sort((a,b)=>a.year-b.year||a.number-b.number);
+  // Explicit source-table coordinates [table, row, cell]; answer keys stay unchanged.
+  const tableAnswerCells={
+    "dse2013-q1":{"i":[0,0,1],"ii":[0,1,1],"iv":[0,1,2],"iii":[0,2,1],"v":[0,2,2],"vi":[0,3,2]},
+    "dse2013-q11":{"i":[0,0,1],"ii":[1,0,0],"iii":[1,0,1]},
+    "dse2014-q1":{"i":[0,0,1],"ii":[0,1,1],"iii":[0,2,1],"iv":[0,3,1]},
+    "dse2014-q2":{"i":[0,1,1],"ii":[0,3,1]},
+    "dse2014-q6":{"i":[0,1,1],"ii":[0,1,2],"iii":[0,2,1],"iv":[0,2,2]},
+    "dse2014-q19":{"i":[0,0,2],"ii":[0,1,1]},
+    "dse2015-q1":{"i":[0,0,1],"ii":[0,1,1],"iv":[0,1,2],"iii":[0,2,1],"v":[0,2,2]},
+    "dse2015-q17":{"i":[0,0,1],"ii":[0,1,2]},
+    "dse2016-q1":{"i":[0,0,1],"ii":[0,1,1],"iii":[0,2,1],"v":[0,2,2],"iv":[0,3,1]},
+    "dse2016-q5":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2016-q7":{"i":[0,0,1],"ii":[0,2,1]},
+    "dse2016-q10":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2017-q1":{"i":[0,0,1],"ii":[0,1,1],"v":[0,1,2],"iii":[0,2,1],"iv":[0,3,1],"vi":[0,3,2]},
+    "dse2017-q7":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2018-q9":{"i":[0,0,1],"ii":[0,1,1],"iii":[0,2,1],"iv":[0,3,1]},
+    "dse2018-q12":{"ii":[0,0,2],"i":[0,1,1]},
+    "dse2018-q14":{"i":[0,0,0],"ii":[0,1,1],"iii":[0,2,1]},
+    "dse2018-q16":{"i":[0,1,2],"ii":[0,2,2],"iii":[0,3,2]},
+    "dse2018-q23":{"i":[0,0,1],"ii":[0,1,2],"iii":[0,2,1]},
+    "dse2019-q8":{"i":[0,0,1],"ii":[0,1,1]},
+    "dse2020-q8":{"i":[0,0,1],"iv":[0,0,2],"ii":[0,1,1],"iii":[0,2,1],"v":[0,3,2]},
+    "dse2020-q12":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2020-q13":{"answer":[0,1,1]},
+    "dse2020-q19":{"i":[0,0,2],"ii":[0,1,1]},
+    "dse2021-q9":{"i":[0,0,1],"ii":[0,0,2],"iii":[0,1,1],"iv":[0,2,2]},
+    "dse2022-q7":{"i":[0,1,2],"ii":[0,2,1],"iii":[0,2,2]},
+    "dse2022-q12":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2022-q22":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2023-q14":{"i":[0,0,2],"ii":[0,1,2]},
+    "dse2023-q15":{"i":[0,1,1],"ii":[0,2,1]},
+    "dse2024-q11":{"i":[0,1,1],"ii":[0,1,2]},
+    "dse2024-q16":{"i":[0,0,1],"ii":[0,1,2]},
+    "dse2025-q18":{"i":[0,0,2],"ii":[0,1,1],"iii":[0,2,2]}
+  };
+  for(const q of questions)if(tableAnswerCells[q.id])q.tableAnswerCells=tableAnswerCells[q.id];
   root.SelfStudyData={types,lessons,articles,questions};
 })(typeof window!=='undefined'?window:globalThis);

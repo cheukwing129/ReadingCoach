@@ -85,6 +85,20 @@ body.studying{overflow-anchor:none}
 .question-text.is-stuck .question-quote{font-size:15px;line-height:1.75;margin-top:10px;padding:8px 12px}
 .question-text.is-stuck .table-scroll{margin-top:10px}
 .question-text.is-stuck table{font-size:14px}
+
+/* Keep each written answer inside its original table cell. */
+.answer-table-scroll{position:relative;max-width:100%;margin:16px 0 24px}
+.answer-table{min-width:22rem;line-height:1.8}
+.answer-table[data-wide]{min-width:34rem}
+.answer-table th,.answer-table td{font-weight:400;overflow-wrap:anywhere}
+.answer-table thead th{font-weight:600}
+.answer-table .table-answer-cell{background:var(--green-pale);min-width:9rem}
+.table-cell-prompt{font-size:14px;white-space:pre-line}
+.answer-table .table-answer-field{margin:8px 0 0;padding:0}
+.table-answer-marks{color:var(--muted);font-size:13px;margin:0 0 6px}
+.answer-table textarea{font-size:16px;padding:10px 12px;line-height:1.8;min-height:88px}
+.answer-table .field-note{display:flex;flex-wrap:wrap;gap:4px;font-size:13px;line-height:1.6}
+.answer-table .field-note span{white-space:nowrap}
 .question-text.is-stuck th,.question-text.is-stuck td{padding:7px}
 .question-text.is-stuck .question-body:focus-visible{outline-offset:-3px}
 .question-text.is-stuck.has-overflow .question-scroll-note{display:block;font-size:13px;line-height:1.5;color:var(--muted);margin-top:5px}
