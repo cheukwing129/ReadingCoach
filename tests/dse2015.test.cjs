@@ -1,12 +1,12 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2015-classical-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2015-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2015-source-manifest.json'))),first=D.articles.find(a=>a.id==='dse2015-interest'),second=D.articles.find(a=>a.id==='dse2015-gravel');
 const own=(n,key,text,answers={})=>{const x=q(n),d=C.draft();d.answers={...answers,[key]:text};return C.samples(x,x.answerParts.find(p=>p.key===key),d,S).find(s=>s.own);};
 
 test('2015 retains both complete vernacular texts and all original questions 1–11 totaling 53 marks',()=>{
- const qs=D.questions.filter(x=>x.year===2015);assert.deepEqual(qs.map(x=>x.number),Array.from({length:11},(_,i)=>i+1));assert.deepEqual(qs.map(x=>x.marks),[9,6,2,3,4,6,6,2,6,3,6]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),53);assert.deepEqual([first,second].map(a=>[a.title,a.author,a.paragraphs.length]),[['論趣','林語堂',7],['觀沙礫記','賈平凹',5]]);
+ const qs=D.questions.filter(x=>x.year===2015&&x.number<=11);assert.deepEqual(qs.map(x=>x.number),Array.from({length:11},(_,i)=>i+1));assert.deepEqual(qs.map(x=>x.marks),[9,6,2,3,4,6,6,2,6,3,6]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),53);assert.deepEqual([first,second].map(a=>[a.title,a.author,a.paragraphs.length]),[['論趣','林語堂',7],['觀沙礫記','賈平凹',5]]);
  for(const a of [first,second]){assert.deepEqual(a.paragraphs.map(p=>p.number),Array.from({length:a.paragraphs.length},(_,i)=>i+1));for(const p of a.paragraphs)assert.equal(hash(p.text),manifest.paragraphHashes[a.id].find(h=>h.number===p.number).textSha256);}
  for(const x of qs){const h=manifest.questionHashes.find(h=>h.id===x.id);assert.equal(hash(x.prompt),h.promptSha256);assert.equal(hash(x.quote),h.quoteSha256);}
  assert.match(first.paragraphs[3].text,/袁中郎/);assert.doesNotMatch(first.paragraphs[3].text,/袁中甫/);assert.match(first.notes[0],/佣金/);assert.match(second.paragraphs[2].text,/反復揣摩/);assert.match(second.paragraphs[3].text,/沙礫本是無情/);
@@ -49,7 +49,7 @@ test('long-answer criteria keep the source misconceptions, three-mark reasons an
 });
 
 test('forty original graded long exemplars retain their page and score audit without fabricated answers',()=>{
- const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2015-')).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,40);assert.equal(manifest.longExemplars.length,40);
+ const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2015-')&&+id.split('-q')[1]<=11).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,40);assert.equal(manifest.longExemplars.length,40);
  for(const s of cases){const row=manifest.longExemplars.find(r=>r.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,hash(s.text));assert.ok(s.analysis.startsWith(s.score+'分'));}
  for(const n of [1,4,6,9,10])for(const p of q(n).answerParts.filter(p=>p.kind==='long'))assert.deepEqual([...new Set(S[q(n).id][p.key].map(s=>s.score))].sort(),[0,1,2,3]);
 });

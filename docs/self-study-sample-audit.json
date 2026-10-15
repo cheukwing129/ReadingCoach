@@ -5164,6 +5164,169 @@
       "row": 5,
       "score": 0,
       "textSha256": "b48edda2abbee67b331af56d1c105c9fd025d08ab77a3100aaae31e55e27edc6"
+    },
+    {
+      "id": "dse2015-q18-answer-p9r1",
+      "file": "mark3.pdf",
+      "page": 9,
+      "printedPage": 8,
+      "row": 1,
+      "score": 4,
+      "textSha256": "76024fedfee720b29e4229821295624943bf7482a6f0225017465593eb3a7ee3"
+    },
+    {
+      "id": "dse2015-q18-answer-p9r2",
+      "file": "mark3.pdf",
+      "page": 9,
+      "printedPage": 8,
+      "row": 2,
+      "score": 3,
+      "textSha256": "758352a5f662043d3187d2b148b6006a31d5f2601419b754d07d80dd4c9171cd"
+    },
+    {
+      "id": "dse2015-q18-answer-p9r3",
+      "file": "mark3.pdf",
+      "page": 9,
+      "printedPage": 8,
+      "row": 3,
+      "score": 1,
+      "textSha256": "afc9a3b72f3c147bea0c386e22d42f586c78600ea3cd87ca72166e217041f1a2"
+    },
+    {
+      "id": "dse2015-q18-answer-p9r4",
+      "file": "mark3.pdf",
+      "page": 9,
+      "printedPage": 8,
+      "row": 4,
+      "score": 3,
+      "textSha256": "07552c0881364d027abf373db678c050ea4bafe8075742c7eeb20901919248fe",
+      "continuationPage": 10
+    },
+    {
+      "id": "dse2015-q18-answer-p10r1",
+      "file": "mark3.pdf",
+      "page": 10,
+      "printedPage": 9,
+      "row": 1,
+      "score": 2,
+      "textSha256": "b579d7b8597edea57e96e7906617d385b5bcd4c3c80f27d8e2a048ef63a617c1"
+    },
+    {
+      "id": "dse2015-q18-answer-p10r2",
+      "file": "mark3.pdf",
+      "page": 10,
+      "printedPage": 9,
+      "row": 2,
+      "score": 1,
+      "textSha256": "bed8c0d2750a5002292cf1772e5f7d5e5cc4c3196ca0fc1e6b0fb713858d83cd"
+    },
+    {
+      "id": "dse2015-q18-answer-p10r3",
+      "file": "mark3.pdf",
+      "page": 10,
+      "printedPage": 9,
+      "row": 3,
+      "score": 1,
+      "textSha256": "5b63790c931446aacf518bcaa901e5ae5ab8d08b0c3a402f163781e65e13f708"
+    },
+    {
+      "id": "dse2015-q18-answer-p9r5",
+      "file": "mark3.pdf",
+      "page": 9,
+      "printedPage": 8,
+      "row": 5,
+      "score": 0,
+      "textSha256": "197f0cf6e4d36cb5b394f55029f50cf0a139d80a5a0aab66e201247d0c5c4055"
+    },
+    {
+      "id": "dse2015-q19-answer-p13r1",
+      "file": "mark3.pdf",
+      "page": 13,
+      "printedPage": 12,
+      "row": 1,
+      "score": 6,
+      "textSha256": "ad668b6d466a1852e45235137a85563e4fb8051b630fd1f5f262261e7742bbfd"
+    },
+    {
+      "id": "dse2015-q19-answer-p13r2",
+      "file": "mark3.pdf",
+      "page": 13,
+      "printedPage": 12,
+      "row": 2,
+      "score": 6,
+      "textSha256": "eb4ed6218b6578e55a3fca5d9760d4eb1437edaa256b4fa7222525d9a891ad46"
+    },
+    {
+      "id": "dse2015-q19-answer-p13r3",
+      "file": "mark3.pdf",
+      "page": 13,
+      "printedPage": 12,
+      "row": 3,
+      "score": 5,
+      "textSha256": "e2f04648119c548d7faa94f4a7cf672a577906331eeed29b2312414d95e57447"
+    },
+    {
+      "id": "dse2015-q19-answer-p13r4",
+      "file": "mark3.pdf",
+      "page": 13,
+      "printedPage": 12,
+      "row": 4,
+      "score": 4,
+      "textSha256": "43e76364d3c7230cb7bbc2b666bacd256877fe88e4368a02f9c4cbabcad97d3a"
+    },
+    {
+      "id": "dse2015-q19-answer-p13r5",
+      "file": "mark3.pdf",
+      "page": 13,
+      "printedPage": 12,
+      "row": 5,
+      "score": 4,
+      "textSha256": "4d9ec40384073e20321b8df52a3e72f54154fb8ee6801b2b5df50441421e87e1"
+    },
+    {
+      "id": "dse2015-q19-answer-p14r1",
+      "file": "mark3.pdf",
+      "page": 14,
+      "printedPage": 13,
+      "row": 1,
+      "score": 3,
+      "textSha256": "99b39715e2523364ac689972d5441040215cff7c61646849f87dec3127cfa208"
+    },
+    {
+      "id": "dse2015-q19-answer-p14r2",
+      "file": "mark3.pdf",
+      "page": 14,
+      "printedPage": 13,
+      "row": 2,
+      "score": 2,
+      "textSha256": "a03c30079e7feabf542ab6b135012036d86d9300c63d6ef3f348d5092cdde2b4"
+    },
+    {
+      "id": "dse2015-q19-answer-p14r3",
+      "file": "mark3.pdf",
+      "page": 14,
+      "printedPage": 13,
+      "row": 3,
+      "score": 2,
+      "textSha256": "6e2f9c6c1047d09754707e8d4768e0bdfd85d1538f5684209df10d91731c2a7d"
+    },
+    {
+      "id": "dse2015-q19-answer-p14r4",
+      "file": "mark3.pdf",
+      "page": 14,
+      "printedPage": 13,
+      "row": 4,
+      "score": 1,
+      "textSha256": "e8e4db98774a1c17ad399874fcfe850c26dba3c59a6e7b0b4360c2a98991c092"
+    },
+    {
+      "id": "dse2015-q19-answer-p14r5",
+      "file": "mark3.pdf",
+      "page": 14,
+      "printedPage": 13,
+      "row": 5,
+      "score": 1,
+      "textSha256": "a4cfda161d088f277f798ed5fd08455dac2040c707e002c8fa879108ff80094c"
     }
   ],
   "resources": {

@@ -1,6 +1,6 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2015-classical-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2024-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2024-classical-source-manifest.json'))),article=D.articles.find(a=>a.id==='dse2024-classical');
 const own=(n,text)=>{const x=q(n),d=C.draft();d.answers.answer=text;return C.samples(x,x.answerParts[0],d,S).find(s=>s.own);};
@@ -8,7 +8,7 @@ const own=(n,text)=>{const x=q(n),d=C.draft();d.answers.answer=text;return C.sam
 test('2024 classical trial adds only Part B questions 21–27, fourteen marks, without any prescribed-text question',()=>{
  const qs=D.questions.filter(x=>x.exerciseId===article.id);assert.deepEqual(qs.map(x=>x.number),[21,22,23,24,25,26,27]);assert.deepEqual(qs.map(x=>x.marks),[2,1,2,3,1,2,3]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),14);
  assert.deepEqual(D.questions.filter(x=>x.year===2024).map(x=>x.number),Array.from({length:19},(_,i)=>i+9));assert.equal(D.questions.filter(x=>x.year===2024&&x.number<9).length,0);assert.equal(D.questions.filter(x=>x.year===2024).reduce((n,x)=>n+x.marks,0),49);
- assert.deepEqual(D.articles.filter(a=>a.year===2024).map(a=>a.id),['dse2024-fansheng','dse2024-classical']);assert.equal(D.articles.length,32);assert.equal(D.questions.length,224);
+ assert.deepEqual(D.articles.filter(a=>a.year===2024).map(a=>a.id),['dse2024-fansheng','dse2024-classical']);assert.equal(D.articles.length,33);assert.equal(D.questions.length,232);
  for(const x of qs){const h=manifest.questionHashes.find(h=>h.id===x.id);assert.equal(hash(x.prompt),h.promptSha256);assert.equal(hash(x.quote),h.quoteSha256);}
 });
 
