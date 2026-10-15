@@ -111,5 +111,35 @@
     "dse2025-q18":{"i":[0,0,2],"ii":[0,1,1],"iii":[0,2,2]}
   };
   for(const q of questions)if(tableAnswerCells[q.id])q.tableAnswerCells=tableAnswerCells[q.id];
+  // Original square answer grids, verified against QAB page images.
+  const answerGrids={
+    "dse2014-q2":{"i":20,"ii":20},
+    "dse2014-q3":{"i":2,"ii":2},
+    "dse2014-q8":{"answer":2},
+    "dse2015-q5":{"i":3,"ii-a":2,"ii-b":2},
+    "dse2016-q2":{"i":2},
+    "dse2017-q3":{"i":3},
+    "dse2017-q7":{"i":20,"ii":20},
+    "dse2018-q14":{"i":20},
+    "dse2019-q11":{"i":2},
+    "dse2020-q13":{"answer":20},
+    "dse2022-q8":{"i":4,"ii":4},
+    "dse2022-q22":{"i":2,"ii":2},
+    "dse2023-q10":{"i":2},
+    "dse2024-q13":{"i":2},
+    "dse2024-q17":{"answer":2},
+    "dse2025-q11":{"answer":2},
+    "dse2025-q19":{"answer":26},
+    "dse2025-q20":{"i":2},
+    "dse2026-q14":{"i":2,"ii":2},
+    "dse2026-q25":{"answer":20}
+  };
+  for(const q of questions){
+    if(!answerGrids[q.id])continue;
+    q.answerParts=q.answerParts.map(part=>{const p={...part};
+    if(answerGrids[q.id][p.key])p.sourceGridCells=answerGrids[q.id][p.key];
+    if(q.id==='dse2019-q11'&&p.key==='i')p.gridLimitNote="原卷2格，一般填兩字；評分標準亦接受「反言正說」「反話正說」等指定四字手法名稱。";
+    return p;});
+  }
   root.SelfStudyData={types,lessons,articles,questions};
 })(typeof window!=='undefined'?window:globalThis);

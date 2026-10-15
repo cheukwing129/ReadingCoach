@@ -184,3 +184,23 @@ test('classification options vary the correct position while staying stable and 
  assert.ok(positions[0]<D.questions.length/2,'the first choice must not reveal the answer');
  for(const count of Object.values(positions))assert.ok(count<D.questions.length/2,'no dominant answer position');
 });
+
+test('source answer-grid hints cover all audited fields without changing marking rules',()=>{
+ const audit=JSON.parse(fs.readFileSync(path.join(root,'docs/answer-grid-limits.json'))),seen=[];
+ for(const [id,parts]of Object.entries(audit.questions))for(const [key,source]of Object.entries(parts)){
+  const part=q(id).answerParts.find(p=>p.key===key);assert.equal(part.sourceGridCells,source.cells,id+'/'+key);assert.ok(source.pdfPage>0);
+  const hint=C.answerLimit(part);assert.ok(hint.text.includes('原卷'+source.cells+'格'));
+  if(id==='dse2019-q11'){assert.equal(hint.max,null);assert.match(hint.text,/四字/);}else assert.equal(hint.max,source.cells);seen.push(id+'/'+key);
+ }
+ assert.equal(seen.length,28);
+ const exception=q('dse2019-q11'),d=C.draft();d.answers.i='反話正說';assert.equal(C.samples(exception,exception.answerParts[0],d,S).find(s=>s.own).score,2);
+ assert.equal(q('dse2024-q13').answerParts[0].maxChars,undefined);
+ assert.equal(C.answerLimit(q('dse2020-q19').answerParts[0]),null,'ungridded blanks do not acquire a limit');
+});
+test('word-limit hints count punctuation and Unicode characters, report excess, and preserve full answers',()=>{
+ const part=q('dse2025-q19').answerParts[0];assert.match(C.answerLimit(part).text,/最多可答26字.*包括標點.*只評首26字/);
+ assert.equal(C.answerCount(part,'𡠄。\n'),'2 / 26字');
+ assert.equal(C.answerCount(part,'字'.repeat(27)),'27 / 26字 · 已超出1字');
+ assert.match(C.answerLimit(q('dse2024-q17').answerParts[0]).text,/最多可答2字.*兩字詞/);
+ assert.equal(C.answerCount(q('dse2019-q11').answerParts[0],'反言正說'),'4字');
+});

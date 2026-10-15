@@ -52,7 +52,7 @@ fs.mkdirSync(out,{recursive:true});
   // A merged cell, an input in the row-heading column, and two source tables survive.
   await start(questions.find(q=>q.id==='dse2018-q23'));assert.equal(await page.locator('.table-answer-cell[colspan="2"] [data-answer="i"]').count(),1);
   await start(questions.find(q=>q.id==='dse2018-q14'));assert.equal(await page.locator('th.table-answer-cell [data-answer="i"]').count(),1);
-  await page.locator('[data-answer="i"]').fill('測試字數');assert.equal(await page.locator('[data-count="i"]').innerText(),'4字');
+  await page.locator('[data-answer="i"]').fill('測試字數');assert.equal(await page.locator('[data-count="i"]').innerText(),'4 / 20字');
   await page.locator('[data-answer="i"]').focus();await page.keyboard.press('Tab');assert.equal(await page.locator('[data-answer="ii"]').evaluate(el=>el===document.activeElement),true);
   await start(questions.find(q=>q.id==='dse2024-q11'));await page.locator('[data-answer="i"]').fill('失落');await page.locator('[data-answer="ii"]').fill('凸顯魚兒受挫後變得謹慎。');
   await page.locator('.learning-stage [data-step="2"]').first().click();

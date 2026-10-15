@@ -1,0 +1,224 @@
+{
+  "verifiedAt": "2026-10-15",
+  "scope": "2013–2026網站已收錄的乙部原題；不包含甲部指定篇章。逐頁檢視方格，橫線及表格留白不當作字格。",
+  "sources": {
+    "2014": {
+      "file": "QAB",
+      "sha256": "3ac4a38e08f919dc5111612e068677e02e3a9d9d766c318917ebd04c8a610c01"
+    },
+    "2015": {
+      "file": "QAB",
+      "sha256": "0ae5e456753fcbd3eeb4b1f964d72b5cddba32f8a81a384e8f015365e2c498fb"
+    },
+    "2016": {
+      "file": "QAB",
+      "sha256": "aa85ce9e9a6a41ccc774cdc8bff1b57f7b2dbd2204968eed4a0ec4dcae21c2ac"
+    },
+    "2017": {
+      "file": "QAB",
+      "sha256": "2f9aab8a00af3401bfa463011aed017d8b276846be286bda2e3f0a8916db8f2d"
+    },
+    "2018": {
+      "file": "QAB",
+      "sha256": "4d555127759e3e91326e25e5bf404c3a562bfff641b2b448fba70edc937427aa"
+    },
+    "2019": {
+      "file": "QAB",
+      "sha256": "5bbe191246477b9cdb72a7e34c82efc7684595dcfc1c5de8014e6986e903b059"
+    },
+    "2020": {
+      "file": "QAB",
+      "sha256": "7688fdc377475aa7d0d6dd51debd1faca4d35d4013367d42ba8c1700785fffa0"
+    },
+    "2022": {
+      "file": "QAB",
+      "sha256": "66d1f8613f75e2fb778095c0597ba90c7fc68e67adffd21ff7553bc8cd2b6b48"
+    },
+    "2023": {
+      "file": "QAB",
+      "sha256": "079b11f301ada9e662e6936ab7ed0e3e886e5965314050daa30157b2605405d1"
+    },
+    "2024": {
+      "file": "QAB",
+      "sha256": "471858323a7bb8fa1e6aef1aaea979807a3dcc33f6d6d726b7a000e196bce895"
+    },
+    "2025": {
+      "file": "QAB",
+      "sha256": "b04454354735ef9741aabad9c15ee0eb93c70f5dc01f1629503245838b8a2d5b"
+    },
+    "2026": {
+      "file": "QAB",
+      "sha256": "dd7d3ad1682dbe5aa73fd2a8f7298ec411ee6436c1ec0b6fec5a42c2b37a18d2"
+    },
+    "2013": {
+      "file": "QAB",
+      "sha256": "058576cc451f4fa3804c32e7e305977ef194323b665f30987a604c7c62de1667"
+    },
+    "2021": {
+      "file": "QAB",
+      "sha256": "7cb783f9926dd283e15d6186933a2d100ea51270e23af3e6c7b18f3f97c25f7d"
+    }
+  },
+  "questions": {
+    "dse2014-q2": {
+      "i": {
+        "cells": 20,
+        "pdfPage": 3
+      },
+      "ii": {
+        "cells": 20,
+        "pdfPage": 3
+      }
+    },
+    "dse2014-q3": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 3
+      },
+      "ii": {
+        "cells": 2,
+        "pdfPage": 3
+      }
+    },
+    "dse2014-q8": {
+      "answer": {
+        "cells": 2,
+        "pdfPage": 6
+      }
+    },
+    "dse2015-q5": {
+      "i": {
+        "cells": 3,
+        "pdfPage": 3
+      },
+      "ii-a": {
+        "cells": 2,
+        "pdfPage": 3
+      },
+      "ii-b": {
+        "cells": 2,
+        "pdfPage": 3
+      }
+    },
+    "dse2016-q2": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 3
+      }
+    },
+    "dse2017-q3": {
+      "i": {
+        "cells": 3,
+        "pdfPage": 3
+      }
+    },
+    "dse2017-q7": {
+      "i": {
+        "cells": 20,
+        "pdfPage": 5
+      },
+      "ii": {
+        "cells": 20,
+        "pdfPage": 5
+      }
+    },
+    "dse2018-q14": {
+      "i": {
+        "cells": 20,
+        "pdfPage": 7
+      }
+    },
+    "dse2019-q11": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 7
+      }
+    },
+    "dse2020-q13": {
+      "answer": {
+        "cells": 20,
+        "pdfPage": 8
+      }
+    },
+    "dse2022-q8": {
+      "i": {
+        "cells": 4,
+        "pdfPage": 5
+      },
+      "ii": {
+        "cells": 4,
+        "pdfPage": 5
+      }
+    },
+    "dse2022-q22": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 10
+      },
+      "ii": {
+        "cells": 2,
+        "pdfPage": 10
+      }
+    },
+    "dse2023-q10": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 5
+      }
+    },
+    "dse2024-q13": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 6
+      }
+    },
+    "dse2024-q17": {
+      "answer": {
+        "cells": 2,
+        "pdfPage": 8
+      }
+    },
+    "dse2025-q11": {
+      "answer": {
+        "cells": 2,
+        "pdfPage": 5
+      }
+    },
+    "dse2025-q19": {
+      "answer": {
+        "cells": 26,
+        "pdfPage": 9
+      }
+    },
+    "dse2025-q20": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 9
+      }
+    },
+    "dse2026-q14": {
+      "i": {
+        "cells": 2,
+        "pdfPage": 7
+      },
+      "ii": {
+        "cells": 2,
+        "pdfPage": 7
+      }
+    },
+    "dse2026-q25": {
+      "answer": {
+        "cells": 20,
+        "pdfPage": 11
+      }
+    }
+  },
+  "exceptions": {
+    "dse2019-q11/i": "原卷2格，一般填兩字；評分標準亦接受「反言正說」「反話正說」等指定四字手法名稱。"
+  },
+  "policy": "格數僅提供作答提示，不新增硬性截斷或改變既有評分規則；exactChars、maxChars、assessFirstChars原規則保留。",
+  "yearsWithoutPartBGrids": [
+    2013,
+    2021
+  ]
+}

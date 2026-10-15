@@ -130,3 +130,6 @@ body.studying{overflow-anchor:none}
 .review-card.full-score .full-score-label{display:inline-flex;align-items:center;margin-left:auto;padding:3px 10px;border-radius:5px;background:var(--green);color:var(--white);font-size:13px;font-weight:600;line-height:1.7}
 .review-card.full-score>blockquote{font-weight:600}
 .review-card.full-score>.analysis{background:var(--white)}
+
+.answer-field .answer-limit{margin:0 0 10px;padding:8px 10px;border-left:3px solid var(--green);border-radius:4px;background:#f1eadc;color:var(--green-dark);font-size:14px;font-weight:600;line-height:1.7;overflow-wrap:anywhere}
+.field-note .is-over-limit{color:#9c382c;font-weight:600}

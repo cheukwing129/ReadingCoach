@@ -5,6 +5,18 @@ const escapeHTML=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const normalize=v=>String(v??'').normalize('NFC').trim().replace(/\s/g,'').replace(/[。．.!！?？]+$/g,'');
 const fresh=()=>({version:1,updatedAt:'',questions:{}});
 function validScore(v,max){return Number.isInteger(v)&&v>=0&&v<=max;}
+function answerLimit(p){
+ if(p.gridLimitNote)return{max:null,text:p.gridLimitNote};
+ const max=p.exactChars||p.assessFirstChars||p.maxChars||p.sourceGridCells;
+ if(!max)return null;
+ const grid=p.sourceGridCells?'原卷'+p.sourceGridCells+'格，':'';
+ const detail=p.exactChars?(p.exactChars===2?'須是兩字詞':'須填'+p.exactChars+'字'):p.assessFirstChars?'包括標點；只評首'+p.assessFirstChars+'字':p.sourceGridCells?'標點佔一格':'';
+ return{max,text:grid+'最多可答'+max+'字'+(detail?'（'+detail+'）':'')+'。'};
+}
+function answerCount(p,text){
+ const count=answerCharacters(text).length,limit=answerLimit(p)?.max;
+ return count+(limit?' / '+limit:'')+'字'+(limit&&count>limit?' · 已超出'+(count-limit)+'字':'');
+}
 function migrate(saved,legacy,questions){
  const state=fresh(),ids=new Set(questions.map(q=>q.id));
  if(saved?.version===1&&saved.questions&&typeof saved.questions==='object'){
@@ -198,5 +210,5 @@ function questionParagraphs(q,article){
  return(q.lesson?.locate||[]).filter(n=>valid.has(n)).slice(0,1);
 }
 function canComplete(d){return d.revealed===true;}
-return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,fresh,draft,migrate,updateAnswer,updateQuestionAnswer,fingerprint,typeChoices,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
+return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,answerLimit,answerCount,fresh,draft,migrate,updateAnswer,updateQuestionAnswer,fingerprint,typeChoices,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
 });
