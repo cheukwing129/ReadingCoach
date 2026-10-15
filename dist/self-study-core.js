@@ -91,7 +91,8 @@ function samples(q,p,d,sourceSamples,questionDrafts={}){
  const own=String(d.answers[p.key]||'').trim();
  if(own){
   const length=Array.from(normalize(own)).length;
-  const formatError=p.exactChars&&length!==p.exactChars?'答案不符合原題的'+(p.exactChars===2?'兩字詞':p.exactChars===4?'四個字':p.exactChars+'字')+'格式要求。':p.maxChars&&length>p.maxChars?'答案超過原題「不多於'+(p.maxChars===4?'四個字':p.maxChars+'個字')+'」的限制，得0分。':'';
+  const cappedLength=p.maxChars&&length>p.maxChars&&validScore(p.maxCharsCap,p.marks);
+  const formatError=p.exactChars&&length!==p.exactChars?'答案不符合原題的'+(p.exactChars===2?'兩字詞':p.exactChars===4?'四個字':p.exactChars+'字')+'格式要求。':p.maxChars&&length>p.maxChars&&!cappedLength?'答案超過原題「不多於'+(p.maxChars===4?'四個字':p.maxChars+'個字')+'」的限制，得0分。':'';
   const assessed=assessmentText(p,own),matches=s=>normalize(assessmentText(p,s.text))===normalize(assessed);
   const match=all.find(matches),same=chosen.find(matches),segment=segmentScore(p,own);
   if(!formatError&&same){same.own=true;same.merged=true;same.text=own;}
@@ -146,6 +147,12 @@ function samples(q,p,d,sourceSamples,questionDrafts={}){
    else if(methods.length===1&&reference.zeroMethods.includes(selected)&&methods[0]===selected)Object.assign(current,{score:0,dependencyChecked:true,analysis:'0分：'+note+'本題亦以該錯誤手法說明；按原題承接規則不給分。'});
    else if(methods.length>1||methods[0]!==selected){const score=Math.min(current.score,reference.mismatchCap),reason=methods.length>1?'本題採用兩種以上手法':'本題解說手法與前題的選項不同';Object.assign(current,{score,dependencyChecked:true,analysis:score+'分：'+note+'這段已知解說的內容原可得'+current.score+'分；'+reason+'，原題規定最高'+reference.mismatchCap+'分，故按'+score+'分評定。'});}
   }
+ }
+ if(own&&p.maxChars&&Array.from(normalize(own)).length>p.maxChars&&validScore(p.maxCharsCap,p.marks)){
+  const current=chosen.find(s=>s.own);current.scoreCap=p.maxCharsCap;
+  const note='答案超過'+p.maxChars+'字，原題規定最高'+p.maxCharsCap+'分；仍須按內容判斷，不是自動給分。';
+  if(current.score!==null){current.score=Math.min(current.score,p.maxCharsCap);current.lengthCapChecked=true;current.analysis=current.score+'分：'+note+' '+current.analysis;}
+  else current.analysis=note;
  }
  return shuffled(chosen,q.id+'-'+p.key);
 }

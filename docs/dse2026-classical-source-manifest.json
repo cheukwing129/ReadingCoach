@@ -1,0 +1,397 @@
+{
+  "year": 2026,
+  "verifiedAt": "2026-10-15",
+  "scope": "第三篇《世說新語》三則，第21–26題14分；不含甲部指定篇章問答。",
+  "paragraphs": 3,
+  "questions": 6,
+  "marks": 14,
+  "glosses": 51,
+  "rm": {
+    "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+    "pdfPages": [
+      4
+    ]
+  },
+  "qab": {
+    "fileId": "1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0",
+    "pdfPages": [
+      10,
+      11
+    ]
+  },
+  "objectiveKey": {
+    "file": "teacher.pdf",
+    "fileId": "1FxEUiy0N3oX56O3oAO7NQLvh0M00cw2g",
+    "pages": {
+      "21": 80,
+      "22": 81,
+      "23": 82,
+      "24": 83
+    },
+    "answers": {
+      "21": "D",
+      "22": "B",
+      "23": "正確",
+      "24": "D"
+    }
+  },
+  "marking": [
+    {
+      "file": "mark4.pdf",
+      "fileId": "1L5CMlPmucs5xQiqT5aY67nXqR2_D1MU1",
+      "version": "第四組定稿",
+      "pages": {
+        "25": [
+          3,
+          4
+        ],
+        "26": [
+          4,
+          5,
+          6
+        ]
+      },
+      "printedPageOffset": -1
+    },
+    {
+      "file": "mark4.docx",
+      "fileId": "1je6S1620njgbBnyNkXHLfEcPBykhyvKW",
+      "tables": {
+        "25": 2,
+        "26": 4
+      }
+    },
+    {
+      "file": "brief4.pdf",
+      "fileId": "1HlBcOi5dDBzvmp4IjlTpV1HuW9tHy__N",
+      "pages": {
+        "25": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "26": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ]
+      }
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "teacher.pdf",
+      "fileId": "1FxEUiy0N3oX56O3oAO7NQLvh0M00cw2g",
+      "sha256": "c3264025d66c315135a456a20f059af78886bd52bab4245a49db36a503b6624b"
+    },
+    {
+      "file": "rm.pdf",
+      "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
+      "sha256": "76a0abc76aea0ec03923a9d32f3d91bb66e5f9c1f0dfbb5ae510ea4f63b0075f"
+    },
+    {
+      "file": "qab.pdf",
+      "fileId": "1Cv1y8PE9aRyoRK0lqJDdTW0DY8waVml0",
+      "sha256": "dd7d3ad1682dbe5aa73fd2a8f7298ec411ee6436c1ec0b6fec5a42c2b37a18d2"
+    },
+    {
+      "file": "mark4.pdf",
+      "fileId": "1L5CMlPmucs5xQiqT5aY67nXqR2_D1MU1",
+      "sha256": "95700828d3314a37f2374011a2d7faa9db543d850eb9b82ae7f9c305d2aaae7d"
+    },
+    {
+      "file": "brief4.pdf",
+      "fileId": "1HlBcOi5dDBzvmp4IjlTpV1HuW9tHy__N",
+      "sha256": "5a5effbe0727bde82d9a1086ecd27dd0a621ff667cab337357dd56cff52b065b"
+    },
+    {
+      "file": "mark4.docx",
+      "fileId": "1je6S1620njgbBnyNkXHLfEcPBykhyvKW",
+      "sha256": "b4f2ae964f3629a1a553c0e88bca7c51bda18cc155e1af8570928a0bc31726c8"
+    }
+  ],
+  "sourceDecisions": [
+    "原三則各為一個自然段，保留原第一、二、三則標籤及四項註釋；沒有原文粗體則不自行加粗。",
+    "原文不懨、聰惠、納其自托、恆自經營、蠟屐、幾量、神色閑暢等字形保留；經營不可理解為開店。",
+    "第25題超二十字最高1，而非0；新自由答案保留內容自評，UI只能自評0或1，沒有語義自動給1。",
+    "第25題11份定稿短答原例；會議樣本E照錄整段0，與原表祖好財而阮好屐同是一累1分分開，不設照抄原文一概0的規則。",
+    "第26題九份定稿長答全保留。第1份原評4分但含財物掉出等不見正文的誤述，例答不潤飾，解析提醒不沿用；另加簡報第38頁明標4分的參考完整例。",
+    "第26題大方、真心只是判準欠準確，不能一律整題0；努力工作、營商待客等是錯誤理解。"
+  ],
+  "shortExemplars": [
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 1,
+      "row": 1,
+      "score": 2,
+      "textSha256": "5c0c36683c57d8cd76b1a078ca9d1bf4ed4ae21b0f6f3005d8782a5e0067c7bf"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 1,
+      "row": 2,
+      "score": 2,
+      "textSha256": "e8ee0172bede85780d55eb1e5b4845e2c5b97ba14c9b508e1422a3eaca1a103e"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 1,
+      "row": 3,
+      "score": 2,
+      "textSha256": "4434d999445feb9b97b16dac49b86a5fe4ae944822260f64846ac12889a1daae"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 1,
+      "row": 4,
+      "score": 2,
+      "textSha256": "a0a36999796f4f409942efb97e5caad3ac41fe0e10b9145ba24e127b6973523c"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 2,
+      "row": 1,
+      "score": 1,
+      "textSha256": "e54b264d28128c8ee04e15e0f8238c06b816204bf54011df8daf3980c7ffbcbd"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 2,
+      "row": 2,
+      "score": 1,
+      "textSha256": "8254a202690ba17fc4c43d5730eda5855c207e57db0013811f0cdd7d6078d743"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 2,
+      "row": 3,
+      "score": 1,
+      "textSha256": "f5ff2d8ff984a559d20a5035da894bf7d3adca611ad9173d1186f3d3e59e87ac"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 3,
+      "row": 1,
+      "score": 0,
+      "textSha256": "985bbd7ff4b1672c7b77ab997622c0103db2952ab40ac5dd29c9de90932fd025"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 3,
+      "row": 2,
+      "score": 0,
+      "textSha256": "9f204acbe9f00098017bf60c9c278cc34e584ed8dac69c8d693ca0c2703f1e5b"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 3,
+      "row": 3,
+      "score": 0,
+      "textSha256": "c21a3ecd32dda6f7432b23d162152c269dbea10f86e8d59d6d5313f137c6d637"
+    },
+    {
+      "file": "mark4.docx",
+      "table": 2,
+      "tableRow": 1,
+      "column": 3,
+      "row": 4,
+      "score": 0,
+      "textSha256": "7fab58f7402625c07cb02362f960297f7a361935f03c726e04124fbd83a93d23"
+    }
+  ],
+  "longExemplars": [
+    {
+      "id": "dse2026-q26-answer-p5r1",
+      "file": "mark4.pdf",
+      "page": 5,
+      "printedPage": 4,
+      "row": 1,
+      "score": 4,
+      "textSha256": "6969551f9418086a7e937dc14524d061bbaea3cad91b90ce143861dceb44fa4f"
+    },
+    {
+      "id": "dse2026-q26-answer-p5r2",
+      "file": "mark4.pdf",
+      "page": 5,
+      "printedPage": 4,
+      "row": 2,
+      "score": 3,
+      "textSha256": "1bfa33376a4f47ac7b46ea7f72dde489fd447495d4448652c94dda3966fca898"
+    },
+    {
+      "id": "dse2026-q26-answer-p5r3",
+      "file": "mark4.pdf",
+      "page": 5,
+      "printedPage": 4,
+      "row": 3,
+      "score": 3,
+      "textSha256": "8b565b01b985f77d4b65623925233ff65799c5c3f73dbb26adc1412c403fe0f1"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r4",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 4,
+      "score": 2,
+      "textSha256": "79d778ccdf5f1665bbcb5f73c7c2f7d324894ae55e5055bc4c031a20ceaaf6fb"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r5",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 5,
+      "score": 2,
+      "textSha256": "4193a935606f604b89f1e955855c84792c3adb10f72d4932b8d6273289a3d1b5"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r6",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 6,
+      "score": 1,
+      "textSha256": "032e13fff54081f07b9b28554c8d3a5b10d88ad042a65088ce4b262f37b3b998"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r7",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 7,
+      "score": 1,
+      "textSha256": "a06ff68933d88fe22a8bb19a0ead6f63adb8ac2ee13afb89d17c7841bd628100"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r8",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 8,
+      "score": 0,
+      "textSha256": "f7c96415f29649fc5aa07fc1dad4a39af54c65d94a4a88609d114ce1df65f756"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r9",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 9,
+      "score": 0,
+      "textSha256": "41f1a3d60118e63a1827758298a617f1c350df377c36b9f988b35bcc358623ec"
+    },
+    {
+      "id": "dse2026-q26-answer-brief38",
+      "file": "brief4.pdf",
+      "page": 38,
+      "printedPage": 38,
+      "row": 0,
+      "score": 4,
+      "textSha256": "a159e531092935674cc62ba823f6fe3c7beffc170cd11047ebd8cbb49a4c7e4a"
+    }
+  ],
+  "paragraphHashes": {
+    "dse2026-classical": [
+      {
+        "number": 1,
+        "textSha256": "92c728d3c297e5738b3d6a921322815a4dde7d233400eeee8ec14690a0cd7864"
+      },
+      {
+        "number": 2,
+        "textSha256": "761d6cb2c88b368b03a62da5fd5fba2da099f5a307188c7b7862a07c6985a2c8"
+      },
+      {
+        "number": 3,
+        "textSha256": "57c6c4975383f7a1d4f9a5c7709138c6517d7b9ae02a11402ea0d51aecbe1a06"
+      }
+    ]
+  },
+  "questionHashes": [
+    {
+      "id": "dse2026-q21",
+      "promptSha256": "4ec51f6c5c1c6fd810ba1990dfc2e989430acebf9937cf9de681c0e21ff87103",
+      "quoteSha256": "728b69b41bad71de27df87c70dc711559453dea02ef3c2494b8721fe061afd03"
+    },
+    {
+      "id": "dse2026-q22",
+      "promptSha256": "cc486056c0f8375f78b48e90a5fe5727de52eb0e34895c43aac11c651fe6fcb4",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2026-q23",
+      "promptSha256": "4eb81f5b6133f099c993b9ca4c40878bbde641c0ec6296a9cb173ef96353a1ad",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2026-q24",
+      "promptSha256": "ed63b724d3ee59b9bc044803c74aa10aa027b4d9a7ac11c0ed211c0dabebbaa8",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2026-q25",
+      "promptSha256": "7bd0e9c5aa7f3745eb80fe05b1e42534ca353389c882fff573d627b38dc7714f",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "dse2026-q26",
+      "promptSha256": "f94ff2e252d1aebf3d59b523a43fbdf22d583c53da85352392423cf955844629",
+      "quoteSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

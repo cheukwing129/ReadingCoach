@@ -6128,6 +6128,96 @@
       "row": 20,
       "score": 0,
       "textSha256": "e7ee565ecb219f1b41eb061225b0c1626717f8e9a50f98d65661b01fc60bd417"
+    },
+    {
+      "id": "dse2026-q26-answer-p5r1",
+      "file": "mark4.pdf",
+      "page": 5,
+      "printedPage": 4,
+      "row": 1,
+      "score": 4,
+      "textSha256": "6969551f9418086a7e937dc14524d061bbaea3cad91b90ce143861dceb44fa4f"
+    },
+    {
+      "id": "dse2026-q26-answer-p5r2",
+      "file": "mark4.pdf",
+      "page": 5,
+      "printedPage": 4,
+      "row": 2,
+      "score": 3,
+      "textSha256": "1bfa33376a4f47ac7b46ea7f72dde489fd447495d4448652c94dda3966fca898"
+    },
+    {
+      "id": "dse2026-q26-answer-p5r3",
+      "file": "mark4.pdf",
+      "page": 5,
+      "printedPage": 4,
+      "row": 3,
+      "score": 3,
+      "textSha256": "8b565b01b985f77d4b65623925233ff65799c5c3f73dbb26adc1412c403fe0f1"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r4",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 4,
+      "score": 2,
+      "textSha256": "79d778ccdf5f1665bbcb5f73c7c2f7d324894ae55e5055bc4c031a20ceaaf6fb"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r5",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 5,
+      "score": 2,
+      "textSha256": "4193a935606f604b89f1e955855c84792c3adb10f72d4932b8d6273289a3d1b5"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r6",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 6,
+      "score": 1,
+      "textSha256": "032e13fff54081f07b9b28554c8d3a5b10d88ad042a65088ce4b262f37b3b998"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r7",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 7,
+      "score": 1,
+      "textSha256": "a06ff68933d88fe22a8bb19a0ead6f63adb8ac2ee13afb89d17c7841bd628100"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r8",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 8,
+      "score": 0,
+      "textSha256": "f7c96415f29649fc5aa07fc1dad4a39af54c65d94a4a88609d114ce1df65f756"
+    },
+    {
+      "id": "dse2026-q26-answer-p6r9",
+      "file": "mark4.pdf",
+      "page": 6,
+      "printedPage": 5,
+      "row": 9,
+      "score": 0,
+      "textSha256": "41f1a3d60118e63a1827758298a617f1c350df377c36b9f988b35bcc358623ec"
+    },
+    {
+      "id": "dse2026-q26-answer-brief38",
+      "file": "brief4.pdf",
+      "page": 38,
+      "printedPage": 38,
+      "row": 0,
+      "score": 4,
+      "textSha256": "a159e531092935674cc62ba823f6fe3c7beffc170cd11047ebd8cbb49a4c7e4a"
     }
   ],
   "resources": {

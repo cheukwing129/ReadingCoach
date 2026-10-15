@@ -4,7 +4,7 @@
   "questions": 12,
   "marks": 42,
   "paragraphs": 13,
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-15",
   "rm": {
     "fileId": "18FCetedA2cuWh2mY7tb7jIn9kfAxp0s0",
     "pages": [
@@ -76,75 +76,87 @@
     }
   ],
   "objectiveVerification": {
-    "status": "pending-source-key",
-    "reason": "Drive年份資料夾及相關文件檢索未找到2026客觀題答案；既有解卷PPT也明示待核對。外部搜尋沒有取得可核實答案。不得把以下教學判讀當作已確認的官方答案。",
-    "unscored": true,
-    "referenceInterpretations": {
+    "status": "verified",
+    "unscored": false,
+    "fileId": "1FxEUiy0N3oX56O3oAO7NQLvh0M00cw2g",
+    "file": "teacher.pdf",
+    "fileSha256": "c3264025d66c315135a456a20f059af78886bd52bab4245a49db36a503b6624b",
+    "pages": {
+      "9": 43,
+      "10": 50,
+      "11": 52,
+      "12": 54,
+      "15": 57,
+      "16": 58,
+      "20": 79
+    },
+    "answers": {
       "dse2026-q9": [
         {
           "key": "i",
-          "referenceAnswer": "D",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "D"
         }
       ],
       "dse2026-q10": [
         {
           "key": "i",
-          "referenceAnswer": "否",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "否"
         },
         {
           "key": "ii",
-          "referenceAnswer": "是",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "是"
         }
       ],
       "dse2026-q11": [
         {
           "key": "i",
-          "referenceAnswer": "否",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "否"
         },
         {
           "key": "ii",
-          "referenceAnswer": "是",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "是"
         }
       ],
       "dse2026-q12": [
         {
           "key": "answer",
-          "referenceAnswer": "B",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "B"
         }
       ],
       "dse2026-q15": [
         {
           "key": "answer",
-          "referenceAnswer": "B",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "B"
         }
       ],
       "dse2026-q16": [
         {
           "key": "i",
-          "referenceAnswer": "否",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "否"
         },
         {
           "key": "ii",
-          "referenceAnswer": "是",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "是"
         }
       ],
       "dse2026-q20": [
         {
           "key": "answer",
-          "referenceAnswer": "C",
-          "answerVerified": false
+          "answerVerified": true,
+          "answer": "C"
         }
       ]
-    }
+    },
+    "note": "七題十個客觀分項共20分均與原參考判讀一致，現依教師會議簡報確認並正式計分。"
   },
   "paragraphHashes": {
     "dse2026-robots": [
@@ -307,5 +319,9 @@
       "score": 0,
       "textSha256": "b7fa2d99acdd714812811375ffe34e97ecba0c5701994a8be2d9a69e01afb537"
     }
+  ],
+  "corrections": [
+    "第13題作用補回教師簡報第55頁的恢復自制，四字內可得1分。",
+    "第15題依教師簡報第57頁修正：曾失望與整體體諒可並存，不否定文中一度失望的態度。"
   ]
 }
