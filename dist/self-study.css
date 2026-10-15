@@ -124,3 +124,9 @@ body.studying{overflow-anchor:none}
 .passage-notes{font-size:14px;color:var(--muted);border-top:1px solid hsl(var(--line));margin:20px 3px 0;padding-top:14px}.reference-answer{border:1px solid hsl(var(--line));border-radius:8px;padding:16px 18px;margin:16px 0;background:var(--white)}.reference-answer h3{font-size:16px;line-height:1.7;margin-bottom:8px}.reference-answer p{font-size:15px}.ignored-answer{color:var(--muted);opacity:.65;text-decoration:line-through}.assessment-limit{font-size:14px;color:var(--muted);margin-top:12px}
 .rare-author-glyph{display:inline-block;width:1em;height:1em;vertical-align:-.08em;color:transparent;background:var(--muted);-webkit-mask:url("author-au-glyph.svg") center/contain no-repeat;mask:url("author-au-glyph.svg") center/contain no-repeat}
 .article-info p .rare-author-glyph{padding:0}
+
+/* Mark confirmed full-score exemplars only after scores are revealed. */
+.review-card.full-score{border-color:var(--green);background:var(--green-pale);box-shadow:inset 4px 0 0 var(--green)}
+.review-card.full-score .full-score-label{display:inline-flex;align-items:center;margin-left:auto;padding:3px 10px;border-radius:5px;background:var(--green);color:var(--white);font-size:13px;font-weight:600;line-height:1.7}
+.review-card.full-score>blockquote{font-weight:600}
+.review-card.full-score>.analysis{background:var(--white)}
