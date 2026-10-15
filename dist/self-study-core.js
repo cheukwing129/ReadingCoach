@@ -20,22 +20,59 @@ function answerCount(p,text){
 function migrate(saved,legacy,questions){
  const state=fresh(),ids=new Set(questions.map(q=>q.id));
  if(saved?.version===1&&saved.questions&&typeof saved.questions==='object'){
-  for(const q of questions){const raw=saved.questions[q.id];if(!raw||typeof raw!=='object')continue;const d=draft();d.type=typeof raw.type==='string'?raw.type:'';d.step=Math.min(3,Math.max(0,Number(raw.step)||0));d.answers=Object.fromEntries(q.answerParts.map(p=>[p.key,typeof raw.answers?.[p.key]==='string'?raw.answers[p.key].slice(0,30000):'']));d.grades={};for(const [id,v]of Object.entries(raw.grades||{}))if(validScore(v,q.marks))d.grades[id]=v;d.selfGrades=Object.fromEntries(q.answerParts.filter(p=>validScore(raw.selfGrades?.[p.key],p.marks)).map(p=>[p.key,raw.selfGrades[p.key]]));d.revealed=Boolean(raw.revealed);d.completed=Boolean(raw.completed);d.lastSeen=typeof raw.lastSeen==='string'?raw.lastSeen:'';d.opened=Array.isArray(raw.opened)?raw.opened.filter(x=>typeof x==='string').slice(0,100):[];d.answerHistory=Array.isArray(raw.answerHistory)?raw.answerHistory.slice(-10):[];d.note=typeof raw.note==='string'?raw.note.slice(0,3000):'';d.selfChecks=Array.isArray(raw.selfChecks)?raw.selfChecks.filter(Number.isInteger):[];d.reviewed=Array.isArray(raw.reviewed)?raw.reviewed.filter(x=>typeof x==='string'):[];state.questions[q.id]=d;}
+  for(const q of questions){const raw=saved.questions[q.id];if(!raw||typeof raw!=='object')continue;const d=draft();d.type=typeof raw.type==='string'?raw.type:'';d.step=Math.min(3,Math.max(0,Number(raw.step)||0));d.answers=Object.fromEntries(q.answerParts.map(p=>[p.key,typeof raw.answers?.[p.key]==='string'?raw.answers[p.key].slice(0,30000):'']));d.grades={};for(const [id,v]of Object.entries(raw.grades||{}))if(validScore(v,q.marks))d.grades[id]=v;d.selfGrades=Object.fromEntries(q.answerParts.filter(p=>validScore(raw.selfGrades?.[p.key],p.marks)).map(p=>[p.key,raw.selfGrades[p.key]]));d.revealed=Boolean(raw.revealed);d.completed=Boolean(raw.completed);d.lastSeen=typeof raw.lastSeen==='string'?raw.lastSeen:'';d.opened=Array.isArray(raw.opened)?raw.opened.filter(x=>typeof x==='string').slice(0,100):[];d.answerHistory=Array.isArray(raw.answerHistory)?raw.answerHistory.slice(-10):[];d.note=typeof raw.note==='string'?raw.note.slice(0,3000):'';d.selfChecks=Array.isArray(raw.selfChecks)?raw.selfChecks.filter(Number.isInteger):[];d.reviewed=Array.isArray(raw.reviewed)?raw.reviewed.filter(x=>typeof x==='string'):[];if(q.learningGroups){d.activeGroup=raw.activeGroup;d.groupProgress={};for(const g of q.learningGroups){const old=raw.groupProgress?.[g.id];d.groupProgress[g.id]=old?{revealed:old.revealed===true,completed:old.completed===true&&old.revealed===true}:{revealed:d.revealed,completed:d.completed&&d.revealed};}learningGroup(q,d);syncLearningProgress(q,d);}state.questions[q.id]=d;}
  }else if(legacy?.drafts&&typeof legacy.drafts==='object'){
   for(const [id,old]of Object.entries(legacy.drafts)){if(!ids.has(id)||!old||typeof old!=='object')continue;const q=questions.find(x=>x.id===id),d=draft();const fields=old.fields||{};d.answers=Object.fromEntries(q.answerParts.map(p=>[p.key,typeof fields[p.key]==='string'?fields[p.key]:'']));if(q.answerParts.length===1&&!d.answers[q.answerParts[0].key]&&typeof old.free==='string')d.answers[q.answerParts[0].key]=old.free;d.answerHistory=Array.isArray(old.revisions)?old.revisions.slice(-5):[];if(old.firstAttempt)d.answerHistory.unshift(old.firstAttempt);state.questions[id]=d;}
  }
  return state;
 }
 function draft(){return{type:'',step:0,answers:{},grades:{},selfGrades:{},revealed:false,completed:false,lastSeen:'',opened:[],answerHistory:[],note:'',selfChecks:[],reviewed:[]};}
-function updateAnswer(d,key,value){if(d.answers[key]===value)return;d.answers[key]=value;d.grades={};d.selfGrades={};d.revealed=false;d.completed=false;d.selfChecks=[];d.reviewed=[];}
+function learningGroup(q,d){
+ const groups=q.learningGroups;if(!groups?.length)return null;
+ if(!d.groupProgress)d.groupProgress=Object.fromEntries(groups.map(g=>[g.id,{revealed:d.revealed,completed:d.completed&&d.revealed}]));
+ for(const g of groups)d.groupProgress[g.id]||={revealed:false,completed:false};
+ const group=groups.find(g=>g.id===d.activeGroup)||groups[0];d.activeGroup=group.id;return group;
+}
+function syncLearningProgress(q,d){
+ if(!learningGroup(q,d))return;
+ d.revealed=q.learningGroups.every(g=>d.groupProgress[g.id].revealed);
+ d.completed=q.learningGroups.every(g=>d.groupProgress[g.id].completed);
+}
+function learningDraft(q,d){const g=learningGroup(q,d);return g?{...d,...d.groupProgress[g.id]}:d;}
+function selectLearningGroup(q,d,id){
+ const next=q.learningGroups?.find(g=>g.id===id);if(!next)return false;
+ const prior=learningGroup(q,d);d.activeGroup=id;
+ d.step=d.type!==q.lesson.type?0:d.groupProgress[id].revealed?3:prior.answerKeys.join('|')===next.answerKeys.join('|')&&d.step>=2?2:1;
+ return true;
+}
+function revealLearningGroup(q,d){const g=learningGroup(q,d);if(g){d.groupProgress[g.id].revealed=true;syncLearningProgress(q,d);}else d.revealed=true;d.step=3;}
+function completeLearningGroup(q,d){
+ const g=learningGroup(q,d);if(!learningDraft(q,d).revealed)return false;
+ if(g){d.groupProgress[g.id].completed=true;syncLearningProgress(q,d);}else d.completed=true;
+ return true;
+}
+function updateAnswer(d,key,value,q){
+ if(d.answers[key]===value)return;
+ const g=q&&learningGroup(q,d),affected=g?q.learningGroups.filter(x=>x.answerKeys.includes(key)):[];
+ const keys=new Set(affected.flatMap(x=>x.keys));
+ d.answers[key]=value;
+ if(g){
+  // Keep completed independent words/parts when the next answer is entered.
+  for(const x of affected)d.groupProgress[x.id]={revealed:false,completed:false};
+  d.grades=Object.fromEntries(Object.entries(d.grades).filter(([id])=>![...keys].some(k=>id.startsWith(q.id+'-'+k+'-')||id.startsWith('own-'+q.id+'-'+k+'-'))));
+  d.selfGrades=Object.fromEntries(Object.entries(d.selfGrades||{}).filter(([k])=>!keys.has(k)));
+  syncLearningProgress(q,d);
+ }else{d.grades={};d.selfGrades={};d.revealed=false;d.completed=false;delete d.groupProgress;}
+ d.selfChecks=[];d.reviewed=[];
+}
 function updateQuestionAnswer(state,q,key,value,questions){
  const d=state.questions[q.id]||(state.questions[q.id]=draft());
  if(d.answers[key]===value)return;
- updateAnswer(d,key,value);
+ updateAnswer(d,key,value,q);
  for(const dependent of questions){
   if(!dependent.answerParts.some(p=>p.assessmentReference?.questionId===q.id&&p.assessmentReference.key===key))continue;
   const saved=state.questions[dependent.id];if(!saved)continue;
-  saved.grades={};saved.selfGrades={};saved.revealed=false;saved.completed=false;saved.selfChecks=[];saved.reviewed=[];
+  delete saved.groupProgress;saved.grades={};saved.selfGrades={};saved.revealed=false;saved.completed=false;saved.selfChecks=[];saved.reviewed=[];
  }
 }
 function fingerprint(q,key,text){let h=2166136261;for(const c of q+'|'+key+'|'+normalize(text)){h^=c.codePointAt(0);h=Math.imul(h,16777619);}return(h>>>0).toString(16);}
@@ -210,5 +247,5 @@ function questionParagraphs(q,article){
  return(q.lesson?.locate||[]).filter(n=>valid.has(n)).slice(0,1);
 }
 function canComplete(d){return d.revealed===true;}
-return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,answerLimit,answerCount,fresh,draft,migrate,updateAnswer,updateQuestionAnswer,fingerprint,typeChoices,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
+return{KEY,LEGACY_KEY,escapeHTML,normalize,validScore,answerLimit,answerCount,fresh,draft,migrate,learningGroup,learningDraft,selectLearningGroup,revealLearningGroup,completeLearningGroup,updateAnswer,updateQuestionAnswer,fingerprint,typeChoices,shortPool,pool,answerCharacters,assessmentText,segmentScore,samples,gradingItems,gradingReady,gradingResult,choiceValues,choiceStatus,choiceResult,nextQuestion,cleanAnalysis,questionParagraphs,canComplete};
 });

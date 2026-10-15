@@ -141,5 +141,33 @@
     if(q.id==='dse2019-q11'&&p.key==='i')p.gridLimitNote="原卷2格，一般填兩字；評分標準亦接受「反言正說」「反話正說」等指定四字手法名稱。";
     return p;});
   }
+  // Group the learning workflow without changing the original parts or marks.
+  const learningPlans={
+    'dse2013-q13':{mode:'separate',word:true},'dse2014-q13':{mode:'separate',word:true},
+    'dse2015-q12':{mode:'separate',word:true},'dse2016-q13':{mode:'separate',word:true},'dse2017-q14':{mode:'separate',word:true},
+    'dse2019-q10':{mode:'separate'},'dse2014-q20':{mode:'separate'},
+    'dse2025-q20':{groups:[['i'],['ii'],['iii']],answers:[['i'],['ii','iii'],['ii','iii']]},
+    'dse2023-q10':{mode:'together'},'dse2024-q13':{mode:'together'},'dse2021-q11':{mode:'together'},
+    'dse2014-q4':{mode:'together'},'dse2014-q5':{mode:'together'},
+    'dse2014-q6':{mode:'together',groups:[['i','ii'],['iii','iv']],labels:['鹹：人物與相似原因','苦：人物與相似原因']},
+    'dse2013-q1':{mode:'together',groups:[['i','ii','iii'],['iv'],['v'],['vi']],labels:['核對各部分的分段','第二部分大意','第三部分大意','第四部分大意']},
+    'dse2015-q1':{mode:'together',groups:[['i','ii','iii'],['iv'],['v']],labels:['核對各部分的分段','第二部分大意','第三部分大意']},
+    'dse2017-q1':{mode:'together',groups:[['i','ii','iii','iv'],['v'],['vi']],labels:['核對各部分的分段','第二部分大意','第四部分大意']},
+    'dse2020-q8':{mode:'together',groups:[['i','ii','iii'],['iv'],['v']],labels:['核對各部分的分段','第一部分大意','第四部分大意']},
+    'dse2013-q11':{mode:'together'},
+    'dse2021-q9':{mode:'together',groups:[['i','ii'],['iii'],['iv']],labels:['第3段：形象與態度','第5段：形象','第7段：態度']},
+    'dse2025-q18':{mode:'together'},'dse2018-q14':{mode:'together'},'dse2018-q16':{mode:'together'},
+    'dse2018-q23':{mode:'together'},'dse2022-q7':{mode:'together'},
+    'dse2015-q5':{mode:'together',groups:[['i'],['ii-a','ii-b']],labels:['「趣」的意思','兩種「趣」的對比']}
+  };
+  for(const q of questions){
+    const plan=learningPlans[q.id];if(!plan)continue;
+    const all=q.answerParts.map(p=>p.key);
+    q.learningGroups=(plan.groups||all.map(key=>[key])).map((keys,i)=>({
+      id:keys.join('+'),keys,...(plan.word?{quoteLine:i}:{}),
+      label:plan.labels?.[i]||keys.map(key=>q.answerParts.find(p=>p.key===key).label).join('、'),
+      answerKeys:plan.answers?.[i]||(plan.mode==='together'?all:keys)
+    }));
+  }
   root.SelfStudyData={types,lessons,articles,questions};
 })(typeof window!=='undefined'?window:globalThis);

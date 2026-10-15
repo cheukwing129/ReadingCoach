@@ -133,3 +133,20 @@ body.studying{overflow-anchor:none}
 
 .answer-field .answer-limit{margin:0 0 10px;padding:8px 10px;border-left:3px solid var(--green);border-radius:4px;background:#f1eadc;color:var(--green-dark);font-size:14px;font-weight:600;line-height:1.7;overflow-wrap:anywhere}
 .field-note .is-over-limit{color:#9c382c;font-weight:600}
+
+/* Part navigation keeps each grading/review stage manageable. */
+.learning-groups{margin:22px 0;padding:18px;border:1px solid hsl(var(--line));border-radius:10px;background:var(--white)}
+.learning-group-heading{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;color:var(--green)}
+.learning-group-heading>span{font-size:14px;color:var(--muted)}
+.learning-groups nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:8px;margin-bottom:12px}
+.learning-groups nav button{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 12px;text-align:left;border:1px solid hsl(var(--line));border-radius:6px;background:var(--white);color:var(--ink);font:inherit;cursor:pointer}
+.learning-groups nav button[aria-current]{border-color:var(--green);background:var(--green-pale);color:var(--green);box-shadow:inset 3px 0 var(--green)}
+.learning-groups nav button>span{flex:none;font-size:13px;color:var(--muted)}
+.learning-groups nav button>b{font-size:14px;font-weight:500;line-height:1.65;overflow-wrap:anywhere}
+.learning-groups nav button>small{flex:none;margin-left:auto;font-size:12px;color:var(--green)}
+.learning-groups nav button:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+.word-groups nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+.full-question-details{margin-top:16px;border-top:1px solid hsl(var(--line));padding-top:12px;font-size:14px;color:var(--muted)}
+.full-question-details>summary{cursor:pointer;line-height:1.8}
+.full-question-details[open]>summary{margin-bottom:12px}
