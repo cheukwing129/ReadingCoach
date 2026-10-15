@@ -1,12 +1,12 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),w={window:{}};vm.createContext(w);
-for(const file of ['dse2013-data','dse2014-data','dse2015-data','dse2015-classical-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
+for(const file of ['dse2013-data','dse2014-data','dse2014-classical-data','dse2015-data','dse2015-classical-data','dse2016-data','dse2016-classical-data','dse2017-data','dse2017-classical-data','dse2018-data','dse2018-classical-data','dse2019-data','dse2019-classical-data','dse2020-data','dse2020-classical-data','dse2021-data','dse2021-classical-data','dse2022-data','dse2022-classical-data','dse2023-data','dse2023-classical-data','dse2024-classical-data','dse2024-data','dse2024-coaching','transfer-data','self-study-samples','self-study-analysis','dse2025-classical-data','dse2025-data','dse2026-data','self-study-data'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file+'.js'),'utf8'),w);
 const D=JSON.parse(JSON.stringify(w.window.SelfStudyData)),S=JSON.parse(JSON.stringify(w.window.SELF_STUDY_SAMPLES)),C=require('../dist/self-study-core.js'),q=n=>D.questions.find(x=>x.id==='dse2014-q'+n),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'docs/dse2014-source-manifest.json'))),article=D.articles.find(a=>a.id==='dse2014-ninth-taste');
 const own=(n,key,text,answers={})=>{const x=q(n),d=C.draft();d.answers={...answers,[key]:text};return C.samples(x,x.answerParts.find(p=>p.key===key),d,S).find(s=>s.own);};
 
 test('2014 retains the complete fourteen-paragraph text and questions 1–12 totaling 54 marks',()=>{
- const qs=D.questions.filter(x=>x.year===2014);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+1));assert.deepEqual(qs.map(x=>x.marks),[8,4,2,5,5,10,2,2,2,2,6,6]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),54);assert.deepEqual([article.title,article.author,article.paragraphs.length],['第九味','徐國能',14]);
+ const qs=D.questions.filter(x=>x.year===2014&&x.number<=12);assert.deepEqual(qs.map(x=>x.number),Array.from({length:12},(_,i)=>i+1));assert.deepEqual(qs.map(x=>x.marks),[8,4,2,5,5,10,2,2,2,2,6,6]);assert.equal(qs.reduce((n,x)=>n+x.marks,0),54);assert.deepEqual([article.title,article.author,article.paragraphs.length],['第九味','徐國能',14]);
  assert.deepEqual(article.paragraphs.map(p=>p.number),Array.from({length:14},(_,i)=>i+1));for(const p of article.paragraphs)assert.equal(hash(p.text),manifest.paragraphHashes[article.id].find(h=>h.number===p.number).textSha256);
  for(const x of qs){const h=manifest.questionHashes.find(h=>h.id===x.id);assert.equal(hash(x.prompt),h.promptSha256);assert.equal(hash(x.quote),h.quoteSha256);}
  assert.match(article.paragraphs[5].text,/當時王謝堂前燕/);assert.match(article.paragraphs[8].text,/一臉肥像/);assert.match(article.paragraphs[8].text,/八臂金鋼/);assert.match(article.paragraphs[13].text,/一啄一飲都是一種寬慰/);assert.equal(manifest.files.some(f=>f.file==='2014-mark2-supplement.pdf'),true);
@@ -62,7 +62,7 @@ test('six-mark explanations retain every source band and judge the reasoning rat
 });
 
 test('forty-eight authentic long exemplars retain their exact text, source page and score audit',()=>{
- const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2014-')).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,48);assert.equal(manifest.longExemplars.length,48);
+ const cases=Object.entries(S).filter(([id])=>id.startsWith('dse2014-')&&+id.split('-q')[1]<=12).flatMap(([,parts])=>Object.values(parts).flat());assert.equal(cases.length,48);assert.equal(manifest.longExemplars.length,48);
  for(const s of cases){const row=manifest.longExemplars.find(r=>r.id===s.id);assert.ok(row);assert.equal(row.score,s.score);assert.equal(row.textSha256,hash(s.text));assert.ok(s.analysis.startsWith(s.score+'分'));}
  for(const n of [4,5,6])for(const p of q(n).answerParts.filter(p=>p.kind==='long'))assert.deepEqual([...new Set(S[q(n).id][p.key].map(s=>s.score))].sort(),[0,1,2,3]);
  assert.equal(manifest.contextualExemplarScores.find(r=>r.prerequisite==='反襯').score,2);
