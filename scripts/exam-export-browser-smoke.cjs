@@ -22,7 +22,7 @@ const root=path.resolve(__dirname,'..'),output=process.env.BROWSER_QA_OUTPUT_DIR
   assert.equal(await page.locator('[data-exam-meta="name"]').innerText(),'測試同學');
   const before=await page.evaluate(()=>JSON.stringify(JSON.parse(localStorage.getItem(SelfStudyCore.KEY)).questions));
   for(const width of [320,390,820,1440]){await page.setViewportSize({width,height:1000});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'viewport overflow '+width);}
-  await page.setViewportSize({width:1440,height:1000});await page.pdf({path:path.join(output,'2024.pdf'),preferCSSPageSize:true,printBackground:true});
+  await page.setViewportSize({width:1440,height:1000});await page.pdf({path:path.join(output,'2024.pdf'),preferCSSPageSize:true,tagged:true,printBackground:true});
   await page.locator('[data-export-passages]').check();assert.equal(await page.locator('.exam-passage').count(),2);await page.locator('[data-export-passages]').uncheck();
   const years=await page.evaluate(()=>[...new Set(SelfStudyData.questions.map(q=>q.year))]);let questions=0,parts=0;
   for(const year of years){
@@ -30,7 +30,9 @@ const root=path.resolve(__dirname,'..'),output=process.env.BROWSER_QA_OUTPUT_DIR
    const counts=await page.evaluate(y=>{const qs=SelfStudyData.questions.filter(q=>q.year===y);return{questions:qs.length,parts:qs.reduce((s,q)=>s+q.answerParts.length,0),tables:qs.reduce((s,q)=>s+(q.tables?.length||(q.table?1:0)),0)};},year);
    assert.equal(await page.locator('[data-export-question]').count(),counts.questions);assert.equal(await page.locator('[data-export-answer]').count(),counts.parts);assert.equal(await page.locator('.exam-table').count(),counts.tables);questions+=counts.questions;parts+=counts.parts;
    assert.equal(await page.locator('.exam-paper').evaluate(el=>el.scrollWidth>el.clientWidth+1),false,'paper overflow '+year);
-   if([2013,2018,2026].includes(year))await page.pdf({path:path.join(output,year+'.pdf'),preferCSSPageSize:true});
+   assert.equal(await page.locator('.exam-table .exam-mark').count(),0,'marks stay outside tables');
+   assert.ok(await page.locator('.exam-table').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().height<=254*96/25.4)),'tables fit one page '+year);
+   await page.pdf({path:path.join(output,year+'.pdf'),preferCSSPageSize:true,tagged:true});
   }
   assert.equal(await page.evaluate(()=>JSON.stringify(JSON.parse(localStorage.getItem(SelfStudyCore.KEY)).questions)),before,'export leaves student answers and learning state intact');
   // A single article exports only its own questions, including full unsplit grouped tasks.
@@ -38,7 +40,12 @@ const root=path.resolve(__dirname,'..'),output=process.env.BROWSER_QA_OUTPUT_DIR
   await page.goto(origin+'#export/article/dse2021-train');await page.locator('.exam-paper').waitFor();await page.locator('[data-export-passages]').check();assert.equal(await page.locator('.exam-passage').count(),2,'cross-passage questions include both original texts');
   // Long responses must flow over pages with their final line preserved.
   await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem(SelfStudyCore.KEY));s.questions['dse2024-q15'].answers.answer=('長答案要保留每個字，不可以因分頁而截斷。\n').repeat(220)+'長答案最後一句';localStorage.setItem(SelfStudyCore.KEY,JSON.stringify(s));window.dispatchEvent(new StorageEvent('storage',{key:SelfStudyCore.KEY,newValue:JSON.stringify(s)}));});
-  await page.goto(origin+'#export/article/dse2024-fansheng');await page.locator('.exam-paper').waitFor();await page.pdf({path:path.join(output,'long-answer.pdf'),preferCSSPageSize:true});assert.match(await page.locator('[data-export-question="dse2024-q15"] .exam-answer').innerText(),/長答案最後一句$/);
+  await page.goto(origin+'#export/article/dse2024-fansheng');await page.locator('.exam-paper').waitFor();await page.pdf({path:path.join(output,'long-answer.pdf'),preferCSSPageSize:true,tagged:true});assert.match(await page.locator('[data-export-question="dse2024-q15"] .exam-answer').innerText(),/長答案最後一句$/);
+  // Oversized table answers move below the complete table without any truncation.
+  await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem(SelfStudyCore.KEY));s.questions['dse2024-q11'].answers.i=('第一欄很長的答案也要保留。\n').repeat(110)+'第一欄最後一句';s.questions['dse2024-q11'].answers.ii=('這是表格內很長的答案，必須完整保留每一行。\n').repeat(140)+'表格答案最後一句';localStorage.setItem(SelfStudyCore.KEY,JSON.stringify(s));window.dispatchEvent(new StorageEvent('storage',{key:SelfStudyCore.KEY,newValue:JSON.stringify(s)}));});
+  await page.goto(origin+'#export/article/dse2024-fansheng');await page.locator('.exam-table-overflow [data-export-answer="ii"]').waitFor();assert.equal(await page.locator('[data-export-table="dse2024-q11-0"] [data-export-answer="ii"]').count(),0);assert.match(await page.locator('.exam-table-overflow [data-export-answer="ii"]').innerText(),/表格答案最後一句/);assert.ok(await page.locator('.exam-table').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().height<=254*96/25.4)));
+  assert.deepEqual(await page.locator('.exam-table-overflow [data-export-answer]').evaluateAll(es=>es.map(e=>e.dataset.exportAnswer)),['i','ii']);
+  await page.pdf({path:path.join(output,'long-table-answer.pdf'),preferCSSPageSize:true,tagged:true});
   // Return to learning still opens the correct group and keeps the drafted text.
   await page.goto(origin+'#lesson/dse2024-q13');await page.locator('.learning-stage').waitFor();await page.locator('.stepper [data-step="1"]').click();assert.equal(await page.locator('[data-answer="i"]').inputValue(),'比喻');
   // Teacher password grants immediate export with no answers, including after reload.
@@ -49,6 +56,10 @@ const root=path.resolve(__dirname,'..'),output=process.env.BROWSER_QA_OUTPUT_DIR
   await teacher.reload();await teacher.locator('.exam-paper').waitFor();assert.equal(await teacher.locator('[data-export-print]').isEnabled(),true);
   await teacher.goto(origin+'dist/index.html#export/article/dse2024-fansheng');await teacher.locator('.exam-paper').waitFor();assert.equal(await teacher.locator('[data-export-question]').count(),12);assert.match(await teacher.locator('.export-toolbar').innerText(),/已略過漏答限制/);
   await teacher.screenshot({path:path.join(output,'teacher-empty-export.png')});
-  assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,years:years.length,questions,parts,pdfs:5,mobileWidths:4,missingChecks:true,automaticScores:true,originalLearningFlow:true,teacherPasswordBypass:true,output}));
+  await teacher.pdf({path:path.join(output,'teacher-empty.pdf'),preferCSSPageSize:true,tagged:true});
+  await teacher.goto(origin+'#year/2024');await teacher.locator('.directory-heading .directory-export').waitFor();
+  for(const width of [320,390,1440]){await teacher.setViewportSize({width,height:1000});assert.equal(await teacher.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);await teacher.screenshot({path:path.join(output,'year-export-button-'+width+'.png')});}
+  fs.writeFileSync(path.join(output,'layout-manifest.json'),JSON.stringify({years,originalTables:50,pdfs:17}));
+  assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,years:years.length,questions,parts,pdfs:17,mobileWidths:4,missingChecks:true,automaticScores:true,originalLearningFlow:true,teacherPasswordBypass:true,output}));
  }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exit(1);});

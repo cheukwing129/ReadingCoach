@@ -69,3 +69,9 @@ test('only explicit teacher access permits incomplete exports and blank answers 
  const partial={'dse2024-q12':{answers:{i:'D'}}},m=X.build(D,scope,partial,S,{teacher:true});
  assert.equal(m.autoMax,1);assert.equal(m.autoScore,1);assert.equal(m.rows.find(r=>r.q.id==='dse2024-q12').parts[1].result.status,'missing');
 });
+
+test('generated blanks are continuous borders and never rewrite student answer text',()=>{
+ const blank=X.solidBlanks('<strong data-id="a_b">第＿＿至____段</strong>');assert.match(blank,/data-id="a_b"/);assert.equal((blank.match(/class="exam-blank"/g)||[]).length,2);assert.doesNotMatch(blank.replace(/<[^>]*>/g,''),/[＿_]/);
+ for(const year of [...new Set(D.questions.map(q=>q.year))]){const html=X.paperHTML(X.build(D,{kind:'year',year},{},S,{teacher:true}));assert.doesNotMatch(html.replace(/<[^>]*>/g,''),/＿|__/,String(year));}
+ const scope={kind:'article',id:'dse2024-fansheng'},drafts=completed(X.questionsFor(D,scope));drafts['dse2024-q15'].answers.answer='學生__原樣保留＿';assert.ok(X.paperHTML(X.build(D,scope,drafts,S)).includes('學生__原樣保留＿'));
+});
