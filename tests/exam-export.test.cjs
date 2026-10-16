@@ -58,3 +58,14 @@ test('article exports include both source texts when a question compares passage
  const scope={kind:'article',id:'dse2021-train'},qs=X.questionsFor(D,scope),model=X.build(D,scope,completed(qs),S);
  assert.equal(model.articles.length,1);assert.equal(model.readingArticles.length,2);assert.equal((X.paperHTML(model,{includePassages:true}).match(/class="exam-passage"/g)||[]).length,2);
 });
+test('only explicit teacher access permits incomplete exports and blank answers never get zero marks',()=>{
+ const scope={kind:'year',year:2024},student=X.build(D,scope,{},S),teacher=X.build(D,scope,{},S,{teacher:true});
+ assert.equal(student.ready,false);assert.equal(X.paperHTML(student,{teacher:true}),'');
+ assert.equal(X.build(D,scope,{},S,{teacher:'true'}).ready,false);
+ assert.equal(teacher.ready,true);assert.equal(teacher.autoMax,0);assert.equal(teacher.autoScore,0);assert.equal(teacher.manual,0);
+ const html=X.paperHTML(teacher);assert.match(html,/教師測試導出/);assert.match(html,/（未作答）/);
+ assert.equal((html.match(/data-export-answer=/g)||[]).length,teacher.missing.length);assert.doesNotMatch(html,/自動批改：0/);
+ assert.equal(X.build(D,{kind:'year',year:2099},{},S,{teacher:true}).ready,false);
+ const partial={'dse2024-q12':{answers:{i:'D'}}},m=X.build(D,scope,partial,S,{teacher:true});
+ assert.equal(m.autoMax,1);assert.equal(m.autoScore,1);assert.equal(m.rows.find(r=>r.q.id==='dse2024-q12').parts[1].result.status,'missing');
+});

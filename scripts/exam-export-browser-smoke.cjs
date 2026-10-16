@@ -9,7 +9,7 @@ const root=path.resolve(__dirname,'..'),output=process.env.BROWSER_QA_OUTPUT_DIR
   const page=await browser.newPage({viewport:{width:1440,height:1000}});page.on('pageerror',e=>errors.push(e.message));
   await page.goto(origin+'#export/year/2024');await page.locator('#year-access-form').waitFor();assert.equal(await page.locator('.exam-paper').count(),0);
   // Use the existing access API so no password is embedded in this script.
-  await page.evaluate(()=>localStorage.setItem(ReadingCoachYearAccess.storageKey,JSON.stringify({version:1,teacherHash:COACH_YEAR_ACCESS_CONFIG.teacher,years:{}})));await page.reload();await page.locator('#export-missing-title').waitFor();assert.equal(await page.locator('[data-export-print]').count(),0);
+  await page.evaluate(()=>localStorage.setItem(ReadingCoachYearAccess.storageKey,JSON.stringify({version:1,teacherHash:'',years:{...COACH_YEAR_ACCESS_CONFIG.years}})));await page.reload();await page.locator('#export-missing-title').waitFor();assert.equal(await page.locator('[data-export-print]').count(),0);
   // One answered part does not hide a missing sibling, even if the learning status is complete.
   await page.evaluate(()=>{const s=SelfStudyCore.fresh();s.questions['dse2024-q12']={...SelfStudyCore.draft(),completed:true,answers:{i:'D'}};localStorage.setItem(SelfStudyCore.KEY,JSON.stringify(s));window.dispatchEvent(new StorageEvent('storage',{key:SelfStudyCore.KEY,newValue:JSON.stringify(s)}));});await page.reload();
   assert.equal(await page.locator('[href="#lesson/dse2024-q12"][data-export-missing="i"]').count(),0);assert.equal(await page.locator('[href="#lesson/dse2024-q12"][data-export-missing="ii"]').count(),1);
@@ -41,6 +41,14 @@ const root=path.resolve(__dirname,'..'),output=process.env.BROWSER_QA_OUTPUT_DIR
   await page.goto(origin+'#export/article/dse2024-fansheng');await page.locator('.exam-paper').waitFor();await page.pdf({path:path.join(output,'long-answer.pdf'),preferCSSPageSize:true});assert.match(await page.locator('[data-export-question="dse2024-q15"] .exam-answer').innerText(),/長答案最後一句$/);
   // Return to learning still opens the correct group and keeps the drafted text.
   await page.goto(origin+'#lesson/dse2024-q13');await page.locator('.learning-stage').waitFor();await page.locator('.stepper [data-step="1"]').click();assert.equal(await page.locator('[data-answer="i"]').inputValue(),'比喻');
-  assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,years:years.length,questions,parts,pdfs:5,mobileWidths:4,missingChecks:true,automaticScores:true,originalLearningFlow:true,output}));
+  // Teacher password grants immediate export with no answers, including after reload.
+  const teacher=await browser.newPage({viewport:{width:390,height:900}});teacher.on('pageerror',e=>errors.push(e.message));
+  await teacher.goto(origin+'#export/year/2024');await teacher.locator('#year-access-password').fill(process.env.BROWSER_QA_PASSWORD);await teacher.locator('#year-access-form button[type="submit"]').click();await teacher.locator('.exam-paper').waitFor();
+  assert.equal(await teacher.evaluate(()=>ReadingCoachYearAccess.isTeacher()),true);assert.equal(await teacher.locator('[data-export-question]').count(),19);assert.equal(await teacher.locator('.exam-mark.auto').count(),0);assert.match(await teacher.locator('.exam-paper-header').innerText(),/教師測試導出/);assert.match(await teacher.locator('.exam-answer').first().innerText(),/未作答/);
+  await teacher.evaluate(()=>{window.__printed=0;window.print=()=>window.__printed++;});await teacher.locator('[data-export-print]').click();await teacher.waitForFunction(()=>window.__printed===1);
+  await teacher.reload();await teacher.locator('.exam-paper').waitFor();assert.equal(await teacher.locator('[data-export-print]').isEnabled(),true);
+  await teacher.goto(origin+'dist/index.html#export/article/dse2024-fansheng');await teacher.locator('.exam-paper').waitFor();assert.equal(await teacher.locator('[data-export-question]').count(),12);assert.match(await teacher.locator('.export-toolbar').innerText(),/已略過漏答限制/);
+  await teacher.screenshot({path:path.join(output,'teacher-empty-export.png')});
+  assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,years:years.length,questions,parts,pdfs:5,mobileWidths:4,missingChecks:true,automaticScores:true,originalLearningFlow:true,teacherPasswordBypass:true,output}));
  }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exit(1);});
